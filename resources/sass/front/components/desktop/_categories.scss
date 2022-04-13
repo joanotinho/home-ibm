@@ -1,0 +1,47 @@
+.categories {
+    margin: 2em 0;
+ 
+    .categories-title {
+        margin: 1em 0;
+
+        h3{
+            font-size: 2em;
+        }
+    }
+
+    .categories-products {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .categories-product {
+            border: .1em solid #000000;
+            margin: 0 1em;
+
+            .categories-product-image{
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .categories-product-author p {
+                color: #f36;
+                font-weight: bold;
+            }
+
+            .categories-product-title,
+            .categories-product-author,
+            .categories-product-description {
+                margin: 1em;
+            }
+        }
+    }
+}
+
+
+
+
+
+ 

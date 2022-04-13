@@ -1,0 +1,47 @@
+h1, h2, h3, h4 {
+    font-family: $font_stack; 
+}
+
+h5, h6 {
+    font-family: $font_stack; 
+}
+
+a, td, p, span, select, label{
+    font-family: $font_stack_secondary;
+}
+
+input, textarea, button {
+    font-family: $font_stack_secondary;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+h4 {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a {
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 300ms;
+}
+
+a:focus, a:hover {
+    outline: none;
+    outline-offset: 0;
+    text-decoration: none;
+}

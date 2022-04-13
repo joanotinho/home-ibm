@@ -1,0 +1,16 @@
+.services {
+    flex-wrap: wrap;
+
+    div {
+        width: 100%;
+        margin: 1em 0;
+    }
+
+    .services-description {
+        font-size: .8em;
+    }
+
+    .services-image img {
+        width: 100%;
+    }
+}

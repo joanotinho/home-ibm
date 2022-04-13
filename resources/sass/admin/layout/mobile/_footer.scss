@@ -1,0 +1,14 @@
+footer {
+    margin: auto;
+    width: 91%;
+
+    .footer-info {
+        flex-wrap: wrap;
+        
+        .column {
+            margin: 1em 0;
+            font-size: .8em;
+        }
+    }
+}
+

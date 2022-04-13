@@ -1,0 +1,97 @@
+.checkout-container {
+    margin: 5em 0;
+    padding: 0 10%;
+    width: 80%;
+
+    .checkout-title h1 {
+        font-size: 2em;
+    }   
+
+    .checkout-main {
+        justify-content: space-between;
+        margin: 2em 0;
+
+        label {
+            margin: .5em 0;
+        }
+
+        input {
+            background-color: #eee;
+            border-radius: .3em;
+            padding: .3em;
+
+            &:focus {
+                border-left: .2em solid #aaa;
+                background: #ddd;
+                outline: none;
+            }
+        }
+
+        select {
+            background: #eee;
+            padding: .2em;
+            border-radius: .3em;
+
+            &:focus {
+                background: #ddd;
+            }
+
+            option {
+                background: #ddd;
+            }
+        }
+
+        input, textarea, select {
+            color: rgba(0, 0, 0, .5);
+        }
+
+        .checkout-left {
+            padding: 0 5%;
+            width: 90%;
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                margin: .5em 0;
+                width: 100%;
+            }
+
+            .desktop-two-columns {
+                .column {
+                    width: 10em;
+                }
+            }
+        }
+
+        .checkout-right {
+            .desktop-single-column .column {
+                width: 100%;
+            }
+
+            .column {
+                margin: .5em 0;
+                width: max-content;
+            }
+
+            .place-order {
+                background: #eee;
+                margin: 3em 0;
+                padding: 1em;
+                text-align: center;
+                border-radius: .3em;
+
+                .place-order-description {
+                    text-align: left;
+                    margin: 0;
+                }
+
+                .place-order-button button {
+                    background: #bbb;
+                    border: none;
+                    margin: 2em 0 0 0;
+                    padding: 1em 4em;
+                }
+            }
+        }
+    }
+}

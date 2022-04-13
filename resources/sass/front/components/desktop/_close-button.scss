@@ -1,0 +1,20 @@
+.close-button-container {
+    
+
+    width: 100%;
+
+    .close-button {
+        cursor: pointer;
+        display: flex;
+        justify-content: end;
+        margin: .5rem 0;
+        width: 95%;
+
+        svg {
+            color: #222;
+            height: 1.2rem;
+            width: 1.2rem;
+        }
+    }
+
+}

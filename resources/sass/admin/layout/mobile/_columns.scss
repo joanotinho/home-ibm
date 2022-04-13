@@ -1,0 +1,31 @@
+.mobile-single-column {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+
+    .column {
+        width: 95%;
+        padding: 0 2.5%;
+        margin: .2em 0;
+    }
+}
+
+.mobile-two-columns {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    
+    .column {
+        width: 50%;
+    }
+}
+
+.desktop-five-columns {
+    display: flex;
+    justify-content: space-between;
+
+    .column {
+        width: 16%;
+    }
+}

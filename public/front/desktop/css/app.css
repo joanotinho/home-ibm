@@ -1,0 +1,1137 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1, h2, h3, h4, h5, h6, p, a {
+  margin: 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/* List
+==============================================================================*/
+ol, ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+video {
+  max-width: 100%;
+}
+
+svg {
+  width: 100%;
+  height: 1em;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+}
+
+.center {
+  text-align: center;
+}
+
+input, textarea, select {
+  border: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h5, h6 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a, td, p, span, select, label {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+input, textarea, button {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+h4 {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a {
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 300ms;
+}
+
+a:focus, a:hover {
+  outline: none;
+  outline-offset: 0;
+  text-decoration: none;
+}
+
+body {
+  margin: 1em auto;
+  min-height: 100vh;
+  width: 100%;
+}
+
+main {
+  margin-top: 10vh;
+  width: 100%;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 0.1em solid #eee;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  padding: 1% 10%;
+  width: 80%;
+  z-index: 10000;
+}
+header .nav-left {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header .nav-left .logo {
+  width: 4em;
+}
+header .nav-left .title {
+  padding: 0 1em;
+}
+header .nav-left .title h1 {
+  font-size: 1.2em;
+}
+header .nav-right .hamburger {
+  display: none;
+  padding: 5px;
+  cursor: pointer;
+}
+header .nav-right .hamburger .bar1, header .nav-right .hamburger .bar2, header .nav-right .hamburger .bar3 {
+  display: block;
+  width: 2rem;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #101010;
+  transition: 0.4s;
+}
+header .nav-right .menu ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+header .nav-right .menu ul li {
+  margin: 0 0.5em;
+}
+header .nav-right .menu ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.1em;
+}
+
+footer {
+  background-color: #f5f5f5;
+  border-top: 0.1em solid black;
+  padding: 1rem;
+}
+footer .copyright {
+  margin: 1em;
+  text-align: center;
+}
+
+.desktop-single-column {
+  width: 100%;
+  justify-content: center;
+}
+.desktop-single-column .column {
+  width: 100%;
+}
+
+.desktop-two-columns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.desktop-two-columns .column {
+  width: 45%;
+}
+.desktop-two-columns .column-aside {
+  width: 30%;
+}
+.desktop-two-columns .column-main {
+  width: 70%;
+}
+
+.desktop-three-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.desktop-three-columns .column {
+  width: 30%;
+}
+
+.desktop-five-columns {
+  display: flex;
+  justify-content: space-between;
+}
+.desktop-five-columns .column {
+  width: 16%;
+}
+
+.categories {
+  margin: 2em 0;
+}
+.categories .categories-title {
+  margin: 1em 0;
+}
+.categories .categories-title h3 {
+  font-size: 2em;
+}
+.categories .categories-products {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.categories .categories-products .categories-product {
+  border: 0.1em solid #000000;
+  margin: 0 1em;
+}
+.categories .categories-products .categories-product .categories-product-image {
+  width: 100%;
+}
+.categories .categories-products .categories-product .categories-product-image img {
+  width: 100%;
+}
+.categories .categories-products .categories-product .categories-product-author p {
+  color: #f36;
+  font-weight: bold;
+}
+.categories .categories-products .categories-product .categories-product-title,
+.categories .categories-products .categories-product .categories-product-author,
+.categories .categories-products .categories-product .categories-product-description {
+  margin: 1em;
+}
+
+.close-button-container {
+  width: 100%;
+}
+.close-button-container .close-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: end;
+  margin: 0.5rem 0;
+  width: 95%;
+}
+.close-button-container .close-button svg {
+  color: #222;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.featured-button {
+  left: 12%;
+  position: absolute;
+  top: 29%;
+  z-index: 10;
+}
+.featured-button button {
+  background: rgb(0, 25, 87);
+  background: linear-gradient(90deg, rgb(0, 25, 87) 0%, rgb(6, 0, 0) 84%);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.5em 2em;
+  border-radius: 3em;
+  text-decoration: none;
+}
+
+.stock-counter {
+  display: flex;
+}
+.stock-counter input {
+  text-align: center;
+  border: solid 0.5px #000;
+  font-size: 14pt;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  text-align: center;
+  padding: 0.2em;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+.stock-counter input ::-webkit-outer-spin-button,
+.stock-counter input ::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.stock-counter input [type=number] {
+  -moz-appearance: textfield;
+  caret-color: transparent;
+}
+.stock-counter .stock-button {
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  height: 2em;
+  margin: 0;
+  z-index: 2;
+}
+.stock-counter .stock-button button {
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0;
+  width: 4em;
+}
+
+.slider {
+  height: 70vh;
+  position: relative;
+  width: 100%;
+}
+.slider .slider-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 10%;
+  padding: 0.3em 0.5em;
+  position: absolute;
+  top: 20%;
+  z-index: 10;
+}
+.slider .slider-title h2 {
+  color: #ffffff;
+  font-size: 2em;
+}
+.slider .slider-image {
+  position: absolute;
+  width: 100%;
+}
+
+.services {
+  justify-content: center;
+}
+.services .services-description {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  vertical-align: middle;
+  width: 70%;
+}
+
+.just-validate-error-label {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 0.5rem;
+  color: #f00;
+}
+
+.is-invalid {
+  border: 1px solid #f00;
+}
+
+.is-invalid.active {
+  border: none;
+}
+
+.errors-container {
+  display: none;
+  background-color: #ddd;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  padding: 0.5rem 0.8rem;
+}
+.errors-container.active {
+  display: block;
+}
+
+.desktop-cart {
+  width: 90%;
+  padding: 0 5%;
+}
+.desktop-cart .cart-header {
+  border-bottom: 0.1em solid #666;
+}
+.desktop-cart .table-header-title {
+  width: 15%;
+}
+.desktop-cart .table-header-removal {
+  width: 25%;
+}
+.desktop-cart .table-header-price {
+  width: 20%;
+}
+.desktop-cart .table-header-quantity {
+  width: 10%;
+}
+.desktop-cart .table-header-total {
+  width: 10%;
+}
+.desktop-cart .table-product-title {
+  width: 15%;
+}
+.desktop-cart .table-product-description {
+  width: 25%;
+}
+.desktop-cart .table-product-price {
+  width: 20%;
+}
+.desktop-cart .table-product-quantity {
+  width: 20%;
+}
+.desktop-cart .table-product-total {
+  width: 20%;
+}
+.desktop-cart .cart-taxes {
+  display: flex;
+  flex-direction: column;
+}
+.desktop-cart .cart-tax {
+  display: flex;
+  gap: 4rem;
+  justify-content: end;
+}
+.desktop-cart .cart-tax .column {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.mobile-cart {
+  display: none;
+}
+
+.checkout-container {
+  margin: 5em 0;
+  padding: 0 10%;
+  width: 80%;
+}
+.checkout-container .checkout-title h1 {
+  font-size: 2em;
+}
+.checkout-container .checkout-main {
+  justify-content: space-between;
+  margin: 2em 0;
+}
+.checkout-container .checkout-main label {
+  margin: 0.5em 0;
+}
+.checkout-container .checkout-main input {
+  background-color: #eee;
+  border-radius: 0.3em;
+  padding: 0.3em;
+}
+.checkout-container .checkout-main input:focus {
+  border-left: 0.2em solid #aaa;
+  background: #ddd;
+  outline: none;
+}
+.checkout-container .checkout-main select {
+  background: #eee;
+  padding: 0.2em;
+  border-radius: 0.3em;
+}
+.checkout-container .checkout-main select:focus {
+  background: #ddd;
+}
+.checkout-container .checkout-main select option {
+  background: #ddd;
+}
+.checkout-container .checkout-main input, .checkout-container .checkout-main textarea, .checkout-container .checkout-main select {
+  color: rgba(0, 0, 0, 0.5);
+}
+.checkout-container .checkout-main .checkout-left {
+  padding: 0 5%;
+  width: 90%;
+}
+.checkout-container .checkout-main .checkout-left .column {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0;
+  width: 100%;
+}
+.checkout-container .checkout-main .checkout-left .desktop-two-columns .column {
+  width: 10em;
+}
+.checkout-container .checkout-main .checkout-right .desktop-single-column .column {
+  width: 100%;
+}
+.checkout-container .checkout-main .checkout-right .column {
+  margin: 0.5em 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.checkout-container .checkout-main .checkout-right .place-order {
+  background: #eee;
+  margin: 3em 0;
+  padding: 1em;
+  text-align: center;
+  border-radius: 0.3em;
+}
+.checkout-container .checkout-main .checkout-right .place-order .place-order-description {
+  text-align: left;
+  margin: 0;
+}
+.checkout-container .checkout-main .checkout-right .place-order .place-order-button button {
+  background: #bbb;
+  border: none;
+  margin: 2em 0 0 0;
+  padding: 1em 4em;
+}
+
+.contact {
+  width: 80%;
+  padding: 1em 10%;
+  justify-content: space-around;
+}
+.contact .contact-title {
+  margin: 2em;
+}
+.contact .contact-main {
+  justify-content: space-between;
+  background: rgba(61, 61, 61, 0.6);
+  border-radius: 0.4em;
+  padding: 1em 10%;
+  width: 80%;
+}
+.contact .contact-main .column {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.contact .contact-main .contact-info {
+  display: inline;
+}
+.contact .contact-main .contact-info .contact-info-item {
+  color: #ffffff;
+  display: flex;
+  letter-spacing: 0.06rem;
+  margin-bottom: 25%;
+  text-align: left;
+}
+.contact .contact-main .contact-info .contact-info-item .contact-info-icon svg {
+  fill: #ffffff;
+}
+.contact .contact-main .contact-info .contact-info-item .contact-info-text {
+  margin: 0 0.6em;
+  width: 100%;
+}
+.contact .contact-main .contact-form form .column {
+  width: 94%;
+  margin: 0.2em 0.2em 1em 0.2em;
+}
+.contact .contact-main .contact-form form .contact-form-item input {
+  width: 90%;
+}
+.contact .contact-main .contact-form form .contact-form-item input, .contact .contact-main .contact-form form .contact-form-item form, .contact .contact-main .contact-form form .contact-form-item textarea {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgb(255, 255, 255);
+  border-radius: 0.5em;
+  padding: 0.3em;
+}
+.contact .contact-main .contact-form form .contact-form-item input:focus, .contact .contact-main .contact-form form .contact-form-item form:focus, .contact .contact-main .contact-form form .contact-form-item textarea:focus {
+  outline: none;
+}
+.contact .contact-main .contact-form form .contact-form-item input:focus::-moz-placeholder, .contact .contact-main .contact-form form .contact-form-item form:focus::-moz-placeholder, .contact .contact-main .contact-form form .contact-form-item textarea:focus::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+.contact .contact-main .contact-form form .contact-form-item input:focus:-ms-input-placeholder, .contact .contact-main .contact-form form .contact-form-item form:focus:-ms-input-placeholder, .contact .contact-main .contact-form form .contact-form-item textarea:focus:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+.contact .contact-main .contact-form form .contact-form-item input:focus::placeholder, .contact .contact-main .contact-form form .contact-form-item form:focus::placeholder, .contact .contact-main .contact-form form .contact-form-item textarea:focus::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+.contact .contact-main .contact-form form .contact-form-item input::-moz-placeholder, .contact .contact-main .contact-form form .contact-form-item form::-moz-placeholder, .contact .contact-main .contact-form form .contact-form-item textarea::-moz-placeholder {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.contact .contact-main .contact-form form .contact-form-item input:-ms-input-placeholder, .contact .contact-main .contact-form form .contact-form-item form:-ms-input-placeholder, .contact .contact-main .contact-form form .contact-form-item textarea:-ms-input-placeholder {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  -ms-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.contact .contact-main .contact-form form .contact-form-item input::placeholder, .contact .contact-main .contact-form form .contact-form-item form::placeholder, .contact .contact-main .contact-form form .contact-form-item textarea::placeholder {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  transition: all 0.2s ease-out;
+}
+.contact .contact-main .contact-form form .contact-form-item textarea {
+  max-block-size: 100%;
+  height: 15vh;
+}
+.contact .contact-main .contact-form form .contact-form-item .contact-form-item-button {
+  text-align: right;
+}
+.contact .contact-main .contact-form form .contact-form-item .contact-form-item-button button {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 0.5em;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 0.3em 2em;
+}
+.contact .contact-main .contact-form form .contact-form-item .contact-form-item-button button:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgb(255, 255, 200);
+}
+.contact .contact-main .contact-form form .contact-form-item .contact-form-item-button button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgb(255, 255, 200);
+}
+
+.product-datasheet .product-datasheet-images .product-datasheet-main-image .column {
+  margin: auto;
+}
+.product-datasheet .product-datasheet-images .product-datasheet-secondary-images {
+  width: 60%;
+  margin: auto;
+}
+.product-datasheet .product-datasheet-main {
+  width: 80%;
+  padding: 0 10%;
+}
+.product-datasheet .product-datasheet-main .product-datasheet-title {
+  width: 70%;
+  margin-bottom: 0.6em;
+}
+.product-datasheet .product-datasheet-main .product-datasheet-title h3 {
+  font-weight: 100;
+}
+.product-datasheet .product-datasheet-main .product-datasheet-price span {
+  color: rgb(0, 0, 0);
+  font-size: 2.5em;
+  font-weight: 600;
+}
+.product-datasheet .product-datasheet-main .product-datasheet-price span:hover {
+  text-decoration: underline;
+}
+.product-datasheet .product-datasheet-main .product-datasheet-x {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+.product-datasheet .product-datasheet-main .product-datasheet-x .column {
+  margin-right: 1em;
+}
+.product-datasheet .product-datasheet-main .product-datasheet-x .column button {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 0.1em solid #000000;
+  display: flex;
+  font-size: 1.2em;
+  justify-content: center;
+  padding: 0.4em 1em;
+  width: 100%;
+}
+.product-datasheet .product-datasheet-main .product-datasheet-x svg {
+  width: 0.9em;
+  margin-right: 0.5em;
+}
+.product-datasheet .tabs-container {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.product-datasheet .tabs-container .tabs {
+  justify-content: start;
+}
+.product-datasheet .tabs-container .tabs .desktop-three-columns {
+  justify-content: start;
+}
+.product-datasheet .tabs-container .tabs .desktop-three-columns .column {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.product-datasheet .tabs-container .tabs .desktop-three-columns .column .tab {
+  border: 0.1rem solid #000;
+  font-weight: 400;
+  padding: 0.5rem 0.8rem;
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.product-datasheet .tabs-container .tabs .desktop-three-columns .column .tab span {
+  color: rgba(0, 0, 0, 0.7333333333);
+}
+.product-datasheet .tabs-container .tabs .desktop-three-columns .column .tab.active {
+  background-color: #fa0;
+  text-align: center;
+  padding: 0.5rem 1.2rem;
+}
+.product-datasheet .tabs-container .tabs .desktop-three-columns .column .tab.active span {
+  color: #000;
+  font-weight: 600;
+}
+.product-datasheet .tabs-container .tab-content {
+  padding: 0.6rem 1rem;
+  position: absolute;
+  width: 30%;
+  display: none;
+}
+.product-datasheet .tabs-container .tab-content.active {
+  display: block;
+  background-color: #fff;
+}
+.product-datasheet .tabs-container #tab-content-1 {
+  z-index: 1000;
+  background-color: #fff;
+}
+
+.gallery {
+  width: 90%;
+  padding: 3em 5%;
+}
+.gallery .column-aside {
+  width: 25%;
+}
+.gallery .column-aside .categories .categories-category {
+  width: 100%;
+  margin: 0.4em 0.8em;
+}
+.gallery .column-aside .filter {
+  display: none;
+}
+.gallery .column-aside span {
+  font-size: 1.2em;
+}
+.gallery .column-aside span :hover {
+  text-decoration: underline;
+}
+.gallery .column-main {
+  width: 75%;
+}
+.gallery .column-main .main-top {
+  background-color: #fefefe;
+}
+.gallery .column-main .main-top .desktop-two-columns {
+  width: 90%;
+  padding: 0.7em 5%;
+  border-top: 0.1em solid rgba(0, 0, 0, 0.4);
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.4);
+}
+.gallery .column-main .main-top .desktop-two-columns .column {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.gallery .column-main .products {
+  margin-top: 1em;
+}
+.gallery .column-main .products .product {
+  border: 0.1em solid rgba(0, 0, 0, 0.4);
+  border-radius: 0.4em;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin: 0.3em;
+  padding: 0 10% 2% 10%;
+  width: 80%;
+  transition: all 0.1s ease-in;
+}
+.gallery .column-main .products .product:hover {
+  border: 0.1em solid rgba(0, 0, 0, 0.8);
+}
+.gallery .column-main .products .product .product-image img {
+  width: 100%;
+}
+.gallery .column-main .products .product .product-title {
+  margin-bottom: 0.5em;
+}
+.gallery .column-main .products .product .product-title h3 {
+  font-size: 0.8em;
+  font-weight: 100;
+}
+.gallery .column-main .products .product .product-price {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+.gallery .column-main .products .product .product-button button {
+  background-color: #f5f5f5;
+  border: 0.1em solid #cccccc;
+  border-radius: 0.1em;
+  padding: 0.3em;
+}
+.gallery .column-main .products .product .product-button button:hover {
+  border: 0.1em solid #333333;
+}

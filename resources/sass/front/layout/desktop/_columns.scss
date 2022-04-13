@@ -1,0 +1,45 @@
+.desktop-single-column {
+    width: 100%;
+    justify-content: center;
+
+    .column {
+        width: 100%;
+    }
+}
+
+.desktop-two-columns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .column {
+        width: 45%;
+    }
+
+    .column-aside {
+        width: 30%;
+    }
+
+    .column-main {
+        width: 70%;
+    }
+}
+
+.desktop-three-columns{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .column{
+        width: 30%;
+    }
+}
+
+.desktop-five-columns {
+    display: flex;
+    justify-content: space-between;
+
+    .column {
+        width: 16%;
+    }
+}

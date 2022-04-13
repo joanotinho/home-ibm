@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use front\layout\partials\HeaderComponent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+    
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.pages.desktop.home');
+});
+
+Route::get('/contacto', function () {
+    return view('front.pages.desktop.contact');
+});
+
+Route::get('/productos', function () {
+    return view('front.pages.desktop.products');
+});
+
+Route::get('/producto', function () {
+    return view('front.pages.desktop.product');
+});
+
+Route::get('/carrito', function () {
+    return view('front.pages.desktop.cart');
+});
+
+Route::get('/caja', function () {
+    return view('front.pages.desktop.checkout');
 });

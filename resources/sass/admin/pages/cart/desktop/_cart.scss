@@ -1,0 +1,69 @@
+.desktop-cart {
+    width: 90%;
+    padding: 0 5%;
+
+    .cart-header {
+        border-bottom: .1em solid #666;
+    }
+
+    .table-header-title {
+        width: 15%;
+    }
+    .table-header-removal {
+        width: 25%;
+    }
+    .table-header-price {
+        width: 20%;
+    }
+    .table-header-quantity {
+        width: 10%;
+    }
+    .table-header-total {
+        width: 10%;
+    }
+    
+    
+    .table-product-title {
+        width: 15%;
+    }
+    
+    .table-product-description {
+        width: 25%;
+    }
+    
+    .table-product-price {
+        width: 20%;
+    }
+    
+    .table-product-quantity {
+        width: 20%;
+    }
+    
+    .table-product-total {
+        width: 20%;
+    }
+
+    
+    .cart-taxes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart-tax {
+        display: flex;
+        gap: 4rem;
+        justify-content: end;
+    }
+
+    .cart-tax .column {
+        width: max-content;
+    }
+}
+
+.mobile-cart {
+    display: none;
+}
+
+
+
+
