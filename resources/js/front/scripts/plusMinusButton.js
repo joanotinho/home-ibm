@@ -11,10 +11,8 @@ export function plusMinusButton() {
             }
 
             if (button.dataset.stockButtonValue == '-') {
-                display.value--;
-
-                if (display.value < 0) {
-                    display.value = 0;
+                if (display.value > 1) {
+                    display.value--;
                 };
             }
         })

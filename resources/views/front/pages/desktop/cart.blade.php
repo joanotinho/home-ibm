@@ -18,15 +18,7 @@
                 <td class="table-product-price center">189,99€</td>
                 <td class="table-product-quantity center">
                     <div class="cart-stock">
-                        <div class="stock-counter">
-                            <div class="stock-button" data-stock-button-value="+">
-                                <button>+</button>
-                            </div>
-                            <input type="number" class="number-display" value="0" min="0" max="100" onkeydown="return false">
-                            <div class="stock-button" data-stock-button-value="-">
-                                <button>-</button>
-                            </div> 
-                        </div>
+                        @include('front.components.plusMinusButton')
                     </div>
                 </td>
                 <td class="table-product-total center">189,99</td>
@@ -48,15 +40,7 @@
                 <td class="table-product-price center">189,99€</td>
                 <td class="table-product-quantity center">
                     <div class="cart-stock">
-                        <div class="stock-counter">
-                            <div class="stock-button" data-stock-button-value="+">
-                                <button>+</button>
-                            </div>
-                            <input type="number" class="number-display" value="0" min="0" max="100" onkeydown="return false">
-                            <div class="stock-button" data-stock-button-value="-">
-                                <button>-</button>
-                            </div> 
-                        </div>
+                        @include('front.components.plusMinusButton')
                     </div>
                 </td>
                 <td class="table-product-total center">189,99</td>
@@ -108,15 +92,7 @@
                 </div>
                 <div class="mobile-single-column">
                     <div class="cart-stock">
-                        <div class="stock-counter">
-                            <div class="stock-button" data-stock-button-value="+">
-                                <button>+</button>
-                            </div>
-                            <input type="number" class="number-display" value="0" min="0" max="100" onkeydown="return false">
-                            <div class="stock-button" data-stock-button-value="-">
-                                <button>-</button>
-                            </div> 
-                        </div>
+                        @include('front.components.plusMinusButton')
                     </div>
                 </div>
                 <div class="mobile-single-column">
