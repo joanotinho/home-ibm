@@ -60,39 +60,35 @@
             </div>
         </div>
         <div class="tabs-container">
-            <div class="desktop-single-column">
-                <div class="column">
-                    <div class="tabs">
-                        <div class="tab active" data-tab-target="description">
-                            <span>Descripción</span>
-                        </div>
-                        <div class="tab" data-tab-target="opinions">
-                            <span>Opiniones</span>
-                        </div>
-                        <div class="tab" data-tab-target="specs">
-                            <span>Especificaciones</span>
-                        </div>
-                    </div>
-                    <div class="tabs-contents">
-                        <div class="tab-content active" data-tab-content="description">
-                            <span>
-                                El libro relata las aventuras y desventuras de un hidalgo de 50 años llamado Alonso Quijano, quien decide ser un caballero andante como aquellos que aparecen en sus libros de caballerías favoritos.
-                                Las hazañas de don Quijote están contenidas en dos tomos que narran tres salidas. Por un lado, la “Primera parte” denominada como El ingenioso Hidalgo Don Quijote de la Mancha está formada por 52 capítulos y en ella se encuentran la primera salida y la segunda salida.
-                            </span>
-                        </div>
-                        <div class="tab-content" data-tab-content="opinions">
-                            <span>
-                                El principito es una narración corta del escritor francés Antoine de Saint-Exupéry, que trata de la historia de un pequeño príncipe que parte de su asteroide a una travesía por el universo, en la cual descubre la extraña forma en que los adultos ven la vida y comprende el valor del amor y la amistad.
-                                El principito es tenido como uno de los mejores libros de todos los tiempos y un clásico contemporáneo de la literatura universal.
-                            </span>
-                        </div>
-                        <div class="tab-content" data-tab-content="specs">
-                            <span>
-                                1984 de George Orwell es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.
-                                La novela es una de las obras más icónicas del siglo XX por su denuncia de prácticas establecidas por gobiernos como los de Franco y Stalin, las cuales han sido adoptadas por muchos dictadores a lo largo de la historia.
-                            </span>
-                        </div>
-                    </div>
+            <div class="tabs">
+                <div class="tab active" data-tab-target="description">
+                    <span>Descripción</span>
+                </div>
+                <div class="tab" data-tab-target="opinions">
+                    <span>Opiniones</span>
+                </div>
+                <div class="tab" data-tab-target="specs">
+                    <span>Especificaciones</span>
+                </div>
+            </div>
+            <div class="tabs-contents">
+                <div class="tab-content active" data-tab-content="description">
+                    <span>
+                        El libro relata las aventuras y desventuras de un hidalgo de 50 años llamado Alonso Quijano, quien decide ser un caballero andante como aquellos que aparecen en sus libros de caballerías favoritos.
+                        Las hazañas de don Quijote están contenidas en dos tomos que narran tres salidas. Por un lado, la “Primera parte” denominada como El ingenioso Hidalgo Don Quijote de la Mancha está formada por 52 capítulos y en ella se encuentran la primera salida y la segunda salida.
+                    </span>
+                </div>
+                <div class="tab-content" data-tab-content="opinions">
+                    <span>
+                        El principito es una narración corta del escritor francés Antoine de Saint-Exupéry, que trata de la historia de un pequeño príncipe que parte de su asteroide a una travesía por el universo, en la cual descubre la extraña forma en que los adultos ven la vida y comprende el valor del amor y la amistad.
+                        El principito es tenido como uno de los mejores libros de todos los tiempos y un clásico contemporáneo de la literatura universal.
+                    </span>
+                </div>
+                <div class="tab-content" data-tab-content="specs">
+                    <span>
+                        1984 de George Orwell es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.
+                        La novela es una de las obras más icónicas del siglo XX por su denuncia de prácticas establecidas por gobiernos como los de Franco y Stalin, las cuales han sido adoptadas por muchos dictadores a lo largo de la historia.
+                    </span>
                 </div>
             </div>
         </div>

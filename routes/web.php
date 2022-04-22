@@ -14,11 +14,13 @@ use front\layout\partials\HeaderComponent;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
     
 Route::get('/', function () {
     return view('front.pages.desktop.home');
 });
+
+// Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('home_front');
+
 
 Route::get('/contacto', function () {
     return view('front.pages.desktop.contact');
@@ -38,4 +40,8 @@ Route::get('/carrito', function () {
 
 Route::get('/caja', function () {
     return view('front.pages.desktop.checkout');
+});
+
+Route::get('/admin/users', function () {
+    return view('admin.pages.desktop.home');
 });

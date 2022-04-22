@@ -1,0 +1,38 @@
+.delete-confirmation {
+    display: none;
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+
+    .delete-confirmation-title {
+        font-weight: 600;
+    }
+
+    .delete-confirmation-buttons {
+        display: flex;
+        justify-content: center;
+
+        .delete-confirmation-button {
+            width: 50%;
+
+            button {
+                border: none;
+                padding: .4rem 0;
+                width: 100%;
+                
+                &#cancel {
+                    background-color: rgb(14, 212, 80);
+                }
+
+                &#eliminate {
+                    background-color: rgb(233, 62, 62);
+                }
+            }
+
+        }
+    }
+
+    &.active {
+        display: block;
+    }
+}

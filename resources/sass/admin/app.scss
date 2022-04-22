@@ -1,23 +1,8 @@
 @charset "utf-8";
 
-@import "helpers/variables";
 @import "base/normalize";
-@import "base/contents";
-@import "base/typography";
-@import "layout/desktop/master";
-@import "layout/desktop/header";
-@import "layout/desktop/footer";
 @import "layout/desktop/columns";
-@import "components/desktop/categories";
-@import "components/desktop/close-button";
-@import "components/desktop/featured-button";
-@import "components/desktop/plus-minus-button";
-@import "components/desktop/slider";
-@import "components/desktop/services";
-@import "components/desktop/forms";
-@import "pages/cart/desktop/cart";
-@import "pages/checkout/desktop/checkout";
-@import "pages/contact/desktop/contact";
-@import "pages/home/desktop/home";
-@import "pages/product/desktop/product";
-@import "pages/products/desktop/products";
+@import "layout/desktop/header";
+@import "pages/index/desktop/home";
+@import "components/desktop/menuButton";
+@import "components/desktop/deleteConfirmation";

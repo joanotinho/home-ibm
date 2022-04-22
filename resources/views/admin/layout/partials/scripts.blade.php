@@ -1,0 +1,1 @@
+<script src="{{ mix('/admin/desktop/js/app.min.js') }}"></script>
