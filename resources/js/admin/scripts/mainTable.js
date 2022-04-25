@@ -1,6 +1,9 @@
 const editButtons = document.querySelectorAll('.edit-button');
 const deleteButtons = document.querySelectorAll('.delete-button');
-const deleteConfirmation = document.querySelector('.delete-confirmation');
+const deleteConfirmation = document.querySelector('.delete-confirmation-container');
+const eliminate = document.getElementById('eliminate');
+const cancel = document.getElementById('cancel');
+
 const formColumn = document.querySelector('.form-column');
 const tableColumn = document.querySelector('.table-column');
 

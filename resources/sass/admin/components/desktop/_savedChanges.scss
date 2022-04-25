@@ -1,0 +1,18 @@
+.saved-changes-container {
+    background-color: #1F70C1;
+    border-radius: .3rem;
+    bottom: 1rem;
+    display: none;
+    padding: 1.5rem 1rem;
+    position: absolute;
+    right: 1rem;
+    transition: all 1s;
+
+    &.visible {
+        display: block;
+    }
+
+    &.active {
+        bottom: -50rem;
+    }
+}

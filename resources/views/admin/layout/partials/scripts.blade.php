@@ -1,1 +1,1 @@
-<script src="{{ mix('/admin/desktop/js/app.min.js') }}"></script>
+<script type="module" src="{{ mix('/admin/desktop/js/app.min.js') }}"></script>

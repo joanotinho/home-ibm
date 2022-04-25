@@ -1,8 +1,12 @@
 @charset "utf-8";
 
+@import "base/content";
 @import "base/normalize";
 @import "layout/desktop/columns";
 @import "layout/desktop/header";
 @import "pages/index/desktop/home";
 @import "components/desktop/menuButton";
 @import "components/desktop/deleteConfirmation";
+@import "components/desktop/savedChanges";
+@import "components/desktop/cleanConfirmation";
+@import "components/desktop/tabs";

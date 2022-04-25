@@ -1,0 +1,180 @@
+
+.tabs-container {
+    
+
+    .tabs {
+
+        display: flex;
+        justify-content: space-between;
+
+        .tabs-left {
+
+            display: flex;
+
+            .tab {
+
+                font-weight: 400;
+                padding: .5rem .8rem;
+                position: relative;
+                width: max-content;
+
+                span {
+                    color: #000b;
+                }
+
+                &.active {
+                    background-color: #1F70C1;
+                    text-align: center;
+                    padding: .5rem 1.2rem;
+
+                    span {
+                        color: #000;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        .tabs-right {
+
+            display: flex;
+            padding: .2rem 0;
+
+            .save-button {
+
+                svg {
+                    height: 1.7rem;
+                    width: 1.7rem;
+                }
+            }
+
+            .clean-button {
+                margin-right: 5rem;
+                svg {
+                    height: 1.7rem;
+                    width: 1.7rem;
+                }
+            }
+
+            .on-off-switch {
+
+                border: .1rem solid #4BAE4E;
+                border-radius: .3rem;
+                display: flex;
+                height: 1.5rem;
+                justify-content: space-between;
+                overflow: hidden;
+                position: absolute;
+                right: 1.5rem;
+                top: 4rem;
+                width: 3.1rem;
+
+                .on-off-switch-items {
+                    
+                    display: flex;
+                    transition: all .1s;
+                    padding: .35rem 0;
+                    
+                    .on {
+                        font-size: .8rem;
+                        margin-left: .1rem;
+                        margin-right: .1rem;
+                    }
+
+                    .off {
+                        font-size: .8rem;
+                    }
+
+                    .icon {
+
+                        color: #4BAE4E;
+                        margin-top: -.5rem;
+
+                        svg {
+                            height: 1.8rem;
+                            width: 1.8rem;
+                        }
+                    }
+
+                }
+                &.active {
+
+                    border-color: #D93025;
+
+                    .on-off-switch-items {
+                        
+                        margin-left: -1.5rem;
+
+                        .off {
+                            margin-left: -.1rem;
+                        }
+    
+                        .icon {
+                            margin-left: -.1rem;
+                            color: #D93025;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        padding: .6rem 1rem;
+        position: absolute;
+        width: 80%;
+        display: none;
+
+        &.active {
+            display: block;
+            background-color: #fff;
+        }
+    }
+}
+
+.locale-tabs-container {
+
+    margin-top: 1rem;
+
+    .tabs {
+
+        display: flex;
+        justify-content: start;
+
+            .locale-tab {
+
+                font-weight: 400;
+                padding: .5rem .8rem;
+                position: relative;
+                width: max-content;
+
+                span {
+                    color: #000b;
+                }
+
+                &.active {
+                    background-color: #1F70C1;
+                    text-align: center;
+                    padding: .5rem 1.2rem;
+
+                    span {
+                        color: #000;
+                        font-weight: 600;
+                    }
+                }
+            }
+    }
+
+    .locale-tab-content {
+        padding: .6rem 1rem;
+        position: absolute;
+        width: 70%;
+        display: none;
+
+        &.active {
+            display: block;
+            background-color: #fff;
+        }
+    }
+}

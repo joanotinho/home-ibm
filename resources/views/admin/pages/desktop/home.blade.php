@@ -48,56 +48,110 @@
             </div>
         </div>
 
-        <div class="form-column">
-            <div class="form">
-                <form action="">
-                    <div class="desktop-two-columns">
-                        <div class="column">
-                            <div class="field">
-                                <label for="">Nombre:</label>
-                                <input type="text" name="" id="">
+        <div class="editor-column">
+            <div class="editor">
+                <div class="tabs-container">
+                    <div class="tabs">
+                        <div class="tabs-left">    
+                            <div class="tab active" data-tab-target="content">
+                                <span>Descripción</span>
+                            </div>
+                            <div class="tab" data-tab-target="images">
+                                <span>Opiniones</span>
+                            </div>
+                            <div class="tab" data-tab-target="seo">
+                                <span>Especificaciones</span>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="field">
-                                <label for="apellidos">Apellidos:</label>
-                                <input type="text" name="apellidos" id="">
+                        <div class="tabs-right">
+                            <div class="save-button">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                                </svg>
+                            </div>
+                            <div class="clean-button">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+                                </svg>
+                            </div>
+                            <div class="on-off-switch">
+                                <div class="on-off-switch-items">
+                                    <div class="on">
+                                        <span>ON</span>
+                                    </div>
+                                    <div class="icon">
+                                        <svg viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M8 3H16C18.76 3 21 5.24 21 8V16C21 18.76 18.76 21 16 21H8C5.24 21 3 18.76 3 16V8C3 5.24 5.24 3 8 3Z" />
+                                        </svg>
+                                    </div>
+                                    <div class="off">
+                                        <span>OFF</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="desktop-two-columns">
-                        <div class="column">
-                            <div class="field">
-                                <label for="apellidos">Email:</label>
-                                <input type="text" name="apellidos" id="">
-                            </div>
+                    <div class="tabs-contents">
+                        <div class="tab-content active" data-tab-content="content">
+                            <form action="">
+                                <div class="desktop-two-columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <label for="">Categoría</label>
+                                            <select name="" id="">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <label for="">
+                                                Nombre
+                                            </label>
+                                            <input type="text" name="" id="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="locale-tabs-container">
+                                    <div class="tabs">
+                                        <div class="locale-tab active" data-tab-target="spanish">
+                                            <span>Español</span>
+                                        </div>
+                                    </div>
+                                    <div class="tabs-contents">
+                                        <div class="locale-tab-content active" data-tab-content="spanish">
+                                            <form action="">
+                                                <div class="field">
+                                                    <label for="">Título</label>
+                                                    <input type="text" name="" id="">
+                                                </div>
+                                                <div class="field">
+                                                    <label for="">Descripción</label>
+                                                    <textarea name="content" id="" class="ckeditor"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </form>
                         </div>
-                        <div class="column">
-                
-                            <div class="field">
-                                <label for="telefono">Teléfono:</label>
-                                <input type="text" name="telefono" id="">
-                            </div>
+                        <div class="tab-content" data-tab-content="images">
+                            
+                        </div>
+                        <div class="tab-content" data-tab-content="seo">
+                            <span>
+                                1984 de George Orwell es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.
+                                La novela es una de las obras más icónicas del siglo XX por su denuncia de prácticas establecidas por gobiernos como los de Franco y Stalin, las cuales han sido adoptadas por muchos dictadores a lo largo de la historia.
+                            </span>
                         </div>
                     </div>
-                
-                    <div class="desktop-single-column">
-                        <div class="column">
-                            <div class="textarea">
-                                <label for="">Déjanos un comentario:</label>
-                                <textarea name="" id="" ></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="desktop-single-column">
-                        <div class="submit-button">
-                            <button type="submit">Enviar</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
     <x-deleteConfirmation></x-deleteConfirmation>
+    <x-cleanConfirmation></x-cleanConfirmation>
+    <x-savedChanges></x-savedChanges>
 @endsection
     

@@ -1,3 +1,35 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+video {
+  max-width: 100%;
+}
+
+svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+}
+
+.center {
+  text-align: center;
+}
+
+input, textarea, select {
+  border: none;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -419,84 +451,92 @@ ol, ul {
 
 body {
   font-family: "Open Sans", sans-serif;
+  overflow: hidden;
 }
-body .users {
+body .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1%;
+  width: 98%;
+}
+body .container .users {
   border: 1px solid #ccc;
+  margin-top: 1rem;
   width: 30%;
 }
-body .users .user {
+body .container .users .user {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
   justify-content: space-between;
+  padding: 0.3rem 0.5rem;
 }
-body .users .user .field {
+body .container .users .user .field {
   display: flex;
 }
-body .users .user .field .value {
+body .container .users .user .field .value {
   color: #1F70C1;
   font-weight: 600;
   margin-left: 0.3rem;
 }
-body .users .user .user-right {
+body .container .users .user .user-right {
   display: flex;
   padding-top: 0.8rem;
 }
-body .users .user .user-right svg {
+body .container .users .user .user-right svg {
   height: 1.5rem;
   width: 1.5rem;
 }
-body .users .user .user-right svg:hover {
+body .container .users .user .user-right svg:hover {
   color: #1F70C1;
 }
-body .form-column {
-  position: absolute;
-  left: 150rem;
+body .container .editor-column {
   top: 2rem;
   transition: left 1s;
-  width: 50%;
+  width: 65%;
 }
-body .form-column .form {
-  background-color: #1e2f83;
+body .container .editor-column .editor {
+  background-color: #eee;
   border-radius: 0.4rem;
   margin-top: 0.6rem;
-  padding: 0.5rem 10%;
-  width: 70%;
 }
-body .form-column .form form {
+body .container .editor-column .editor form {
   margin: 0.1rem 0;
   width: 100%;
 }
-body .form-column .form form .field {
-  margin-top: 0.5rem;
+body .container .editor-column .editor form .desktop-two-columns {
+  justify-content: start;
 }
-body .form-column .form form .field input {
-  background-color: #5f5fc4;
+body .container .editor-column .editor form .field {
+  display: flex;
+  flex-direction: column;
+}
+body .container .editor-column .editor form .field input, body .container .editor-column .editor form .field select {
+  background-color: #eee;
   border: none;
   border-radius: 0.2rem;
-  color: #fff;
   outline: none;
   padding: 0.2rem 0.5rem;
-  width: 95%;
+  width: 70%;
 }
-body .form-column .form form .field input:hover {
-  background-color: #7171ce;
+body .container .editor-column .editor form .field input:focus, body .container .editor-column .editor form .field select:focus {
+  background-color: #ccc;
 }
-body .form-column .form form .field label {
-  color: #fff;
+body .container .editor-column .editor form .field label {
   font-weight: bold;
+  margin: 0.5rem 0;
   width: 100%;
 }
-body .form-column .form form .textarea {
+body .container .editor-column .editor form .textarea {
   text-align: center;
   margin-top: 0.7rem;
 }
-body .form-column .form form .textarea label {
+body .container .editor-column .editor form .textarea label {
   color: #fff;
   font-weight: bold;
   width: 100%;
 }
-body .form-column .form form .textarea textarea {
+body .container .editor-column .editor form .textarea textarea {
   background-color: #5f5fc4;
   border: none;
   border-radius: 0.2rem;
@@ -507,14 +547,14 @@ body .form-column .form form .textarea textarea {
   resize: none;
   width: 80%;
 }
-body .form-column .form form .textarea textarea:hover {
+body .container .editor-column .editor form .textarea textarea:hover {
   background-color: #7171ce;
 }
-body .form-column .form form .submit-button {
+body .container .editor-column .editor form .submit-button {
   text-align: right;
   margin-top: 0.5rem;
 }
-body .form-column .form form .submit-button button {
+body .container .editor-column .editor form .submit-button button {
   background-color: #5f5fc4;
   border-radius: 0.2rem;
   border: none;
@@ -526,7 +566,7 @@ body .form-column .form form .submit-button button {
   width: -moz-max-content;
   width: max-content;
 }
-body .form-column.active {
+body .container .editor-column.active {
   left: 55%;
   transition: left 0.3s ease;
   width: 48%;
@@ -580,7 +620,7 @@ body .form-column.active {
   bottom: 0;
   display: flex;
   flex-direction: column;
-  margin-left: 32rem;
+  margin-left: 35.5rem;
   position: absolute;
   top: 20vh;
   z-index: 2000;
@@ -599,33 +639,248 @@ body .form-column.active {
   font-size: 1.1em;
 }
 
-.delete-confirmation {
+.delete-confirmation-container {
   display: none;
+  background-color: rgba(0, 0, 0, 0.6666666667);
+  position: absolute;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.delete-confirmation-container .delete-confirmation {
   text-align: center;
   margin: 0 auto;
+  position: absolute;
+  left: 25%;
+  top: 30vh;
   width: 50%;
+  z-index: 5000;
 }
-.delete-confirmation .delete-confirmation-title {
+.delete-confirmation-container .delete-confirmation .delete-confirmation-title {
+  color: #fff;
+  font-size: 1.1rem;
   font-weight: 600;
+  margin-bottom: 1rem;
 }
-.delete-confirmation .delete-confirmation-buttons {
+.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons {
   display: flex;
   justify-content: center;
 }
-.delete-confirmation .delete-confirmation-buttons .delete-confirmation-button {
+.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button {
   width: 50%;
 }
-.delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button {
+.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button {
   border: none;
   padding: 0.4rem 0;
   width: 100%;
 }
-.delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button#cancel {
+.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button#cancel {
   background-color: rgb(14, 212, 80);
 }
-.delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button#eliminate {
+.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button#eliminate {
   background-color: rgb(233, 62, 62);
 }
-.delete-confirmation.active {
+.delete-confirmation-container.active {
   display: block;
+}
+
+.saved-changes-container {
+  background-color: #1F70C1;
+  border-radius: 0.3rem;
+  bottom: 1rem;
+  display: none;
+  padding: 1.5rem 1rem;
+  position: absolute;
+  right: 1rem;
+  transition: all 1s;
+}
+.saved-changes-container.visible {
+  display: block;
+}
+.saved-changes-container.active {
+  bottom: -50rem;
+}
+
+.clean-confirmation-container {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6666666667);
+  position: absolute;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.clean-confirmation-container .clean-confirmation {
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  left: 25%;
+  top: 30vh;
+  width: 50%;
+  z-index: 5000;
+}
+.clean-confirmation-container .clean-confirmation .clean-confirmation-title {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons {
+  display: flex;
+  justify-content: center;
+}
+.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons .clean-confirmation-button {
+  width: 50%;
+}
+.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons .clean-confirmation-button button {
+  border: none;
+  padding: 0.4rem 0;
+  width: 100%;
+}
+.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons .clean-confirmation-button button#cancel {
+  background-color: rgb(14, 212, 80);
+}
+.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons .clean-confirmation-button button#eliminate {
+  background-color: rgb(233, 62, 62);
+}
+.clean-confirmation-container.active {
+  display: block;
+}
+
+.tabs-container .tabs {
+  display: flex;
+  justify-content: space-between;
+}
+.tabs-container .tabs .tabs-left {
+  display: flex;
+}
+.tabs-container .tabs .tabs-left .tab {
+  font-weight: 400;
+  padding: 0.5rem 0.8rem;
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.tabs-container .tabs .tabs-left .tab span {
+  color: rgba(0, 0, 0, 0.7333333333);
+}
+.tabs-container .tabs .tabs-left .tab.active {
+  background-color: #1F70C1;
+  text-align: center;
+  padding: 0.5rem 1.2rem;
+}
+.tabs-container .tabs .tabs-left .tab.active span {
+  color: #000;
+  font-weight: 600;
+}
+.tabs-container .tabs .tabs-right {
+  display: flex;
+  padding: 0.2rem 0;
+}
+.tabs-container .tabs .tabs-right .save-button svg {
+  height: 1.7rem;
+  width: 1.7rem;
+}
+.tabs-container .tabs .tabs-right .clean-button {
+  margin-right: 5rem;
+}
+.tabs-container .tabs .tabs-right .clean-button svg {
+  height: 1.7rem;
+  width: 1.7rem;
+}
+.tabs-container .tabs .tabs-right .on-off-switch {
+  border: 0.1rem solid #4BAE4E;
+  border-radius: 0.3rem;
+  display: flex;
+  height: 1.5rem;
+  justify-content: space-between;
+  overflow: hidden;
+  position: absolute;
+  right: 1.5rem;
+  top: 4rem;
+  width: 3.1rem;
+}
+.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items {
+  display: flex;
+  transition: all 0.1s;
+  padding: 0.35rem 0;
+}
+.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items .on {
+  font-size: 0.8rem;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items .off {
+  font-size: 0.8rem;
+}
+.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items .icon {
+  color: #4BAE4E;
+  margin-top: -0.5rem;
+}
+.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items .icon svg {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+.tabs-container .tabs .tabs-right .on-off-switch.active {
+  border-color: #D93025;
+}
+.tabs-container .tabs .tabs-right .on-off-switch.active .on-off-switch-items {
+  margin-left: -1.5rem;
+}
+.tabs-container .tabs .tabs-right .on-off-switch.active .on-off-switch-items .off {
+  margin-left: -0.1rem;
+}
+.tabs-container .tabs .tabs-right .on-off-switch.active .on-off-switch-items .icon {
+  margin-left: -0.1rem;
+  color: #D93025;
+}
+.tabs-container .tab-content {
+  padding: 0.6rem 1rem;
+  position: absolute;
+  width: 80%;
+  display: none;
+}
+.tabs-container .tab-content.active {
+  display: block;
+  background-color: #fff;
+}
+
+.locale-tabs-container {
+  margin-top: 1rem;
+}
+.locale-tabs-container .tabs {
+  display: flex;
+  justify-content: start;
+}
+.locale-tabs-container .tabs .locale-tab {
+  font-weight: 400;
+  padding: 0.5rem 0.8rem;
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.locale-tabs-container .tabs .locale-tab span {
+  color: rgba(0, 0, 0, 0.7333333333);
+}
+.locale-tabs-container .tabs .locale-tab.active {
+  background-color: #1F70C1;
+  text-align: center;
+  padding: 0.5rem 1.2rem;
+}
+.locale-tabs-container .tabs .locale-tab.active span {
+  color: #000;
+  font-weight: 600;
+}
+.locale-tabs-container .locale-tab-content {
+  padding: 0.6rem 1rem;
+  position: absolute;
+  width: 70%;
+  display: none;
+}
+.locale-tabs-container .locale-tab-content.active {
+  display: block;
+  background-color: #fff;
 }

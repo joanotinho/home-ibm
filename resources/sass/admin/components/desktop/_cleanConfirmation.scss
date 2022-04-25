@@ -1,4 +1,4 @@
-.delete-confirmation-container {
+.clean-confirmation-container {
 
     display: none;
     background-color: #000a;
@@ -8,7 +8,7 @@
     top: 0;
     width: 100%;
 
-    .delete-confirmation {
+    .clean-confirmation {
         text-align: center;
         margin: 0 auto;
         position: absolute;
@@ -17,18 +17,18 @@
         width: 50%;
         z-index: 5000;
     
-        .delete-confirmation-title {
+        .clean-confirmation-title {
             color: #fff;
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
     
-        .delete-confirmation-buttons {
+        .clean-confirmation-buttons {
             display: flex;
             justify-content: center;
     
-            .delete-confirmation-button {
+            .clean-confirmation-button {
                 width: 50%;
     
                 button {
