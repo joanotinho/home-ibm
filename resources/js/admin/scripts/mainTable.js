@@ -1,8 +1,9 @@
 const editButtons = document.querySelectorAll('.edit-button');
 const deleteButtons = document.querySelectorAll('.delete-button');
 const deleteConfirmation = document.querySelector('.delete-confirmation-container');
-const eliminate = document.getElementById('eliminate');
-const cancel = document.getElementById('cancel');
+const cleanConfirmation = document.querySelector('.clean-confirmation-container');
+const eliminateButtons = document.querySelectorAll('#eliminate');
+const cancelButtons = document.querySelectorAll('#cancel');
 
 const formColumn = document.querySelector('.form-column');
 const tableColumn = document.querySelector('.table-column');
@@ -19,5 +20,21 @@ export function mainTable() {
         deleteButton.addEventListener('click', () => {
             deleteConfirmation.classList.add('active');
         })
+    });
+
+    eliminateButtons.forEach(eliminateButton => {
+
+        eliminateButton.addEventListener('click', () => {
+            deleteConfirmation.classList.remove('active');
+            cleanConfirmation.classList.remove('active');
+        });
+    }); 
+
+    cancelButtons.forEach(cancelButton => {
+
+        cancelButton.addEventListener('click', () => {
+            deleteConfirmation.classList.remove('active');
+            cleanConfirmation.classList.remove('active');
+        });
     });
 }

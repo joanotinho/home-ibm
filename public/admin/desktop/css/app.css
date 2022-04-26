@@ -510,6 +510,7 @@ body .container .editor-column .editor form .desktop-two-columns {
 body .container .editor-column .editor form .field {
   display: flex;
   flex-direction: column;
+  margin-top: 0.7rem;
 }
 body .container .editor-column .editor form .field input, body .container .editor-column .editor form .field select {
   background-color: #eee;
@@ -527,31 +528,10 @@ body .container .editor-column .editor form .field label {
   margin: 0.5rem 0;
   width: 100%;
 }
-body .container .editor-column .editor form .textarea {
-  text-align: center;
-  margin-top: 0.7rem;
-}
-body .container .editor-column .editor form .textarea label {
-  color: #fff;
-  font-weight: bold;
-  width: 100%;
-}
-body .container .editor-column .editor form .textarea textarea {
-  background-color: #5f5fc4;
-  border: none;
-  border-radius: 0.2rem;
-  color: #fff;
-  height: 13vh;
-  outline: none;
-  padding: 0.2rem 0.5rem;
-  resize: none;
-  width: 80%;
-}
-body .container .editor-column .editor form .textarea textarea:hover {
-  background-color: #7171ce;
+body .container .editor-column .editor form .field .ck-content {
+  height: 20vh;
 }
 body .container .editor-column .editor form .submit-button {
-  text-align: right;
   margin-top: 0.5rem;
 }
 body .container .editor-column .editor form .submit-button button {

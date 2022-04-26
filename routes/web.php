@@ -14,7 +14,25 @@ use front\layout\partials\HeaderComponent;
 | contains the "web" middleware group. Now create something great!
 |
 */
-    
+
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::resource('usuarios', 'App\Http\Controllers\Admin\UserController', [
+        'parameters' => [
+            'usuarios' => 'user', 
+        ],
+        'names' => [
+            'index' => 'users',
+            'create' => 'users_create',
+            'edit' => 'users_edit',
+            'store' => 'users_store',
+            'destroy' => 'users_destroy',
+            'show' => 'users_show',
+        ]
+    ]);
+});
+
+
 Route::get('/', function () {
     return view('front.pages.desktop.home');
 });
@@ -40,8 +58,4 @@ Route::get('/carrito', function () {
 
 Route::get('/caja', function () {
     return view('front.pages.desktop.checkout');
-});
-
-Route::get('/admin/users', function () {
-    return view('admin.pages.desktop.home');
 });

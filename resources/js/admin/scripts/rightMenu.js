@@ -8,7 +8,7 @@ export let rightMenu = () => {
     const cleanButton = document.querySelector('.clean-button');
     const cleanConfirmation = document.querySelector('.clean-confirmation-container');
 
-    const saveButton = document.querySelector('.save-button');
+    const saveButton = document.querySelector('.submit-button');
     const savedChanges = document.querySelector('.saved-changes-container');
 
     switchButtons.forEach(switchButton => {

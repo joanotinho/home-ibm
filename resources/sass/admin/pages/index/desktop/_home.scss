@@ -75,6 +75,7 @@ body {
 
                         display: flex;
                         flex-direction: column;
+                        margin-top: .7rem;
 
                         input, select {
                         
@@ -95,42 +96,14 @@ body {
                             margin: .5rem 0;
                             width: 100%;
                         }
-                    }
-        
-                    .textarea {
                         
-                        text-align: center;
-                        margin-top: .7rem;
-                        
-                        
-                        label {
-                            color: #fff;
-                            font-weight: bold;
-                            width: 100%;
-                        }
-        
-                        textarea {
-        
-                            background-color: #5f5fc4;
-                            border: none;
-                            border-radius: .2rem;
-                            color: #fff;
-                            height: 13vh;
-                            outline: none;
-                            padding: .2rem .5rem;
-                            resize: none;
-                            width: 80%;
-        
-                            
-                            &:hover {
-                                background-color: #7171ce;
-                            }
+                        .ck-content {
+                            height: 20vh;
                         }
                     }
-    
+
                     .submit-button {
-        
-                        text-align: right;
+    
                         margin-top: .5rem;
         
                         button {
