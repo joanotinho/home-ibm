@@ -5,10 +5,10 @@
         </div>
         <div class="clean-confirmation-buttons">
             <div class="clean-confirmation-button">
-                <button id="cancel">Cancelar</button>
+                <button class="cancel-clean">Cancelar</button>
             </div>
             <div class="clean-confirmation-button">
-                <button id="eliminate">Eliminar</button>
+                <button class="clean-content">Eliminar</button>
             </div>
         </div>
     </div>

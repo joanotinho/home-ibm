@@ -9,8 +9,11 @@
     width: 100%;
 
     .delete-confirmation {
+
+        background-color: #fff3;
         text-align: center;
         margin: 0 auto;
+        padding-top: 1rem;
         position: absolute;
         left: 25%;
         top: 30vh;
@@ -29,18 +32,21 @@
             justify-content: center;
     
             .delete-confirmation-button {
+
                 width: 50%;
     
                 button {
+                    
                     border: none;
+                    font-weight: 600;
                     padding: .4rem 0;
                     width: 100%;
                     
-                    &#cancel {
+                    &.cancel-delete-user {
                         background-color: rgb(14, 212, 80);
                     }
     
-                    &#eliminate {
+                    &.delete-user {
                         background-color: rgb(233, 62, 62);
                     }
                 }

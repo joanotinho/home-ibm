@@ -1,4 +1,3 @@
-import {validator} from "./validation.js";
 
 export let renderForm = () => {
 
@@ -12,24 +11,12 @@ export let renderForm = () => {
         submitButton.addEventListener('click', () => {
             
             forms.forEach(form => {
-
-                let validate = validator(form);
         
-                validate.onSuccess (() => {
-        
-                    let formData = new FormData(form);
-                
-                    for (let pair of formData.entries()) {
-                        console.log(pair[0] + ', ' + pair[1])
-                    }
-                })
-
-                validate.onFail(() => {
-                    errorsContainer.classList.add('active');
-                    elements.forEach(element => {
-                        element.classList.remove('active');
-                    });
-                });
+                let formData = new FormData(form);
+            
+                for (let pair of formData.entries()) {
+                    console.log(pair[0] + ', ' + pair[1])
+                }
             });
         })
     }

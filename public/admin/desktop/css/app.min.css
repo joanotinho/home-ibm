@@ -448,6 +448,72 @@ ol, ul {
 .nav .nav-left .nav-title {
   font-size: 0.6rem;
 }
+.nav .menu-button {
+  width: 100%;
+  text-align: center;
+}
+.nav .menu-button .hamburger {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 0.6rem;
+  z-index: 3000;
+}
+.nav .menu-button .hamburger .bar1, .nav .menu-button .hamburger .bar2, .nav .menu-button .hamburger .bar3 {
+  display: block;
+  width: 2rem;
+  height: 0.2rem;
+  margin: 0.4rem auto;
+  background-color: #101010;
+  transition: 0.4s;
+}
+.nav .menu-button .hamburger.active .bar1 {
+  transform: rotate(45deg) translate(0.5rem, 0.3rem);
+}
+.nav .menu-button .hamburger.active .bar2 {
+  opacity: 0;
+}
+.nav .menu-button .hamburger.active .bar3 {
+  transform: rotate(-45deg) translate(0.5rem, -0.3rem);
+}
+.nav .menu-button .menu {
+  background-color: #f5f5f5;
+  height: 110vh;
+  margin-top: 3rem;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  top: -200vh;
+  transition: top 0.4s ease-in-out;
+  width: 100%;
+  z-index: 1000;
+}
+.nav .menu-button .menu.active {
+  top: -6vh;
+}
+.nav .menu-button .menu .menu-ul {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 35.5rem;
+  position: absolute;
+  top: 20vh;
+  z-index: 2000;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.nav .menu-button .menu .menu-ul li {
+  font-size: 1.3em;
+  margin: 1.5em 0;
+  text-align: center;
+}
+.nav .menu-button .menu .menu-ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.1em;
+}
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -512,7 +578,22 @@ body .container .editor-column .editor form .field {
   flex-direction: column;
   margin-top: 0.7rem;
 }
-body .container .editor-column .editor form .field input, body .container .editor-column .editor form .field select {
+body .container .editor-column .editor form .field .field-label {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+body .container .editor-column .editor form .field .field-label .label label {
+  font-weight: bold;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+body .container .editor-column .editor form .field .field-label .character-counter-max-value {
+  color: #f00;
+  font-weight: 600;
+  margin-left: 0.3rem;
+}
+body .container .editor-column .editor form .field .field-input input, body .container .editor-column .editor form .field .field-input select {
   background-color: #eee;
   border: none;
   border-radius: 0.2rem;
@@ -520,21 +601,16 @@ body .container .editor-column .editor form .field input, body .container .edito
   padding: 0.2rem 0.5rem;
   width: 70%;
 }
-body .container .editor-column .editor form .field input:focus, body .container .editor-column .editor form .field select:focus {
+body .container .editor-column .editor form .field .field-input input:focus, body .container .editor-column .editor form .field .field-input select:focus {
   background-color: #ccc;
-}
-body .container .editor-column .editor form .field label {
-  font-weight: bold;
-  margin: 0.5rem 0;
-  width: 100%;
 }
 body .container .editor-column .editor form .field .ck-content {
   height: 20vh;
 }
-body .container .editor-column .editor form .submit-button {
+body .container .editor-column .editor form .admin-form-submit-button {
   margin-top: 0.5rem;
 }
-body .container .editor-column .editor form .submit-button button {
+body .container .editor-column .editor form .admin-form-submit-button .submit-button {
   background-color: #5f5fc4;
   border-radius: 0.2rem;
   border: none;
@@ -552,73 +628,6 @@ body .container .editor-column.active {
   width: 48%;
 }
 
-.menu-button {
-  width: 100%;
-  text-align: center;
-}
-.menu-button .hamburger {
-  cursor: pointer;
-  display: block;
-  position: absolute;
-  right: 1rem;
-  top: 0.6rem;
-  z-index: 3000;
-}
-.menu-button .hamburger .bar1, .menu-button .hamburger .bar2, .menu-button .hamburger .bar3 {
-  display: block;
-  width: 2rem;
-  height: 3px;
-  margin: 5px auto;
-  background-color: #101010;
-  transition: 0.4s;
-}
-.menu-button .hamburger.active .bar1 {
-  transform: rotate(45deg) translate(8px, 3px);
-}
-.menu-button .hamburger.active .bar2 {
-  opacity: 0;
-}
-.menu-button .hamburger.active .bar3 {
-  transform: rotate(-45deg) translate(8px, -3px);
-}
-.menu-button .menu {
-  background-color: #f5f5f5;
-  height: 110vh;
-  margin-top: 3rem;
-  position: absolute;
-  left: 0;
-  text-align: center;
-  top: -200vh;
-  transition: top 0.4s ease-in-out;
-  width: 100%;
-  z-index: 1000;
-}
-.menu-button .menu.active {
-  top: -6vh;
-}
-.menu-button .menu .menu-ul {
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  margin-left: 35.5rem;
-  position: absolute;
-  top: 20vh;
-  z-index: 2000;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-.menu-button .menu .menu-ul li {
-  font-size: 1.3em;
-  margin: 1.5em 0;
-  text-align: center;
-}
-.menu-button .menu .menu-ul li a {
-  text-decoration: none;
-  color: #000000;
-  font-size: 1.1em;
-}
-
 .delete-confirmation-container {
   display: none;
   background-color: rgba(0, 0, 0, 0.6666666667);
@@ -629,8 +638,10 @@ body .container .editor-column.active {
   width: 100%;
 }
 .delete-confirmation-container .delete-confirmation {
+  background-color: rgba(255, 255, 255, 0.2);
   text-align: center;
   margin: 0 auto;
+  padding-top: 1rem;
   position: absolute;
   left: 25%;
   top: 30vh;
@@ -652,13 +663,14 @@ body .container .editor-column.active {
 }
 .delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button {
   border: none;
+  font-weight: 600;
   padding: 0.4rem 0;
   width: 100%;
 }
-.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button#cancel {
+.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button.cancel-delete-user {
   background-color: rgb(14, 212, 80);
 }
-.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button#eliminate {
+.delete-confirmation-container .delete-confirmation .delete-confirmation-buttons .delete-confirmation-button button.delete-user {
   background-color: rgb(233, 62, 62);
 }
 .delete-confirmation-container.active {
@@ -668,17 +680,16 @@ body .container .editor-column.active {
 .saved-changes-container {
   background-color: #1F70C1;
   border-radius: 0.3rem;
-  bottom: 1rem;
-  display: none;
+  bottom: -25rem;
   padding: 1.5rem 1rem;
   position: absolute;
-  right: 1rem;
-  transition: all 1s;
+  right: 15rem;
+  transition: all 0.5s;
 }
 .saved-changes-container.visible {
   display: block;
 }
-.saved-changes-container.active {
+.saved-changes-container.slide {
   bottom: -50rem;
 }
 
@@ -718,10 +729,10 @@ body .container .editor-column.active {
   padding: 0.4rem 0;
   width: 100%;
 }
-.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons .clean-confirmation-button button#cancel {
+.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons .clean-confirmation-button button.cancel-clean {
   background-color: rgb(14, 212, 80);
 }
-.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons .clean-confirmation-button button#eliminate {
+.clean-confirmation-container .clean-confirmation .clean-confirmation-buttons .clean-confirmation-button button.clean-content {
   background-color: rgb(233, 62, 62);
 }
 .clean-confirmation-container.active {
@@ -863,4 +874,26 @@ body .container .editor-column.active {
 .locale-tabs-container .locale-tab-content.active {
   display: block;
   background-color: #fff;
+}
+
+.spinner-container {
+  background-color: hsla(0deg, 0%, 0%, 0.5);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.spinner-container.active {
+  display: block;
+}
+.spinner-container .spinner {
+  position: absolute;
+  left: 47%;
+  top: 43%;
+}
+.spinner-container .spinner img {
+  width: 10%;
 }

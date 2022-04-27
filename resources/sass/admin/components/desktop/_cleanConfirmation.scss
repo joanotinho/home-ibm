@@ -36,11 +36,11 @@
                     padding: .4rem 0;
                     width: 100%;
                     
-                    &#cancel {
+                    &.cancel-clean {
                         background-color: rgb(14, 212, 80);
                     }
     
-                    &#eliminate {
+                    &.clean-content {
                         background-color: rgb(233, 62, 62);
                     }
                 }

@@ -77,36 +77,54 @@ body {
                         flex-direction: column;
                         margin-top: .7rem;
 
-                        input, select {
-                        
-                            background-color: #eee;
-                            border: none;
-                            border-radius: .2rem;
-                            outline: none;
-                            padding: .2rem .5rem;
+                        .field-label {
+
+                            display: flex;
+                            justify-content: space-between;
                             width: 70%;
-        
-                            &:focus {
-                                background-color: #ccc;
+
+                            .label {
+
+                                label {
+                                    font-weight: bold;
+                                    margin: .5rem 0;
+                                    width: 100%;
+                                }
+                            }
+
+                            .character-counter-max-value {
+                                color: #f00;
+                                font-weight: 600;
+                                margin-left: .3rem;
                             }
                         }
-            
-                        label {
-                            font-weight: bold;
-                            margin: .5rem 0;
-                            width: 100%;
-                        }
+
+                        .field-input {
+
+                            input, select {
                         
+                                background-color: #eee;
+                                border: none;
+                                border-radius: .2rem;
+                                outline: none;
+                                padding: .2rem .5rem;
+                                width: 70%;
+            
+                                &:focus {
+                                    background-color: #ccc;
+                                }
+                            }
+                        }
                         .ck-content {
                             height: 20vh;
                         }
                     }
 
-                    .submit-button {
+                    .admin-form-submit-button {
     
                         margin-top: .5rem;
         
-                        button {
+                        .submit-button {
                             background-color: #5f5fc4;
                             border-radius: .2rem;
                             border: none;

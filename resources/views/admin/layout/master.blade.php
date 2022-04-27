@@ -7,6 +7,8 @@
         <title>Document</title>
 
         @include('admin.layout.partials.styles')
+        
+        @include('admin.layout.partials.scripts')
     </head>
     <body>
         
@@ -16,6 +18,5 @@
             @yield('content')
         </main>
 
-        @include('admin.layout.partials.scripts')
     </body>
 </html>

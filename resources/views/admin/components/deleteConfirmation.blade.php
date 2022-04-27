@@ -5,10 +5,10 @@
         </div>
         <div class="delete-confirmation-buttons">
             <div class="delete-confirmation-button">
-                <button id="cancel">Cancelar</button>
+                <button class="cancel-delete-user">Cancelar</button>
             </div>
             <div class="delete-confirmation-button">
-                <button id="eliminate">Eliminar</button>
+                <button class="delete-user">Eliminar</button>
             </div>
         </div>
     </div>

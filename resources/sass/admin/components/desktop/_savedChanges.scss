@@ -1,18 +1,17 @@
 .saved-changes-container {
     background-color: #1F70C1;
     border-radius: .3rem;
-    bottom: 1rem;
-    display: none;
+    bottom: -25rem;
     padding: 1.5rem 1rem;
     position: absolute;
-    right: 1rem;
-    transition: all 1s;
+    right: 15rem;
+    transition: all .5s;
 
     &.visible {
         display: block;
     }
 
-    &.active {
+    &.slide {
         bottom: -50rem;
     }
 }

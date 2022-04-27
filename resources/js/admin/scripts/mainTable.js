@@ -22,19 +22,4 @@ export function mainTable() {
         })
     });
 
-    eliminateButtons.forEach(eliminateButton => {
-
-        eliminateButton.addEventListener('click', () => {
-            deleteConfirmation.classList.remove('active');
-            cleanConfirmation.classList.remove('active');
-        });
-    }); 
-
-    cancelButtons.forEach(cancelButton => {
-
-        cancelButton.addEventListener('click', () => {
-            deleteConfirmation.classList.remove('active');
-            cleanConfirmation.classList.remove('active');
-        });
-    });
 }
