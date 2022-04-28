@@ -38,6 +38,8 @@ body {
                     padding-top: .8rem;
     
                     svg {
+
+                        cursor: pointer;
                         height: 1.5rem;
                         width: 1.5rem;
     
@@ -115,26 +117,21 @@ body {
                                 }
                             }
                         }
+
+                        .field-rule {
+                            max-width: 70%;
+
+                            span {
+                                color: #f00;
+                                font-size: .9rem;
+                            }
+                        }
+
                         .ck-content {
                             height: 20vh;
                         }
                     }
 
-                    .admin-form-submit-button {
-    
-                        margin-top: .5rem;
-        
-                        .submit-button {
-                            background-color: #5f5fc4;
-                            border-radius: .2rem;
-                            border: none;
-                            color: #fff;
-                            cursor: pointer;
-                            font-weight: bold;
-                            padding: .3rem .7rem;
-                            width: max-content;
-                        }
-                    }
                 }
             }
             

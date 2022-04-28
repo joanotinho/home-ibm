@@ -2216,10 +2216,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "characterCounter": () => (/* binding */ characterCounter)
 /* harmony export */ });
 var characterCounter = function characterCounter() {
-  var characterCounters = document.querySelectorAll('.character-counter');
-  var counterInputs = document.querySelectorAll('.counter-input');
-  var maxLengthDisplay = document.querySelector('.max-length-display');
-  characterCounters.forEach(function (characterCounter) {
+  // const characterCounters = document.querySelectorAll('.character-counter');
+  // const counterInputs = document.querySelectorAll('.counter-input');
+  // const maxLengthDisplays = document.querySelectorAll('.max-length-display');
+  // characterCounters.forEach(characterCounter => {
+  //     counterInputs.forEach(counterInput => {
+  //         maxLengthDisplays.forEach(maxLengthDisplay => {
+  //             maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
+  //         });
+  //         counterInput.addEventListener('keydown', () => {
+  //             const counterValue = counterInput.value.length;
+  //             const maxLength = counterInput.dataset.maxLength;
+  //             characterCounter.innerHTML = counterValue;
+  //             if (counterValue >= maxLength) {
+  //                 characterCounter.classList.add('character-counter-max-value');
+  //                 counterInput.maxLength = counterValue;
+  //             } else {
+  //                 characterCounter.classList.remove('character-counter-max-value');
+  //             }
+  //         });
+  //     });
+  // });
+  var characterCounterContainers = document.querySelectorAll('.character-counter-container');
+  var fieldInputs = document.querySelectorAll('.field-input');
+  characterCounterContainers.forEach(function (characterCounterContainer) {
+    var characterCounter = characterCounterContainer.querySelector('.character-counter');
+    var maxLengthDisplay = characterCounterContainer.querySelector('.max-length-display');
+    var counterInputs = document.querySelectorAll('.counter-input');
     counterInputs.forEach(function (counterInput) {
       maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
       counterInput.addEventListener('keydown', function () {
@@ -2230,6 +2253,8 @@ var characterCounter = function characterCounter() {
         if (counterValue >= maxLength) {
           characterCounter.classList.add('character-counter-max-value');
           counterInput.maxLength = counterValue;
+        } else {
+          characterCounter.classList.remove('character-counter-max-value');
         }
       });
     });
@@ -2292,6 +2317,11 @@ var cleanConfirmation = function cleanConfirmation() {
       form.reset();
     });
     cleanConfirmation.classList.remove('active');
+  });
+  cleanConfirmation.addEventListener('click', function (e) {
+    if (e.target === cleanConfirmation) {
+      cleanConfirmation.classList.remove('active');
+    }
   });
 };
 
@@ -2378,40 +2408,6 @@ function localeTabs() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/mainTable.js":
-/*!*************************************************!*\
-  !*** ./resources/js/admin/scripts/mainTable.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "mainTable": () => (/* binding */ mainTable)
-/* harmony export */ });
-var editButtons = document.querySelectorAll('.edit-button');
-var deleteButtons = document.querySelectorAll('.delete-button');
-var deleteConfirmation = document.querySelector('.delete-confirmation-container');
-var cleanConfirmation = document.querySelector('.clean-confirmation-container');
-var eliminateButtons = document.querySelectorAll('#eliminate');
-var cancelButtons = document.querySelectorAll('#cancel');
-var formColumn = document.querySelector('.form-column');
-var tableColumn = document.querySelector('.table-column');
-function mainTable() {
-  editButtons.forEach(function (editButton) {
-    editButton.addEventListener('click', function () {
-      tableColumn.classList.toggle('active');
-    });
-  });
-  deleteButtons.forEach(function (deleteButton) {
-    deleteButton.addEventListener('click', function () {
-      deleteConfirmation.classList.add('active');
-    });
-  });
-}
-
-/***/ }),
-
 /***/ "./resources/js/admin/scripts/menuButton.js":
 /*!**************************************************!*\
   !*** ./resources/js/admin/scripts/menuButton.js ***!
@@ -2431,6 +2427,34 @@ function menuButton() {
     menu.classList.toggle("active");
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/admin/scripts/savedChangesStatus.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/admin/scripts/savedChangesStatus.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "savedChangesStatus": () => (/* binding */ savedChangesStatus)
+/* harmony export */ });
+var savedChangesStatus = function savedChangesStatus() {
+  var savedChangesContainer = document.querySelector('.saved-changes-container');
+  var savedChangesTitle = document.querySelector('#saved-changes-title');
+  var savedChangesDescription = document.querySelector('#saved-changes-description');
+  savedChangesContainer.classList.add('visible');
+
+  if (savedChangesContainer.classList.contains('success')) {
+    savedChangesTitle.innerHTML = 'Saved changes';
+    savedChangesDescription.innerHTML = 'Your changes have been saved successfully';
+  } else if (savedChangesContainer.classList.contains('error')) {
+    savedChangesTitle.innerHTML = 'Error';
+    savedChangesDescription.innerHTML = 'Your changes have not been saved successfully';
+  }
+};
 
 /***/ }),
 
@@ -2507,12 +2531,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "userModification": () => (/* binding */ userModification)
 /* harmony export */ });
 var userModification = function userModification() {
-  var editUserButtons = document.querySelectorAll('.edit-user-button');
-  var spinner = document.querySelector('.spinner-container');
   var deleteUserButtons = document.querySelectorAll('.delete-user-button');
-  var deleteConfirmation = document.querySelector('.delete-confirmation-container');
+  var deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
+  var deleteConfirmation = document.querySelector('.delete-confirmation');
   var deleteCancelButton = document.querySelector('.cancel-delete-user');
   var deleteUser = document.querySelector('.delete-user');
+  var editUserButtons = document.querySelectorAll('.edit-user-button');
+  var spinner = document.querySelector('.spinner2-container');
   editUserButtons.forEach(function (editUserButton) {
     editUserButton.addEventListener('click', function () {
       spinner.classList.add('active');
@@ -2520,11 +2545,21 @@ var userModification = function userModification() {
   });
   deleteUserButtons.forEach(function (deleteUserButton) {
     deleteUserButton.addEventListener('click', function () {
-      deleteConfirmation.classList.add('active');
+      deleteConfirmationContainer.classList.add('active');
     });
-    deleteCancelButton.addEventListener('click', function () {
-      deleteConfirmation.classList.remove('active');
-    });
+  });
+  deleteCancelButton.addEventListener('click', function () {
+    deleteConfirmationContainer.classList.remove('active');
+    console.log('cancel');
+  });
+  deleteUser.addEventListener('click', function () {
+    deleteConfirmationContainer.classList.remove('active');
+    console.log('delete');
+  });
+  deleteConfirmationContainer.addEventListener('click', function (e) {
+    if (e.target === deleteConfirmationContainer) {
+      deleteConfirmationContainer.classList.remove('active');
+    }
   });
 };
 
@@ -20037,15 +20072,15 @@ var __webpack_exports__ = {};
   \***********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/admin/scripts/ckeditor.js");
-/* harmony import */ var _scripts_mainTable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/mainTable.js */ "./resources/js/admin/scripts/mainTable.js");
-/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/menuButton.js */ "./resources/js/admin/scripts/menuButton.js");
-/* harmony import */ var _scripts_tabs_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/tabs.js */ "./resources/js/admin/scripts/tabs.js");
-/* harmony import */ var _scripts_localeTabs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/localeTabs.js */ "./resources/js/admin/scripts/localeTabs.js");
-/* harmony import */ var _scripts_cleanConfirmation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/cleanConfirmation.js */ "./resources/js/admin/scripts/cleanConfirmation.js");
-/* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/form.js */ "./resources/js/admin/scripts/form.js");
-/* harmony import */ var _scripts_switchButton_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/switchButton.js */ "./resources/js/admin/scripts/switchButton.js");
-/* harmony import */ var _scripts_userModification__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/userModification */ "./resources/js/admin/scripts/userModification.js");
-/* harmony import */ var _admin_scripts_characterCounter_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../admin/scripts/characterCounter.js */ "./resources/js/admin/scripts/characterCounter.js");
+/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/menuButton.js */ "./resources/js/admin/scripts/menuButton.js");
+/* harmony import */ var _scripts_tabs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/tabs.js */ "./resources/js/admin/scripts/tabs.js");
+/* harmony import */ var _scripts_localeTabs_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/localeTabs.js */ "./resources/js/admin/scripts/localeTabs.js");
+/* harmony import */ var _scripts_cleanConfirmation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/cleanConfirmation.js */ "./resources/js/admin/scripts/cleanConfirmation.js");
+/* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/form.js */ "./resources/js/admin/scripts/form.js");
+/* harmony import */ var _scripts_switchButton_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/switchButton.js */ "./resources/js/admin/scripts/switchButton.js");
+/* harmony import */ var _scripts_userModification__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/userModification */ "./resources/js/admin/scripts/userModification.js");
+/* harmony import */ var _scripts_characterCounter_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/characterCounter.js */ "./resources/js/admin/scripts/characterCounter.js");
+/* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/admin/scripts/savedChangesStatus.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
 
 
@@ -20059,15 +20094,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
 
 
 (0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_0__.ckeditor)();
-(0,_scripts_cleanConfirmation_js__WEBPACK_IMPORTED_MODULE_5__.cleanConfirmation)();
-(0,_scripts_mainTable_js__WEBPACK_IMPORTED_MODULE_1__.mainTable)();
-(0,_scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_2__.menuButton)();
-(0,_scripts_tabs_js__WEBPACK_IMPORTED_MODULE_3__.tabs)();
-(0,_scripts_localeTabs_js__WEBPACK_IMPORTED_MODULE_4__.localeTabs)();
-(0,_scripts_form_js__WEBPACK_IMPORTED_MODULE_6__.renderForm)();
-(0,_scripts_switchButton_js__WEBPACK_IMPORTED_MODULE_7__.switchButton)();
-(0,_scripts_userModification__WEBPACK_IMPORTED_MODULE_8__.userModification)();
-(0,_admin_scripts_characterCounter_js__WEBPACK_IMPORTED_MODULE_9__.characterCounter)();
+(0,_scripts_cleanConfirmation_js__WEBPACK_IMPORTED_MODULE_4__.cleanConfirmation)();
+(0,_scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_1__.menuButton)();
+(0,_scripts_tabs_js__WEBPACK_IMPORTED_MODULE_2__.tabs)();
+(0,_scripts_localeTabs_js__WEBPACK_IMPORTED_MODULE_3__.localeTabs)();
+(0,_scripts_form_js__WEBPACK_IMPORTED_MODULE_5__.renderForm)();
+(0,_scripts_switchButton_js__WEBPACK_IMPORTED_MODULE_6__.switchButton)();
+(0,_scripts_userModification__WEBPACK_IMPORTED_MODULE_7__.userModification)();
+(0,_scripts_characterCounter_js__WEBPACK_IMPORTED_MODULE_8__.characterCounter)();
+(0,_scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_9__.savedChangesStatus)();
 })();
 
 /******/ })()

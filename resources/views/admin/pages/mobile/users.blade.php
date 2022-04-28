@@ -242,7 +242,7 @@
 
                             <div class="errors-container"></div>
 
-                            <div class="desktop-two-columns">
+                            <div class="mobile-single-column">
                                 <div class="column">
                                     <div class="field">
                                         <div class="field-label">
@@ -265,13 +265,7 @@
                                 <div class="column">
                                     <div class="field">
                                         <div class="field-label">
-                                            <div class="label">
-                                                <label for="">Email</label>
-                                            </div>
-                                            <div class="character-counter-container">
-                                                <span class="character-counter">0</span>
-                                                <span class="max-length-display"></span>
-                                            </div>
+                                            <label for="">Email</label>
                                         </div>
                                         <div class="field-input">
                                             <input type="text" name="mail" id="mail" data-type="email">
@@ -284,7 +278,7 @@
                                 </div>
                             </div>
 
-                            <div class="desktop-two-columns">
+                            <div class="mobile-single-column">
                                 <div class="column">
                                     <div class="field">
                                         <div class="field-label">
@@ -336,7 +330,8 @@
                                 </div>
                             </div>       --}}
 
-                            <x-savedChangesStatus></x-savedChangesStatus>
+                            <x-savedChangesSuccess></x-savedChangesSuccess>
+                            <x-savedChangesError></x-savedChangesError>
                         </form>
                         {{-- <form method="POST" action="" id="form" class="front-form">
                             <div class="errors-container parent">
@@ -414,6 +409,6 @@
 
     <x-deleteConfirmation></x-deleteConfirmation>
     <x-cleanConfirmation></x-cleanConfirmation>
-    <x-spinner2></x-spinner2>
+    <x-spinner></x-spinner>
 
 @endsection

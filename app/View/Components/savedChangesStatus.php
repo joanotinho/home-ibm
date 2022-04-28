@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class SavedChanges extends Component
+class savedChangesStatus extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class SavedChanges extends Component
      */
     public function render()
     {
-        return view('admin.components.savedChanges');
+        return view('admin.components.savedChangesStatus');
     }
 }

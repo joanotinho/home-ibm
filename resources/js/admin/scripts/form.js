@@ -6,6 +6,7 @@ export let renderForm = () => {
     const errorsContainer = document.querySelector('.errors-container');
     const elements = document.querySelectorAll('.required');
 
+
     if (submitButton) {
 
         submitButton.addEventListener('click', () => {
@@ -15,6 +16,7 @@ export let renderForm = () => {
                 let formData = new FormData(form);
             
                 for (let pair of formData.entries()) {
+                    
                     console.log(pair[0] + ', ' + pair[1])
                 }
             });

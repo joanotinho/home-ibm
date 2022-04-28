@@ -40,81 +40,98 @@
             display: flex;
             padding: .2rem 0;
 
-            .save-button {
+            .tabs-right-item {
 
-                svg {
-                    height: 1.7rem;
-                    width: 1.7rem;
-                }
-            }
+                margin: 0 .5rem;
 
-            .clean-button {
-                margin-right: 5rem;
-                svg {
-                    height: 1.7rem;
-                    width: 1.7rem;
-                }
-            }
+                .admin-form-submit-button {
 
-            .on-off-switch {
+                    cursor: pointer;
+                    margin-top: .2rem;
+                
+                    svg {
+                        
+                        height: 1.5rem;
+                        width: 1.5rem;
 
-                border: .1rem solid #4BAE4E;
-                border-radius: .3rem;
-                display: flex;
-                height: 1.5rem;
-                justify-content: space-between;
-                overflow: hidden;
-                position: absolute;
-                right: 1.5rem;
-                top: 4rem;
-                width: 3.1rem;
-
-                .on-off-switch-items {
-                    
-                    display: flex;
-                    transition: all .1s;
-                    padding: .35rem 0;
-                    
-                    .on {
-                        font-size: .8rem;
-                        margin-left: .1rem;
-                        margin-right: .1rem;
-                    }
-
-                    .off {
-                        font-size: .8rem;
-                    }
-
-                    .icon {
-
-                        color: #4BAE4E;
-                        margin-top: -.5rem;
-
-                        svg {
-                            height: 1.8rem;
-                            width: 1.8rem;
+                        &:hover {
+                            color: #1F70C1;
                         }
                     }
-
                 }
-                &.active {
+    
+                .clean-button {
 
-                    border-color: #D93025;
+                    cursor: pointer;
+    
+                    svg {
+                        height: 1.7rem;
+                        width: 1.7rem;
 
+                        &:hover {
+                            color: #1F70C1;
+                        }
+                    }
+                }
+    
+                .on-off-switch {
+    
+                    border: .1rem solid #4BAE4E;
+                    border-radius: .3rem;
+                    display: flex;
+                    height: 1.5rem;
+                    justify-content: space-between;
+                    margin-top: .1rem;
+                    overflow: hidden;
+                    width: 3.1rem;
+    
                     .on-off-switch-items {
                         
-                        margin-left: -1.5rem;
-
+                        display: flex;
+                        transition: all .1s;
+                        padding: .35rem 0;
+                        
+                        .on {
+                            font-size: .8rem;
+                            margin-left: .1rem;
+                            margin-right: .1rem;
+                        }
+    
                         .off {
-                            margin-left: -.1rem;
+                            font-size: .8rem;
                         }
     
                         .icon {
-                            margin-left: -.1rem;
-                            color: #D93025;
+    
+                            color: #4BAE4E;
+                            margin-top: -.5rem;
+    
+                            svg {
+                                height: 1.8rem;
+                                width: 1.8rem;
+                            }
                         }
+    
                     }
-
+                    &.active {
+    
+                        border-color: #D93025;
+    
+                        .on-off-switch-items {
+                            
+                            margin-left: -1.5rem;
+    
+                            .off {
+                                margin-left: -.1rem;
+                            }
+        
+                            .icon {
+                                margin-left: -.1rem;
+                                color: #D93025;
+                            }
+                        }
+    
+                    }
                 }
             }
         }

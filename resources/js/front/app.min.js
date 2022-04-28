@@ -8,7 +8,6 @@ import {renderForm} from "./scripts/form.js";
 import {closeElement} from "./scripts/closeElement.js";
 import {productDescription} from "./scripts/productDescription.js";
 
-
 menuButton();
 plusMinusButton();
 filter();

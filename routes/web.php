@@ -37,6 +37,8 @@ Route::get('/', function () {
     return view('front.pages.desktop.home');
 });
 
+Route::redirect('/españa', '/productos');
+
 // Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('home_front');
 
 

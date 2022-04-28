@@ -1,7 +1,7 @@
 .saved-changes-container {
-    background-color: #1F70C1;
     border-radius: .3rem;
     bottom: -25rem;
+    // display: none;
     padding: 1.5rem 1rem;
     position: absolute;
     right: 15rem;
@@ -13,5 +13,13 @@
 
     &.slide {
         bottom: -50rem;
+    }
+
+    &.success {
+        background-color: #34A853;
+    }
+
+    &.error {
+        background-color: #f33;
     }
 }

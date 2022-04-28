@@ -10,17 +10,30 @@ export let cleanConfirmation = () => {
 
 
     cleanButton.addEventListener('click', () => {
+
         cleanConfirmation.classList.add('active');
     });
     
     cleanCancelButton.addEventListener('click', () => {
+
         cleanConfirmation.classList.remove('active');
     });
 
     cleanContent.addEventListener('click', () => {
+
         forms.forEach(form => {
+            
             form.reset();
         });
+
         cleanConfirmation.classList.remove('active');
+    });
+
+    cleanConfirmation.addEventListener('click', (e) => {
+
+        if(e.target === cleanConfirmation) {
+            
+            cleanConfirmation.classList.remove('active');
+        } 
     });
 }

@@ -3,11 +3,13 @@ export function localeTabs() {
     const tabs = document.querySelectorAll('.locale-tab');
     const tabContents = document.querySelectorAll('.locale-tab-content');
 
+    
     tabs.forEach(tab => {
 
         tab.addEventListener('click', () => {
 
             tabs.forEach(tab => {
+
                 tab.classList.remove('active');
             });
             

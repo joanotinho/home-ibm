@@ -14,10 +14,12 @@
 
     .spinner {
         position: absolute;
-        left: 47%;
+        left: 45%;
         top: 43%;
+        width: 5%;
+
         img {
-            width: 10%;
+            width: 100%;
         }
     }
 }

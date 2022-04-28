@@ -550,6 +550,7 @@ body .container .users .user .user-right {
   padding-top: 0.8rem;
 }
 body .container .users .user .user-right svg {
+  cursor: pointer;
   height: 1.5rem;
   width: 1.5rem;
 }
@@ -604,23 +605,15 @@ body .container .editor-column .editor form .field .field-input input, body .con
 body .container .editor-column .editor form .field .field-input input:focus, body .container .editor-column .editor form .field .field-input select:focus {
   background-color: #ccc;
 }
+body .container .editor-column .editor form .field .field-rule {
+  max-width: 70%;
+}
+body .container .editor-column .editor form .field .field-rule span {
+  color: #f00;
+  font-size: 0.9rem;
+}
 body .container .editor-column .editor form .field .ck-content {
   height: 20vh;
-}
-body .container .editor-column .editor form .admin-form-submit-button {
-  margin-top: 0.5rem;
-}
-body .container .editor-column .editor form .admin-form-submit-button .submit-button {
-  background-color: #5f5fc4;
-  border-radius: 0.2rem;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 0.3rem 0.7rem;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
 }
 body .container .editor-column.active {
   left: 55%;
@@ -678,7 +671,6 @@ body .container .editor-column.active {
 }
 
 .saved-changes-container {
-  background-color: #1F70C1;
   border-radius: 0.3rem;
   bottom: -25rem;
   padding: 1.5rem 1rem;
@@ -691,6 +683,12 @@ body .container .editor-column.active {
 }
 .saved-changes-container.slide {
   bottom: -50rem;
+}
+.saved-changes-container.success {
+  background-color: #34A853;
+}
+.saved-changes-container.error {
+  background-color: #f33;
 }
 
 .clean-confirmation-container {
@@ -770,60 +768,71 @@ body .container .editor-column.active {
   display: flex;
   padding: 0.2rem 0;
 }
-.tabs-container .tabs .tabs-right .save-button svg {
+.tabs-container .tabs .tabs-right .tabs-right-item {
+  margin: 0 0.5rem;
+}
+.tabs-container .tabs .tabs-right .tabs-right-item .admin-form-submit-button {
+  cursor: pointer;
+  margin-top: 0.2rem;
+}
+.tabs-container .tabs .tabs-right .tabs-right-item .admin-form-submit-button svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.tabs-container .tabs .tabs-right .tabs-right-item .admin-form-submit-button svg:hover {
+  color: #1F70C1;
+}
+.tabs-container .tabs .tabs-right .tabs-right-item .clean-button {
+  cursor: pointer;
+}
+.tabs-container .tabs .tabs-right .tabs-right-item .clean-button svg {
   height: 1.7rem;
   width: 1.7rem;
 }
-.tabs-container .tabs .tabs-right .clean-button {
-  margin-right: 5rem;
+.tabs-container .tabs .tabs-right .tabs-right-item .clean-button svg:hover {
+  color: #1F70C1;
 }
-.tabs-container .tabs .tabs-right .clean-button svg {
-  height: 1.7rem;
-  width: 1.7rem;
-}
-.tabs-container .tabs .tabs-right .on-off-switch {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch {
   border: 0.1rem solid #4BAE4E;
   border-radius: 0.3rem;
   display: flex;
   height: 1.5rem;
   justify-content: space-between;
+  margin-top: 0.1rem;
   overflow: hidden;
-  position: absolute;
-  right: 1.5rem;
-  top: 4rem;
   width: 3.1rem;
 }
-.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items {
   display: flex;
   transition: all 0.1s;
   padding: 0.35rem 0;
 }
-.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items .on {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items .on {
   font-size: 0.8rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
 }
-.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items .off {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items .off {
   font-size: 0.8rem;
 }
-.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items .icon {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items .icon {
   color: #4BAE4E;
   margin-top: -0.5rem;
 }
-.tabs-container .tabs .tabs-right .on-off-switch .on-off-switch-items .icon svg {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items .icon svg {
   height: 1.8rem;
   width: 1.8rem;
 }
-.tabs-container .tabs .tabs-right .on-off-switch.active {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch.active {
   border-color: #D93025;
 }
-.tabs-container .tabs .tabs-right .on-off-switch.active .on-off-switch-items {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch.active .on-off-switch-items {
   margin-left: -1.5rem;
 }
-.tabs-container .tabs .tabs-right .on-off-switch.active .on-off-switch-items .off {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch.active .on-off-switch-items .off {
   margin-left: -0.1rem;
 }
-.tabs-container .tabs .tabs-right .on-off-switch.active .on-off-switch-items .icon {
+.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch.active .on-off-switch-items .icon {
   margin-left: -0.1rem;
   color: #D93025;
 }
@@ -891,9 +900,145 @@ body .container .editor-column.active {
 }
 .spinner-container .spinner {
   position: absolute;
-  left: 47%;
+  left: 45%;
   top: 43%;
+  width: 5%;
 }
 .spinner-container .spinner img {
-  width: 10%;
+  width: 100%;
+}
+
+.spinner2-container {
+  background-color: hsla(0deg, 0%, 0%, 0.667);
+  display: none;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Dark theme */
+  /* Animtions */
+}
+.spinner2-container .ap {
+  height: 16em;
+  left: 43%;
+  position: absolute;
+  top: 23vh;
+  width: 8em;
+}
+.spinner2-container .ap__ring {
+  stroke: rgba(0, 0, 0, 0.3333333333);
+  transition: stroke 0.3s;
+}
+.spinner2-container .ap__worm1,
+.spinner2-container .ap__worm2 {
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.spinner2-container .ap__worm1 {
+  -webkit-animation-name: worm1;
+          animation-name: worm1;
+}
+.spinner2-container .ap__worm2 {
+  -webkit-animation-name: worm2;
+          animation-name: worm2;
+  visibility: hidden;
+}
+@media (prefers-color-scheme: dark) {
+  .spinner2-container :root {
+    --bg: hsl(var(--hue),10%,10%);
+    --fg: hsl(var(--hue),10%,90%);
+  }
+  .spinner2-container .ap__ring {
+    stroke: hsla(var(--hue), 10%, 90%, 0.1);
+  }
+}
+@-webkit-keyframes worm1 {
+  from {
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    stroke-dashoffset: -87.96;
+  }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    stroke-dashoffset: 0;
+  }
+  60% {
+    stroke-dashoffset: -791.68;
+    visibility: visible;
+  }
+  60.1%, to {
+    stroke-dashoffset: -791.68;
+    visibility: hidden;
+  }
+}
+@keyframes worm1 {
+  from {
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    stroke-dashoffset: -87.96;
+  }
+  20% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    stroke-dashoffset: 0;
+  }
+  60% {
+    stroke-dashoffset: -791.68;
+    visibility: visible;
+  }
+  60.1%, to {
+    stroke-dashoffset: -791.68;
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes worm2 {
+  from, 60% {
+    stroke-dashoffset: -87.96;
+    visibility: hidden;
+  }
+  60.1% {
+    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.5, 0.75);
+            animation-timing-function: cubic-bezier(0, 0, 0.5, 0.75);
+    stroke-dashoffset: -87.96;
+    visibility: visible;
+  }
+  77% {
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0.25, 0.5, 0.88);
+            animation-timing-function: cubic-bezier(0.5, 0.25, 0.5, 0.88);
+    stroke-dashoffset: -340;
+    visibility: visible;
+  }
+  to {
+    stroke-dashoffset: -669.92;
+    visibility: visible;
+  }
+}
+@keyframes worm2 {
+  from, 60% {
+    stroke-dashoffset: -87.96;
+    visibility: hidden;
+  }
+  60.1% {
+    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.5, 0.75);
+            animation-timing-function: cubic-bezier(0, 0, 0.5, 0.75);
+    stroke-dashoffset: -87.96;
+    visibility: visible;
+  }
+  77% {
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0.25, 0.5, 0.88);
+            animation-timing-function: cubic-bezier(0.5, 0.25, 0.5, 0.88);
+    stroke-dashoffset: -340;
+    visibility: visible;
+  }
+  to {
+    stroke-dashoffset: -669.92;
+    visibility: visible;
+  }
+}
+.spinner2-container.active {
+  display: block;
 }
