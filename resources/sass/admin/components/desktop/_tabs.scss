@@ -138,14 +138,138 @@
     }
 
     .tab-content {
-        padding: .6rem 1rem;
-        position: absolute;
-        width: 80%;
+        padding: .6rem 0;
+        width: 100%;
         display: none;
 
         &.active {
             display: block;
             background-color: #fff;
+        }
+
+        .images-forms-container{
+
+            display: flex;
+
+            .single-image {
+
+                width: 45%;
+
+                .image-label {
+    
+                    background: #1172c2;
+                    border-radius: 5px;
+                    color: #fff;
+                    cursor: pointer;
+                    display: block;
+                    font-size: 15px;
+                    font-weight: 600;
+                    margin: 0 auto;
+                    text-align: center;
+                    text-transform: Uppercase;
+                    text-align: center;
+                    width: 80%;
+    
+                    &.active {
+                        display: none;
+                    }
+                    
+                    svg {
+                        height: 5rem;
+                        width: 5rem;
+                    }
+                }
+    
+                .image-input {
+                    width: 0.1rem;
+                    height: 0.1rem;
+                    opacity: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: -1;
+                }
+    
+                .image-output-container {
+                    
+                    display: none;
+                    margin: 2rem 3rem;
+                    width: 10rem;
+    
+                    &.active {
+                        display: block;
+                    }
+    
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            
+            .multiple-images {
+
+                display: flex;
+                width: 45%;
+
+                .multiple-images-form {
+
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .images {
+
+                        display: flex;
+                        justify-content: start;
+                        flex-wrap: wrap;
+                        width: max-content;
+
+
+                        img {
+                            margin-bottom: .5rem;
+                            width: 30%;
+
+                            &.first-image {
+                                display: none;
+                            }
+                        }
+                 
+                    } 
+
+                    .add-image-button {
+    
+                        background: #1172c2;
+                        border-radius: 5px;
+                        color: #fff;
+                        cursor: pointer;
+                        font-size: 15px;
+                        font-weight: 600;
+                        height: 6rem;
+                        margin: 1.5%;
+                        text-align: center;
+                        text-transform: Uppercase;
+                        text-align: center;
+                        width: 6rem;
+        
+                        &.active {
+                            display: none;
+                        }
+                        
+                        svg {
+                            padding-top: .5rem;
+                            height: 5rem;
+                            width: 5rem;
+                        }
+                        
+                        .image-input {
+                            width: 0.1rem;
+                            height: 0.1rem;
+                            opacity: 0;
+                            overflow: hidden;
+                            position: absolute;
+                            z-index: -1;
+                        }
+                    } 
+                }
+            }
         }
     }
 }

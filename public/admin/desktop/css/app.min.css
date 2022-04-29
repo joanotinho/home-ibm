@@ -517,7 +517,6 @@ ol, ul {
 
 body {
   font-family: "Open Sans", sans-serif;
-  overflow: hidden;
 }
 body .container {
   display: flex;
@@ -837,14 +836,112 @@ body .container .editor-column.active {
   color: #D93025;
 }
 .tabs-container .tab-content {
-  padding: 0.6rem 1rem;
-  position: absolute;
-  width: 80%;
+  padding: 0.6rem 0;
+  width: 100%;
   display: none;
 }
 .tabs-container .tab-content.active {
   display: block;
   background-color: #fff;
+}
+.tabs-container .tab-content .images-forms-container {
+  display: flex;
+}
+.tabs-container .tab-content .images-forms-container .single-image {
+  width: 45%;
+}
+.tabs-container .tab-content .images-forms-container .single-image .image-label {
+  background: #1172c2;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: Uppercase;
+  text-align: center;
+  width: 80%;
+}
+.tabs-container .tab-content .images-forms-container .single-image .image-label.active {
+  display: none;
+}
+.tabs-container .tab-content .images-forms-container .single-image .image-label svg {
+  height: 5rem;
+  width: 5rem;
+}
+.tabs-container .tab-content .images-forms-container .single-image .image-input {
+  width: 0.1rem;
+  height: 0.1rem;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.tabs-container .tab-content .images-forms-container .single-image .image-output-container {
+  display: none;
+  margin: 2rem 3rem;
+  width: 10rem;
+}
+.tabs-container .tab-content .images-forms-container .single-image .image-output-container.active {
+  display: block;
+}
+.tabs-container .tab-content .images-forms-container .single-image .image-output-container img {
+  width: 100%;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images {
+  display: flex;
+  width: 45%;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images .multiple-images-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images .multiple-images-form .images {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images .multiple-images-form .images img {
+  margin-bottom: 0.5rem;
+  width: 30%;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images .multiple-images-form .images img.first-image {
+  display: none;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images .multiple-images-form .add-image-button {
+  background: #1172c2;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  height: 6rem;
+  margin: 1.5%;
+  text-align: center;
+  text-transform: Uppercase;
+  text-align: center;
+  width: 6rem;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images .multiple-images-form .add-image-button.active {
+  display: none;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images .multiple-images-form .add-image-button svg {
+  padding-top: 0.5rem;
+  height: 5rem;
+  width: 5rem;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images .multiple-images-form .add-image-button .image-input {
+  width: 0.1rem;
+  height: 0.1rem;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
 .locale-tabs-container {

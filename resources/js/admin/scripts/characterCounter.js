@@ -1,3 +1,5 @@
+import { max } from "lodash";
+
 export let characterCounter = () => {
     // const characterCounters = document.querySelectorAll('.character-counter');
     // const counterInputs = document.querySelectorAll('.counter-input');
@@ -29,34 +31,38 @@ export let characterCounter = () => {
     //     });
     // });
 
-    const characterCounterContainers = document.querySelectorAll('.character-counter-container');
-    const fieldInputs = document.querySelectorAll('.field-input');
 
-    characterCounterContainers.forEach(characterCounterContainer => {
+    const characterCounters = document.querySelectorAll('.character-counter');
+    
+    characterCounters.forEach(characterCounter => {
 
+        const field = characterCounter.closest('.field');
+        const counterInput = field.querySelector('.counter-input');
+        const maxLengthDisplay = field.querySelector('.max-length-display');
+    
 
-        const characterCounter = characterCounterContainer.querySelector('.character-counter');
-        const maxLengthDisplay = characterCounterContainer.querySelector('.max-length-display');
-        const counterInputs = document.querySelectorAll('.counter-input');
-        
-            counterInputs.forEach(counterInput => {
+        maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
+    
+    
+        counterInput.addEventListener('keydown', () => {
+    
+            // cuenta la longitud del input
+            const inputLength = counterInput.value.length;
 
-                maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
+            // define la longitud maxima del input, sacada del dataset
+            const maxLength = counterInput.dataset.maxLength;
 
-                counterInput.addEventListener('keydown', () => {
-
-                    const counterValue = counterInput.value.length;
-                    const maxLength = counterInput.dataset.maxLength;
-                    characterCounter.innerHTML = counterValue;
-
-                    if (counterValue >= maxLength) {
-                        
-                        characterCounter.classList.add('character-counter-max-value');
-                        counterInput.maxLength = counterValue;
-                    } else {
-                        characterCounter.classList.remove('character-counter-max-value');
-                    }
-                });
-            });
+            // imprimimos el valor del input en el contador
+            characterCounter.innerHTML = inputLength;
+    
+    
+            if(inputLength >= maxLength) {
+                characterCounter.classList.add('character-counter-max-value');
+                counterInput.maxLength = inputLength;
+            } else {
+                characterCounter.classList.remove('character-counter-max-value');
+            }
+        });
     });
+
 }

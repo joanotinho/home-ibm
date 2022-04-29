@@ -10,6 +10,7 @@ import { switchButton } from "./scripts/switchButton.js";
 import {userModification} from "./scripts/userModification";
 import {characterCounter} from "./scripts/characterCounter.js";
 import {savedChangesStatus} from "./scripts/savedChangesStatus.js";
+import {loadImage} from "./scripts/loadImage.js";
 
 ckeditor();
 cleanConfirmation();
@@ -21,3 +22,4 @@ switchButton();
 userModification();
 characterCounter();
 savedChangesStatus();
+loadImage();

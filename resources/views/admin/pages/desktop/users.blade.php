@@ -234,7 +234,7 @@
                 </div>
                 <div class="tabs-contents">
                     <div class="tab-content active" data-tab-content="content">
-                        <form method="POST" id="form" action="" class="admin-form">
+                        <form method="POST" id="form" action="" class="admin-form" autocomplete="off">
                             {{-- {{ csrf_field() }} --}}
                             
                             {{-- <input autocomplete="false" name="hidden" type="text" style="display:none;"> --}}
@@ -255,7 +255,7 @@
                                             </div>
                                         </div>
                                         <div class="field-input">
-                                            <input type="text" name="name" id="name" data-type="nombre" class="counter-input" data-max-length="100">
+                                            <input type="text" name="name" id="name" data-type="nombre" class="counter-input" data-max-length="3">
                                         </div>
                                         <div class="field-rule">
                                             <span>El nombre no puede estar vacío</span>
@@ -263,6 +263,7 @@
                                     </div>
                                 </div>
                                 <div class="column">
+
                                     <div class="field">
                                         <div class="field-label">
                                             <div class="label">
@@ -273,8 +274,9 @@
                                                 <span class="max-length-display"></span>
                                             </div>
                                         </div>
+
                                         <div class="field-input">
-                                            <input type="text" name="mail" id="mail" data-type="email">
+                                            <input type="text" name="mail" id="mail" data-type="email" data-max-length="10" class="counter-input">
                                         </div>
                                         
                                         <div class="field-rule">
@@ -283,7 +285,7 @@
                                     </div>
                                 </div>
                             </div>
-
+{{-- 
                             <div class="desktop-two-columns">
                                 <div class="column">
                                     <div class="field">
@@ -291,7 +293,7 @@
                                             <label for="">Contraseña</label>
                                         </div>
                                         <div class="field-input">
-                                            <input type="password" name="password" id="password" data-type="contraseña">
+                                            <input type="password" name="password" id="password" data-type="contraseña" data-max-length="100">
                                         </div>
                                         <div class="field-rule">
                                             <span>La contraseña debe contener al menos 8 carácteres, 1 número y un carácter especial</span>
@@ -304,14 +306,14 @@
                                             <label for="">Repite contraseña</label>
                                         </div>
                                         <div class="field-input">
-                                            <input type="password" name="password_confirmation" id="repeat-password">
+                                            <input type="password" name="password_confirmation" id="repeat-password" data-max-length="100">
                                         </div>
                                         <div class="field-rule">
                                             <span>Las contraseñas deben coincidir coinciden</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <div class="locale-tabs-container">
                                 <div class="tabs">
                                     <div class="locale-tab active" data-tab-target="spanish">
@@ -400,13 +402,47 @@
                         </form> --}}
                     </div>
                     <div class="tab-content" data-tab-content="images">
-                        
+                        <div class="images-forms-container">
+
+                            {{-- <div class="single-image">
+                                <form action="" class="single-image-form">
+                                    <div class="image-input-container">
+                                        <input type="file" data-input-image accept="image/*" class="image-input" name="single-image" id="single-image">
+                                    </div>
+                                    <div class="image-output-container">
+                                        <img alt="" class="image-output">
+                                    </div>
+                                    <div class="image-label">
+                                        <label for="single-image">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="currentColor" d="M19,19V5H5V19H19M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5C3,3.89 3.9,3 5,3H19M11,7H13V11H17V13H13V17H11V13H7V11H11V7Z" />
+                                            </svg>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div> --}}
+                            <div class="multiple-images">
+                                <form action="" class="multiple-images-form">
+                                    <div class="images">
+                                        <img src="" alt="" class="image-input first-image">
+                                        <div class="add-image-button">
+                                            <div class="image-input-container">
+                                                <input type="file" data-input-image accept="image/*" class="image-input" name="single-image" id="add-image">
+                                            </div>
+                                            <div class="image-label">
+                                                <label for="add-image">
+                                                    <svg viewBox="0 0 24 24">
+                                                        <path fill="currentColor" d="M19,19V5H5V19H19M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5C3,3.89 3.9,3 5,3H19M11,7H13V11H17V13H13V17H11V13H7V11H11V7Z" />
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-content" data-tab-content="seo">
-                        <span>
-                            1984 de George Orwell es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.
-                            La novela es una de las obras más icónicas del siglo XX por su denuncia de prácticas establecidas por gobiernos como los de Franco y Stalin, las cuales han sido adoptadas por muchos dictadores a lo largo de la historia.
-                        </span>
                     </div>
                 </div>
             </div>
