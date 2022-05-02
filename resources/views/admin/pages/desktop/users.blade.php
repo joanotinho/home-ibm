@@ -233,198 +233,178 @@
                     </div>
                 </div>
                 <div class="tabs-contents">
-                    <div class="tab-content active" data-tab-content="content">
-                        <form method="POST" id="form" action="" class="admin-form" autocomplete="off">
-                            {{-- {{ csrf_field() }} --}}
-                            
-                            {{-- <input autocomplete="false" name="hidden" type="text" style="display:none;"> --}}
-                            {{-- <input type="hidden" name="id" value="{{isset($user->id) ? $user->id : ''}}"> --}}
+                    <form method="POST" id="form" action="" class="admin-form" autocomplete="off">
+                        <div class="tab-content active" data-tab-content="content">
+                                {{-- {{ csrf_field() }} --}}
+                                
+                                {{-- <input autocomplete="false" name="hidden" type="text" style="display:none;"> --}}
+                                {{-- <input type="hidden" name="id" value="{{isset($user->id) ? $user->id : ''}}"> --}}
 
-                            <div class="errors-container"></div>
+                                <div class="errors-container"></div>
 
-                            <div class="desktop-two-columns">
-                                <div class="column">
-                                    <div class="field">
-                                        <div class="field-label">
-                                            <div class="label">
-                                                <label for="">Nombre</label>
+                                <div class="desktop-two-columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <div class="field-label">
+                                                <div class="label">
+                                                    <label for="">Nombre</label>
+                                                </div>
+                                                <div class="character-counter-container">
+                                                    <span class="character-counter">0</span>
+                                                    <span class="max-length-display"></span>
+                                                </div>
                                             </div>
-                                            <div class="character-counter-container">
-                                                <span class="character-counter">0</span>
-                                                <span class="max-length-display"></span>
+                                            <div class="field-input">
+                                                <input type="text" name="name" id="name" data-type="nombre" class="counter-input" data-max-length="3">
                                             </div>
-                                        </div>
-                                        <div class="field-input">
-                                            <input type="text" name="name" id="name" data-type="nombre" class="counter-input" data-max-length="3">
-                                        </div>
-                                        <div class="field-rule">
-                                            <span>El nombre no puede estar vacío</span>
+                                            <div class="field-rule">
+                                                <span>El nombre no puede estar vacío</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="column">
+                                    <div class="column">
 
-                                    <div class="field">
-                                        <div class="field-label">
-                                            <div class="label">
-                                                <label for="">Email</label>
+                                        <div class="field">
+                                            <div class="field-label">
+                                                <div class="label">
+                                                    <label for="">Email</label>
+                                                </div>
+                                                <div class="character-counter-container">
+                                                    <span class="character-counter">0</span>
+                                                    <span class="max-length-display"></span>
+                                                </div>
                                             </div>
-                                            <div class="character-counter-container">
-                                                <span class="character-counter">0</span>
-                                                <span class="max-length-display"></span>
-                                            </div>
-                                        </div>
 
-                                        <div class="field-input">
-                                            <input type="text" name="mail" id="mail" data-type="email" data-max-length="10" class="counter-input">
-                                        </div>
-                                        
-                                        <div class="field-rule">
-                                            <span>El email no puede estar vacío</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-{{-- 
-                            <div class="desktop-two-columns">
-                                <div class="column">
-                                    <div class="field">
-                                        <div class="field-label">
-                                            <label for="">Contraseña</label>
-                                        </div>
-                                        <div class="field-input">
-                                            <input type="password" name="password" id="password" data-type="contraseña" data-max-length="100">
-                                        </div>
-                                        <div class="field-rule">
-                                            <span>La contraseña debe contener al menos 8 carácteres, 1 número y un carácter especial</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="field">
-                                        <div class="field-label">
-                                            <label for="">Repite contraseña</label>
-                                        </div>
-                                        <div class="field-input">
-                                            <input type="password" name="password_confirmation" id="repeat-password" data-max-length="100">
-                                        </div>
-                                        <div class="field-rule">
-                                            <span>Las contraseñas deben coincidir coinciden</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="locale-tabs-container">
-                                <div class="tabs">
-                                    <div class="locale-tab active" data-tab-target="spanish">
-                                        <span>Español</span>
-                                    </div>
-                                </div>
-                                <div class="tabs-contents">
-                                    <div class="locale-tab-content active" data-tab-content="spanish">
-                                        <form action="">
-                                            <div class="field">
-                                                <label for="">Título</label>
-                                                <input type="text" name="" id="">
+                                            <div class="field-input">
+                                                <input type="text" name="mail" id="mail" data-type="email" data-max-length="10" class="counter-input">
                                             </div>
-                                            <div class="field">
-                                                <label for="">Descripción</label>
-                                                <textarea name="content" id="" class="ckeditor">
-                                                    
-                                                </textarea>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>       --}}
-
-                            <x-savedChangesStatus></x-savedChangesStatus>
-                        </form>
-                        {{-- <form method="POST" action="" id="form" class="front-form">
-                            <div class="errors-container parent">
-                                <div class="close-button">
-                                    <svg viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="desktop-two-columns mobile-single-column">
-                                <div class="column">
-                                    <div class="contact-form-item">
-                                        <input type="text" name="name" id="name" placeholder="Nombre:" data-type="nombre">
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="contact-form-item">
-                                        <input type="text" name="surnames" id="surname" placeholder="Apellidos:" data-type="apellidos">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="desktop-two-columns mobile-single-column">
-                                <div class="column">
-                                    <div class="contact-form-item">
-                                        <input type="text" name="mail" id="mail" placeholder="Email:" data-type="email">
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="contact-form-item">
-                                        <input type="text" name="telephone" id="telephone" placeholder="Número de teléfono:" data-type="telefono">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="desktop-single-column mobile-single-column">
-                                <div class="column">
-                                    <div class="contact-form-item">
-                                        <textarea id="editor1" name="content"ckeditor" data-type="comentario">
                                             
-                                        </textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="desktop-single-column mobile-single-column">
-                                <div class="column">
-                                    <div class="contact-form-item">
-                                        <textarea id="editor2" name="content2"ckeditor" data-type="comentariofeo">
-                                            
-                                        </textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="desktop-single-column mobile-single-column">
-                                <div class="column">
-                                    <div class="contact-form-item">
-                                        <div class="contact-form-item-button" id="submit">
-                                            <button type="submit" id="button" class="submit-button">Enviar</button>
+                                            <div class="field-rule">
+                                                <span>El email no puede estar vacío</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form> --}}
-                    </div>
-                    <div class="tab-content" data-tab-content="images">
-                        <div class="images-forms-container">
+    
+                                {{-- <div class="desktop-two-columns">
+                                    <div class="column">
+                                        <div class="field">
+                                            <div class="field-label">
+                                                <label for="">Contraseña</label>
+                                            </div>
+                                            <div class="field-input">
+                                                <input type="password" name="password" id="password" data-type="contraseña" data-max-length="100">
+                                            </div>
+                                            <div class="field-rule">
+                                                <span>La contraseña debe contener al menos 8 carácteres, 1 número y un carácter especial</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="field">
+                                            <div class="field-label">
+                                                <label for="">Repite contraseña</label>
+                                            </div>
+                                            <div class="field-input">
+                                                <input type="password" name="password_confirmation" id="repeat-password" data-max-length="100">
+                                            </div>
+                                            <div class="field-rule">
+                                                <span>Las contraseñas deben coincidir coinciden</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                                {{-- <div class="locale-tabs-container">
+                                    <div class="tabs">
+                                        <div class="locale-tab active" data-tab-target="spanish">
+                                            <span>Español</span>
+                                        </div>
+                                    </div>
+                                    <div class="tabs-contents">
+                                        <div class="locale-tab-content active" data-tab-content="spanish">
+                                            <form action="">
+                                                <div class="field">
+                                                    <label for="">Título</label>
+                                                    <input type="text" name="" id="">
+                                                </div>
+                                                <div class="field">
+                                                    <label for="">Descripción</label>
+                                                    <textarea name="content" id="" class="ckeditor">
+                                                        
+                                                    </textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>       --}}
 
-                            {{-- <div class="single-image">
-                                <form action="" class="single-image-form">
-                                    <div class="image-input-container">
-                                        <input type="file" data-input-image accept="image/*" class="image-input" name="single-image" id="single-image">
+                                <x-savedChangesStatus></x-savedChangesStatus>
+                            {{-- <form method="POST" action="" id="form" class="front-form">
+                                <div class="errors-container parent">
+                                    <div class="close-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" />
+                                        </svg>
                                     </div>
-                                    <div class="image-output-container">
-                                        <img alt="" class="image-output">
+                                </div>
+                                <div class="desktop-two-columns mobile-single-column">
+                                    <div class="column">
+                                        <div class="contact-form-item">
+                                            <input type="text" name="name" id="name" placeholder="Nombre:" data-type="nombre">
+                                        </div>
                                     </div>
-                                    <div class="image-label">
-                                        <label for="single-image">
-                                            <svg viewBox="0 0 24 24">
-                                                <path fill="currentColor" d="M19,19V5H5V19H19M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5C3,3.89 3.9,3 5,3H19M11,7H13V11H17V13H13V17H11V13H7V11H11V7Z" />
-                                            </svg>
-                                        </label>
+                                    <div class="column">
+                                        <div class="contact-form-item">
+                                            <input type="text" name="surnames" id="surname" placeholder="Apellidos:" data-type="apellidos">
+                                        </div>
                                     </div>
-                                </form>
-                            </div> --}}
-                            <div class="multiple-images">
-                                <form action="" class="multiple-images-form">
+                                </div>
+                                <div class="desktop-two-columns mobile-single-column">
+                                    <div class="column">
+                                        <div class="contact-form-item">
+                                            <input type="text" name="mail" id="mail" placeholder="Email:" data-type="email">
+                                        </div>
+                                    </div>
+                                    <div class="column">
+                                        <div class="contact-form-item">
+                                            <input type="text" name="telephone" id="telephone" placeholder="Número de teléfono:" data-type="telefono">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="desktop-single-column mobile-single-column">
+                                    <div class="column">
+                                        <div class="contact-form-item">
+                                            <textarea id="editor1" name="content"ckeditor" data-type="comentario">
+                                                
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="desktop-single-column mobile-single-column">
+                                    <div class="column">
+                                        <div class="contact-form-item">
+                                            <textarea id="editor2" name="content2"ckeditor" data-type="comentariofeo">
+                                                
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="desktop-single-column mobile-single-column">
+                                    <div class="column">
+                                        <div class="contact-form-item">
+                                            <div class="contact-form-item-button" id="submit">
+                                                <button type="submit" id="button" class="submit-button">Enviar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form> --}}
+                        </div>
+                        <div class="tab-content" data-tab-content="images">
+                            <div class="images-forms-container">
+
+                                {{-- <div class="multiple-images">
                                     <div class="images">
-                                        <img src="" alt="" class="image-input first-image">
                                         <div class="add-image-button">
                                             <div class="image-input-container">
                                                 <input type="file" data-input-image accept="image/*" class="image-input" name="single-image" id="add-image">
@@ -437,13 +417,30 @@
                                                 </label>
                                             </div>
                                         </div>
+
+                                        <img src="" alt="" class="image first-image">
                                     </div>
-                                </form>
+                                </div> --}}
+
+                                <div class="images-container">
+                                    <div class="image-container first-image-container">
+                                        <div class="add-image-button">
+                                            <input type="file" data-input-image accept="image/*" class="image-input">
+                                            <label class="image-label" for="">
+                                                <svg viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="M19,19V5H5V19H19M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5C3,3.89 3.9,3 5,3H19M11,7H13V11H17V13H13V17H11V13H7V11H11V7Z" />
+                                                </svg>
+                                            </label>
+                                        </div>
+
+                                        <img src="" alt="" class="image">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-content" data-tab-content="seo">
-                    </div>
+                        <div class="tab-content" data-tab-content="seo">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

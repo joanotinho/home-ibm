@@ -2215,46 +2215,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "characterCounter": () => (/* binding */ characterCounter)
 /* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
-
 var characterCounter = function characterCounter() {
-  // const characterCounters = document.querySelectorAll('.character-counter');
-  // const counterInputs = document.querySelectorAll('.counter-input');
-  // const maxLengthDisplays = document.querySelectorAll('.max-length-display');
-  // characterCounters.forEach(characterCounter => {
-  //     counterInputs.forEach(counterInput => {
-  //         maxLengthDisplays.forEach(maxLengthDisplay => {
-  //             maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
-  //         });
-  //         counterInput.addEventListener('keydown', () => {
-  //             const counterValue = counterInput.value.length;
-  //             const maxLength = counterInput.dataset.maxLength;
-  //             characterCounter.innerHTML = counterValue;
-  //             if (counterValue >= maxLength) {
-  //                 characterCounter.classList.add('character-counter-max-value');
-  //                 counterInput.maxLength = counterValue;
-  //             } else {
-  //                 characterCounter.classList.remove('character-counter-max-value');
-  //             }
-  //         });
-  //     });
-  // });
   var characterCounters = document.querySelectorAll('.character-counter');
   characterCounters.forEach(function (characterCounter) {
     var field = characterCounter.closest('.field');
     var counterInput = field.querySelector('.counter-input');
     var maxLengthDisplay = field.querySelector('.max-length-display');
     maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
-    counterInput.addEventListener('keydown', function () {
+    counterInput.addEventListener('input', function () {
       // cuenta la longitud del input
       var inputLength = counterInput.value.length; // define la longitud maxima del input, sacada del dataset
 
-      var maxLength = counterInput.dataset.maxLength; // imprimimos el valor del input en el contador
+      var inputMaxLength = counterInput.dataset.maxLength; // imprimimos el valor del input en el contador
 
       characterCounter.innerHTML = inputLength;
 
-      if (inputLength >= maxLength) {
+      if (inputLength >= inputMaxLength) {
         characterCounter.classList.add('character-counter-max-value');
         counterInput.maxLength = inputLength;
       } else {
@@ -2390,33 +2366,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "loadImage": () => (/* binding */ loadImage)
 /* harmony export */ });
 var loadImage = function loadImage() {
-  // const imageLabel = document.querySelector('.image-label');
-  // const imageInput = document.querySelector('.image-input');
-  // const imageOutput = document.querySelector('.image-output');
-  // imageInput.addEventListener('change', (event) => {
-  // imageOutput.src = URL.createObjectURL(event.target.files[0]);
-  //     imageOutput.parentNode.classList.add('active');
-  // })
+  // const imageInputs = document.querySelectorAll('.image-input');
+  // imageInputs.forEach(imageInput => {
+  //     const multipleImages = imageInput.closest('.multiple-images');
+  //     const imagesContainer = multipleImages.querySelector('.images');
+  //     const firstImage = multipleImages.querySelector('.first-image');
+  //     // const firstImage = multipleImagesForm.querySelector('.last-image');
+  //     imageInput.addEventListener('change', (event) => {
+  //         firstImage.cloneNode(false);
+  //         const clone = firstImage.cloneNode(true);
+  //         clone.classList.remove('first-image');
+  //         imagesContainer.appendChild(clone);
+  //         clone.src = URL.createObjectURL(event.target.files[0]);
+  //         console.log(clone);
+  //     });
+  //     if (firstImage){
+  //         console.log(firstImage)
+  //     } else {
+  //         alert("no existe")
+  //     }
+  // });
   var imageInputs = document.querySelectorAll('.image-input');
   imageInputs.forEach(function (imageInput) {
-    var multipleImagesForm = imageInput.closest('.multiple-images-form');
-    var imagesContainer = multipleImagesForm.querySelector('.images');
-    var lastImage = multipleImagesForm.querySelector('.first-image'); // const firstImage = multipleImagesForm.querySelector('.last-image');
-
+    var imagesContainer = imageInput.closest('.images-container');
+    var firstImageContainer = imagesContainer.querySelector('.first-image-container');
     imageInput.addEventListener('change', function (event) {
-      setTimeout(function () {}, 2000);
-      lastImage.cloneNode(true);
-      var clone = lastImage.cloneNode(true);
-      clone.classList.remove('first-image');
-      imagesContainer.appendChild(clone);
-      clone.src = URL.createObjectURL(event.target.files[0]);
+      if (event.target.files[0]) {
+        var clonedInput = firstImageContainer.querySelector('.image-input');
+        var clonedLabel = firstImageContainer.querySelector('.image-label');
+        var clone = firstImageContainer.cloneNode(true);
+        var clonedImage = clone.querySelector('.image');
+        clone.classList.remove('first-image-container');
+        clonedImage.classList.add('cloned-image');
+        imagesContainer.appendChild(clone);
+        clonedImage.src = URL.createObjectURL(event.target.files[0]);
+        var randomId = Math.floor(Math.random() * (1000000 - 1)) + 1;
+        clonedInput.name = "images-" + randomId;
+        clonedLabel.htmlFor = randomId;
+        console.log(randomId);
+      } else {
+        console.log("no hay archivo");
+      }
     });
-
-    if (lastImage) {
-      console.log(lastImage);
-    } else {
-      alert("no existe");
-    }
   });
 };
 

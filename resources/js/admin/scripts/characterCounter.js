@@ -1,36 +1,4 @@
-import { max } from "lodash";
-
 export let characterCounter = () => {
-    // const characterCounters = document.querySelectorAll('.character-counter');
-    // const counterInputs = document.querySelectorAll('.counter-input');
-    // const maxLengthDisplays = document.querySelectorAll('.max-length-display');
-
-    
-    // characterCounters.forEach(characterCounter => {
-
-    //     counterInputs.forEach(counterInput => {
-
-    //         maxLengthDisplays.forEach(maxLengthDisplay => {
-    //             maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
-    //         });
-
-    //         counterInput.addEventListener('keydown', () => {
-
-    //             const counterValue = counterInput.value.length;
-    //             const maxLength = counterInput.dataset.maxLength;
-    //             characterCounter.innerHTML = counterValue;
-
-    //             if (counterValue >= maxLength) {
-                    
-    //                 characterCounter.classList.add('character-counter-max-value');
-    //                 counterInput.maxLength = counterValue;
-    //             } else {
-    //                 characterCounter.classList.remove('character-counter-max-value');
-    //             }
-    //         });
-    //     });
-    // });
-
 
     const characterCounters = document.querySelectorAll('.character-counter');
     
@@ -44,19 +12,18 @@ export let characterCounter = () => {
         maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
     
     
-        counterInput.addEventListener('keydown', () => {
+        counterInput.addEventListener('input', () => {
     
             // cuenta la longitud del input
             const inputLength = counterInput.value.length;
 
             // define la longitud maxima del input, sacada del dataset
-            const maxLength = counterInput.dataset.maxLength;
+            const inputMaxLength = counterInput.dataset.maxLength;
 
             // imprimimos el valor del input en el contador
             characterCounter.innerHTML = inputLength;
     
-    
-            if(inputLength >= maxLength) {
+            if(inputLength >= inputMaxLength) {
                 characterCounter.classList.add('character-counter-max-value');
                 counterInput.maxLength = inputLength;
             } else {
@@ -64,5 +31,4 @@ export let characterCounter = () => {
             }
         });
     });
-
 }

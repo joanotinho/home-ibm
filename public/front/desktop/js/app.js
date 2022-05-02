@@ -2280,7 +2280,7 @@ function closeElement() {
   var parent = document.querySelector(".parent");
   var elements = document.querySelectorAll('.required');
 
-  if (closeButton != null) {
+  if (closeButton) {
     closeButton.addEventListener('click', function () {
       parent.classList.remove('active');
       elements.forEach(function (element) {

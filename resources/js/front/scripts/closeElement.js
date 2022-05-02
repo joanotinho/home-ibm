@@ -3,7 +3,7 @@ export function closeElement() {
     const parent = document.querySelector(".parent");
     const elements = document.querySelectorAll('.required');
 
-    if (closeButton != null) {
+    if (closeButton) {
         closeButton.addEventListener('click', () => {
             parent.classList.remove('active');
             elements.forEach(element => {
