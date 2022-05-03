@@ -2188,7 +2188,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/form.js */ "./resources/js/front/scripts/form.js");
 /* harmony import */ var _scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/closeElement.js */ "./resources/js/front/scripts/closeElement.js");
 /* harmony import */ var _scripts_productDescription_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/productDescription.js */ "./resources/js/front/scripts/productDescription.js");
+/* harmony import */ var _scripts_notification_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/notification.js */ "./resources/js/front/scripts/notification.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/front/bootstrap.js");
+
 
 
 
@@ -2204,6 +2206,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/front/bootstrap.js");
 (0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_3__.ckeditor)();
 (0,_scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_5__.closeElement)();
 (0,_scripts_productDescription_js__WEBPACK_IMPORTED_MODULE_6__.productDescription)();
+(0,_scripts_notification_js__WEBPACK_IMPORTED_MODULE_7__.notification)();
 
 /***/ }),
 
@@ -2393,6 +2396,34 @@ function menuButton() {
     menu.classList.toggle("active");
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/front/scripts/notification.js":
+/*!****************************************************!*\
+  !*** ./resources/js/front/scripts/notification.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "notification": () => (/* binding */ notification)
+/* harmony export */ });
+var notification = function notification() {
+  var notificationContainer = document.querySelector('.notification-container');
+  var notificationTitle = document.querySelector('.notification-title');
+  var notificationDescription = document.querySelector('.notification-description');
+  notificationContainer.classList.add('visible');
+
+  if (notificationContainer.classList.contains('success')) {
+    notificationTitle.innerHTML = 'Saved changes';
+    notificationDescription.innerHTML = 'Your changes have been saved successfully';
+  } else if (notificationContainer.classList.contains('error')) {
+    notificationTitle.innerHTML = 'Error';
+    notificationDescription.innerHTML = 'Your changes have not been saved successfully';
+  }
+};
 
 /***/ }),
 

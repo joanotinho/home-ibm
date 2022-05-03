@@ -84,6 +84,10 @@
                     margin-top: .1rem;
                     overflow: hidden;
                     width: 3.1rem;
+
+                    .on-off-switch-form {
+                        display: none;
+                    }
     
                     .on-off-switch-items {
                         
@@ -212,6 +216,7 @@
                     height: 6rem;
                     margin: 1.5%;
                     position: relative;
+                    text-align: center;
                     width: 6rem;
     
                     &.active {

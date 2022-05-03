@@ -11,6 +11,7 @@ import {userModification} from "./scripts/userModification";
 import {characterCounter} from "./scripts/characterCounter.js";
 import {savedChangesStatus} from "./scripts/savedChangesStatus.js";
 import {loadImage} from "./scripts/loadImage.js";
+import {nestedSort} from "./scripts/nestedSort.js";
 
 ckeditor();
 cleanConfirmation();
@@ -23,3 +24,4 @@ userModification();
 characterCounter();
 savedChangesStatus();
 loadImage();
+nestedSort();

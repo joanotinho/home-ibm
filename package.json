@@ -24,6 +24,7 @@
         "@ckeditor/ckeditor5-essentials": "^34.0.0",
         "ckeditor5": "^34.0.0",
         "just-validate": "^3.5.1",
-        "mix": "^0.0.1"
+        "mix": "^0.0.1",
+        "nested-sort": "^5.1.0"
     }
 }

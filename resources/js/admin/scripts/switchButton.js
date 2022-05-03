@@ -1,21 +1,15 @@
 export let switchButton = () => {
     
-    const switchButtons = document.querySelectorAll('.on-off-switch');
-    const switchItems = document.querySelectorAll('.on-off-switch-items');
     const icons = document.querySelectorAll('.icon');
 
+    icons.forEach(icon => {
 
-    switchButtons.forEach(switchButton => {
+        const onOffSwitchContainer = icon.closest('.on-off-switch');
+        const switchInput = onOffSwitchContainer.querySelector('.on-off-switch-input');
 
-        icons.forEach(icon => {
-
-            icon.addEventListener('click', () => {
-
-                switchItems.forEach(switchItem => {
-                    
-                    switchButton.classList.toggle('active');
-                });
-            });
+        icon.addEventListener('click', () => {
+            switchInput.checked = !switchInput.checked;
+            onOffSwitchContainer.classList.toggle('active');
         });
     });
 }

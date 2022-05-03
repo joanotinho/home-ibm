@@ -7,6 +7,7 @@ import {ckeditor} from "./scripts/ckeditor.js";
 import {renderForm} from "./scripts/form.js";
 import {closeElement} from "./scripts/closeElement.js";
 import {productDescription} from "./scripts/productDescription.js";
+import {notification} from "./scripts/notification.js";
 
 menuButton();
 plusMinusButton();
@@ -15,3 +16,4 @@ renderForm();
 ckeditor();
 closeElement();
 productDescription();
+notification();

@@ -93,4 +93,5 @@
             </div>
         </div>
     </div>
+    <x-notification></x-notification>
 @endsection

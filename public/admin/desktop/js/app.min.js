@@ -2366,47 +2366,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "loadImage": () => (/* binding */ loadImage)
 /* harmony export */ });
 var loadImage = function loadImage() {
-  // const imageInputs = document.querySelectorAll('.image-input');
-  // imageInputs.forEach(imageInput => {
-  //     const multipleImages = imageInput.closest('.multiple-images');
-  //     const imagesContainer = multipleImages.querySelector('.images');
-  //     const firstImage = multipleImages.querySelector('.first-image');
-  //     // const firstImage = multipleImagesForm.querySelector('.last-image');
-  //     imageInput.addEventListener('change', (event) => {
-  //         firstImage.cloneNode(false);
-  //         const clone = firstImage.cloneNode(true);
-  //         clone.classList.remove('first-image');
-  //         imagesContainer.appendChild(clone);
-  //         clone.src = URL.createObjectURL(event.target.files[0]);
-  //         console.log(clone);
-  //     });
-  //     if (firstImage){
-  //         console.log(firstImage)
-  //     } else {
-  //         alert("no existe")
-  //     }
-  // });
   var imageInputs = document.querySelectorAll('.image-input');
   imageInputs.forEach(function (imageInput) {
     var imagesContainer = imageInput.closest('.images-container');
-    var firstImageContainer = imagesContainer.querySelector('.first-image-container');
+    var imageContainer = imagesContainer.querySelector('.image-container');
     imageInput.addEventListener('change', function (event) {
-      if (event.target.files[0]) {
-        var clonedInput = firstImageContainer.querySelector('.image-input');
-        var clonedLabel = firstImageContainer.querySelector('.image-label');
-        var clone = firstImageContainer.cloneNode(true);
-        var clonedImage = clone.querySelector('.image');
-        clone.classList.remove('first-image-container');
-        clonedImage.classList.add('cloned-image');
-        imagesContainer.appendChild(clone);
-        clonedImage.src = URL.createObjectURL(event.target.files[0]);
-        var randomId = Math.floor(Math.random() * (1000000 - 1)) + 1;
-        clonedInput.name = "images-" + randomId;
-        clonedLabel.htmlFor = randomId;
-        console.log(randomId);
-      } else {
-        console.log("no hay archivo");
-      }
+      var clone = imageContainer.cloneNode(true);
+      var clonedInput = clone.querySelector('.image-input');
+      var clonedImage = clone.querySelector('.image');
+      var clonedLabel = clone.querySelector('.image-label');
+      clone.classList.remove('first-image-container');
+      clonedImage.classList.add('cloned-image');
+      imagesContainer.appendChild(clone);
+      clonedImage.src = URL.createObjectURL(event.target.files[0]);
+      var randomId = Math.floor(Math.random() * (1000000 - 1)) + 1;
+      clonedInput.name = "images-" + randomId;
+      clonedLabel.htmlFor = randomId;
+      console.log(randomId);
     });
   });
 };
@@ -2468,6 +2444,65 @@ function menuButton() {
 
 /***/ }),
 
+/***/ "./resources/js/admin/scripts/nestedSort.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/scripts/nestedSort.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "nestedSort": () => (/* binding */ nestedSort)
+/* harmony export */ });
+var nestedSort = function nestedSort() {
+  new NestedSort({
+    data: [{
+      id: 1,
+      text: "Item 1"
+    }, {
+      id: 11,
+      text: "Item 1-1",
+      parent: 1
+    }, {
+      id: 2,
+      text: "Item 2"
+    }, {
+      id: 3,
+      text: "Item 3"
+    }, {
+      id: 111,
+      text: "Item 1-1-1",
+      parent: 11
+    }, {
+      id: 112,
+      text: "Item 1-1-2",
+      parent: 11
+    }, {
+      id: 31,
+      text: "Item 3-1",
+      parent: 3
+    }],
+    actions: {
+      onDrop: function onDrop(data) {
+        // receives the new list structure JSON after dropping an item
+        console.log(data);
+      }
+    },
+    el: '#nested-sort',
+    // a wrapper for the dynamically generated list element
+    listClassNames: ['nested-sort'],
+    // an array of custom class names for the dynamically generated list element
+    renderListItem: function renderListItem(el, _ref) {
+      var id = _ref.id;
+      if (id === 2) el.textContent += ' (this is a custom rendered item)';
+      return el;
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin/scripts/savedChangesStatus.js":
 /*!**********************************************************!*\
   !*** ./resources/js/admin/scripts/savedChangesStatus.js ***!
@@ -2508,16 +2543,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "switchButton": () => (/* binding */ switchButton)
 /* harmony export */ });
 var switchButton = function switchButton() {
-  var switchButtons = document.querySelectorAll('.on-off-switch');
-  var switchItems = document.querySelectorAll('.on-off-switch-items');
   var icons = document.querySelectorAll('.icon');
-  switchButtons.forEach(function (switchButton) {
-    icons.forEach(function (icon) {
-      icon.addEventListener('click', function () {
-        switchItems.forEach(function (switchItem) {
-          switchButton.classList.toggle('active');
-        });
-      });
+  icons.forEach(function (icon) {
+    var onOffSwitchContainer = icon.closest('.on-off-switch');
+    var switchInput = onOffSwitchContainer.querySelector('.on-off-switch-input');
+    icon.addEventListener('click', function () {
+      switchInput.checked = !switchInput.checked;
+      onOffSwitchContainer.classList.toggle('active');
     });
   });
 };
@@ -20120,7 +20152,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_characterCounter_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/characterCounter.js */ "./resources/js/admin/scripts/characterCounter.js");
 /* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/admin/scripts/savedChangesStatus.js");
 /* harmony import */ var _scripts_loadImage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./scripts/loadImage.js */ "./resources/js/admin/scripts/loadImage.js");
+/* harmony import */ var _scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scripts/nestedSort.js */ "./resources/js/admin/scripts/nestedSort.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
+
 
 
 
@@ -20144,6 +20178,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
 (0,_scripts_characterCounter_js__WEBPACK_IMPORTED_MODULE_8__.characterCounter)();
 (0,_scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_9__.savedChangesStatus)();
 (0,_scripts_loadImage_js__WEBPACK_IMPORTED_MODULE_10__.loadImage)();
+(0,_scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__.nestedSort)();
 })();
 
 /******/ })()

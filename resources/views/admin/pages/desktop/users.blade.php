@@ -179,7 +179,7 @@
 
                     <div class="tabs-left">    
                         
-                        <div class="tab active" data-tab-target="content">
+                        <div class="tab" data-tab-target="content">
                             <span>Descripción</span>
                         </div>
 
@@ -187,7 +187,7 @@
                             <span>Opiniones</span>
                         </div>
                         
-                        <div class="tab" data-tab-target="seo">
+                        <div class="tab active" data-tab-target="seo">
                             <span>Especificaciones</span>
                         </div>
                     </div>
@@ -213,6 +213,9 @@
                         </div>
                         <div class="tabs-right-item">
                             <div class="on-off-switch">
+                                <div class="on-off-switch-form">
+                                    <input type="checkbox" name="" id="" checked class="on-off-switch-input">
+                                </div>
                                 <div class="on-off-switch-items">
                                     <div class="on">
                                         <span>ON</span>
@@ -234,7 +237,7 @@
                 </div>
                 <div class="tabs-contents">
                     <form method="POST" id="form" action="" class="admin-form" autocomplete="off">
-                        <div class="tab-content active" data-tab-content="content">
+                        <div class="tab-content" data-tab-content="content">
                                 {{-- {{ csrf_field() }} --}}
                                 
                                 {{-- <input autocomplete="false" name="hidden" type="text" style="display:none;"> --}}
@@ -425,7 +428,7 @@
                                 <div class="images-container">
                                     <div class="image-container first-image-container">
                                         <div class="add-image-button">
-                                            <input type="file" data-input-image accept="image/*" class="image-input">
+                                            <input type="file" accept="image/*" class="image-input" name="">
                                             <label class="image-label" for="">
                                                 <svg viewBox="0 0 24 24">
                                                     <path fill="currentColor" d="M19,19V5H5V19H19M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5C3,3.89 3.9,3 5,3H19M11,7H13V11H17V13H13V17H11V13H7V11H11V7Z" />
@@ -438,7 +441,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-content" data-tab-content="seo">
+                        <div class="tab-content active" data-tab-content="seo">
+                            <div class="nested-sort">
+                                <div data-id="1" class="nested-sort-item" data-name="Inicio">Inicio</div>
+                                <div data-id="2" class="nested-sort-item" data-name="Tienda">Tienda</div>
+                                <div data-id="3" class="nested-sort-item" data-name="Contacto">Contacto</div>
+                            </div>
+                            {{-- <ol class="nested-sort">
+                                <li id="1" class="nested-sort-item" data-name="Inicio">Inicio</li>
+                                <li id="2" class="nested-sort-item" data-name="Tienda">Tienda</li>
+                                <li id="3" class="nested-sort-item" data-name="Contacto">Contacto</li>
+                            </ol> --}}
                         </div>
                     </form>
                 </div>
