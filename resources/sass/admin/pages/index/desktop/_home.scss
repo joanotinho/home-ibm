@@ -12,6 +12,26 @@ body {
             border: 1px solid #ccc;
             margin-top: 1rem;
             width: 30%;
+
+            .sorting-button {
+
+                text-align: right;
+
+                button {
+                
+                    background: #1172c2;
+                    border: none;
+                    border-radius: 5px;
+                    color: #fff;
+                    cursor: pointer;
+                    font-weight: 600;
+                    margin: 1.5%;
+                    position: relative;
+                    text-align: center;
+                    width: 50%;
+                }
+            }
+            
     
             .user {
     

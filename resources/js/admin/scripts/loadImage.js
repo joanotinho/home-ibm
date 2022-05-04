@@ -6,6 +6,14 @@
 
         const imagesContainer = imageInput.closest('.images-container');
         const imageContainer = imagesContainer.querySelector('.image-container');
+        const clonedDelete = imageContainer.querySelector('.delete-image');
+        
+        let deleteButton = () => {
+            
+            if (!imageContainer.classList.contains('first-image-container')) {
+                alert("hola")
+            }
+        }
 
         imageInput.addEventListener('change', (event) => {
 
@@ -14,7 +22,9 @@
             const clonedImage = clone.querySelector('.image');
             const clonedLabel = clone.querySelector('.image-label');
 
+
             clone.classList.remove('first-image-container');
+            clone.classList.add('not-first-image-container');
             clonedImage.classList.add('cloned-image');
 
             imagesContainer.appendChild(clone);
@@ -25,6 +35,8 @@
             clonedInput.name = "images-" + randomId;
             clonedLabel.htmlFor = randomId;
             console.log(randomId);
+
+            deleteButton();
         });
     });
 }

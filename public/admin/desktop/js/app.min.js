@@ -2306,6 +2306,34 @@ var cleanConfirmation = function cleanConfirmation() {
 
 /***/ }),
 
+/***/ "./resources/js/admin/scripts/filter.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/scripts/filter.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "filter": () => (/* binding */ filter)
+/* harmony export */ });
+var filter = function filter() {
+  var filterContainer = document.querySelector('.bottom-bar');
+  var filterIcons = document.querySelector('.filter-icons');
+  var shownIcon = document.querySelector('.shown-icon');
+  var hiddenIcon = document.querySelector('.hidden-icon');
+  hiddenIcon.addEventListener('click', function () {
+    filterIcons.classList.add('active');
+    filterContainer.classList.add('active');
+  });
+  shownIcon.addEventListener('click', function () {
+    filterIcons.classList.remove('active');
+    filterContainer.classList.remove('active');
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin/scripts/form.js":
 /*!********************************************!*\
   !*** ./resources/js/admin/scripts/form.js ***!
@@ -2370,12 +2398,21 @@ var loadImage = function loadImage() {
   imageInputs.forEach(function (imageInput) {
     var imagesContainer = imageInput.closest('.images-container');
     var imageContainer = imagesContainer.querySelector('.image-container');
+    var clonedDelete = imageContainer.querySelector('.delete-image');
+
+    var deleteButton = function deleteButton() {
+      if (!imageContainer.classList.contains('first-image-container')) {
+        alert("hola");
+      }
+    };
+
     imageInput.addEventListener('change', function (event) {
       var clone = imageContainer.cloneNode(true);
       var clonedInput = clone.querySelector('.image-input');
       var clonedImage = clone.querySelector('.image');
       var clonedLabel = clone.querySelector('.image-label');
       clone.classList.remove('first-image-container');
+      clone.classList.add('not-first-image-container');
       clonedImage.classList.add('cloned-image');
       imagesContainer.appendChild(clone);
       clonedImage.src = URL.createObjectURL(event.target.files[0]);
@@ -2383,6 +2420,7 @@ var loadImage = function loadImage() {
       clonedInput.name = "images-" + randomId;
       clonedLabel.htmlFor = randomId;
       console.log(randomId);
+      deleteButton();
     });
   });
 };
@@ -2455,50 +2493,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "nestedSort": () => (/* binding */ nestedSort)
 /* harmony export */ });
-var nestedSort = function nestedSort() {
-  new NestedSort({
-    data: [{
-      id: 1,
-      text: "Item 1"
-    }, {
-      id: 11,
-      text: "Item 1-1",
-      parent: 1
-    }, {
-      id: 2,
-      text: "Item 2"
-    }, {
-      id: 3,
-      text: "Item 3"
-    }, {
-      id: 111,
-      text: "Item 1-1-1",
-      parent: 11
-    }, {
-      id: 112,
-      text: "Item 1-1-2",
-      parent: 11
-    }, {
-      id: 31,
-      text: "Item 3-1",
-      parent: 3
-    }],
-    actions: {
-      onDrop: function onDrop(data) {
-        // receives the new list structure JSON after dropping an item
-        console.log(data);
-      }
-    },
-    el: '#nested-sort',
-    // a wrapper for the dynamically generated list element
-    listClassNames: ['nested-sort'],
-    // an array of custom class names for the dynamically generated list element
-    renderListItem: function renderListItem(el, _ref) {
-      var id = _ref.id;
-      if (id === 2) el.textContent += ' (this is a custom rendered item)';
-      return el;
-    }
-  });
+/* harmony import */ var nested_sort__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nested-sort */ "./node_modules/nested-sort/dist/nested-sort.umd.js");
+/* harmony import */ var nested_sort__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nested_sort__WEBPACK_IMPORTED_MODULE_0__);
+
+var nestedSort = function nestedSort() {// const nestedSorts = document.querySelectorAll('.nested-sort').forEach(function (list) {
+  //   const nestedSortContainer = list.closest('.nested-sort-container')
+  //   const sortingButtons = nestedSortContainer.querySelectorAll('.sorting-button');
+  //   const items = nestedSortContainer.querySelectorAll('.nested-sort-item');
+  //   let editableValue = false;
+  //   const data = [];
+  //   items.forEach(item => {
+  //     let dato = {
+  //       id: item.dataset.id,
+  //       text: item.innerHTML,
+  //     }
+  //     data.push(dato);
+  //   });
+  //   sortingButtons.forEach(sortingButton => {
+  //     sortingButton.addEventListener('click', () => {
+  //       editableValue = !editableValue;
+  //       toggleEdit();
+  //     });
+  //   });
+  //   const toggleEdit = () => {
+  //     new NestedSort ({
+  //       data: data,
+  //       actions: {
+  //         onDrop(data) {
+  //           console.log(data)
+  //         }
+  //       },
+  //       el: list,
+  //       listClassNames: ['nested-sort'],
+  //       listItemClassNames: ['nested-sort-item'],
+  //       droppingEdge: 5,
+  //       nestingLevels: 0,
+  //       init: editableValue
+  //     })    
+  //   }
+  // });
 };
 
 /***/ }),
@@ -19847,6 +19880,810 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./node_modules/nested-sort/dist/nested-sort.umd.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/nested-sort/dist/nested-sort.umd.js ***!
+  \**********************************************************/
+/***/ (function(module) {
+
+(function (global, factory) {
+   true ? module.exports = factory() :
+  0;
+})(this, (function () { 'use strict';
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  function _toConsumableArray(arr) {
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+  }
+
+  function _arrayWithoutHoles(arr) {
+    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+  }
+
+  function _iterableToArray(iter) {
+    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+
+  function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var DataEngine = /*#__PURE__*/function () {
+    /**
+     * @constructor
+     */
+    function DataEngine(_ref) {
+      var data = _ref.data,
+          _ref$propertyMap = _ref.propertyMap,
+          propertyMap = _ref$propertyMap === void 0 ? {} : _ref$propertyMap,
+          renderListItem = _ref.renderListItem;
+
+      _classCallCheck(this, DataEngine);
+
+      _defineProperty(this, "data", void 0);
+
+      _defineProperty(this, "sortedData", void 0);
+
+      _defineProperty(this, "sortedDataDomArray", void 0);
+
+      _defineProperty(this, "propertyMap", void 0);
+
+      _defineProperty(this, "renderListItem", void 0);
+
+      this.data = data;
+      this.sortedData = [];
+      this.sortedDataDomArray = [];
+      this.propertyMap = propertyMap;
+      this.renderListItem = renderListItem;
+      this.maybeTransformData();
+    }
+
+    _createClass(DataEngine, [{
+      key: "maybeTransformData",
+      value: function maybeTransformData() {
+        if (!Object.keys(this.propertyMap).length || !Array.isArray(this.data)) return;
+        var getItemPropProxyName = this.getItemPropProxyName.bind(this);
+        this.data = this.data.map(function (item) {
+          return new Proxy(item, {
+            get: function get(target, prop, receiver) {
+              return Reflect.get(target, getItemPropProxyName(prop), receiver);
+            }
+          });
+        });
+      }
+    }, {
+      key: "getItemPropProxyName",
+      value: function getItemPropProxyName(prop) {
+        if (Object.prototype.hasOwnProperty.call(this.propertyMap, prop)) {
+          return this.propertyMap[prop];
+        }
+
+        return prop;
+      }
+    }, {
+      key: "isTopLevelItem",
+      value: function isTopLevelItem(item) {
+        return !item.parent;
+      }
+    }, {
+      key: "sortListItems",
+      value: function sortListItems() {
+        var _this = this;
+
+        var items = _toConsumableArray(this.data);
+
+        var topLevelItems = items.filter(function (a) {
+          return _this.isTopLevelItem(a);
+        }).sort(function (a, b) {
+          return a.order && b.order ? a.order - b.order : 0;
+        });
+        var childItems = items.filter(function (a) {
+          return !_this.isTopLevelItem(a);
+        }).reduce(function (groups, item) {
+          if (Object.prototype.hasOwnProperty.call(groups, item.parent)) {
+            groups[item.parent].push(item);
+          } else {
+            groups[item.parent] = [item];
+          }
+
+          return groups;
+        }, {});
+        Object.keys(childItems).forEach(function (parentId) {
+          childItems[parentId].sort(function (a, b) {
+            return a.order && b.order ? a.order - b.order : 0;
+          });
+        });
+        this.sortedData = [].concat(_toConsumableArray(topLevelItems), _toConsumableArray(Object.values(childItems).flat()));
+        return this.sortedData;
+      }
+    }, {
+      key: "createItemElement",
+      value: function createItemElement(item) {
+        var nodeName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'li';
+        var id = item.id,
+            text = item.text;
+        var el = document.createElement(nodeName);
+        el.dataset.id = id;
+        if (nodeName === 'li' && text) el.innerHTML = text;
+        return nodeName === 'li' && typeof this.renderListItem === 'function' ? this.renderListItem(el, item) : el;
+      }
+    }, {
+      key: "elementIsParentOfItem",
+      value: function elementIsParentOfItem(node, item) {
+        return node.dataset.id === "".concat(item.parent);
+      }
+    }, {
+      key: "getParentNodeOfItem",
+      value: function getParentNodeOfItem(node, item, nodeName) {
+        return node.querySelector("".concat(nodeName, "[data-id=\"").concat(item.parent, "\"]"));
+      }
+    }, {
+      key: "elementIsAncestorOfItem",
+      value: function elementIsAncestorOfItem(node, item) {
+        return !!this.getParentNodeOfItem(node, item, 'li');
+      }
+    }, {
+      key: "getDirectListParentOfItem",
+      value: function getDirectListParentOfItem(node, item) {
+        return this.getParentNodeOfItem(node, item, 'ol');
+      }
+    }, {
+      key: "maybeAppendItemToParentDom",
+      value: function maybeAppendItemToParentDom(item) {
+        var _this2 = this;
+
+        var parent = item.parent;
+        var topParent = this.sortedDataDomArray.find(function (topLevelListItem) {
+          return _this2.elementIsParentOfItem(topLevelListItem, item) || _this2.elementIsAncestorOfItem(topLevelListItem, item);
+        });
+        if (!topParent) return false;
+        var listItem = this.createItemElement(item);
+        var directParentList = this.getDirectListParentOfItem(topParent, item);
+
+        if (!directParentList) {
+          // we need to create the direct parent OL and append it to the direct parent LI
+          directParentList = this.createItemElement({
+            id: parent
+          }, 'ol');
+          var directParentListItem = this.getParentNodeOfItem(topParent, item, 'li') || topParent;
+          directParentListItem.appendChild(directParentList);
+        }
+
+        directParentList.appendChild(listItem);
+        return true;
+      }
+    }, {
+      key: "getListItemsDom",
+      value: function getListItemsDom() {
+        var _this3 = this;
+
+        this.sortedDataDomArray = [];
+        var processedItems = [];
+
+        while (processedItems.length !== this.sortListItems().length) {
+          processedItems = this.sortedData.reduce(function (processedItems, item) {
+            var id = item.id.toString();
+            if (processedItems.includes(id)) return processedItems;
+            var itemAdded;
+
+            if (!item.parent) {
+              var listItem = _this3.createItemElement(item);
+
+              _this3.sortedDataDomArray.push(listItem);
+
+              itemAdded = true;
+            } else {
+              itemAdded = _this3.maybeAppendItemToParentDom(item);
+            }
+
+            if (itemAdded) processedItems.push(id);
+            return processedItems;
+          }, processedItems);
+        }
+
+        return this.sortedDataDomArray;
+      }
+    }, {
+      key: "convertDomToData",
+      value: function convertDomToData(list) {
+        var _this4 = this;
+
+        return Array.from((list === null || list === void 0 ? void 0 : list.querySelectorAll('li')) || []).map(function (li) {
+          var _ref2;
+
+          var parentListItem = li.parentNode;
+          var parent = parentListItem.dataset.id;
+          var order = Array.from(parentListItem.children).findIndex(function (item) {
+            return item === li;
+          }) + 1;
+          return _ref2 = {}, _defineProperty(_ref2, _this4.getItemPropProxyName('id'), li.dataset.id), _defineProperty(_ref2, _this4.getItemPropProxyName('parent'), parent), _defineProperty(_ref2, _this4.getItemPropProxyName('order'), order), _ref2;
+        });
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var list = document.createElement('ol');
+        this.getListItemsDom().forEach(function (listItem) {
+          return list.appendChild(listItem);
+        });
+        return list;
+      }
+    }]);
+
+    return DataEngine;
+  }();
+
+  var NestedSort = /*#__PURE__*/function () {
+    function NestedSort(_ref) {
+      var _ref$actions = _ref.actions,
+          actions = _ref$actions === void 0 ? {} : _ref$actions,
+          data = _ref.data,
+          _ref$droppingEdge = _ref.droppingEdge,
+          droppingEdge = _ref$droppingEdge === void 0 ? 15 : _ref$droppingEdge,
+          el = _ref.el,
+          _ref$init = _ref.init,
+          init = _ref$init === void 0 ? true : _ref$init,
+          listClassNames = _ref.listClassNames,
+          listItemClassNames = _ref.listItemClassNames,
+          nestingLevels = _ref.nestingLevels,
+          _ref$propertyMap = _ref.propertyMap,
+          propertyMap = _ref$propertyMap === void 0 ? {} : _ref$propertyMap,
+          renderListItem = _ref.renderListItem;
+
+      _classCallCheck(this, NestedSort);
+
+      _defineProperty(this, "actions", void 0);
+
+      _defineProperty(this, "classNames", void 0);
+
+      _defineProperty(this, "cursor", void 0);
+
+      _defineProperty(this, "data", void 0);
+
+      _defineProperty(this, "dataEngine", void 0);
+
+      _defineProperty(this, "distances", void 0);
+
+      _defineProperty(this, "draggedNode", void 0);
+
+      _defineProperty(this, "initialised", void 0);
+
+      _defineProperty(this, "listClassNames", void 0);
+
+      _defineProperty(this, "listEventListeners", void 0);
+
+      _defineProperty(this, "listInterface", void 0);
+
+      _defineProperty(this, "listItemClassNames", void 0);
+
+      _defineProperty(this, "mainListClassName", void 0);
+
+      _defineProperty(this, "nestingLevels", void 0);
+
+      _defineProperty(this, "placeholderList", void 0);
+
+      _defineProperty(this, "placeholderInUse", void 0);
+
+      _defineProperty(this, "propertyMap", void 0);
+
+      _defineProperty(this, "renderListItem", void 0);
+
+      _defineProperty(this, "sortableList", void 0);
+
+      _defineProperty(this, "targetedNode", void 0);
+
+      _defineProperty(this, "targetNode", void 0);
+
+      _defineProperty(this, "wrapper", void 0);
+
+      this.renderListItem = renderListItem;
+      var element = typeof el === 'string' ? document.querySelector(el) : el;
+      var elementIsAList = element instanceof HTMLOListElement || element instanceof HTMLUListElement;
+      this.wrapper = elementIsAList ? undefined : element;
+      this.sortableList = elementIsAList ? element : null;
+      this.data = data;
+      this.listClassNames = this.createListClassNamesArray(listClassNames);
+      this.mainListClassName = this.listClassNames[0] || 'nested-sort';
+      this.listItemClassNames = this.createListClassNamesArray(listItemClassNames);
+      this.propertyMap = propertyMap;
+      this.actions = {
+        onDrop: actions.onDrop
+      };
+      this.initialised = false;
+      this.distances = {
+        droppingEdge: droppingEdge
+      };
+      this.classNames = {
+        dragged: 'ns-dragged',
+        placeholder: 'ns-placeholder',
+        targeted: 'ns-targeted'
+      };
+      this.listEventListeners = {
+        dragover: this.onDragOver.bind(this),
+        dragstart: this.onDragStart.bind(this),
+        dragenter: this.onDragEnter.bind(this),
+        dragend: this.onDragEnd.bind(this),
+        drop: this.onDrop.bind(this)
+      };
+      var intNestingLevels = parseInt(nestingLevels);
+      this.nestingLevels = isNaN(intNestingLevels) ? -1 : intNestingLevels; // values less than 0 mean infinite levels of nesting
+
+      this.listInterface = this.getListInterface();
+      this.maybeInitDataDom();
+      this.addListAttributes();
+      if (init) this.initDragAndDrop();
+    }
+
+    _createClass(NestedSort, [{
+      key: "getListInterface",
+      value: function getListInterface() {
+        if (Array.isArray(this.data) && this.data.length) return HTMLOListElement;
+        return this.sortableList instanceof HTMLOListElement ? HTMLOListElement : HTMLUListElement;
+      }
+    }, {
+      key: "getDataEngine",
+      value: function getDataEngine() {
+        if (this.dataEngine) return this.dataEngine;
+        this.dataEngine = new DataEngine({
+          data: this.data,
+          propertyMap: this.propertyMap,
+          renderListItem: this.renderListItem
+        });
+        return this.dataEngine;
+      }
+    }, {
+      key: "createListClassNamesArray",
+      value: function createListClassNamesArray(listClassNames) {
+        if (!listClassNames) return [];
+        return Array.isArray(listClassNames) ? listClassNames : listClassNames.split(' ');
+      }
+    }, {
+      key: "maybeInitDataDom",
+      value: function maybeInitDataDom() {
+        if (!(Array.isArray(this.data) && this.data.length && this.wrapper)) return;
+        var list = this.getDataEngine().render();
+        this.wrapper.innerHTML = '';
+        this.wrapper.appendChild(list);
+      }
+    }, {
+      key: "getListTagName",
+      value: function getListTagName() {
+        return this.listInterface === HTMLOListElement ? 'ol' : 'ul';
+      }
+    }, {
+      key: "getSortableList",
+      value: function getSortableList() {
+        var _this$wrapper;
+
+        if (this.sortableList instanceof this.listInterface) return this.sortableList;
+        this.sortableList = (_this$wrapper = this.wrapper) === null || _this$wrapper === void 0 ? void 0 : _this$wrapper.querySelector(this.getListTagName());
+        return this.sortableList;
+      }
+    }, {
+      key: "addListAttributes",
+      value: function addListAttributes() {
+        var _list$classList,
+            _this = this;
+
+        var list = this.getSortableList();
+        if (!list) return;
+
+        (_list$classList = list.classList).add.apply(_list$classList, _toConsumableArray(this.listClassNames.concat(this.mainListClassName)));
+
+        list.querySelectorAll(this.getListTagName()).forEach(function (l) {
+          var _l$classList;
+
+          (_l$classList = l.classList).add.apply(_l$classList, _toConsumableArray(_this.listClassNames));
+        });
+        list.querySelectorAll('li').forEach(function (li) {
+          var _li$classList;
+
+          (_li$classList = li.classList).add.apply(_li$classList, _toConsumableArray(_this.listItemClassNames));
+        });
+      }
+    }, {
+      key: "toggleMainListLifeCycleClassName",
+      value: function toggleMainListLifeCycleClassName() {
+        var enabled = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+        var list = this.getSortableList();
+        if (!list) return;
+        var className = "".concat(this.mainListClassName, "--enabled");
+        enabled ? list.classList.add(className) : list.classList.remove(className);
+      }
+    }, {
+      key: "toggleListItemAttributes",
+      value: function toggleListItemAttributes() {
+        var _this$getSortableList;
+
+        var enable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+        (_this$getSortableList = this.getSortableList()) === null || _this$getSortableList === void 0 ? void 0 : _this$getSortableList.querySelectorAll('li').forEach(function (el) {
+          el.setAttribute('draggable', enable.toString());
+        });
+      }
+    }, {
+      key: "toggleListEventListeners",
+      value: function toggleListEventListeners() {
+        var _this2 = this;
+
+        var remove = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+        var list = this.getSortableList();
+        if (!list) return;
+        Object.keys(this.listEventListeners).forEach(function (event) {
+          remove ? list.removeEventListener(event, _this2.listEventListeners[event]) : list.addEventListener(event, _this2.listEventListeners[event], false);
+        });
+      }
+    }, {
+      key: "initDragAndDrop",
+      value: function initDragAndDrop() {
+        if (this.initialised) return;
+        this.toggleListEventListeners();
+        this.initPlaceholderList();
+        this.toggleListItemAttributes();
+        this.toggleMainListLifeCycleClassName();
+        this.initialised = true;
+      }
+    }, {
+      key: "init",
+      value: function init() {
+        this.initDragAndDrop();
+      }
+    }, {
+      key: "destroy",
+      value: function destroy() {
+        this.toggleListEventListeners(true);
+        this.toggleListItemAttributes(false);
+        this.toggleMainListLifeCycleClassName(false);
+        this.initialised = false;
+      }
+    }, {
+      key: "removeClassFromEl",
+      value: function removeClassFromEl(className, el) {
+        if (el && el.classList.contains(className)) {
+          el.classList.remove(className);
+        }
+      }
+    }, {
+      key: "canBeTargeted",
+      value: function canBeTargeted(el) {
+        if (!this.draggedNode || this.draggedNode === el) return false;
+        return el.nodeName === 'LI' || el instanceof this.listInterface && el.classList.contains(this.classNames.placeholder);
+      }
+    }, {
+      key: "onDragStart",
+      value: function onDragStart(e) {
+        var _e$dataTransfer;
+
+        this.draggedNode = e.target;
+        this.draggedNode.classList.add(this.classNames.dragged);
+        (_e$dataTransfer = e.dataTransfer) === null || _e$dataTransfer === void 0 ? void 0 : _e$dataTransfer.setData('text', 'Drag started!'); // Hack for Firefox!
+      }
+    }, {
+      key: "onDragOver",
+      value: function onDragOver(e) {
+        e.preventDefault(); // prevent default to allow drop
+
+        this.updateCoordination(e);
+        this.managePlaceholderLists();
+      }
+    }, {
+      key: "onDragEnter",
+      value: function onDragEnter(e) {
+        if (!this.canBeTargeted(e.target)) return;
+        this.removeClassFromEl(this.classNames.targeted, this.targetedNode);
+        this.targetedNode = e.target;
+        this.targetedNode.classList.add(this.classNames.targeted);
+      }
+    }, {
+      key: "onDragEnd",
+      value: function onDragEnd(e) {
+        e.stopPropagation();
+        this.removeClassFromEl(this.classNames.dragged, this.draggedNode);
+        this.removeClassFromEl(this.classNames.targeted, this.targetedNode);
+        this.cleanupPlaceholderLists();
+        delete this.draggedNode;
+        delete this.targetedNode;
+      }
+    }, {
+      key: "onDrop",
+      value: function onDrop(e) {
+        e.stopPropagation();
+        this.maybeDrop();
+        this.cleanupPlaceholderLists();
+
+        if (typeof this.actions.onDrop === 'function') {
+          this.actions.onDrop(this.getDataEngine().convertDomToData(this.getSortableList()));
+        }
+      }
+    }, {
+      key: "updateCoordination",
+      value: function updateCoordination(e) {
+        this.calcMouseCoords(e);
+        this.calcMouseToTargetedElDist();
+      }
+    }, {
+      key: "getDropLocation",
+      value: function getDropLocation() {
+        if (this.canBeDropped()) {
+          var _this$targetedNode;
+
+          if (((_this$targetedNode = this.targetedNode) === null || _this$targetedNode === void 0 ? void 0 : _this$targetedNode.nodeName) === 'LI') return 'before';else if (this.targetedNode instanceof this.listInterface) return 'inside';
+        }
+      }
+    }, {
+      key: "maybeDrop",
+      value: function maybeDrop() {
+        var location = this.getDropLocation();
+        if (location) this.dropTheItem(location);
+      }
+    }, {
+      key: "dropTheItem",
+      value: function dropTheItem(place) {
+        var _this$targetedNode2, _this$targetedNode2$p, _this$targetedNode3;
+
+        switch (place) {
+          case 'before':
+            (_this$targetedNode2 = this.targetedNode) === null || _this$targetedNode2 === void 0 ? void 0 : (_this$targetedNode2$p = _this$targetedNode2.parentNode) === null || _this$targetedNode2$p === void 0 ? void 0 : _this$targetedNode2$p.insertBefore(this.draggedNode, this.targetedNode);
+            break;
+
+          case 'inside':
+            (_this$targetedNode3 = this.targetedNode) === null || _this$targetedNode3 === void 0 ? void 0 : _this$targetedNode3.appendChild(this.draggedNode);
+            break;
+        }
+      }
+    }, {
+      key: "calcMouseCoords",
+      value: function calcMouseCoords(e) {
+        // we're having the client coords because on the next lines, we use getBoundingClientRect which behaves in the same way
+        this.cursor = {
+          X: e.clientX,
+          Y: e.clientY
+        };
+      }
+    }, {
+      key: "calcMouseToTargetedElDist",
+      value: function calcMouseToTargetedElDist() {
+        if (!this.targetedNode) {
+          return;
+        }
+
+        var offset = this.targetedNode.getBoundingClientRect();
+        this.targetNode = {
+          X: offset.left,
+          Y: offset.top
+        };
+        var result = this.targetNode.Y - this.cursor.Y;
+        var targetedElTopAbs = Math.abs(result);
+        this.distances.mouseTo = {
+          targetedElTop: result,
+          targetedElTopAbs: targetedElTopAbs,
+          targetedElBot: targetedElTopAbs - this.targetedNode.clientHeight
+        };
+      }
+    }, {
+      key: "areNested",
+      value: function areNested(child, parent) {
+        return !!child && !!parent && Array.from(parent === null || parent === void 0 ? void 0 : parent.querySelectorAll('li')).some(function (li) {
+          return li === child;
+        });
+      }
+    }, {
+      key: "cursorIsIndentedEnough",
+      value: function cursorIsIndentedEnough() {
+        return this.cursor.X - this.targetNode.X > 50;
+      }
+    }, {
+      key: "mouseIsTooCloseToTop",
+      value: function mouseIsTooCloseToTop() {
+        var _this$distances;
+
+        if (!((_this$distances = this.distances) !== null && _this$distances !== void 0 && _this$distances.droppingEdge)) return false;
+        return this.cursor.Y - this.targetNode.Y < this.distances.droppingEdge;
+      }
+    }, {
+      key: "managePlaceholderLists",
+      value: function managePlaceholderLists() {
+        var _this3 = this;
+
+        var actions = this.analysePlaceHolderSituation();
+        actions.forEach(function (action) {
+          switch (action) {
+            case 'add':
+              _this3.cleanupPlaceholderLists();
+
+              _this3.addPlaceholderList();
+
+              break;
+
+            case 'cleanup':
+              _this3.cleanupPlaceholderLists();
+
+              break;
+          }
+        });
+      }
+    }, {
+      key: "targetedNodeIsPlaceholder",
+      value: function targetedNodeIsPlaceholder() {
+        return this.targetedNode instanceof this.listInterface && this.targetedNode.classList.contains(this.classNames.placeholder);
+      }
+    }, {
+      key: "getTargetedNodeDepth",
+      value: function getTargetedNodeDepth() {
+        var depth = 0;
+        var el = this.targetedNode;
+        var list = this.getSortableList();
+
+        while (list !== ((_el = el) === null || _el === void 0 ? void 0 : _el.parentElement)) {
+          var _el, _el2, _el3;
+
+          if (((_el2 = el) === null || _el2 === void 0 ? void 0 : _el2.parentElement) instanceof this.listInterface) depth++;
+          el = (_el3 = el) === null || _el3 === void 0 ? void 0 : _el3.parentElement;
+        }
+
+        return depth;
+      }
+    }, {
+      key: "nestingThresholdReached",
+      value: function nestingThresholdReached() {
+        if (this.nestingLevels < 0) return false;
+        if (this.nestingLevels === 0) return true;
+        return this.getTargetedNodeDepth() >= this.nestingLevels;
+      }
+    }, {
+      key: "analysePlaceHolderSituation",
+      value: function analysePlaceHolderSituation() {
+        if (!this.targetedNode || this.areNested(this.targetedNode, this.draggedNode)) {
+          return [];
+        }
+
+        var actions = [];
+
+        if (!this.cursorIsIndentedEnough() || this.mouseIsTooCloseToTop()) {
+          if (!this.targetedNodeIsPlaceholder()) {
+            actions.push('cleanup');
+          }
+        } else if (this.targetedNode !== this.draggedNode && this.targetedNode.nodeName === 'LI' && !this.targetedNode.querySelectorAll(this.getListTagName()).length && !this.nestingThresholdReached()) {
+          actions.push('add');
+        }
+
+        return actions;
+      }
+    }, {
+      key: "animatePlaceholderList",
+      value: function animatePlaceholderList() {
+        var _this$draggedNode;
+
+        this.placeholderInUse.style.minHeight = '0';
+        this.placeholderInUse.style.transition = 'min-height ease .2s';
+        this.placeholderInUse.style.minHeight = "".concat((_this$draggedNode = this.draggedNode) === null || _this$draggedNode === void 0 ? void 0 : _this$draggedNode.offsetHeight, "px");
+      }
+    }, {
+      key: "addPlaceholderList",
+      value: function addPlaceholderList() {
+        var _this$targetedNode4;
+
+        this.getPlaceholderList();
+        (_this$targetedNode4 = this.targetedNode) === null || _this$targetedNode4 === void 0 ? void 0 : _this$targetedNode4.appendChild(this.placeholderInUse);
+        this.animatePlaceholderList();
+      }
+    }, {
+      key: "targetNodeIsIdentified",
+      value: function targetNodeIsIdentified() {
+        return !!this.targetedNode;
+      }
+    }, {
+      key: "targetNodeIsBeingDragged",
+      value: function targetNodeIsBeingDragged() {
+        return this.targetNodeIsIdentified() && this.targetedNode === this.draggedNode;
+      }
+    }, {
+      key: "targetNodeIsListWithItems",
+      value: function targetNodeIsListWithItems() {
+        return this.targetNodeIsIdentified() && this.targetedNode instanceof this.listInterface && !!this.targetedNode.querySelectorAll('li').length;
+      }
+    }, {
+      key: "canBeDropped",
+      value: function canBeDropped() {
+        return this.targetNodeIsIdentified() && !this.targetNodeIsBeingDragged() && !this.targetNodeIsListWithItems() && !this.areNested(this.targetedNode, this.draggedNode);
+      }
+    }, {
+      key: "cleanupPlaceholderLists",
+      value: function cleanupPlaceholderLists() {
+        var _this$getSortableList2,
+            _this4 = this;
+
+        var tag = this.getListTagName();
+        var listsArray = ((_this$getSortableList2 = this.getSortableList()) === null || _this$getSortableList2 === void 0 ? void 0 : _this$getSortableList2.querySelectorAll(tag)) || [];
+        Array.from(listsArray).forEach(function (ul) {
+          if (!ul.querySelectorAll('li').length) {
+            ul.remove();
+          } else if (ul.classList.contains(_this4.classNames.placeholder)) {
+            ul.classList.remove(_this4.classNames.placeholder);
+            ul.style.minHeight = 'auto';
+            ul.dataset.id = ul.parentNode.dataset.id;
+          }
+        });
+      }
+    }, {
+      key: "initPlaceholderList",
+      value: function initPlaceholderList() {
+        var _this$placeholderList;
+
+        this.placeholderList = document.createElement(this.getListTagName());
+
+        (_this$placeholderList = this.placeholderList.classList).add.apply(_this$placeholderList, [this.classNames.placeholder].concat(_toConsumableArray(this.listClassNames)));
+      }
+    }, {
+      key: "getPlaceholderList",
+      value: function getPlaceholderList() {
+        this.placeholderInUse = this.placeholderList.cloneNode(true);
+        return this.placeholderInUse;
+      }
+    }]);
+
+    return NestedSort;
+  }();
+
+  return NestedSort;
+
+}));
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -20153,7 +20990,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/admin/scripts/savedChangesStatus.js");
 /* harmony import */ var _scripts_loadImage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./scripts/loadImage.js */ "./resources/js/admin/scripts/loadImage.js");
 /* harmony import */ var _scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scripts/nestedSort.js */ "./resources/js/admin/scripts/nestedSort.js");
+/* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./scripts/filter.js */ "./resources/js/admin/scripts/filter.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
+
 
 
 
@@ -20179,6 +21018,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
 (0,_scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_9__.savedChangesStatus)();
 (0,_scripts_loadImage_js__WEBPACK_IMPORTED_MODULE_10__.loadImage)();
 (0,_scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__.nestedSort)();
+(0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__.filter)();
 })();
 
 /******/ })()

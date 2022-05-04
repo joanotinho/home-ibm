@@ -529,6 +529,21 @@ body .container .users {
   margin-top: 1rem;
   width: 30%;
 }
+body .container .users .sorting-button {
+  text-align: right;
+}
+body .container .users .sorting-button button {
+  background: #1172c2;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 1.5%;
+  position: relative;
+  text-align: center;
+  width: 50%;
+}
 body .container .users .user {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
@@ -865,6 +880,7 @@ body .container .editor-column.active {
 .tabs-container .tab-content .images-forms-container .images-container .image-container {
   display: flex;
   height: 50%;
+  position: relative;
   width: 30%;
 }
 .tabs-container .tab-content .images-forms-container .images-container .image-container.first-image-container .add-image-button {
@@ -917,6 +933,19 @@ body .container .editor-column.active {
   position: absolute;
   top: 0;
   width: 100%;
+}
+.tabs-container .tab-content .images-forms-container .images-container .delete-image {
+  display: none;
+  position: absolute;
+  right: 0.4rem;
+  top: -0.5rem;
+}
+.tabs-container .tab-content .images-forms-container .images-container .delete-image svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.tabs-container .tab-content .images-forms-container .images-container .delete-image.active {
+  display: block;
 }
 
 .locale-tabs-container {
@@ -1146,4 +1175,46 @@ body .container .editor-column.active {
 /* ns-targeted is the class name of the item on which the dragged item is hovering */
 .nested-sort .ns-targeted {
   border: 1px solid green;
+}
+
+.bottom-bar {
+  background-color: #eee;
+  position: relative;
+  width: 100%;
+}
+.bottom-bar .filter-icons {
+  text-align: center;
+}
+.bottom-bar .filter-icons .hidden-icon {
+  display: block;
+}
+.bottom-bar .filter-icons .shown-icon {
+  display: none;
+}
+.bottom-bar .filter-icons svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.bottom-bar .filter-icons.active .hidden-icon {
+  display: none;
+}
+.bottom-bar .filter-icons.active .shown-icon {
+  display: block;
+}
+.bottom-bar .filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20%;
+  position: absolute;
+  top: -50vh;
+  width: 60%;
+}
+.bottom-bar .filters .filter {
+  text-align: center;
+  width: 45%;
+}
+.bottom-bar.active .filters {
+  position: relative;
+  top: 0vh;
 }
