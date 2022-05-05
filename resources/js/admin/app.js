@@ -13,6 +13,8 @@ import {savedChangesStatus} from "./scripts/savedChangesStatus.js";
 import {loadImage} from "./scripts/loadImage.js";
 import {nestedSort} from "./scripts/nestedSort.js";
 import {filter} from "./scripts/filter.js";
+import {tooltip} from "./scripts/tooltip.js";
+import {events} from "./scripts/events.js";
 
 ckeditor();
 cleanConfirmation();
@@ -27,3 +29,5 @@ savedChangesStatus();
 loadImage();
 nestedSort();
 filter();
+tooltip();
+events();

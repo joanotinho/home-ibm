@@ -1,5 +1,5 @@
 export let filter = () => {
-    const filterContainer = document.querySelector('.bottom-bar');
+    const filterContainer = document.querySelector('.filters-container');
     const filterIcons = document.querySelector('.filter-icons');
     const shownIcon = document.querySelector('.shown-icon');
     const hiddenIcon = document.querySelector('.hidden-icon');

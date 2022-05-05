@@ -1,18 +1,17 @@
-.saved-changes-container {
+.notification {
     border-radius: .3rem;
-    bottom: -25rem;
-    // display: none;
+    bottom: 1rem;
     padding: 1.5rem 1rem;
     position: absolute;
-    right: 15rem;
+    right: 2rem;
     transition: all .5s;
 
     &.visible {
-        display: block;
+        opacity: 1;
     }
 
-    &.slide {
-        bottom: -50rem;
+    &.hidden {
+        opacity: 0;
     }
 
     &.success {

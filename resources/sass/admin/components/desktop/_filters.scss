@@ -1,57 +1,69 @@
 .bottom-bar {
-
+  
     background-color: #eee;
     position: relative;
     width: 100%;
+  
+    .filters-container {
 
-    .filter-icons {
+        .tooltip-container {
 
-        text-align: center;
-
-        .hidden-icon {
-            display: block;
+            margin: 0 auto;
+            width: max-content;
         }
 
-        .shown-icon {
-            display: none;
-        }
+        padding: .2rem 0;
 
-        svg {
-            height: 1.5rem;
-            width: 1.5rem;
-        }
+        .filter-icons {
 
-        &.active {
-
+            text-align: center;
+    
             .hidden-icon {
-                display: none;
-            }
-
-            .shown-icon {
                 display: block;
             }
+    
+            .shown-icon {
+                display: none;
+            }
+    
+            svg {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+    
+            &.active {
+    
+                .hidden-icon {
+                    display: none;
+                }
+    
+                .shown-icon {
+                    display: block;
+                }
+            }
         }
-    }
-
-    .filters {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0 20%;
-        position: absolute;
-        top: -50vh;
-        width: 60%;
-
-        .filter {
-            text-align: center;
-            width: 45%;
-        }
-    }
-
-    &.active {
+    
         .filters {
-            position: relative;
-            top: 0vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20%;
+            position: absolute;
+            top: -50vh;
+            width: 100%;
+    
+            .filter {
+                text-align: center;
+                width: 45%;
+            }
+        }
+    
+        &.active {
+            .filters {
+                position: relative;
+                top: 0vh;
+            }
         }
     }
+    
 }

@@ -529,21 +529,6 @@ body .container .users {
   margin-top: 1rem;
   width: 30%;
 }
-body .container .users .sorting-button {
-  text-align: right;
-}
-body .container .users .sorting-button button {
-  background: #1172c2;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 600;
-  margin: 1.5%;
-  position: relative;
-  text-align: center;
-  width: 50%;
-}
 body .container .users .user {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
@@ -684,24 +669,24 @@ body .container .editor-column.active {
   display: block;
 }
 
-.saved-changes-container {
+.notification {
   border-radius: 0.3rem;
-  bottom: -25rem;
+  bottom: 1rem;
   padding: 1.5rem 1rem;
   position: absolute;
-  right: 15rem;
+  right: 2rem;
   transition: all 0.5s;
 }
-.saved-changes-container.visible {
-  display: block;
+.notification.visible {
+  opacity: 1;
 }
-.saved-changes-container.slide {
-  bottom: -50rem;
+.notification.hidden {
+  opacity: 0;
 }
-.saved-changes-container.success {
+.notification.success {
   background-color: #34A853;
 }
-.saved-changes-container.error {
+.notification.error {
   background-color: #f33;
 }
 
@@ -865,34 +850,109 @@ body .container .editor-column.active {
 .tabs-container .tab-content .images-forms-container {
   display: flex;
 }
-.tabs-container .tab-content .images-forms-container .images-container {
+.tabs-container .tab-content .images-forms-container .single-image-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
   width: 45%;
 }
-.tabs-container .tab-content .images-forms-container .images-container .first-image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container {
+  display: flex;
+  height: 50%;
+  position: relative;
+  width: 80%;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container.first-image-container .add-image-button {
   display: block;
 }
-.tabs-container .tab-content .images-forms-container .images-container .first-image-container .image {
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container.first-image-container .image {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .images-container .image-container {
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container .add-image-button {
+  display: none;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container img {
+  display: block;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+  padding: 0 5%;
+  width: 50%;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button {
+  background: #1172c2;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  height: 15vh;
+  margin: 1.5% auto;
+  position: relative;
+  text-align: center;
+  width: 50%;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button.active {
+  display: none;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button svg {
+  height: 100%;
+  width: 100%;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button .image-label {
+  text-align: center;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button .image-input {
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .delete-image {
+  display: none;
+  position: absolute;
+  right: 0.4rem;
+  top: -0.5rem;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .delete-image svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.tabs-container .tab-content .images-forms-container .single-image-container .delete-image.active {
+  display: block;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  width: 45%;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images-container .first-image-container .add-image-button {
+  display: block;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images-container .first-image-container .image {
+  display: none;
+}
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container {
   display: flex;
   height: 50%;
   position: relative;
   width: 30%;
 }
-.tabs-container .tab-content .images-forms-container .images-container .image-container.first-image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container.first-image-container .add-image-button {
   display: block;
 }
-.tabs-container .tab-content .images-forms-container .images-container .image-container.first-image-container .image {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container.first-image-container .image {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .images-container .image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container .add-image-button {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .images-container .image-container img {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container img {
   display: block;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -902,7 +962,7 @@ body .container .editor-column.active {
   padding: 0 5%;
   width: 90%;
 }
-.tabs-container .tab-content .images-forms-container .images-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button {
   background: #1172c2;
   border-radius: 5px;
   color: #fff;
@@ -915,18 +975,18 @@ body .container .editor-column.active {
   text-align: center;
   width: 6rem;
 }
-.tabs-container .tab-content .images-forms-container .images-container .add-image-button.active {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button.active {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .images-container .add-image-button svg {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button svg {
   padding-top: 0.5rem;
   height: 5rem;
   width: 5rem;
 }
-.tabs-container .tab-content .images-forms-container .images-container .add-image-button .image-label {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button .image-label {
   text-align: center;
 }
-.tabs-container .tab-content .images-forms-container .images-container .add-image-button .image-input {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button .image-input {
   bottom: 0;
   left: 0;
   opacity: 0;
@@ -934,17 +994,17 @@ body .container .editor-column.active {
   top: 0;
   width: 100%;
 }
-.tabs-container .tab-content .images-forms-container .images-container .delete-image {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image {
   display: none;
   position: absolute;
   right: 0.4rem;
   top: -0.5rem;
 }
-.tabs-container .tab-content .images-forms-container .images-container .delete-image svg {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image svg {
   height: 1.5rem;
   width: 1.5rem;
 }
-.tabs-container .tab-content .images-forms-container .images-container .delete-image.active {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image.active {
   display: block;
 }
 
@@ -1145,35 +1205,51 @@ body .container .editor-column.active {
 }
 
 /* nested-sort is the custom class name */
-.nested-sort {
+.nested-sort-container {
+  /* ns-dragged is the class name of the item which is being dragged */
+  /* ns-targeted is the class name of the item on which the dragged item is hovering */
+}
+.nested-sort-container .sorting-button {
+  text-align: right;
+}
+.nested-sort-container .sorting-button button {
+  background: #1172c2;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 1.5%;
+  position: relative;
+  text-align: center;
+  width: 10rem;
+}
+.nested-sort-container .sorting-button.active button {
+  background-color: #002991;
+  text-shadow: 0.1rem 0.1rem 0px rgb(0, 0, 0);
+}
+.nested-sort-container .nested-sort {
   padding: 0;
 }
-
-.nested-sort--enabled .nested-sort-item {
+.nested-sort-container .nested-sort--enabled .nested-sort-item {
   cursor: move;
 }
-
-.nested-sort .nested-sort-item {
+.nested-sort-container .nested-sort .nested-sort-item {
   list-style: none;
   margin: 0 0 5px;
   padding: 10px;
   background: #fff;
   border: 1px solid #ddd;
 }
-
-.nested-sort .nested-sort-item ol {
+.nested-sort-container .nested-sort .nested-sort-item ol {
   padding: 0;
   margin-top: 10px;
   margin-bottom: -5px;
 }
-
-/* ns-dragged is the class name of the item which is being dragged */
-.nested-sort .ns-dragged {
+.nested-sort-container .nested-sort .ns-dragged {
   border: 1px solid red;
 }
-
-/* ns-targeted is the class name of the item on which the dragged item is hovering */
-.nested-sort .ns-targeted {
+.nested-sort-container .nested-sort .ns-targeted {
   border: 1px solid green;
 }
 
@@ -1182,39 +1258,93 @@ body .container .editor-column.active {
   position: relative;
   width: 100%;
 }
-.bottom-bar .filter-icons {
+.bottom-bar .filters-container {
+  padding: 0.2rem 0;
+}
+.bottom-bar .filters-container .tooltip-container {
+  margin: 0 auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.bottom-bar .filters-container .filter-icons {
   text-align: center;
 }
-.bottom-bar .filter-icons .hidden-icon {
+.bottom-bar .filters-container .filter-icons .hidden-icon {
   display: block;
 }
-.bottom-bar .filter-icons .shown-icon {
+.bottom-bar .filters-container .filter-icons .shown-icon {
   display: none;
 }
-.bottom-bar .filter-icons svg {
+.bottom-bar .filters-container .filter-icons svg {
   height: 1.5rem;
   width: 1.5rem;
 }
-.bottom-bar .filter-icons.active .hidden-icon {
+.bottom-bar .filters-container .filter-icons.active .hidden-icon {
   display: none;
 }
-.bottom-bar .filter-icons.active .shown-icon {
+.bottom-bar .filters-container .filter-icons.active .shown-icon {
   display: block;
 }
-.bottom-bar .filters {
+.bottom-bar .filters-container .filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 20%;
   position: absolute;
   top: -50vh;
-  width: 60%;
+  width: 100%;
 }
-.bottom-bar .filters .filter {
+.bottom-bar .filters-container .filters .filter {
   text-align: center;
   width: 45%;
 }
-.bottom-bar.active .filters {
+.bottom-bar .filters-container.active .filters {
   position: relative;
   top: 0vh;
+}
+
+/* Tooltip container */
+.tooltip-container {
+  width: 100%;
+}
+.tooltip-container .tooltip {
+  position: relative;
+  display: none;
+  /* Tooltip text */
+  /* Show the tooltip text when you mouse over the tooltip container */
+}
+.tooltip-container .tooltip .tooltip-text {
+  border-radius: 6px;
+  background-color: hsla(0deg, 0%, 0%, 0.8);
+  color: #fff;
+  padding: 0.2rem 0;
+  position: absolute;
+  text-align: center;
+  width: 5rem;
+  z-index: 1;
+  /* Position the tooltip text - see examples below! */
+}
+.tooltip-container .tooltip .tooltip-text.tooltip-text--top {
+  left: -2rem;
+  top: -2rem;
+}
+.tooltip-container .tooltip .tooltip-text.tooltip-text--right {
+  left: 1.5rem;
+  top: 0rem;
+}
+.tooltip-container .tooltip .tooltip-text.tooltip-text--bottom {
+  left: -2rem;
+  top: 1.5rem;
+}
+.tooltip-container .tooltip .tooltip-text.tooltip-text--left {
+  left: -5.3rem;
+  top: 0rem;
+}
+.tooltip-container .tooltip .tooltip-text.tooltip-text--custom {
+  left: 30%;
+  top: 8rem;
+}
+.tooltip-container .tooltip.show {
+  display: block;
 }

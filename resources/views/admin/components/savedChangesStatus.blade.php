@@ -1,8 +1,9 @@
-<div class="saved-changes-container">
+<div class="notification">
     <div class="saved-changes-title-container">
-        <h3 id="saved-changes-title"></h3>
+        <h3 id="notification-title"></h3>
     </div>
+    
     <div class="saved-changes-description-container">
-        <h4 id="saved-changes-description"></h4>
+        <h4 id="notification-message"></h4>
     </div>
 </div>

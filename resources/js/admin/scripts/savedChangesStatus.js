@@ -1,20 +1,23 @@
 export let savedChangesStatus = () => {
-    const savedChangesContainer = document.querySelector('.saved-changes-container');
-    const savedChangesTitle = document.querySelector('#saved-changes-title');
-    const savedChangesDescription = document.querySelector('#saved-changes-description');
 
-    
-    savedChangesContainer.classList.add('visible');
 
-    if(savedChangesContainer.classList.contains('success')) {
+    document.addEventListener('message', (event => {
+        
+        const notification = document.querySelector('.notification');
+        const notificationTitle = document.getElementById('notification-title');
+        const notificationMessage = document.getElementById('notification-message');
 
-        savedChangesTitle.innerHTML = 'Saved changes';
-        savedChangesDescription.innerHTML = 'Your changes have been saved successfully';
+        
+        notificationTitle.innerHTML = event.detail.title;
+        notificationMessage.innerHTML = event.detail.text;
+        notification.classList.add(event.detail.type);
+        notification.classList.add('visible');
 
-    } else if(savedChangesContainer.classList.contains('error')) {
+        setTimeout(() => {
+            notification.classList.remove('visible');
+            notification.classList.remove(event.detail.type);
+        }, 5000);
+        
+    }));
 
-        savedChangesTitle.innerHTML = 'Error';
-        savedChangesDescription.innerHTML = 'Your changes have not been saved successfully';
-
-    }
 } 

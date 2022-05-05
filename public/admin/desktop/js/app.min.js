@@ -2306,6 +2306,48 @@ var cleanConfirmation = function cleanConfirmation() {
 
 /***/ }),
 
+/***/ "./resources/js/admin/scripts/events.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/scripts/events.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "events": () => (/* binding */ events)
+/* harmony export */ });
+var events = function events() {
+  var sendButton = document.querySelector('.save-button');
+  var nameInput = document.getElementById('name');
+
+  if (sendButton) {
+    sendButton.addEventListener('click', function (event) {
+      var name = nameInput.value;
+
+      if (name) {
+        document.dispatchEvent(new CustomEvent('message', {
+          detail: {
+            title: '¡Exito!',
+            text: 'Formulario enviado correctamente',
+            type: 'success'
+          }
+        }));
+      } else {
+        document.dispatchEvent(new CustomEvent('message', {
+          detail: {
+            title: '¡Error!',
+            text: 'Formulario no enviado',
+            type: 'error'
+          }
+        }));
+      }
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin/scripts/filter.js":
 /*!**********************************************!*\
   !*** ./resources/js/admin/scripts/filter.js ***!
@@ -2318,7 +2360,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "filter": () => (/* binding */ filter)
 /* harmony export */ });
 var filter = function filter() {
-  var filterContainer = document.querySelector('.bottom-bar');
+  var filterContainer = document.querySelector('.filters-container');
   var filterIcons = document.querySelector('.filter-icons');
   var shownIcon = document.querySelector('.shown-icon');
   var hiddenIcon = document.querySelector('.hidden-icon');
@@ -2396,32 +2438,80 @@ __webpack_require__.r(__webpack_exports__);
 var loadImage = function loadImage() {
   var imageInputs = document.querySelectorAll('.image-input');
   imageInputs.forEach(function (imageInput) {
-    var imagesContainer = imageInput.closest('.images-container');
-    var imageContainer = imagesContainer.querySelector('.image-container');
-    var clonedDelete = imageContainer.querySelector('.delete-image');
+    var randomId = Math.floor(Math.random() * (1000000 - 1)) + 1;
+    var singleImageContainer = imageInput.closest('.single-image-container');
+    var multipleImagesContainer = imageInput.closest('.multiple-images-container');
 
-    var deleteButton = function deleteButton() {
-      if (!imageContainer.classList.contains('first-image-container')) {
-        alert("hola");
-      }
-    };
+    if (singleImageContainer) {
+      var imageContainer = singleImageContainer.querySelector('.image-container');
+      var image = singleImageContainer.querySelector('.image');
+      var label = singleImageContainer.querySelector('.image-label');
+      var deleteButton = singleImageContainer.querySelector('.delete-image');
+      var inputValues = [];
+      imageInput.addEventListener('change', function (event) {
+        if (event.target.files[0]) {
+          deleteButton.classList.add('active');
 
-    imageInput.addEventListener('change', function (event) {
-      var clone = imageContainer.cloneNode(true);
-      var clonedInput = clone.querySelector('.image-input');
-      var clonedImage = clone.querySelector('.image');
-      var clonedLabel = clone.querySelector('.image-label');
-      clone.classList.remove('first-image-container');
-      clone.classList.add('not-first-image-container');
-      clonedImage.classList.add('cloned-image');
-      imagesContainer.appendChild(clone);
-      clonedImage.src = URL.createObjectURL(event.target.files[0]);
-      var randomId = Math.floor(Math.random() * (1000000 - 1)) + 1;
-      clonedInput.name = "images-" + randomId;
-      clonedLabel.htmlFor = randomId;
-      console.log(randomId);
-      deleteButton();
-    });
+          if (!inputValues.includes(imageInput.value)) {
+            image.src = URL.createObjectURL(event.target.files[0]);
+            imageContainer.classList.remove('first-image-container');
+            deleteButton.addEventListener('click', function () {
+              inputValues = inputValues.filter(function (value) {
+                return value !== imageInput.value;
+              });
+              console.log(inputValues);
+              imageContainer.classList.add('first-image-container');
+              image.src = '';
+              deleteButton.classList.remove('active');
+            });
+          }
+
+          imageInput.name = "images-" + randomId;
+          label.htmlFor = randomId;
+          console.log(randomId);
+        }
+      });
+    }
+
+    if (multipleImagesContainer) {
+      var _imageContainer = multipleImagesContainer.querySelector('.image-container');
+
+      var _inputValues = [];
+      imageInput.addEventListener('change', function (event) {
+        if (event.target.files[0]) {
+          if (multipleImagesContainer) {
+            var clone = _imageContainer.cloneNode(true);
+
+            var clonedInput = clone.querySelector('.image-input');
+            var clonedImage = clone.querySelector('.image');
+            var clonedLabel = clone.querySelector('.image-label');
+            console.log(_inputValues);
+
+            if (!_inputValues.includes(clonedInput.value)) {
+              var clonedDelete = clone.querySelector('.delete-image');
+              clone.classList.remove('first-image-container');
+              clonedImage.classList.add('cloned-image');
+              multipleImagesContainer.appendChild(clone);
+
+              _inputValues.push(clonedInput.value);
+
+              clonedImage.src = URL.createObjectURL(event.target.files[0]);
+              clonedDelete.classList.add('active');
+              clonedDelete.addEventListener('click', function () {
+                _inputValues = _inputValues.filter(function (value) {
+                  return value !== clonedInput.value;
+                });
+                clone.remove();
+                console.log(_inputValues);
+              });
+              clonedInput.name = "images-" + randomId;
+              clonedLabel.htmlFor = randomId;
+              console.log(randomId);
+            }
+          }
+        }
+      });
+    }
   });
 };
 
@@ -2496,42 +2586,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nested_sort__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nested-sort */ "./node_modules/nested-sort/dist/nested-sort.umd.js");
 /* harmony import */ var nested_sort__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nested_sort__WEBPACK_IMPORTED_MODULE_0__);
 
-var nestedSort = function nestedSort() {// const nestedSorts = document.querySelectorAll('.nested-sort').forEach(function (list) {
-  //   const nestedSortContainer = list.closest('.nested-sort-container')
-  //   const sortingButtons = nestedSortContainer.querySelectorAll('.sorting-button');
-  //   const items = nestedSortContainer.querySelectorAll('.nested-sort-item');
-  //   let editableValue = false;
-  //   const data = [];
-  //   items.forEach(item => {
-  //     let dato = {
-  //       id: item.dataset.id,
-  //       text: item.innerHTML,
-  //     }
-  //     data.push(dato);
-  //   });
-  //   sortingButtons.forEach(sortingButton => {
-  //     sortingButton.addEventListener('click', () => {
-  //       editableValue = !editableValue;
-  //       toggleEdit();
-  //     });
-  //   });
-  //   const toggleEdit = () => {
-  //     new NestedSort ({
-  //       data: data,
-  //       actions: {
-  //         onDrop(data) {
-  //           console.log(data)
-  //         }
-  //       },
-  //       el: list,
-  //       listClassNames: ['nested-sort'],
-  //       listItemClassNames: ['nested-sort-item'],
-  //       droppingEdge: 5,
-  //       nestingLevels: 0,
-  //       init: editableValue
-  //     })    
-  //   }
-  // });
+var nestedSort = function nestedSort() {
+  var nestedSorts = document.querySelectorAll('.nested-sort').forEach(function (list) {
+    var nestedSortContainer = list.closest('.nested-sort-container');
+    var sortingButton = nestedSortContainer.querySelector('.sorting-button');
+    var items = nestedSortContainer.querySelectorAll('.nested-sort-item');
+    var data = [];
+    var editableValue = false;
+    items.forEach(function (item) {
+      var dato = {
+        id: item.dataset.id,
+        text: item.innerHTML
+      };
+      data.push(dato);
+    });
+
+    var nested = function nested() {
+      new (nested_sort__WEBPACK_IMPORTED_MODULE_0___default())({
+        data: data,
+        actions: {
+          onDrop: function onDrop(data) {
+            console.log(data);
+          }
+        },
+        el: list,
+        listClassNames: ['nested-sort'],
+        listItemClassNames: ['nested-sort-item'],
+        droppingEdge: 5,
+        nestingLevels: 0,
+        init: editableValue
+      });
+    };
+
+    if (nestedSortContainer.classList.contains('editable')) {
+      alert('editable');
+      nested();
+      editableValue = true;
+      console.log(editableValue);
+    }
+
+    if (sortingButton) {
+      sortingButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        editableValue = !editableValue;
+        nested();
+        sortingButton.classList.toggle('active');
+      });
+    }
+  });
 };
 
 /***/ }),
@@ -2548,18 +2650,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "savedChangesStatus": () => (/* binding */ savedChangesStatus)
 /* harmony export */ });
 var savedChangesStatus = function savedChangesStatus() {
-  var savedChangesContainer = document.querySelector('.saved-changes-container');
-  var savedChangesTitle = document.querySelector('#saved-changes-title');
-  var savedChangesDescription = document.querySelector('#saved-changes-description');
-  savedChangesContainer.classList.add('visible');
-
-  if (savedChangesContainer.classList.contains('success')) {
-    savedChangesTitle.innerHTML = 'Saved changes';
-    savedChangesDescription.innerHTML = 'Your changes have been saved successfully';
-  } else if (savedChangesContainer.classList.contains('error')) {
-    savedChangesTitle.innerHTML = 'Error';
-    savedChangesDescription.innerHTML = 'Your changes have not been saved successfully';
-  }
+  document.addEventListener('message', function (event) {
+    var notification = document.querySelector('.notification');
+    var notificationTitle = document.getElementById('notification-title');
+    var notificationMessage = document.getElementById('notification-message');
+    notificationTitle.innerHTML = event.detail.title;
+    notificationMessage.innerHTML = event.detail.text;
+    notification.classList.add(event.detail.type);
+    notification.classList.add('visible');
+    setTimeout(function () {
+      notification.classList.remove('visible');
+      notification.classList.remove(event.detail.type);
+    }, 5000);
+  });
 };
 
 /***/ }),
@@ -2619,6 +2722,37 @@ function tabs() {
     });
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/admin/scripts/tooltip.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/scripts/tooltip.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "tooltip": () => (/* binding */ tooltip)
+/* harmony export */ });
+var tooltip = function tooltip() {
+  var tooltips = document.querySelectorAll('.tooltip');
+  tooltips.forEach(function (tooltip) {
+    var tooltipContainer = tooltip.closest('.tooltip-container');
+    var tooltipText = tooltipContainer.querySelector('.tooltip-text');
+    var tooltipTextValue = tooltipText.dataset.name;
+    var tooltipTextPosition = tooltipText.dataset.position;
+    tooltipText.classList.add('tooltip-text--' + tooltipTextPosition);
+    tooltipText.innerHTML = tooltipTextValue;
+    tooltipContainer.addEventListener('mouseover', function (e) {
+      tooltip.classList.add('show');
+    });
+    tooltipContainer.addEventListener('mouseout', function (e) {
+      tooltip.classList.remove('show');
+    });
+  });
+};
 
 /***/ }),
 
@@ -20991,7 +21125,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_loadImage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./scripts/loadImage.js */ "./resources/js/admin/scripts/loadImage.js");
 /* harmony import */ var _scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scripts/nestedSort.js */ "./resources/js/admin/scripts/nestedSort.js");
 /* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./scripts/filter.js */ "./resources/js/admin/scripts/filter.js");
+/* harmony import */ var _scripts_tooltip_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./scripts/tooltip.js */ "./resources/js/admin/scripts/tooltip.js");
+/* harmony import */ var _scripts_events_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./scripts/events.js */ "./resources/js/admin/scripts/events.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
+
+
 
 
 
@@ -21019,6 +21157,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
 (0,_scripts_loadImage_js__WEBPACK_IMPORTED_MODULE_10__.loadImage)();
 (0,_scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__.nestedSort)();
 (0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__.filter)();
+(0,_scripts_tooltip_js__WEBPACK_IMPORTED_MODULE_13__.tooltip)();
+(0,_scripts_events_js__WEBPACK_IMPORTED_MODULE_14__.events)();
 })();
 
 /******/ })()

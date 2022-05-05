@@ -1,5 +1,31 @@
 /* nested-sort is the custom class name */
-.nested-sort {
+.nested-sort-container {
+
+  .sorting-button {
+
+    text-align: right;
+
+    button {
+    
+        background: #1172c2;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: 600;
+        margin: 1.5%;
+        position: relative;
+        text-align: center;
+        width: 10rem;
+    }
+
+    &.active button {
+      background-color: #002991;
+      text-shadow: .1rem .1rem 0px rgba(0,0,0,1);
+    }
+  }
+
+  .nested-sort {
     padding: 0;
   }
   
@@ -30,3 +56,4 @@
   .nested-sort .ns-targeted {
     border: 1px solid green;
   }
+}
