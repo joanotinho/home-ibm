@@ -1,9 +1,12 @@
 {
-    "/front/desktop/js/app.js": "/front/desktop/js/app.js?id=aa680df0dd60f54d3c1149dc5f3ac090",
-    "/admin/desktop/js/app.js": "/admin/desktop/js/app.js?id=635a65b61af547d237ddc6007c470360",
+    "/front/desktop/js/app.js": "/front/desktop/js/app.js?id=9009b574a1bacee380e1bb0466626228",
+    "/front/mobile/js/app-mobile.js": "/front/mobile/js/app-mobile.js?id=8e3a7505caf23da875da5c3505bc354c",
+    "/admin/desktop/js/app.js": "/admin/desktop/js/app.js?id=a1ccb9e27aefeda9c9a4d8350118e7bb",
+    "/admin/mobile/js/app-mobile.js": "/admin/mobile/js/app-mobile.js?id=f1732f0935a8c178cb4608a312331bf2",
     "/front/mobile/css/app-mobile.css": "/front/mobile/css/app-mobile.css?id=27b84156f4644268d9967d563efecb38",
     "/front/desktop/css/app.css": "/front/desktop/css/app.css?id=75efc0595ad4e12fd24c049d0bdc43d2",
-    "/admin/desktop/css/app.css": "/admin/desktop/css/app.css?id=d340542009f6c4e3de72124b33b382ba",
-    "/admin/desktop/js/app.min.js": "/admin/desktop/js/app.min.js?id=635a65b61af547d237ddc6007c470360",
-    "/admin/desktop/css/app.min.css": "/admin/desktop/css/app.min.css?id=d340542009f6c4e3de72124b33b382ba"
+    "/admin/mobile/css/mobile-app.css": "/admin/mobile/css/mobile-app.css?id=629f778d0539a41ab976153a00d9c7bb",
+    "/admin/desktop/css/app.css": "/admin/desktop/css/app.css?id=3b0f1772bf81dd314f3e558492738164",
+    "/admin/desktop/js/app.min.js": "/admin/desktop/js/app.min.js?id=a1ccb9e27aefeda9c9a4d8350118e7bb",
+    "/admin/desktop/css/app.min.css": "/admin/desktop/css/app.min.css?id=3b0f1772bf81dd314f3e558492738164"
 }

@@ -1,0 +1,53 @@
+.clean-confirmation-container {
+
+    display: none;
+    background-color: #000a;
+    position: absolute;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    .clean-confirmation {
+        text-align: center;
+        margin: 0 auto;
+        position: absolute;
+        left: 25%;
+        top: 30vh;
+        width: 50%;
+        z-index: 5000;
+    
+        .clean-confirmation-title {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    
+        .clean-confirmation-buttons {
+            display: flex;
+            justify-content: center;
+    
+            .clean-confirmation-button {
+                width: 50%;
+    
+                button {
+                    border: none;
+                    padding: .4rem 0;
+                    width: 100%;
+                    
+                    &.cancel-clean {
+                        background-color: rgb(14, 212, 80);
+                    }
+    
+                    &.clean-content {
+                        background-color: rgb(233, 62, 62);
+                    }
+                }
+            }
+        }
+    }
+    &.active {
+        display: block;
+    }
+}

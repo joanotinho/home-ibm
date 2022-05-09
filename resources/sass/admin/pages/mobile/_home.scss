@@ -1,0 +1,195 @@
+body {
+
+    font-family: 'Open Sans', sans-serif;
+
+    .container {
+
+        padding: 0 1%;
+        width: 98%;
+
+        .users {
+
+            border: 1px solid #ccc;
+            margin: 1rem 0;
+            margin-top: 1rem;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+
+            .draggable-container {
+
+                height: 100%;
+                margin-bottom: .5rem;
+                position: relative;
+
+                .draggable-background {
+                    
+                    height: 100%;
+                    position: absolute;
+                    width: 100%;
+
+                    &.green {
+                        background-color: #83DDB3;
+                    }
+
+                    &.red {
+                        background-color: #f00;
+                    }
+                    
+                }
+
+                .draggable-field {
+
+                    background-color: #fff;
+                    display: flex;
+                    overflow: hidden;
+                    position: relative;
+                    transform: translateX(0);
+                    width: 100%;
+                    z-index: 1000;
+
+                    &.slide {    
+                        transition: all .5s ease-out;
+                        will-change: all;
+                    }
+    
+                    .draggable-item {
+    
+                        text-align: center;
+                        width: 100%;
+    
+                        .user {
+        
+                            border-top: 1px solid #e5e5e5;
+                            border-bottom: 1px solid #e5e5e5;
+                            display: flex;
+                            justify-content: space-between;
+                            padding: .3rem .5rem;
+                
+                            .field {
+
+                                display: flex;
+                
+                                .value {
+                                    color: #1F70C1;
+                                    font-weight: 600;
+                                    margin-left: .3rem;
+                                }
+                            }
+                
+                            .user-right {
+                
+                                display: flex;
+                                padding-top: .8rem;
+                
+                                svg {
+            
+                                    cursor: pointer;
+                                    height: 1.5rem;
+                                    width: 1.5rem;
+                
+                                    &:hover {
+                                        color: #1F70C1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+        .editor-column {
+    
+            display: none;
+            top: 2rem;
+            transition: left 1s;
+            width: 65%;
+    
+    
+            .editor {
+        
+                background-color: #eee;
+                border-radius: .4rem;
+                margin-top: .6rem;
+                
+                form {
+            
+                    margin: .1rem 0;
+                    width: 100%;
+
+                    .desktop-two-columns {
+                        
+                        justify-content: start;
+                    }
+        
+                    .field {
+
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: .7rem;
+
+                        .field-label {
+
+                            display: flex;
+                            justify-content: space-between;
+                            width: 70%;
+
+                            .label {
+
+                                label {
+                                    font-weight: bold;
+                                    margin: .5rem 0;
+                                    width: 100%;
+                                }
+                            }
+
+                            .character-counter-max-value {
+                                color: #f00;
+                                font-weight: 600;
+                                margin-left: .3rem;
+                            }
+                        }
+
+                        .field-input {
+
+                            input, select {
+                        
+                                background-color: #eee;
+                                border: none;
+                                border-radius: .2rem;
+                                outline: none;
+                                padding: .2rem .5rem;
+                                width: 70%;
+            
+                                &:focus {
+                                    background-color: #ccc;
+                                }
+                            }
+                        }
+
+                        .field-rule {
+                            max-width: 70%;
+
+                            span {
+                                color: #f00;
+                                font-size: .9rem;
+                            }
+                        }
+
+                        .ck-content {
+                            height: 20vh;
+                        }
+                    }
+
+                }
+            }
+            
+            &.active {
+                left: 55%;
+                transition: left .3s ease;
+                width: 48%;
+            }
+        }
+    }
+}

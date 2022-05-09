@@ -2173,43 +2173,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./resources/js/front/app.js":
-/*!***********************************!*\
-  !*** ./resources/js/front/app.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/menuButton.js */ "./resources/js/front/scripts/menuButton.js");
-/* harmony import */ var _scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/plusMinusButton.js */ "./resources/js/front/scripts/plusMinusButton.js");
-/* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/filter.js */ "./resources/js/front/scripts/filter.js");
-/* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/front/scripts/ckeditor.js");
-/* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/form.js */ "./resources/js/front/scripts/form.js");
-/* harmony import */ var _scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/closeElement.js */ "./resources/js/front/scripts/closeElement.js");
-/* harmony import */ var _scripts_productDescription_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/productDescription.js */ "./resources/js/front/scripts/productDescription.js");
-/* harmony import */ var _scripts_notification_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/notification.js */ "./resources/js/front/scripts/notification.js");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/front/bootstrap.js");
-
-
-
-
-
-
-
-
-
-(0,_scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_0__.menuButton)();
-(0,_scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_1__.plusMinusButton)();
-(0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_2__.filter)();
-(0,_scripts_form_js__WEBPACK_IMPORTED_MODULE_4__.renderForm)();
-(0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_3__.ckeditor)();
-(0,_scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_5__.closeElement)();
-(0,_scripts_productDescription_js__WEBPACK_IMPORTED_MODULE_6__.productDescription)();
-(0,_scripts_notification_js__WEBPACK_IMPORTED_MODULE_7__.notification)();
-
-/***/ }),
-
 /***/ "./resources/js/front/bootstrap.js":
 /*!*****************************************!*\
   !*** ./resources/js/front/bootstrap.js ***!
@@ -2238,6 +2201,43 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/front/desktop/app.js":
+/*!*******************************************!*\
+  !*** ./resources/js/front/desktop/app.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/menuButton.js */ "./resources/js/front/scripts/menuButton.js");
+/* harmony import */ var _scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/plusMinusButton.js */ "./resources/js/front/scripts/plusMinusButton.js");
+/* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/filter.js */ "./resources/js/front/scripts/filter.js");
+/* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/ckeditor.js */ "./resources/js/front/scripts/ckeditor.js");
+/* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scripts/form.js */ "./resources/js/front/scripts/form.js");
+/* harmony import */ var _scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../scripts/closeElement.js */ "./resources/js/front/scripts/closeElement.js");
+/* harmony import */ var _scripts_productDescription_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../scripts/productDescription.js */ "./resources/js/front/scripts/productDescription.js");
+/* harmony import */ var _scripts_notification_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../scripts/notification.js */ "./resources/js/front/scripts/notification.js");
+__webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
+
+
+
+
+
+
+
+
+
+(0,_scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_0__.menuButton)();
+(0,_scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_1__.plusMinusButton)();
+(0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_2__.filter)();
+(0,_scripts_form_js__WEBPACK_IMPORTED_MODULE_4__.renderForm)();
+(0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_3__.ckeditor)();
+(0,_scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_5__.closeElement)();
+(0,_scripts_productDescription_js__WEBPACK_IMPORTED_MODULE_6__.productDescription)();
+(0,_scripts_notification_js__WEBPACK_IMPORTED_MODULE_7__.notification)();
 
 /***/ }),
 
@@ -20907,6 +20907,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/admin/mobile-app.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/admin/mobile-app.scss ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/front/app.scss":
 /*!***************************************!*\
   !*** ./resources/sass/front/app.scss ***!
@@ -21264,6 +21277,7 @@ process.umask = function() { return 0; };
 /******/ 			"/front/desktop/js/app": 0,
 /******/ 			"front/mobile/css/app-mobile": 0,
 /******/ 			"front/desktop/css/app": 0,
+/******/ 			"admin/mobile/css/mobile-app": 0,
 /******/ 			"admin/desktop/css/app": 0
 /******/ 		};
 /******/ 		
@@ -21314,10 +21328,11 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/desktop/css/app"], () => (__webpack_require__("./resources/js/front/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/desktop/css/app"], () => (__webpack_require__("./resources/sass/admin/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/desktop/css/app"], () => (__webpack_require__("./resources/sass/front/app.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/desktop/css/app"], () => (__webpack_require__("./resources/sass/front/app-mobile.scss")))
+/******/ 	__webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/mobile/css/mobile-app","admin/desktop/css/app"], () => (__webpack_require__("./resources/js/front/desktop/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/mobile/css/mobile-app","admin/desktop/css/app"], () => (__webpack_require__("./resources/sass/admin/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/mobile/css/mobile-app","admin/desktop/css/app"], () => (__webpack_require__("./resources/sass/admin/mobile-app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/mobile/css/mobile-app","admin/desktop/css/app"], () => (__webpack_require__("./resources/sass/front/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["front/mobile/css/app-mobile","front/desktop/css/app","admin/mobile/css/mobile-app","admin/desktop/css/app"], () => (__webpack_require__("./resources/sass/front/app-mobile.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -4,7 +4,7 @@
 @import "base/normalize";
 @import "layout/desktop/columns";
 @import "layout/desktop/header";
-@import "pages/index/desktop/home";
+@import "pages/desktop/home";
 @import "components/desktop/deleteConfirmation";
 @import "components/desktop/savedChangesStatus";
 @import "components/desktop/cleanConfirmation";
@@ -14,3 +14,4 @@
 @import "components/desktop/nestedSort";
 @import "components/desktop/filters";
 @import "components/desktop/tooltip";
+@import "components/desktop/renderSelects";

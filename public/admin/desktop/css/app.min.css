@@ -477,7 +477,7 @@ ol, ul {
 .nav .menu-button .hamburger.active .bar3 {
   transform: rotate(-45deg) translate(0.5rem, -0.3rem);
 }
-.nav .menu-button .menu {
+.nav .menu {
   background-color: #f5f5f5;
   height: 110vh;
   margin-top: 3rem;
@@ -489,10 +489,10 @@ ol, ul {
   width: 100%;
   z-index: 1000;
 }
-.nav .menu-button .menu.active {
+.nav .menu.active {
   top: -6vh;
 }
-.nav .menu-button .menu .menu-ul {
+.nav .menu .menu-ul {
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -504,12 +504,12 @@ ol, ul {
   width: -moz-max-content;
   width: max-content;
 }
-.nav .menu-button .menu .menu-ul li {
+.nav .menu .menu-ul li {
   font-size: 1.3em;
   margin: 1.5em 0;
   text-align: center;
 }
-.nav .menu-button .menu .menu-ul li a {
+.nav .menu .menu-ul li a {
   text-decoration: none;
   color: #000000;
   font-size: 1.1em;
@@ -672,6 +672,7 @@ body .container .editor-column.active {
 .notification {
   border-radius: 0.3rem;
   bottom: 1rem;
+  opacity: 0;
   padding: 1.5rem 1rem;
   position: absolute;
   right: 2rem;
@@ -679,9 +680,6 @@ body .container .editor-column.active {
 }
 .notification.visible {
   opacity: 1;
-}
-.notification.hidden {
-  opacity: 0;
 }
 .notification.success {
   background-color: #34A853;
@@ -736,14 +734,14 @@ body .container .editor-column.active {
   display: block;
 }
 
-.tabs-container .tabs {
+.tabs-container .top-bar {
   display: flex;
   justify-content: space-between;
 }
-.tabs-container .tabs .tabs-left {
+.tabs-container .top-bar .tabs {
   display: flex;
 }
-.tabs-container .tabs .tabs-left .tab {
+.tabs-container .top-bar .tabs .tab, .tabs-container .top-bar .tabs .locale-tab {
   font-weight: 400;
   padding: 0.5rem 0.8rem;
   position: relative;
@@ -751,47 +749,47 @@ body .container .editor-column.active {
   width: -moz-max-content;
   width: max-content;
 }
-.tabs-container .tabs .tabs-left .tab span {
+.tabs-container .top-bar .tabs .tab span, .tabs-container .top-bar .tabs .locale-tab span {
   color: rgba(0, 0, 0, 0.7333333333);
 }
-.tabs-container .tabs .tabs-left .tab.active {
+.tabs-container .top-bar .tabs .tab.active, .tabs-container .top-bar .tabs .locale-tab.active {
   background-color: #1F70C1;
   text-align: center;
   padding: 0.5rem 1.2rem;
 }
-.tabs-container .tabs .tabs-left .tab.active span {
+.tabs-container .top-bar .tabs .tab.active span, .tabs-container .top-bar .tabs .locale-tab.active span {
   color: #000;
   font-weight: 600;
 }
-.tabs-container .tabs .tabs-right {
+.tabs-container .top-bar .form-buttons {
   display: flex;
   padding: 0.2rem 0;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item {
+.tabs-container .top-bar .form-buttons .form-button {
   margin: 0 0.5rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .admin-form-submit-button {
+.tabs-container .top-bar .form-buttons .form-button .admin-form-submit-button {
   cursor: pointer;
   margin-top: 0.2rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .admin-form-submit-button svg {
+.tabs-container .top-bar .form-buttons .form-button .admin-form-submit-button svg {
   height: 1.5rem;
   width: 1.5rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .admin-form-submit-button svg:hover {
+.tabs-container .top-bar .form-buttons .form-button .admin-form-submit-button svg:hover {
   color: #1F70C1;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .clean-button {
+.tabs-container .top-bar .form-buttons .form-button .clean-button {
   cursor: pointer;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .clean-button svg {
+.tabs-container .top-bar .form-buttons .form-button .clean-button svg {
   height: 1.7rem;
   width: 1.7rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .clean-button svg:hover {
+.tabs-container .top-bar .form-buttons .form-button .clean-button svg:hover {
   color: #1F70C1;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch {
   border: 0.1rem solid #4BAE4E;
   border-radius: 0.3rem;
   display: flex;
@@ -801,77 +799,77 @@ body .container .editor-column.active {
   overflow: hidden;
   width: 3.1rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-form {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch .on-off-switch-form {
   display: none;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch .on-off-switch-items {
   display: flex;
   transition: all 0.1s;
   padding: 0.35rem 0;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items .on {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch .on-off-switch-items .on {
   font-size: 0.8rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items .off {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch .on-off-switch-items .off {
   font-size: 0.8rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items .icon {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch .on-off-switch-items .icon {
   color: #4BAE4E;
   margin-top: -0.5rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch .on-off-switch-items .icon svg {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch .on-off-switch-items .icon svg {
   height: 1.8rem;
   width: 1.8rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch.active {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch.active {
   border-color: #D93025;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch.active .on-off-switch-items {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch.active .on-off-switch-items {
   margin-left: -1.5rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch.active .on-off-switch-items .off {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch.active .on-off-switch-items .off {
   margin-left: -0.1rem;
 }
-.tabs-container .tabs .tabs-right .tabs-right-item .on-off-switch.active .on-off-switch-items .icon {
+.tabs-container .top-bar .form-buttons .form-button .on-off-switch.active .on-off-switch-items .icon {
   margin-left: -0.1rem;
   color: #D93025;
 }
-.tabs-container .tab-content {
+.tabs-container .tab-content, .tabs-container .locale-tab-content {
   padding: 0.6rem 0;
   width: 100%;
   display: none;
 }
-.tabs-container .tab-content.active {
+.tabs-container .tab-content.active, .tabs-container .locale-tab-content.active {
   display: block;
   background-color: #fff;
 }
-.tabs-container .tab-content .images-forms-container {
+.tabs-container .tab-content .images-forms-container, .tabs-container .locale-tab-content .images-forms-container {
   display: flex;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container {
+.tabs-container .tab-content .images-forms-container .single-image-container, .tabs-container .locale-tab-content .images-forms-container .single-image-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
   width: 45%;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .image-container {
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container, .tabs-container .locale-tab-content .images-forms-container .single-image-container .image-container {
   display: flex;
   height: 50%;
   position: relative;
   width: 80%;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .image-container.first-image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container.first-image-container .add-image-button, .tabs-container .locale-tab-content .images-forms-container .single-image-container .image-container.first-image-container .add-image-button {
   display: block;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .image-container.first-image-container .image {
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container.first-image-container .image, .tabs-container .locale-tab-content .images-forms-container .single-image-container .image-container.first-image-container .image {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container .add-image-button, .tabs-container .locale-tab-content .images-forms-container .single-image-container .image-container .add-image-button {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .image-container img {
+.tabs-container .tab-content .images-forms-container .single-image-container .image-container img, .tabs-container .locale-tab-content .images-forms-container .single-image-container .image-container img {
   display: block;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -881,7 +879,7 @@ body .container .editor-column.active {
   padding: 0 5%;
   width: 50%;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button, .tabs-container .locale-tab-content .images-forms-container .single-image-container .add-image-button {
   background: #1172c2;
   border-radius: 5px;
   color: #fff;
@@ -894,17 +892,17 @@ body .container .editor-column.active {
   text-align: center;
   width: 50%;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button.active {
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button.active, .tabs-container .locale-tab-content .images-forms-container .single-image-container .add-image-button.active {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button svg {
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button svg, .tabs-container .locale-tab-content .images-forms-container .single-image-container .add-image-button svg {
   height: 100%;
   width: 100%;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button .image-label {
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button .image-label, .tabs-container .locale-tab-content .images-forms-container .single-image-container .add-image-button .image-label {
   text-align: center;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button .image-input {
+.tabs-container .tab-content .images-forms-container .single-image-container .add-image-button .image-input, .tabs-container .locale-tab-content .images-forms-container .single-image-container .add-image-button .image-input {
   bottom: 0;
   left: 0;
   opacity: 0;
@@ -912,47 +910,47 @@ body .container .editor-column.active {
   top: 0;
   width: 100%;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .delete-image {
+.tabs-container .tab-content .images-forms-container .single-image-container .delete-image, .tabs-container .locale-tab-content .images-forms-container .single-image-container .delete-image {
   display: none;
   position: absolute;
   right: 0.4rem;
   top: -0.5rem;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .delete-image svg {
+.tabs-container .tab-content .images-forms-container .single-image-container .delete-image svg, .tabs-container .locale-tab-content .images-forms-container .single-image-container .delete-image svg {
   height: 1.5rem;
   width: 1.5rem;
 }
-.tabs-container .tab-content .images-forms-container .single-image-container .delete-image.active {
+.tabs-container .tab-content .images-forms-container .single-image-container .delete-image.active, .tabs-container .locale-tab-content .images-forms-container .single-image-container .delete-image.active {
   display: block;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container {
+.tabs-container .tab-content .images-forms-container .multiple-images-container, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
   width: 45%;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .first-image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .first-image-container .add-image-button, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .first-image-container .add-image-button {
   display: block;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .first-image-container .image {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .first-image-container .image, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .first-image-container .image {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .image-container {
   display: flex;
   height: 50%;
   position: relative;
   width: 30%;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container.first-image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container.first-image-container .add-image-button, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .image-container.first-image-container .add-image-button {
   display: block;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container.first-image-container .image {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container.first-image-container .image, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .image-container.first-image-container .image {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container .add-image-button, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .image-container .add-image-button {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container img {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .image-container img, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .image-container img {
   display: block;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -962,7 +960,7 @@ body .container .editor-column.active {
   padding: 0 5%;
   width: 90%;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .add-image-button {
   background: #1172c2;
   border-radius: 5px;
   color: #fff;
@@ -975,18 +973,18 @@ body .container .editor-column.active {
   text-align: center;
   width: 6rem;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button.active {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button.active, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .add-image-button.active {
   display: none;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button svg {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button svg, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .add-image-button svg {
   padding-top: 0.5rem;
   height: 5rem;
   width: 5rem;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button .image-label {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button .image-label, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .add-image-button .image-label {
   text-align: center;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button .image-input {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .add-image-button .image-input, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .add-image-button .image-input {
   bottom: 0;
   left: 0;
   opacity: 0;
@@ -994,17 +992,17 @@ body .container .editor-column.active {
   top: 0;
   width: 100%;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .delete-image {
   display: none;
   position: absolute;
   right: 0.4rem;
   top: -0.5rem;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image svg {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image svg, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .delete-image svg {
   height: 1.5rem;
   width: 1.5rem;
 }
-.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image.active {
+.tabs-container .tab-content .images-forms-container .multiple-images-container .delete-image.active, .tabs-container .locale-tab-content .images-forms-container .multiple-images-container .delete-image.active {
   display: block;
 }
 
@@ -1290,10 +1288,10 @@ body .container .editor-column.active {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 20%;
+  padding: 0 10%;
   position: absolute;
   top: -50vh;
-  width: 100%;
+  width: 80%;
 }
 .bottom-bar .filters-container .filters .filter {
   text-align: center;
@@ -1346,5 +1344,27 @@ body .container .editor-column.active {
   top: 8rem;
 }
 .tooltip-container .tooltip.show {
+  display: block;
+}
+
+.selects-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 80%;
+}
+.selects-container select {
+  background-color: #f2f2f2;
+  border: none;
+  margin-right: 1rem;
+  padding: 0.2rem 0.5rem;
+}
+.selects-container .city-select option {
+  display: none;
+  width: 60%;
+}
+.selects-container .city-select option.show {
   display: block;
 }

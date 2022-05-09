@@ -6,165 +6,192 @@
         <button>ordenar</button>
     </div>
     <div class="nested-sort">
-        
+
         <div class="nested-sort-item" data-id="1">
-            <div class="user">
-                <div class="user-left">
-                    <div class="field">
-                        <div class="description">
-                            <span>Nombre:</span>
-                        </div>
-                        <div class="value">
-                            <span>
-                                Joan
-                            </span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="description">
-                            <span>Email:</span>
-                        </div>
-                        <div class="value">
-                            <span>general</span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="description">
-                            <span>Creado el:</span>
-                        </div>
-                        <div class="value">
-                            <span>22-04-2022</span>
-                        </div>
-                    </div>
+            <div class="draggable-container">
+                <div class="draggable-background">
+
                 </div>
-                <div class="user-right">
-                    <div class="tooltip-container">
-                        <div class="tooltip">
-                            <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
-                        </div>
-                        <div class="edit-user-button">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="tooltip-container">
-                        <div class="tooltip">
-                            <div class="tooltip-text" data-name="Borrar Usuario" data-position="right"></div>
-                        </div>
-                        <div class="delete-user-button">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                            </svg>
-                        </div>
+                <div class="draggable-field">
+                    <div class="draggable-item">
+                        <div class="user">
+                            <div class="user-left">
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Nombre:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>
+                                            Joan
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Email:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>general</span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Creado el:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>22-04-2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-right">
+                                <div class="tooltip-container">
+                                    <div class="tooltip">
+                                        <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
+                                    </div>
+                                    <div class="edit-user-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="tooltip-container">
+                                    <div class="tooltip">
+                                        <div class="tooltip-text" data-name="Borrar Usuario" data-position="right"></div>
+                                    </div>
+                                    <div class="delete-user-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
                     </div>
                 </div>
             </div>
         </div>
         <div class="nested-sort-item" data-id="2">
-            <div class="user">
-                <div class="user-left">
-                    <div class="field">
-                        <div class="description">
-                            <span>Nombre:</span>
-                        </div>
-                        <div class="value">
-                            <span>
-                                Juan Antonio
-                            </span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="description">
-                            <span>Email:</span>
-                        </div>
-                        <div class="value">
-                            <span>general</span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="description">
-                            <span>Creado el:</span>
-                        </div>
-                        <div class="value">
-                            <span>22-04-2022</span>
-                        </div>
-                    </div>
+            <div class="draggable-container">
+                <div class="draggable-background">
+
                 </div>
-                <div class="user-right">
-                    <div class="tooltip-container">
-                        <div class="tooltip">
-                            <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
-                        </div>
-                        <div class="edit-user-button">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="tooltip-container">
-                        <div class="tooltip">
-                            <div class="tooltip-text" data-name="Borrar Usuario" data-position="right"></div>
-                        </div>
-                        <div class="delete-user-button">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                            </svg>
-                        </div>
+                <div class="draggable-field">
+                    <div class="draggable-item">
+                        <div class="user">
+                            <div class="user-left">
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Nombre:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>
+                                            Juan Antonio
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Email:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>general</span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Creado el:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>22-04-2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-right">
+                                <div class="tooltip-container">
+                                    <div class="tooltip">
+                                        <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
+                                    </div>
+                                    <div class="edit-user-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="tooltip-container">
+                                    <div class="tooltip">
+                                        <div class="tooltip-text" data-name="Borrar Usuario" data-position="right"></div>
+                                    </div>
+                                    <div class="delete-user-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
                     </div>
                 </div>
             </div>
         </div>
         <div class="nested-sort-item" data-id="3">
-            <div class="user">
-                <div class="user-left">
-                    <div class="field">
-                        <div class="description">
-                            <span>Nombre:</span>
-                        </div>
-                        <div class="value">
-                            <span>
-                                Bruno
-                            </span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="description">
-                            <span>Email:</span>
-                        </div>
-                        <div class="value">
-                            <span>general</span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="description">
-                            <span>Creado el:</span>
-                        </div>
-                        <div class="value">
-                            <span>22-04-2022</span>
-                        </div>
-                    </div>
+            <div class="draggable-container">
+                <div class="draggable-background">
+
                 </div>
-                <div class="user-right">
-                    <div class="tooltip-container">
-                        <div class="tooltip">
-                            <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
-                        </div>
-                        <div class="edit-user-button">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="tooltip-container">
-                        <div class="tooltip">
-                            <div class="tooltip-text" data-name="Borrar Usuario" data-position="right"></div>
-                        </div>
-                        <div class="delete-user-button">
-                            <svg viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                            </svg>
-                        </div>
+                <div class="draggable-field">
+                    <div class="draggable-item">
+                        <div class="user">
+                            <div class="user-left">
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Nombre:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>
+                                            Bruno
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Email:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>general</span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="description">
+                                        <span>Creado el:</span>
+                                    </div>
+                                    <div class="value">
+                                        <span>22-04-2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-right">
+                                <div class="tooltip-container">
+                                    <div class="tooltip">
+                                        <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
+                                    </div>
+                                    <div class="edit-user-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="tooltip-container">
+                                    <div class="tooltip">
+                                        <div class="tooltip-text" data-name="Borrar Usuario" data-position="right"></div>
+                                    </div>
+                                    <div class="delete-user-button">
+                                        <svg viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
                     </div>
                 </div>
             </div>
@@ -177,15 +204,15 @@
     
         <div class="editor">
             <div class="tabs-container">
-                <div class="tabs">
+                <div class="top-bar">
 
-                    <div class="tabs-left">    
+                    <div class="tabs">    
                         
-                        <div class="tab" data-tab-target="content">
+                        <div class="tab active" data-tab-target="content">
                             <span>Descripción</span>
                         </div>
 
-                        <div class="tab active" data-tab-target="images">
+                        <div class="tab" data-tab-target="images">
                             <span>Opiniones</span>
                         </div>
                         
@@ -193,9 +220,9 @@
                             <span>Especificaciones</span>
                         </div>
                     </div>
-                    <div class="tabs-right">
+                    <div class="form-buttons">
 
-                        <div class="tabs-right-item">
+                        <div class="form-button">
 
                             <div class="admin-form-submit-button">
                                 <div class="tooltip-container">
@@ -211,7 +238,7 @@
 
                             </div>
                         </div>
-                        <div class="tabs-right-item">
+                        <div class="form-button">
                             <div class="tooltip-container">
                                 <div class="tooltip">
                                     <div class="tooltip-text" data-name="Limpiar" data-position="top"></div>
@@ -223,7 +250,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tabs-right-item">
+                        <div class="form-button">
                             <div class="on-off-switch">
                                 <div class="on-off-switch-form">
                                     <input type="checkbox" name="" id="" checked class="on-off-switch-input">
@@ -243,13 +270,11 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
                     </div>
                 </div>
                 <div class="tabs-contents">
                     <form method="POST" id="form" action="" class="admin-form" autocomplete="off">
-                        <div class="tab-content" data-tab-content="content">
+                        <div class="tab-content active" data-tab-content="content">
                                 {{-- {{ csrf_field() }} --}}
                                 
                                 {{-- <input autocomplete="false" name="hidden" type="text" style="display:none;"> --}}
@@ -329,12 +354,15 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                {{-- <div class="locale-tabs-container">
-                                    <div class="tabs">
-                                        <div class="locale-tab active" data-tab-target="spanish">
-                                            <span>Español</span>
+                                {{-- <div class="tabs-container">
+                                    <div class="top-bar">
+                                        <div class="tabs">
+                                            <div class="locale-tab active" data-tab-target="spanish">
+                                                <span>Español</span>
+                                            </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="tabs-contents">
                                         <div class="locale-tab-content active" data-tab-content="spanish">
                                             <form action="">
@@ -351,12 +379,48 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div>       --}}
+                                </div> --}}
+
+                                <div class="selects-container">
+                                    <div class="desktop-two-columns">
+                                        <div class="column">
+                                            <div class="field">
+                                                <div class="country-select">
+                                                    <select name="country" id="country">
+                                                        <option value="show" class="country-option">Selecciona un país</option>
+                                                        <option value="AF" class="country-option">Afghanistan</option>
+                                                        <option value="AR" class="country-option">Argentina</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="field">
+                                                <div class="city-selects-container">
+                                                    <div class="options">
+                                                        <select name="" id="show" class="city-select">
+                                                            <option value="">Selecciona una ciudad</option>
+                                                            <option value="Kabul" data-country="AF">Kabul</option>
+                                                            <option value="Herat" data-country="AF">Herat</option>
+                                                            <option value="Kandahar" data-country="AF">Kandahar</option>
+                                                            <option value="Mazar-e-Sharif" data-country="AF">Mazar-e-Sharif</option>
+                                                            <option value="Buenos Aires" data-country="AR">Buenos Aires</option>
+                                                            <option value="Córdoba" data-country="AR">Córdoba</option>
+                                                            <option value="Rosario" data-country="AR">Rosario</option>
+                                                            <option value="Mendoza" data-country="AR">Mendoza</option>
+                                                        </select>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
 
                                 <x-savedChangesStatus></x-savedChangesStatus>
                             
                         </div>
-                        <div class="tab-content active" data-tab-content="images">
+                        <div class="tab-content" data-tab-content="images">
                             <div class="images-forms-container">
 
                                 <div class="single-image-container">
@@ -385,9 +449,9 @@
                                 </div>
                                 <div class="multiple-images-container">
                                     {{-- <div class="tooltip-container"> --}}
-                                        <div class="tooltip">
+                                        {{-- <div class="tooltip">
                                             <div class="tooltip-text" data-name="Añadir foto" data-position="custom"></div>
-                                        </div>
+                                        </div> --}}
                                         <div class="image-container first-image-container">
                                             <div class="add-image-button">
                                                 <input type="file" accept="image/*" class="image-input" name="">

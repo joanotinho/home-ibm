@@ -10,6 +10,7 @@
         const multipleImagesContainer = imageInput.closest('.multiple-images-container');
 
         if (singleImageContainer) {
+            
             const imageContainer = singleImageContainer.querySelector('.image-container');
             const image = singleImageContainer.querySelector('.image');
             const label = singleImageContainer.querySelector('.image-label');

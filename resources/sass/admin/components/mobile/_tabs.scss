@@ -2,16 +2,16 @@
 .tabs-container {
     
 
-    .top-bar {
+    .tabs {
 
         display: flex;
         justify-content: space-between;
 
-        .tabs {
+        .tabs-left {
 
             display: flex;
 
-            .tab, .locale-tab {
+            .tab {
 
                 font-weight: 400;
                 padding: .5rem .8rem;
@@ -35,12 +35,12 @@
             }
         }
 
-        .form-buttons {
+        .tabs-right {
 
             display: flex;
             padding: .2rem 0;
 
-            .form-button {
+            .tabs-right-item {
 
                 margin: 0 .5rem;
 
@@ -141,7 +141,7 @@
         }
     }
 
-    .tab-content, .locale-tab-content {
+    .tab-content {
         padding: .6rem 0;
         width: 100%;
         display: none;

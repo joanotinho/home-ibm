@@ -1,7 +1,6 @@
 .notification {
     border-radius: .3rem;
     bottom: 1rem;
-    opacity: 0;
     padding: 1.5rem 1rem;
     position: absolute;
     right: 2rem;
@@ -9,6 +8,10 @@
 
     &.visible {
         opacity: 1;
+    }
+
+    &.hidden {
+        opacity: 0;
     }
 
     &.success {

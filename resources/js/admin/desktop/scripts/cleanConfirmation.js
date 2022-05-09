@@ -4,19 +4,19 @@ export let cleanConfirmation = () => {
     const forms = document.querySelectorAll('.admin-form');
 
     const cleanButton = document.querySelector('.clean-button');
-    const cleanConfirmation = document.querySelector('.clean-confirmation-container');
+    const cleanConfirmationContainer = document.querySelector('.clean-confirmation-container');
     const cleanCancelButton = document.querySelector('.cancel-clean');
     const cleanContent = document.querySelector('.clean-content');
 
 
     cleanButton.addEventListener('click', () => {
 
-        cleanConfirmation.classList.add('active');
+        cleanConfirmationContainer.classList.add('active');
     });
     
     cleanCancelButton.addEventListener('click', () => {
 
-        cleanConfirmation.classList.remove('active');
+        cleanConfirmationContainer.classList.remove('active');
     });
 
     cleanContent.addEventListener('click', () => {
@@ -26,14 +26,14 @@ export let cleanConfirmation = () => {
             form.reset();
         });
 
-        cleanConfirmation.classList.remove('active');
+        cleanConfirmationContainer.classList.remove('active');
     });
 
-    cleanConfirmation.addEventListener('click', (e) => {
+    cleanConfirmationContainer.addEventListener('click', (e) => {
 
-        if(e.target === cleanConfirmation) {
+        if(e.target === cleanConfirmationContainer) {
             
-            cleanConfirmation.classList.remove('active');
+            cleanConfirmationContainer.classList.remove('active');
         } 
     });
 }

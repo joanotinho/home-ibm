@@ -1,4 +1,4 @@
-require('./bootstrap');
+require('../bootstrap');
 
 import {ckeditor} from "./scripts/ckeditor.js";
 import {menuButton} from "./scripts/menuButton.js";
@@ -15,6 +15,7 @@ import {nestedSort} from "./scripts/nestedSort.js";
 import {filter} from "./scripts/filter.js";
 import {tooltip} from "./scripts/tooltip.js";
 import {events} from "./scripts/events.js";
+import {renderSelects} from "./scripts/renderSelects.js";
 
 ckeditor();
 cleanConfirmation();
@@ -31,3 +32,4 @@ nestedSort();
 filter();
 tooltip();
 events();
+renderSelects();

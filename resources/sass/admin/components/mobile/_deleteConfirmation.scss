@@ -1,0 +1,59 @@
+.delete-confirmation-container {
+
+    display: none;
+    background-color: #000a;
+    position: absolute;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    .delete-confirmation {
+
+        background-color: hsla(0, 0%, 100%, 0.2);
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 1rem;
+        position: absolute;
+        left: 25%;
+        top: 30vh;
+        width: 50%;
+        z-index: 5000;
+    
+        .delete-confirmation-title {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    
+        .delete-confirmation-buttons {
+            display: flex;
+            justify-content: center;
+    
+            .delete-confirmation-button {
+
+                width: 50%;
+    
+                button {
+                    
+                    border: none;
+                    font-weight: 600;
+                    padding: .4rem 0;
+                    width: 100%;
+                    
+                    &.cancel-delete-user {
+                        background-color: rgb(14, 212, 80);
+                    }
+    
+                    &.delete-user {
+                        background-color: rgb(233, 62, 62);
+                    }
+                }
+            }
+        }
+    }
+    &.active {
+        display: block;
+    }
+}

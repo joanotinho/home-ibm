@@ -1,0 +1,27 @@
+
+.selects-container {
+    margin: 0 auto;
+    width: 100%;
+
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    width: 100%;
+    
+    select {
+        background-color: #f2f2f2;
+        border: none;
+        margin-right: 1rem;
+        padding: .2rem .5rem;
+    }
+
+    .city-select select {
+        display: none;
+        width: 60%;
+
+        &.show {
+            display: block;
+        }
+    }
+}

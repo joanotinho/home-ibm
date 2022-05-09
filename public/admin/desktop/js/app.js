@@ -2204,10 +2204,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/characterCounter.js":
-/*!********************************************************!*\
-  !*** ./resources/js/admin/scripts/characterCounter.js ***!
-  \********************************************************/
+/***/ "./resources/js/admin/desktop/scripts/characterCounter.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/characterCounter.js ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2221,13 +2221,10 @@ var characterCounter = function characterCounter() {
     var field = characterCounter.closest('.field');
     var counterInput = field.querySelector('.counter-input');
     var maxLengthDisplay = field.querySelector('.max-length-display');
-    maxLengthDisplay.innerHTML = "de " + counterInput.dataset.maxLength;
+    var inputMaxLength = counterInput.dataset.maxLength;
+    maxLengthDisplay.innerHTML = "de " + inputMaxLength;
     counterInput.addEventListener('input', function () {
-      // cuenta la longitud del input
-      var inputLength = counterInput.value.length; // define la longitud maxima del input, sacada del dataset
-
-      var inputMaxLength = counterInput.dataset.maxLength; // imprimimos el valor del input en el contador
-
+      var inputLength = counterInput.value.length;
       characterCounter.innerHTML = inputLength;
 
       if (inputLength >= inputMaxLength) {
@@ -2242,10 +2239,10 @@ var characterCounter = function characterCounter() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/ckeditor.js":
-/*!************************************************!*\
-  !*** ./resources/js/admin/scripts/ckeditor.js ***!
-  \************************************************/
+/***/ "./resources/js/admin/desktop/scripts/ckeditor.js":
+/*!********************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/ckeditor.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2268,10 +2265,10 @@ var ckeditor = function ckeditor() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/cleanConfirmation.js":
-/*!*********************************************************!*\
-  !*** ./resources/js/admin/scripts/cleanConfirmation.js ***!
-  \*********************************************************/
+/***/ "./resources/js/admin/desktop/scripts/cleanConfirmation.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/cleanConfirmation.js ***!
+  \*****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2282,34 +2279,34 @@ __webpack_require__.r(__webpack_exports__);
 var cleanConfirmation = function cleanConfirmation() {
   var forms = document.querySelectorAll('.admin-form');
   var cleanButton = document.querySelector('.clean-button');
-  var cleanConfirmation = document.querySelector('.clean-confirmation-container');
+  var cleanConfirmationContainer = document.querySelector('.clean-confirmation-container');
   var cleanCancelButton = document.querySelector('.cancel-clean');
   var cleanContent = document.querySelector('.clean-content');
   cleanButton.addEventListener('click', function () {
-    cleanConfirmation.classList.add('active');
+    cleanConfirmationContainer.classList.add('active');
   });
   cleanCancelButton.addEventListener('click', function () {
-    cleanConfirmation.classList.remove('active');
+    cleanConfirmationContainer.classList.remove('active');
   });
   cleanContent.addEventListener('click', function () {
     forms.forEach(function (form) {
       form.reset();
     });
-    cleanConfirmation.classList.remove('active');
+    cleanConfirmationContainer.classList.remove('active');
   });
-  cleanConfirmation.addEventListener('click', function (e) {
-    if (e.target === cleanConfirmation) {
-      cleanConfirmation.classList.remove('active');
+  cleanConfirmationContainer.addEventListener('click', function (e) {
+    if (e.target === cleanConfirmationContainer) {
+      cleanConfirmationContainer.classList.remove('active');
     }
   });
 };
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/events.js":
-/*!**********************************************!*\
-  !*** ./resources/js/admin/scripts/events.js ***!
-  \**********************************************/
+/***/ "./resources/js/admin/desktop/scripts/events.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/events.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2348,10 +2345,10 @@ var events = function events() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/filter.js":
-/*!**********************************************!*\
-  !*** ./resources/js/admin/scripts/filter.js ***!
-  \**********************************************/
+/***/ "./resources/js/admin/desktop/scripts/filter.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/filter.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2376,10 +2373,10 @@ var filter = function filter() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/form.js":
-/*!********************************************!*\
-  !*** ./resources/js/admin/scripts/form.js ***!
-  \********************************************/
+/***/ "./resources/js/admin/desktop/scripts/form.js":
+/*!****************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/form.js ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2396,8 +2393,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 var renderForm = function renderForm() {
   var forms = document.querySelectorAll('.admin-form');
   var submitButton = document.querySelector('.submit-button');
-  var errorsContainer = document.querySelector('.errors-container');
-  var elements = document.querySelectorAll('.required');
 
   if (submitButton) {
     submitButton.addEventListener('click', function () {
@@ -2424,10 +2419,10 @@ var renderForm = function renderForm() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/loadImage.js":
-/*!*************************************************!*\
-  !*** ./resources/js/admin/scripts/loadImage.js ***!
-  \*************************************************/
+/***/ "./resources/js/admin/desktop/scripts/loadImage.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/loadImage.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2517,10 +2512,10 @@ var loadImage = function loadImage() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/localeTabs.js":
-/*!**************************************************!*\
-  !*** ./resources/js/admin/scripts/localeTabs.js ***!
-  \**************************************************/
+/***/ "./resources/js/admin/desktop/scripts/localeTabs.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/localeTabs.js ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2550,10 +2545,10 @@ function localeTabs() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/menuButton.js":
-/*!**************************************************!*\
-  !*** ./resources/js/admin/scripts/menuButton.js ***!
-  \**************************************************/
+/***/ "./resources/js/admin/desktop/scripts/menuButton.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/menuButton.js ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2572,10 +2567,10 @@ function menuButton() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/nestedSort.js":
-/*!**************************************************!*\
-  !*** ./resources/js/admin/scripts/nestedSort.js ***!
-  \**************************************************/
+/***/ "./resources/js/admin/desktop/scripts/nestedSort.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/nestedSort.js ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2593,39 +2588,32 @@ var nestedSort = function nestedSort() {
     var items = nestedSortContainer.querySelectorAll('.nested-sort-item');
     var data = [];
     var editableValue = false;
-    items.forEach(function (item) {
-      var dato = {
-        id: item.dataset.id,
-        text: item.innerHTML
-      };
-      data.push(dato);
-    });
-
-    var nested = function nested() {
-      new (nested_sort__WEBPACK_IMPORTED_MODULE_0___default())({
-        data: data,
-        actions: {
-          onDrop: function onDrop(data) {
-            console.log(data);
-          }
-        },
-        el: list,
-        listClassNames: ['nested-sort'],
-        listItemClassNames: ['nested-sort-item'],
-        droppingEdge: 5,
-        nestingLevels: 0,
-        init: editableValue
-      });
-    };
-
-    if (nestedSortContainer.classList.contains('editable')) {
-      alert('editable');
-      nested();
-      editableValue = true;
-      console.log(editableValue);
-    }
 
     if (sortingButton) {
+      var nested = function nested() {
+        new (nested_sort__WEBPACK_IMPORTED_MODULE_0___default())({
+          data: data,
+          actions: {
+            onDrop: function onDrop(data) {
+              console.log(data);
+            }
+          },
+          el: list,
+          listClassNames: ['nested-sort'],
+          listItemClassNames: ['nested-sort-item'],
+          droppingEdge: 5,
+          nestingLevels: 0,
+          init: editableValue
+        });
+      };
+
+      items.forEach(function (item) {
+        var dato = {
+          id: item.dataset.id,
+          text: item.innerHTML
+        };
+        data.push(dato);
+      });
       sortingButton.addEventListener('click', function (e) {
         e.preventDefault();
         editableValue = !editableValue;
@@ -2638,10 +2626,45 @@ var nestedSort = function nestedSort() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/savedChangesStatus.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/admin/scripts/savedChangesStatus.js ***!
-  \**********************************************************/
+/***/ "./resources/js/admin/desktop/scripts/renderSelects.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/renderSelects.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderSelects": () => (/* binding */ renderSelects)
+/* harmony export */ });
+var renderSelects = function renderSelects() {
+  var citySelects = document.querySelectorAll('.city-select');
+  citySelects.forEach(function (citySelect) {
+    var container = citySelect.closest('.selects-container');
+    var countrySelect = container.querySelector('.country-select select');
+
+    if (countrySelect) {
+      countrySelect.addEventListener('change', function (e) {
+        var country = e.target.value;
+        var cities = citySelect.querySelectorAll('option');
+        cities.forEach(function (city) {
+          if (country == city.dataset.country) {
+            city.classList.add('show');
+          } else {
+            city.classList.remove('show');
+          }
+        });
+      });
+    }
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/desktop/scripts/savedChangesStatus.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/savedChangesStatus.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2667,10 +2690,10 @@ var savedChangesStatus = function savedChangesStatus() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/switchButton.js":
-/*!****************************************************!*\
-  !*** ./resources/js/admin/scripts/switchButton.js ***!
-  \****************************************************/
+/***/ "./resources/js/admin/desktop/scripts/switchButton.js":
+/*!************************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/switchButton.js ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2692,10 +2715,10 @@ var switchButton = function switchButton() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/tabs.js":
-/*!********************************************!*\
-  !*** ./resources/js/admin/scripts/tabs.js ***!
-  \********************************************/
+/***/ "./resources/js/admin/desktop/scripts/tabs.js":
+/*!****************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/tabs.js ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2725,10 +2748,10 @@ function tabs() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/tooltip.js":
-/*!***********************************************!*\
-  !*** ./resources/js/admin/scripts/tooltip.js ***!
-  \***********************************************/
+/***/ "./resources/js/admin/desktop/scripts/tooltip.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/tooltip.js ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2738,28 +2761,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var tooltip = function tooltip() {
   var tooltips = document.querySelectorAll('.tooltip');
-  tooltips.forEach(function (tooltip) {
-    var tooltipContainer = tooltip.closest('.tooltip-container');
-    var tooltipText = tooltipContainer.querySelector('.tooltip-text');
-    var tooltipTextValue = tooltipText.dataset.name;
-    var tooltipTextPosition = tooltipText.dataset.position;
-    tooltipText.classList.add('tooltip-text--' + tooltipTextPosition);
-    tooltipText.innerHTML = tooltipTextValue;
-    tooltipContainer.addEventListener('mouseover', function (e) {
-      tooltip.classList.add('show');
+
+  if (tooltips) {
+    tooltips.forEach(function (tooltip) {
+      var tooltipContainer = tooltip.closest('.tooltip-container');
+      var tooltipText = tooltipContainer.querySelector('.tooltip-text');
+      var tooltipTextValue = tooltipText.dataset.name;
+      var tooltipTextPosition = tooltipText.dataset.position;
+      tooltipText.classList.add('tooltip-text--' + tooltipTextPosition);
+      tooltipText.innerHTML = tooltipTextValue;
+      tooltipContainer.addEventListener('mouseover', function (e) {
+        tooltip.classList.add('show');
+      });
+      tooltipContainer.addEventListener('mouseout', function (e) {
+        tooltip.classList.remove('show');
+      });
     });
-    tooltipContainer.addEventListener('mouseout', function (e) {
-      tooltip.classList.remove('show');
-    });
-  });
+  }
 };
 
 /***/ }),
 
-/***/ "./resources/js/admin/scripts/userModification.js":
-/*!********************************************************!*\
-  !*** ./resources/js/admin/scripts/userModification.js ***!
-  \********************************************************/
+/***/ "./resources/js/admin/desktop/scripts/userModification.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/admin/desktop/scripts/userModification.js ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21108,26 +21134,28 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!***********************************!*\
-  !*** ./resources/js/admin/app.js ***!
-  \***********************************/
+/*!*******************************************!*\
+  !*** ./resources/js/admin/desktop/app.js ***!
+  \*******************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/admin/scripts/ckeditor.js");
-/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/menuButton.js */ "./resources/js/admin/scripts/menuButton.js");
-/* harmony import */ var _scripts_tabs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/tabs.js */ "./resources/js/admin/scripts/tabs.js");
-/* harmony import */ var _scripts_localeTabs_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/localeTabs.js */ "./resources/js/admin/scripts/localeTabs.js");
-/* harmony import */ var _scripts_cleanConfirmation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/cleanConfirmation.js */ "./resources/js/admin/scripts/cleanConfirmation.js");
-/* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/form.js */ "./resources/js/admin/scripts/form.js");
-/* harmony import */ var _scripts_switchButton_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/switchButton.js */ "./resources/js/admin/scripts/switchButton.js");
-/* harmony import */ var _scripts_userModification__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/userModification */ "./resources/js/admin/scripts/userModification.js");
-/* harmony import */ var _scripts_characterCounter_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/characterCounter.js */ "./resources/js/admin/scripts/characterCounter.js");
-/* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/admin/scripts/savedChangesStatus.js");
-/* harmony import */ var _scripts_loadImage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./scripts/loadImage.js */ "./resources/js/admin/scripts/loadImage.js");
-/* harmony import */ var _scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scripts/nestedSort.js */ "./resources/js/admin/scripts/nestedSort.js");
-/* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./scripts/filter.js */ "./resources/js/admin/scripts/filter.js");
-/* harmony import */ var _scripts_tooltip_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./scripts/tooltip.js */ "./resources/js/admin/scripts/tooltip.js");
-/* harmony import */ var _scripts_events_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./scripts/events.js */ "./resources/js/admin/scripts/events.js");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
+/* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/admin/desktop/scripts/ckeditor.js");
+/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/menuButton.js */ "./resources/js/admin/desktop/scripts/menuButton.js");
+/* harmony import */ var _scripts_tabs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/tabs.js */ "./resources/js/admin/desktop/scripts/tabs.js");
+/* harmony import */ var _scripts_localeTabs_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/localeTabs.js */ "./resources/js/admin/desktop/scripts/localeTabs.js");
+/* harmony import */ var _scripts_cleanConfirmation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/cleanConfirmation.js */ "./resources/js/admin/desktop/scripts/cleanConfirmation.js");
+/* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/form.js */ "./resources/js/admin/desktop/scripts/form.js");
+/* harmony import */ var _scripts_switchButton_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/switchButton.js */ "./resources/js/admin/desktop/scripts/switchButton.js");
+/* harmony import */ var _scripts_userModification__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/userModification */ "./resources/js/admin/desktop/scripts/userModification.js");
+/* harmony import */ var _scripts_characterCounter_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/characterCounter.js */ "./resources/js/admin/desktop/scripts/characterCounter.js");
+/* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/admin/desktop/scripts/savedChangesStatus.js");
+/* harmony import */ var _scripts_loadImage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./scripts/loadImage.js */ "./resources/js/admin/desktop/scripts/loadImage.js");
+/* harmony import */ var _scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scripts/nestedSort.js */ "./resources/js/admin/desktop/scripts/nestedSort.js");
+/* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./scripts/filter.js */ "./resources/js/admin/desktop/scripts/filter.js");
+/* harmony import */ var _scripts_tooltip_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./scripts/tooltip.js */ "./resources/js/admin/desktop/scripts/tooltip.js");
+/* harmony import */ var _scripts_events_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./scripts/events.js */ "./resources/js/admin/desktop/scripts/events.js");
+/* harmony import */ var _scripts_renderSelects_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./scripts/renderSelects.js */ "./resources/js/admin/desktop/scripts/renderSelects.js");
+__webpack_require__(/*! ../bootstrap */ "./resources/js/admin/bootstrap.js");
+
 
 
 
@@ -21159,6 +21187,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
 (0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__.filter)();
 (0,_scripts_tooltip_js__WEBPACK_IMPORTED_MODULE_13__.tooltip)();
 (0,_scripts_events_js__WEBPACK_IMPORTED_MODULE_14__.events)();
+(0,_scripts_renderSelects_js__WEBPACK_IMPORTED_MODULE_15__.renderSelects)();
 })();
 
 /******/ })()

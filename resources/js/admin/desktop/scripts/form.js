@@ -3,9 +3,6 @@ export let renderForm = () => {
 
     const forms = document.querySelectorAll('.admin-form');
     const submitButton = document.querySelector('.submit-button');
-    const errorsContainer = document.querySelector('.errors-container');
-    const elements = document.querySelectorAll('.required');
-
 
     if (submitButton) {
 

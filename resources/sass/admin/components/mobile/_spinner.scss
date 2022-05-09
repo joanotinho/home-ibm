@@ -1,0 +1,25 @@
+.spinner-container {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+
+    &.active {
+        display: block;
+    }
+
+    .spinner {
+        position: absolute;
+        left: 45%;
+        top: 43%;
+        width: 5%;
+
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -3,5 +3,5 @@
 @endif
 
 @if ($agent->isMobile())
-    <link rel="stylesheet" href="{{ mix('/admin/mobile/css/app-mobile.css')}}">
+    <link rel="stylesheet" href="{{ mix('/admin/mobile/css/mobile-app.css')}}">
 @endif
