@@ -46,7 +46,6 @@ body {
                     position: relative;
                     transform: translateX(0);
                     width: 100%;
-                    z-index: 1000;
 
                     &.slide {    
                         transition: all .5s ease-out;

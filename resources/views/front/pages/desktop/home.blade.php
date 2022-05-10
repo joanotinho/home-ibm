@@ -10,7 +10,7 @@
             <h2>Un título que evoca emociones</h2>
         </div>
         <div class="featured-button">
-            <button>Más info</button>
+            <a href="/contacto">Más info</a>
         </div>
     </div>
     <div class="categories">

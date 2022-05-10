@@ -58,6 +58,7 @@
         }
 
         .checkout-right {
+
             .mobile-single-column .column {
                 width: 100%;
             }
@@ -87,16 +88,19 @@
                 }
             }
             .payment-methods {
+
                 width: 100%;
 
                 .payment-method {
-                    margin: .5em 0;
+
                     background: #eee;
+                    margin: .5em 0;
+                    padding: .2rem 0;
 
                     .column {
-                        text-align: left;
+                        
+                        text-align: center;
                         white-space: nowrap;
-                        height: max-content;
                         width: 100%;
                     }
                 }

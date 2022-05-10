@@ -40,7 +40,7 @@ export let dragDrop = () => {
             // if moved enough negative then snap to next slide if there is one
             if (currentTranslate < -100) {
 
-                alert("has eliminado el elemento")
+                console.log("has eliminado el elemento")
 
                 slide.classList.add('slide');
                 currentTranslate = -1000;
@@ -55,7 +55,7 @@ export let dragDrop = () => {
             // if moved enough positive then snap to previous slide if there is one
             if (currentTranslate > 100) {
 
-                alert("has entrado en modo edición")
+                console.log("has entrado en modo edición")
                 
                 currentTranslate = 1000;
                 slide.classList.add('slide');
@@ -63,7 +63,7 @@ export let dragDrop = () => {
                 setTimeout(() => {
 
                     slide.classList.remove('slide');
-                    slider.remove();
+                    slider.parentElement.remove();
                 }, 250);
 
             } else if (currentTranslate > -100 && currentTranslate < 100) {

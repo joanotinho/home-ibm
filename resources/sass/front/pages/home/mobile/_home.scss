@@ -1,11 +1,23 @@
-.slider {
-    .featured-button {
-        position: absolute;
-        top: 10rem;
-        left: 35%;
-    }
-}
+main {
 
-.services {
-    margin-top: 3rem;
+    
+    .slider {
+        
+        margin-top: -4rem;
+        margin-bottom: 2rem;
+
+        .slider-title {
+            width: 60%;
+        }
+        
+        .featured-button {
+            position: absolute;
+            top: 10rem;
+            left: 35%;
+        }
+    }
+    
+    .services {
+        margin-top: 3rem;
+    }
 }

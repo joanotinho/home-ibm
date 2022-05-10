@@ -86,7 +86,7 @@
                                     <span>304,40€                                                </span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -96,13 +96,13 @@
                                     <img src="{{Storage::url('newskill-icarus-rgb-ic27qrc.webp')}}" alt="">
                                 </div>
                                 <div class="product-title">
-                                    <h3>Newskill Icarus RGB IC27QRC 27" LED QuadHD 165Hz G-Sync Compatible</h3>
+                                    <h3>Newskill Icarus RGB IC27QRC 27" LED QuadHD 165Hz G-Sync</h3>
                                 </div>
                                 <div class="product-price">
                                     <span>269,99€                                                </span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                                     <span>256,14€</span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                                     <span>169€</span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                                     <span>326,11€</span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                                     <span>199€</span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                                     <span>318,99€</span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
                                     <span>239€</span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>
@@ -212,13 +212,13 @@
                                     <img src="{{Storage::url('msi-optix-g272.webp')}}" alt="">
                                 </div>
                                 <div class="product-title">
-                                    <h3>MSI Optix G272 27" LED IPS FullHD 144Hz G-Sync Compatible</h3>
+                                    <h3>MSI Optix G272 27" LED IPS FullHD 144Hz G-Sync</h3>
                                 </div>
                                 <div class="product-price">
                                     <span>258,99€</span>
                                 </div>
                                 <div class="product-button">
-                                    <button>Ver ficha</button>
+                                    <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
                         </div>

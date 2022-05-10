@@ -18,42 +18,44 @@
         text-align: center;
         width: 10rem;
     }
+    
+    .nested-sort {
+      padding: 0;
+
+      .nested-sort-item {
+        list-style: none;
+        margin: 0 0 5px;
+        padding: 10px;
+        background: #fff;
+        border: 1px solid #ddd;
+
+        ol {
+          padding: 0;
+          margin-top: 10px;
+          margin-bottom: -5px;
+        }
+      }
+
+      
+      /* ns-dragged is the class name of the item which is being dragged */
+      .ns-dragged {
+        border: 1px solid red;
+      }
+      
+      /* ns-targeted is the class name of the item on which the dragged item is hovering */
+      .ns-targeted {
+        border: 1px solid green;
+      }
+    }
+    
+    .nested-sort--enabled .nested-sort-item {
+      cursor: move;
+    }
 
     &.active button {
       background-color: #002991;
       text-shadow: .1rem .1rem 0px rgba(0,0,0,1);
     }
   }
-
-  .nested-sort {
-    padding: 0;
-  }
   
-  .nested-sort--enabled .nested-sort-item {
-    cursor: move;
-  }
-  
-  .nested-sort .nested-sort-item {
-    list-style: none;
-    margin: 0 0 5px;
-    padding: 10px;
-    background: #fff;
-    border: 1px solid #ddd;
-  }
-  
-  .nested-sort .nested-sort-item ol {
-    padding: 0;
-    margin-top: 10px;
-    margin-bottom: -5px;
-  }
-  
-  /* ns-dragged is the class name of the item which is being dragged */
-  .nested-sort .ns-dragged {
-    border: 1px solid red;
-  }
-  
-  /* ns-targeted is the class name of the item on which the dragged item is hovering */
-  .nested-sort .ns-targeted {
-    border: 1px solid green;
-  }
 }

@@ -2212,14 +2212,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scripts/menuButton.js */ "./resources/js/front/scripts/menuButton.js");
-/* harmony import */ var _scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scripts/plusMinusButton.js */ "./resources/js/front/scripts/plusMinusButton.js");
-/* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scripts/filter.js */ "./resources/js/front/scripts/filter.js");
-/* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../scripts/ckeditor.js */ "./resources/js/front/scripts/ckeditor.js");
-/* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../scripts/form.js */ "./resources/js/front/scripts/form.js");
-/* harmony import */ var _scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../scripts/closeElement.js */ "./resources/js/front/scripts/closeElement.js");
-/* harmony import */ var _scripts_productDescription_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../scripts/productDescription.js */ "./resources/js/front/scripts/productDescription.js");
-/* harmony import */ var _scripts_notification_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../scripts/notification.js */ "./resources/js/front/scripts/notification.js");
+/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/menuButton.js */ "./resources/js/front/desktop/scripts/menuButton.js");
+/* harmony import */ var _scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/plusMinusButton.js */ "./resources/js/front/desktop/scripts/plusMinusButton.js");
+/* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/front/desktop/scripts/ckeditor.js");
+/* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/form.js */ "./resources/js/front/desktop/scripts/form.js");
+/* harmony import */ var _scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/closeElement.js */ "./resources/js/front/desktop/scripts/closeElement.js");
+/* harmony import */ var _scripts_tabs_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/tabs.js */ "./resources/js/front/desktop/scripts/tabs.js");
+/* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/front/desktop/scripts/savedChangesStatus.js");
+/* harmony import */ var _scripts_events_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/events.js */ "./resources/js/front/desktop/scripts/events.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
 
 
@@ -2232,19 +2232,19 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
 
 (0,_scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_0__.menuButton)();
 (0,_scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_1__.plusMinusButton)();
-(0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_2__.filter)();
-(0,_scripts_form_js__WEBPACK_IMPORTED_MODULE_4__.renderForm)();
-(0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_3__.ckeditor)();
-(0,_scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_5__.closeElement)();
-(0,_scripts_productDescription_js__WEBPACK_IMPORTED_MODULE_6__.productDescription)();
-(0,_scripts_notification_js__WEBPACK_IMPORTED_MODULE_7__.notification)();
+(0,_scripts_form_js__WEBPACK_IMPORTED_MODULE_3__.renderForm)();
+(0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_2__.ckeditor)();
+(0,_scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_4__.closeElement)();
+(0,_scripts_tabs_js__WEBPACK_IMPORTED_MODULE_5__.tabs)();
+(0,_scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_6__.savedChangesStatus)();
+(0,_scripts_events_js__WEBPACK_IMPORTED_MODULE_7__.events)();
 
 /***/ }),
 
-/***/ "./resources/js/front/scripts/ckeditor.js":
-/*!************************************************!*\
-  !*** ./resources/js/front/scripts/ckeditor.js ***!
-  \************************************************/
+/***/ "./resources/js/front/desktop/scripts/ckeditor.js":
+/*!********************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/ckeditor.js ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2267,10 +2267,10 @@ var ckeditor = function ckeditor() {
 
 /***/ }),
 
-/***/ "./resources/js/front/scripts/closeElement.js":
-/*!****************************************************!*\
-  !*** ./resources/js/front/scripts/closeElement.js ***!
-  \****************************************************/
+/***/ "./resources/js/front/desktop/scripts/closeElement.js":
+/*!************************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/closeElement.js ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2295,33 +2295,50 @@ function closeElement() {
 
 /***/ }),
 
-/***/ "./resources/js/front/scripts/filter.js":
-/*!**********************************************!*\
-  !*** ./resources/js/front/scripts/filter.js ***!
-  \**********************************************/
+/***/ "./resources/js/front/desktop/scripts/events.js":
+/*!******************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/events.js ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "filter": () => (/* binding */ filter)
+/* harmony export */   "events": () => (/* binding */ events)
 /* harmony export */ });
-function filter() {
-  var filter = document.querySelector('.filter');
+var events = function events() {
+  var cartButton = document.querySelector('.cart-button');
+  var nameInput = document.getElementById('name');
 
-  if (filter != null) {
-    filter.addEventListener('click', function () {
-      filter.classList.toggle('active');
+  if (cartButton) {
+    cartButton.addEventListener('click', function (event) {
+      if (cartButton) {
+        document.dispatchEvent(new CustomEvent('message', {
+          detail: {
+            title: '¡Exito!',
+            text: 'Producto añadido al carrito',
+            type: 'success'
+          }
+        }));
+      } else {
+        document.dispatchEvent(new CustomEvent('message', {
+          detail: {
+            title: '¡Error!',
+            text: 'Formulario no enviado',
+            type: 'error'
+          }
+        }));
+      }
     });
   }
-}
+};
 
 /***/ }),
 
-/***/ "./resources/js/front/scripts/form.js":
-/*!********************************************!*\
-  !*** ./resources/js/front/scripts/form.js ***!
-  \********************************************/
+/***/ "./resources/js/front/desktop/scripts/form.js":
+/*!****************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/form.js ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2329,7 +2346,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "renderForm": () => (/* binding */ renderForm)
 /* harmony export */ });
-/* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./validation.js */ "./resources/js/front/scripts/validation.js");
+/* harmony import */ var _validation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./validation.js */ "./resources/js/front/desktop/scripts/validation.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -2377,10 +2394,10 @@ var renderForm = function renderForm() {
 
 /***/ }),
 
-/***/ "./resources/js/front/scripts/menuButton.js":
-/*!**************************************************!*\
-  !*** ./resources/js/front/scripts/menuButton.js ***!
-  \**************************************************/
+/***/ "./resources/js/front/desktop/scripts/menuButton.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/menuButton.js ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2399,38 +2416,10 @@ function menuButton() {
 
 /***/ }),
 
-/***/ "./resources/js/front/scripts/notification.js":
-/*!****************************************************!*\
-  !*** ./resources/js/front/scripts/notification.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "notification": () => (/* binding */ notification)
-/* harmony export */ });
-var notification = function notification() {
-  var notificationContainer = document.querySelector('.notification-container');
-  var notificationTitle = document.querySelector('.notification-title');
-  var notificationDescription = document.querySelector('.notification-description');
-  notificationContainer.classList.add('visible');
-
-  if (notificationContainer.classList.contains('success')) {
-    notificationTitle.innerHTML = 'Saved changes';
-    notificationDescription.innerHTML = 'Your changes have been saved successfully';
-  } else if (notificationContainer.classList.contains('error')) {
-    notificationTitle.innerHTML = 'Error';
-    notificationDescription.innerHTML = 'Your changes have not been saved successfully';
-  }
-};
-
-/***/ }),
-
-/***/ "./resources/js/front/scripts/plusMinusButton.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/front/scripts/plusMinusButton.js ***!
-  \*******************************************************/
+/***/ "./resources/js/front/desktop/scripts/plusMinusButton.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/plusMinusButton.js ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2461,18 +2450,50 @@ function plusMinusButton() {
 
 /***/ }),
 
-/***/ "./resources/js/front/scripts/productDescription.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/front/scripts/productDescription.js ***!
-  \**********************************************************/
+/***/ "./resources/js/front/desktop/scripts/savedChangesStatus.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/savedChangesStatus.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "productDescription": () => (/* binding */ productDescription)
+/* harmony export */   "savedChangesStatus": () => (/* binding */ savedChangesStatus)
 /* harmony export */ });
-function productDescription() {
+var savedChangesStatus = function savedChangesStatus() {
+  var notification = document.querySelector('.notification');
+
+  if (notification) {
+    document.addEventListener('message', function (event) {
+      var notificationTitle = document.getElementById('notification-title');
+      var notificationMessage = document.getElementById('notification-message');
+      notificationTitle.innerHTML = event.detail.title;
+      notificationMessage.innerHTML = event.detail.text;
+      notification.classList.add(event.detail.type);
+      notification.classList.add('visible');
+      setTimeout(function () {
+        notification.classList.remove('visible');
+        notification.classList.remove(event.detail.type);
+      }, 5000);
+    });
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/front/desktop/scripts/tabs.js":
+/*!****************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/tabs.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "tabs": () => (/* binding */ tabs)
+/* harmony export */ });
+function tabs() {
   var tabs = document.querySelectorAll('.tab');
   var tabContents = document.querySelectorAll('.tab-content');
   tabs.forEach(function (tab) {
@@ -2494,10 +2515,10 @@ function productDescription() {
 
 /***/ }),
 
-/***/ "./resources/js/front/scripts/validation.js":
-/*!**************************************************!*\
-  !*** ./resources/js/front/scripts/validation.js ***!
-  \**************************************************/
+/***/ "./resources/js/front/desktop/scripts/validation.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/validation.js ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

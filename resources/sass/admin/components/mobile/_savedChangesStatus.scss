@@ -1,4 +1,5 @@
 .notification {
+
     border-radius: .3rem;
     bottom: 1rem;
     padding: 1.5rem 1rem;
@@ -8,10 +9,6 @@
 
     &.visible {
         opacity: 1;
-    }
-
-    &.hidden {
-        opacity: 0;
     }
 
     &.success {

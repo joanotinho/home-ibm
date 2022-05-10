@@ -539,9 +539,6 @@ ol, ul {
 .notification.visible {
   opacity: 1;
 }
-.notification.hidden {
-  opacity: 0;
-}
 .notification.success {
   background-color: #34A853;
 }
@@ -1064,10 +1061,6 @@ ol, ul {
 }
 
 /* nested-sort is the custom class name */
-.nested-sort-container {
-  /* ns-dragged is the class name of the item which is being dragged */
-  /* ns-targeted is the class name of the item on which the dragged item is hovering */
-}
 .nested-sort-container .sorting-button {
   text-align: right;
 }
@@ -1083,33 +1076,35 @@ ol, ul {
   text-align: center;
   width: 10rem;
 }
-.nested-sort-container .sorting-button.active button {
-  background-color: #002991;
-  text-shadow: 0.1rem 0.1rem 0px rgb(0, 0, 0);
-}
-.nested-sort-container .nested-sort {
+.nested-sort-container .sorting-button .nested-sort {
   padding: 0;
+  /* ns-dragged is the class name of the item which is being dragged */
+  /* ns-targeted is the class name of the item on which the dragged item is hovering */
 }
-.nested-sort-container .nested-sort--enabled .nested-sort-item {
-  cursor: move;
-}
-.nested-sort-container .nested-sort .nested-sort-item {
+.nested-sort-container .sorting-button .nested-sort .nested-sort-item {
   list-style: none;
   margin: 0 0 5px;
   padding: 10px;
   background: #fff;
   border: 1px solid #ddd;
 }
-.nested-sort-container .nested-sort .nested-sort-item ol {
+.nested-sort-container .sorting-button .nested-sort .nested-sort-item ol {
   padding: 0;
   margin-top: 10px;
   margin-bottom: -5px;
 }
-.nested-sort-container .nested-sort .ns-dragged {
+.nested-sort-container .sorting-button .nested-sort .ns-dragged {
   border: 1px solid red;
 }
-.nested-sort-container .nested-sort .ns-targeted {
+.nested-sort-container .sorting-button .nested-sort .ns-targeted {
   border: 1px solid green;
+}
+.nested-sort-container .sorting-button .nested-sort--enabled .nested-sort-item {
+  cursor: move;
+}
+.nested-sort-container .sorting-button.active button {
+  background-color: #002991;
+  text-shadow: 0.1rem 0.1rem 0px rgb(0, 0, 0);
 }
 
 .bottom-bar {
@@ -1269,7 +1264,6 @@ body .container .users .draggable-container .draggable-field {
   position: relative;
   transform: translateX(0);
   width: 100%;
-  z-index: 1000;
 }
 body .container .users .draggable-container .draggable-field.slide {
   transition: all 0.5s ease-out;

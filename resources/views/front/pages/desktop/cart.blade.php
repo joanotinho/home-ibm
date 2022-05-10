@@ -74,6 +74,9 @@
                 </div>
             </div>
         </div>
+        <div class="featured-button center">
+            <a href="/caja">Siguiente</a>
+        </div>
     </div>
     <div class="mobile-cart">
         <div class="mobile-two-columns cart-product">
@@ -138,7 +141,7 @@
             </div>
         </div>
         <div class="featured-button center">
-            <button>Siguiente</button>
+            <a href="/caja">Siguiente</a>
         </div>
     </div>
 @endsection

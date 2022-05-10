@@ -1,8 +1,10 @@
 
 .stock-counter {
+
     display: flex;
 
     input {
+        
         text-align: center;
         border: solid 0.5px #000;
         font-size: 14pt;
@@ -27,18 +29,18 @@
           }
     }
     
-    .spinner-button {
-        cursor: default;
-        display: flex;
+    .stock-button {
+        
         font-weight: 600;
-        height: 2em;
         margin: 0;
         z-index: 2;
 
         button {
+
             border: none;
-            text-align: center;
             border-radius: 0;
+            height: 100%;
+            text-align: center;
             width: 4em;
         }
     }

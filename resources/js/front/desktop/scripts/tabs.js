@@ -1,4 +1,4 @@
-export function productDescription() {
+export function tabs() {
 
     const tabs = document.querySelectorAll('.tab')
 

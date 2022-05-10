@@ -43,7 +43,7 @@ var dragDrop = function dragDrop() {
       background.classList.remove('red'); // if moved enough negative then snap to next slide if there is one
 
       if (currentTranslate < -100) {
-        alert("has eliminado el elemento");
+        console.log("has eliminado el elemento");
         slide.classList.add('slide');
         currentTranslate = -1000;
         setTimeout(function () {
@@ -54,12 +54,12 @@ var dragDrop = function dragDrop() {
 
 
       if (currentTranslate > 100) {
-        alert("has entrado en modo edición");
+        console.log("has entrado en modo edición");
         currentTranslate = 1000;
         slide.classList.add('slide');
         setTimeout(function () {
           slide.classList.remove('slide');
-          slider.remove();
+          slider.parentElement.remove();
         }, 250);
       } else if (currentTranslate > -100 && currentTranslate < 100) {
         currentTranslate = 0;
