@@ -2269,6 +2269,49 @@ var events = function events() {
 
 /***/ }),
 
+/***/ "./resources/js/front/mobile/scripts/faqs.js":
+/*!***************************************************!*\
+  !*** ./resources/js/front/mobile/scripts/faqs.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "faqs": () => (/* binding */ faqs)
+/* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+
+var faqs = function faqs() {
+  var faqContents = document.querySelectorAll('.faq-content');
+  var faqGlobals = document.querySelectorAll('.faq');
+  faqContents.forEach(function (faqContent) {
+    // if(minusIcon) {
+    //     alert("existe")
+    // } else {
+    //     alert("no existe")
+    // }
+    console.log(faqContent);
+    var faq = faqContent.closest('.faq');
+    var arrow = faq.querySelector('.arrow');
+    arrow.addEventListener('touchend', function () {
+      if (faq.classList.contains('active')) {
+        faqGlobals.forEach(function (faqGlobal) {
+          faqGlobal.classList.remove('active');
+        });
+      } else {
+        faqGlobals.forEach(function (faqGlobal) {
+          faqGlobal.classList.remove('active');
+        });
+        faq.classList.toggle('active');
+      }
+    });
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/front/mobile/scripts/filter.js":
 /*!*****************************************************!*\
   !*** ./resources/js/front/mobile/scripts/filter.js ***!
@@ -2288,6 +2331,28 @@ function filter() {
       filter.classList.toggle('active');
     });
   }
+}
+
+/***/ }),
+
+/***/ "./resources/js/front/mobile/scripts/menuButton.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/front/mobile/scripts/menuButton.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "menuButton": () => (/* binding */ menuButton)
+/* harmony export */ });
+function menuButton() {
+  var hamburger = document.querySelector(".hamburger");
+  var menu = document.querySelector(".menu");
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle("active");
+    menu.classList.toggle("active");
+  });
 }
 
 /***/ }),
@@ -19900,10 +19965,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/front/mobile/scripts/savedChangesStatus.js");
 /* harmony import */ var _scripts_events_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/events.js */ "./resources/js/front/mobile/scripts/events.js");
 /* harmony import */ var _scripts_tabs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/tabs.js */ "./resources/js/front/mobile/scripts/tabs.js");
-/* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/filter.js */ "./resources/js/front/mobile/scripts/filter.js");
-/* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/front/mobile/scripts/ckeditor.js");
-/* harmony import */ var _scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/plusMinusButton.js */ "./resources/js/front/mobile/scripts/plusMinusButton.js");
+/* harmony import */ var _scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/menuButton.js */ "./resources/js/front/mobile/scripts/menuButton.js");
+/* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/filter.js */ "./resources/js/front/mobile/scripts/filter.js");
+/* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/front/mobile/scripts/ckeditor.js");
+/* harmony import */ var _scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/plusMinusButton.js */ "./resources/js/front/mobile/scripts/plusMinusButton.js");
+/* harmony import */ var _scripts_faqs_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/faqs.js */ "./resources/js/front/mobile/scripts/faqs.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
+
+
 
 
 
@@ -19914,9 +19983,11 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
 (0,_scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_0__.savedChangesStatus)();
 (0,_scripts_events_js__WEBPACK_IMPORTED_MODULE_1__.events)();
 (0,_scripts_tabs_js__WEBPACK_IMPORTED_MODULE_2__.tabs)();
-(0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_3__.filter)();
-(0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_4__.ckeditor)();
-(0,_scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_5__.plusMinusButton)();
+(0,_scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_3__.menuButton)();
+(0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_4__.filter)();
+(0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__.ckeditor)();
+(0,_scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_6__.plusMinusButton)();
+(0,_scripts_faqs_js__WEBPACK_IMPORTED_MODULE_7__.faqs)();
 })();
 
 /******/ })()

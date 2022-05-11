@@ -2317,6 +2317,7 @@ __webpack_require__.r(__webpack_exports__);
 var events = function events() {
   var sendButton = document.querySelector('.save-button');
   var nameInput = document.getElementById('name');
+  var deleteButton = document.querySelector('.delete-user');
 
   if (sendButton) {
     sendButton.addEventListener('click', function (event) {
@@ -2339,6 +2340,20 @@ var events = function events() {
           }
         }));
       }
+    });
+  }
+
+  ;
+
+  if (deleteButton) {
+    deleteButton.addEventListener('click', function (event) {
+      document.dispatchEvent(new CustomEvent('message', {
+        detail: {
+          title: '¡Exito!',
+          text: 'Usuario eliminado correctamente',
+          type: 'success'
+        }
+      }));
     });
   }
 };
@@ -2796,7 +2811,6 @@ __webpack_require__.r(__webpack_exports__);
 var userModification = function userModification() {
   var deleteUserButtons = document.querySelectorAll('.delete-user-button');
   var deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
-  var deleteConfirmation = document.querySelector('.delete-confirmation');
   var deleteCancelButton = document.querySelector('.cancel-delete-user');
   var deleteUser = document.querySelector('.delete-user');
   var editUserButtons = document.querySelectorAll('.edit-user-button');
@@ -2811,9 +2825,8 @@ var userModification = function userModification() {
       deleteConfirmationContainer.classList.add('active');
     });
   });
-  deleteCancelButton.addEventListener('click', function () {
+  deleteCancelButton.addEventListener('deleteUser', function () {
     deleteConfirmationContainer.classList.remove('active');
-    console.log('cancel');
   });
   deleteUser.addEventListener('click', function () {
     deleteConfirmationContainer.classList.remove('active');

@@ -61,3 +61,7 @@ Route::get('/carrito', function () {
 Route::get('/caja', function () {
     return view('front.pages.desktop.checkout');
 });
+
+Route::get('/faqs', function () {
+    return view('front.pages.desktop.faqs');
+});

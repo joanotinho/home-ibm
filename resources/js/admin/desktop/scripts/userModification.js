@@ -2,7 +2,6 @@ export let userModification = () => {
 
     const deleteUserButtons = document.querySelectorAll('.delete-user-button');
     const deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
-    const deleteConfirmation = document.querySelector('.delete-confirmation');
     const deleteCancelButton = document.querySelector('.cancel-delete-user');
     const deleteUser = document.querySelector('.delete-user');
 
@@ -25,10 +24,9 @@ export let userModification = () => {
         })
     });
 
-    deleteCancelButton.addEventListener('click', () => {
+    deleteCancelButton.addEventListener('deleteUser', () => {
 
         deleteConfirmationContainer.classList.remove('active');
-        console.log('cancel');
     });
 
     deleteUser.addEventListener('click', () => {

@@ -3,6 +3,8 @@ export let events = () => {
     let sendButton = document.querySelector('.save-button');
     let nameInput = document.getElementById('name');
 
+    let deleteButton = document.querySelector('.delete-user');
+
     if (sendButton) {
         sendButton.addEventListener('click', (event) => {
 
@@ -26,5 +28,20 @@ export let events = () => {
                 }));
             }
         });
+    };
+
+    if (deleteButton) {
+        deleteButton.addEventListener('click', (event) => {
+                
+            document.dispatchEvent(new CustomEvent('message', {
+                detail: {
+                    title: '¡Exito!',
+                    text: 'Usuario eliminado correctamente',
+                    type: 'success'
+                }
+            }));
+        });
     }
+
+    
 }

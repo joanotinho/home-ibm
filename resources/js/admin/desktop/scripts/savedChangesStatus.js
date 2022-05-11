@@ -1,6 +1,5 @@
 export let savedChangesStatus = () => {
 
-
     document.addEventListener('message', (event => {
         
         const notification = document.querySelector('.notification');
@@ -17,7 +16,5 @@ export let savedChangesStatus = () => {
             notification.classList.remove('visible');
             notification.classList.remove(event.detail.type);
         }, 5000);
-        
     }));
-
 } 

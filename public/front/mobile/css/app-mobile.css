@@ -1121,3 +1121,49 @@ main .services {
 .gallery .column-main .products .product .product-button a:hover {
   border: 0.1em solid #333333;
 }
+
+.faqs-container {
+  margin: 0 auto;
+  width: 90%;
+}
+.faqs-container .faqs {
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 80%;
+}
+.faqs-container .faqs .faq {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 2000;
+}
+.faqs-container .faqs .faq .faq-top-bar {
+  display: flex;
+  justify-content: space-between;
+}
+.faqs-container .faqs .faq .faq-top-bar .faq-title {
+  color: #1F70C1;
+}
+.faqs-container .faqs .faq .faq-top-bar .faq-icons .arrow {
+  display: block;
+}
+.faqs-container .faqs .faq .faq-top-bar .faq-icons .arrow svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.faqs-container .faqs .faq .faq-content {
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  z-index: 1000;
+}
+.faqs-container .faqs .faq.active .faq-icons .arrow {
+  transform: rotate(90deg);
+  transition: transform 0.5s;
+}
+.faqs-container .faqs .faq.active .faq-content {
+  max-height: 14rem;
+  width: 90%;
+  transition: max-height 0.8s ease-out;
+}

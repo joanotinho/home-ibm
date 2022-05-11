@@ -1,0 +1,80 @@
+.faqs-container {
+
+    margin: 0 auto;
+    width: 90%;
+
+    .faqs-title {
+    
+    }
+    
+    .faqs {
+
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: 80%;
+    
+        .faq {
+
+            margin: 1rem 0;
+            padding: .5rem;
+            position: relative;
+            z-index: 2000;
+
+    
+            .faq-top-bar {
+    
+                display: flex;
+                justify-content: space-between;
+    
+                .faq-title {
+
+                    color: #1F70C1;
+                }
+    
+                .faq-icons {
+    
+                    .arrow {
+
+                        display: block;
+
+                        svg {
+
+                            height: 1.5rem;
+                            width: 1.5rem;
+                        }
+                    }
+                }
+            }
+
+            .faq-content {
+
+                height: auto;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s ease-out;
+                z-index: 1000;
+            }
+
+            &.active {
+                
+
+                .faq-icons {
+
+                    .arrow {
+                    
+                        transform: rotate(90deg);
+                        transition: transform .5s;
+                    }
+                }
+
+                .faq-content {
+
+                    max-height: 14rem;
+                    width: 90%;
+                    
+                    transition: max-height 0.8s ease-out;
+                }
+            }
+        }
+    }
+}
