@@ -51,7 +51,7 @@
                 height: auto;
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.2s ease-out;
+                transition: max-height 0.3s ease-out;
                 z-index: 1000;
             }
 
@@ -72,7 +72,7 @@
                     max-height: 14rem;
                     width: 90%;
                     
-                    transition: max-height 0.8s ease-out;
+                    transition: max-height 0.5s ease-out;
                 }
             }
         }
