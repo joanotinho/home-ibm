@@ -1,11 +1,5 @@
-.desktop-cart {
-    
-    display: none;
-}
-
 .mobile-cart {
 
-    display: block;
     padding: 0 10%;
     width: 80%;
 
@@ -17,6 +11,16 @@
 
         .column {
             width: 100%;
+        }
+
+        .cart-stock {
+            margin-top: .5rem;
+        }
+
+        .total-price {
+
+            text-align: center;
+            margin-top: .5rem;
         }
     }
     

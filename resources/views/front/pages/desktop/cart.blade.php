@@ -1,7 +1,7 @@
 @extends('front.layout.master')
 
 @section('content')
-    <div class="desktop-cart">
+    <div class="desktop-cart desktop-only">
         <table>
             <tr class="cart-header">
                 <th class="table-header-title">Cesta</th>
@@ -78,7 +78,7 @@
             <a href="/caja">Siguiente</a>
         </div>
     </div>
-    <div class="mobile-cart">
+    <div class="mobile-cart mobile-only">
         <div class="mobile-two-columns cart-product">
             <div class="column">
                 <div class="product-image">
@@ -98,16 +98,16 @@
                         @include('front.components.plusMinusButton')
                     </div>
                 </div>
-                <div class="mobile-single-column">
-                    <div class="column">
+                <div class="total-price">
+                    <div class="mobile-two-columns">
                         <div class="column">
-                            <div class="price">
-                                <span>188,99€</span>
-                            </div>
+                            <span>Precio:</span>
+                        </div>
+                        <div class="column">
                             <div class="total">
                                 <span>188,99€</span>
-                            </div>
-                        </div>                                
+                            </div>                          
+                        </div>
                     </div>
                 </div>
             </div>

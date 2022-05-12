@@ -51,7 +51,7 @@
                 height: auto;
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height .2s ease-out;
+                transition: max-height .2s;
                 width: 90%;
             }
 
@@ -68,8 +68,8 @@
 
                 .faq-content {
 
-                    max-height: 14rem;
-                    transition: max-height 0.8s ease-out;
+                    max-height: 20rem;
+                    transition: max-height 0.8s;
                 }
             }
         }

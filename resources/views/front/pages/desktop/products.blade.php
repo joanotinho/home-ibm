@@ -10,22 +10,13 @@
                             <div class="categories-title">
                                 <h3>Categorías</h3>
                             </div>
-                            <div class="categories-category">
-                                <input type="checkbox">
-                                <span>Ordenadores</span>
-                            </div>
-                            <div class="categories-category">
-                                <input type="checkbox">
-                                <span>Teclados</span>
-                            </div>
-                            <div class="categories-category">
-                                <input type="checkbox">
-                                <span>Ratones</span>
-                            </div>
-                            <div class="categories-category">
-                                <input type="checkbox">
-                                <span>Monitores</span>
-                            </div>
+                            <select name="categories" id="products-categories" class="categories-select">
+                                <option value="blank">Seleccione una opción</option>
+                                <option value="ordenadores">Ordenadores</option>
+                                <option value="teclados">Teclados</option>
+                                <option value="ratones">Ratones</option>
+                                <option value="monitores">Monitores</option>
+                            </select>
                         </div>
                         <div class="filter center" id="filter">
                             <svg style="width:24px;height:24px" viewBox="0 0 24 24">

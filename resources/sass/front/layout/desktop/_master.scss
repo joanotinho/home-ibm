@@ -10,3 +10,13 @@ main {
     margin-top: 10vh;
     width: 100%;
 }
+
+.desktop-only {
+
+    display: block;
+}
+
+.mobile-only {
+
+    display: none;
+}

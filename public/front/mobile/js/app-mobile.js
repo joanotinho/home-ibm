@@ -2394,6 +2394,41 @@ function plusMinusButton() {
 
 /***/ }),
 
+/***/ "./resources/js/front/mobile/scripts/renderSelects.js":
+/*!************************************************************!*\
+  !*** ./resources/js/front/mobile/scripts/renderSelects.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderSelects": () => (/* binding */ renderSelects)
+/* harmony export */ });
+var renderSelects = function renderSelects() {
+  var contentContainers = document.querySelectorAll('.contents');
+  contentContainers.forEach(function (contentContainer) {
+    var container = contentContainer.closest('.selects-container');
+    var optionsSelect = container.querySelector('.options-select select');
+
+    if (optionsSelect) {
+      optionsSelect.addEventListener('change', function (e) {
+        var option = e.target.value;
+        var contents = contentContainer.querySelectorAll('.content');
+        contents.forEach(function (content) {
+          if (option == content.dataset.option) {
+            content.classList.add('show');
+          } else {
+            content.classList.remove('show');
+          }
+        });
+      });
+    }
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/front/mobile/scripts/savedChangesStatus.js":
 /*!*****************************************************************!*\
   !*** ./resources/js/front/mobile/scripts/savedChangesStatus.js ***!
@@ -19970,7 +20005,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/front/mobile/scripts/ckeditor.js");
 /* harmony import */ var _scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/plusMinusButton.js */ "./resources/js/front/mobile/scripts/plusMinusButton.js");
 /* harmony import */ var _scripts_faqs_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/faqs.js */ "./resources/js/front/mobile/scripts/faqs.js");
+/* harmony import */ var _scripts_renderSelects_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/renderSelects.js */ "./resources/js/front/mobile/scripts/renderSelects.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
+
 
 
 
@@ -19988,6 +20025,7 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
 (0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__.ckeditor)();
 (0,_scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_6__.plusMinusButton)();
 (0,_scripts_faqs_js__WEBPACK_IMPORTED_MODULE_7__.faqs)();
+(0,_scripts_renderSelects_js__WEBPACK_IMPORTED_MODULE_8__.renderSelects)();
 })();
 
 /******/ })()

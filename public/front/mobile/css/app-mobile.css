@@ -450,6 +450,14 @@ main {
   width: 100%;
 }
 
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: revert;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -514,7 +522,7 @@ header .nav-right .menu {
   margin-top: 3em;
   top: -200vh;
   position: absolute;
-  transition: top 0.4s ease-in-out;
+  transition: top 0.7s ease-in-out;
   height: 0vh;
   width: 100%;
 }
@@ -586,40 +594,6 @@ footer .footer-info .column {
 }
 .desktop-five-columns .column {
   width: 16%;
-}
-
-.slider {
-  height: 34vh;
-  position: relative;
-  width: 100%;
-}
-
-.slider .slider-image {
-  position: absolute;
-  width: 100%;
-}
-.slider .slider-image img {
-  width: 100%;
-  margin: 13% 0 0 0;
-}
-
-.slider .slider-title {
-  background-color: rgba(0, 0, 0, 0.5);
-  left: 10%;
-  padding: 0.3em 0.5em;
-  position: absolute;
-  top: 30%;
-  z-index: 10;
-}
-
-.slider .slider-title h2 {
-  color: #ffffff;
-  font-size: 1.5em;
-}
-
-.slider .slider-button {
-  top: 50%;
-  left: 35%;
 }
 
 .featured-button button, .featured-button a {
@@ -731,12 +705,31 @@ footer .footer-info .column {
   background-color: #f33;
 }
 
-.desktop-cart {
+.selects-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 1rem;
+  width: 80%;
+}
+.selects-container select {
+  background-color: #f2f2f2;
+  border: none;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  padding: 0.2rem 0.5rem;
+}
+.selects-container .contents .content {
   display: none;
+  margin: 0 auto;
+  width: 95%;
+}
+.selects-container .contents .content.show {
+  display: block;
 }
 
 .mobile-cart {
-  display: block;
   padding: 0 10%;
   width: 80%;
 }
@@ -748,6 +741,13 @@ footer .footer-info .column {
 }
 .mobile-cart .cart-product .column {
   width: 100%;
+}
+.mobile-cart .cart-product .cart-stock {
+  margin-top: 0.5rem;
+}
+.mobile-cart .cart-product .total-price {
+  text-align: center;
+  margin-top: 0.5rem;
 }
 .mobile-cart .cart-taxes {
   margin-top: 2em;
@@ -950,20 +950,65 @@ footer .footer-info .column {
   color: rgb(255, 255, 200);
 }
 
-main .slider {
+.slider {
+  height: 34vh;
   margin-top: -4rem;
   margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
 }
-main .slider .slider-title {
+.slider .slider-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 10%;
+  padding: 0.3em 0.5em;
+  position: absolute;
+  top: 30%;
   width: 60%;
+  z-index: 10;
 }
-main .slider .featured-button {
+.slider .slider-title h2 {
+  color: #ffffff;
+  font-size: 1.5em;
+}
+.slider .slider-image {
+  position: absolute;
+  width: 100%;
+}
+.slider .slider-image img {
+  width: 100%;
+  margin: 13% 0 0 0;
+}
+.slider .featured-button {
   position: absolute;
   top: 10rem;
   left: 35%;
 }
-main .services {
+
+.categories {
+  width: 100%;
+}
+.categories .categories-product {
+  padding: 0 10%;
+  width: 80%;
+}
+.categories .categories-product img {
+  width: 100%;
+}
+.categories .categories-product .categories-products {
+  flex-wrap: wrap;
+}
+
+.services {
+  flex-wrap: wrap;
   margin-top: 3rem;
+}
+.services .service {
+  width: 100%;
+  margin: 1em 0;
+}
+.services .service .service-image {
+  padding: 0 20%;
+  width: 60%;
 }
 
 .product-datasheet-images .product-datasheet-main-image .column {

@@ -273,7 +273,7 @@
                     </div>
                 </div>
                 <div class="tabs-contents">
-                    <form method="POST" id="form" action="" class="admin-form" autocomplete="off">
+                    <form method="POST" id="form" action="" class="admin-form">
                         <div class="tab-content active" data-tab-content="content">
                                 {{-- {{ csrf_field() }} --}}
                                 
@@ -295,7 +295,7 @@
                                                 </div>
                                             </div>
                                             <div class="field-input">
-                                                <input type="text" name="name" id="name" data-type="nombre" class="counter-input" data-max-length="3">
+                                                <input type="text" name="name" id="name" data-type="nombre" class="counter-input" data-max-length="3" autocomplete="off">
                                             </div>
                                             <div class="field-rule">
                                                 <span>El nombre no puede estar vacío</span>

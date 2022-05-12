@@ -2279,18 +2279,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "closeElement": () => (/* binding */ closeElement)
 /* harmony export */ });
 function closeElement() {
-  var closeButton = document.querySelector('.close-button');
-  var parent = document.querySelector(".parent");
-  var elements = document.querySelectorAll('.required');
+  var closeButtons = document.querySelectorAll('.close-button');
+  closeButtons.forEach(function (closeButton) {
+    var parent = closeButton.closest(".errors-container");
+    var elements = closeButton.querySelectorAll('.required');
 
-  if (closeButton) {
-    closeButton.addEventListener('click', function () {
-      parent.classList.remove('active');
-      elements.forEach(function (element) {
-        element.classList.add('active');
+    if (closeButton) {
+      closeButton.addEventListener('click', function () {
+        parent.classList.remove('active');
+        elements.forEach(function (element) {
+          element.classList.add('active');
+        });
       });
-    });
-  }
+    }
+  });
 }
 
 /***/ }),

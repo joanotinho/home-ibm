@@ -1,0 +1,30 @@
+
+.selects-container {
+
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 1rem;
+    width: 80%;
+    
+    select {
+        
+        background-color: #f2f2f2;
+        border: none;
+        margin-bottom: .5rem;
+        margin-right: 1rem;
+        padding: .2rem .5rem;
+    }
+
+    .contents .content {
+
+        display: none;
+        margin: 0 auto;
+        width: 95%;
+
+        &.show {
+            display: block;
+        }
+    }
+}

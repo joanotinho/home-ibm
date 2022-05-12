@@ -16,7 +16,7 @@
             @yield('content')
         </main>
 
-        {{-- @include('front.layout.partials.footer') --}}
+        @include('front.layout.partials.footer')
 
         @include('front.layout.partials.scripts')
     </body>

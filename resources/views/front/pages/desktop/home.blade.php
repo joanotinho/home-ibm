@@ -96,13 +96,17 @@
     <div class="services center">
         <div class="desktop-two-columns mobile-single-column">
             <div class="column">
-                <div class="services-description">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis nostrum eligendi est, eos fuga vitae corporis natus libero assumenda? Quam tempore quia quisquam nemo eligendi omnis culpa quaerat tenetur temporibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis pariatur ipsam sed nostrum! Ipsam voluptas sapiente fugit distinctio repudiandae debitis id, in corporis deleniti aspernatur consequatur! Voluptatibus exercitationem rem magnam.</p>
+                <div class="service">
+                    <div class="service-description">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis nostrum eligendi est, eos fuga vitae corporis natus libero assumenda? Quam tempore quia quisquam nemo eligendi omnis culpa quaerat tenetur temporibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis pariatur ipsam sed nostrum! Ipsam voluptas sapiente fugit distinctio repudiandae debitis id, in corporis deleniti aspernatur consequatur! Voluptatibus exercitationem rem magnam.</p>
+                    </div>
                 </div>
             </div>
             <div class="column">
-                <div class="services-image">
-                    <img src="{{Storage::url('ibm-laptop.webp')}}" alt="">
+                <div class="service">
+                    <div class="service-image">
+                        <img src="{{Storage::url('ibm-laptop.webp')}}" alt="">
+                    </div>
                 </div>
             </div>
         </div>

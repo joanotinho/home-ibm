@@ -8,3 +8,13 @@ main {
     margin-top: 4em;
     width: 100%;
 }
+
+.desktop-only {
+
+    display: none;
+}
+
+.mobile-only {
+
+    display: revert;
+}

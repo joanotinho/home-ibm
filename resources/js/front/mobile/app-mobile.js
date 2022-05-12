@@ -8,6 +8,7 @@ import {filter} from "./scripts/filter.js";
 import {ckeditor} from "./scripts/ckeditor.js";
 import {plusMinusButton} from "./scripts/plusMinusButton.js";
 import {faqs} from "./scripts/faqs.js";
+import {renderSelects} from "./scripts/renderSelects.js";
 
 savedChangesStatus();
 events();
@@ -17,3 +18,4 @@ filter();
 ckeditor();
 plusMinusButton();
 faqs();
+renderSelects();

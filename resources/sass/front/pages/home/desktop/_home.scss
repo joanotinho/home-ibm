@@ -1,7 +1,30 @@
 .slider {
 
+    height: 70vh;
     margin-bottom: 10rem;
+    text-align: center;
+    width: 100%;
     
+    .slider-title {
+
+        background-color: rgba(0, 0, 0, .5);
+        left: 10%;
+        padding: .3em .5em;
+        position: absolute;
+        top: 20%;
+        z-index: 10;
+        h2 {
+            color: #ffffff;
+            font-size: 2em;
+        }
+    }
+
+    .slider-image{
+
+        position: absolute;
+        width: 100%;
+    }
+
     .featured-button {
         
         left: 12%;
@@ -9,4 +32,97 @@
         top: 30%;
         z-index: 10;
     }
+}
+.slider {
+
+    margin-bottom: 10rem;
+    text-align: center;
+    width: 100%;
+
+    .slider-image {
+        
+        width: 100%;
+    }
+
+    .featured-button {
+        
+        left: 12%;
+        position: absolute;
+        top: 30%;
+        z-index: 10;
+    }
+}
+.categories {
+
+    margin: 2em 0;
+ 
+    .categories-title {
+
+        margin: 1em 0;
+
+        h3 {
+            
+            font-size: 2em;
+        }
+    }
+
+    .categories-products {
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .categories-product {
+
+            border: .1em solid #000000;
+            margin: 0 1em;
+
+            .categories-product-image{
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .categories-product-author p {
+
+                color: #f36;
+                font-weight: bold;
+            }
+
+            .categories-product-title,
+            .categories-product-author,
+            .categories-product-description {
+                margin: 1em;
+            }
+        }
+    }
+}
+
+.services {
+
+    justify-content: center;
+    padding: 0 10%;
+    width: 80%;
+
+    .service {
+
+        position: relative;
+        width: 100%;
+
+        .service-description {
+
+            left: 20%;
+            position: absolute;
+            top: 5rem;
+            width: 50%;
+        }
+
+        .service-image {
+
+            width: 80%;
+        }
+    }
+
 }

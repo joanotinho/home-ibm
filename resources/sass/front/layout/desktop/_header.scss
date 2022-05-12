@@ -11,18 +11,22 @@ header {
     z-index: 10000;
     
     .nav-left {
+
         display: flex;
         justify-content: space-around;
         align-items: center;
 
         .logo {
+
             width: 4em;
         }
 
         .title{
+
             padding: 0 1em;
 
             h1 {
+
                 font-size: 1.2em;
             }
         }
@@ -32,29 +36,34 @@ header {
     .nav-right{
 
         .hamburger {
+
             display: none;
             padding: 5px;
             cursor: pointer;
 
             .bar1,.bar2,.bar3{  
+
                 display:block;  
                 width: 2rem;  
                 height:3px;  
                 margin:5px auto;  
                 background-color:#101010;  
-                transition: 0.4s;  
+                transition: 1s;  
             }  
         }
 
         .menu ul {
+
             display: flex;
             justify-content: space-between;
             list-style: none;
     
             li{
+
                 margin: 0 .5em;
     
                 a {
+
                     text-decoration: none;
                     color: #000000;
                     font-size: 1.1em;

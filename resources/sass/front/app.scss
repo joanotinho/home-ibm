@@ -8,15 +8,13 @@
 @import "layout/desktop/header";
 @import "layout/desktop/footer";
 @import "layout/desktop/columns";
-@import "components/desktop/categories";
 @import "components/desktop/close-button";
 @import "components/desktop/featured-button";
 @import "components/desktop/plus-minus-button";
-@import "components/desktop/slider";
-@import "components/desktop/services";
 @import "components/desktop/forms";
 @import "components/desktop/tabs";
 @import "components/desktop/savedChangesStatus";
+@import "components/desktop/renderSelects";
 @import "pages/cart/desktop/cart";
 @import "pages/checkout/desktop/checkout";
 @import "pages/contact/desktop/contact";

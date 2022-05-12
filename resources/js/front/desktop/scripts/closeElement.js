@@ -1,14 +1,22 @@
 export function closeElement() {
-    const closeButton = document.querySelector('.close-button');
-    const parent = document.querySelector(".parent");
-    const elements = document.querySelectorAll('.required');
+    const closeButtons = document.querySelectorAll('.close-button');
 
-    if (closeButton) {
-        closeButton.addEventListener('click', () => {
-            parent.classList.remove('active');
-            elements.forEach(element => {
-                element.classList.add('active');
+    closeButtons.forEach(closeButton => {
+
+        const parent = closeButton.closest(".errors-container");
+        const elements = closeButton.querySelectorAll('.required');
+    
+        if (closeButton) {
+            
+            closeButton.addEventListener('click', () => {
+
+                parent.classList.remove('active');
+
+                elements.forEach(element => {
+
+                    element.classList.add('active');
+                });
             });
-        });
-    }
+        }
+    });
 }

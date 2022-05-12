@@ -1,8 +1,17 @@
 .services {
+
     justify-content: center;
+    padding: 0 10%;
+    width: 80%;
+
     .services-description {
+
         height: max-content;
         vertical-align: middle;
         width: 70%;
+    }
+
+    .services-image {
+        
     }
 }

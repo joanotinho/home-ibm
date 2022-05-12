@@ -102,6 +102,8 @@
                 <div class="faq-content">
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae veniam dicta, sint porro, a pariatur officiis quasi fugiat facere corrupti quam cupiditate, qui sequi ipsa minus quo possimus rerum cum!
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae non eos totam nemo, quae itaque commodi autem voluptas! Blanditiis itaque ratione numquam temporibus fugiat voluptates omnis, perspiciatis deserunt sit sed?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat libero nesciunt dolorum quisquam, velit pariatur laborum quos, aliquid, repellat quia alias deserunt. Qui tenetur inventore delectus rerum distinctio magni iusto?
                     </p>
                 </div>
             </div>
