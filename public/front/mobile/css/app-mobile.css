@@ -567,32 +567,32 @@ footer .footer-info .column {
   font-size: 0.8em;
 }
 
-.mobile-single-column {
+.single-column {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   text-align: center;
 }
-.mobile-single-column .column {
+.single-column .column {
   width: 95%;
   padding: 0 2.5%;
   margin: 0.2em 0;
 }
 
-.mobile-two-columns {
+.two-columns {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
-.mobile-two-columns .column {
+.two-columns .column {
   width: 50%;
 }
 
-.desktop-five-columns {
+.five-columns {
   display: flex;
   justify-content: space-between;
 }
-.desktop-five-columns .column {
+.five-columns .column {
   width: 16%;
 }
 

@@ -2,16 +2,16 @@
 
 @section('content')
     <div class="product-datasheet">
-        <div class="desktop-two-columns mobile-single-column">
+        <div class="two-columns">
             <div class="column">
                 <div class="product-datasheet-images">
-                    <div class="desktop-single-column product-datasheet-main-image">
+                    <div class="single-column product-datasheet-main-image">
                         <div class="column">
                             <img src="{{Storage::url('hp-x32c.webp')}}" alt="">
                         </div>
                         
                     </div>
-                    <div class="desktop-five-columns mobile-five-columns product-datasheet-secondary-images">
+                    <div class="five-columns product-datasheet-secondary-images">
                         <div class="column"><img src="{{Storage::url('1673-hp-x32c.webp')}}" alt=""></div>
                         <div class="column"><img src="{{Storage::url('2390-hp-x32c.webp')}}" alt=""></div>
                         <div class="column"><img src="{{Storage::url('3306-hp-x32c.webp')}}" alt=""></div>
@@ -33,16 +33,16 @@
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem earum eveniet sint voluptatum laboriosam, voluptate optio tenetur fugiat consequatur ullam fugit, labore odit neque quod natus at, enim explicabo dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, fugiat. Aut at harum assumenda accusantium eligendi, magni dolores tenetur architecto perferendis aperiam aliquid eius, quidem quae cumque dicta similique et.</p>
                         </ul>
                     </div>
-                    <div class="desktop-two-columns mobile-single-column product-datasheet-stock">
+                    <div class="two-columns product-datasheet-stock">
                         <div class="column">
                             <span>Cantidad:</span>
                         </div>
                         <div class="column">
-                            @include('front.components.plusMinusButton')
+                            @include('front.components.desktop.plusMinusButton')
                         </div>
                     </div>
                     <div class="product-datasheet-buy-buttons">
-                        <div class="desktop-two-columns mobile-single-column">
+                        <div class="two-columns">
                             <div class="column">
                                 <div class="cart-button">
                                     <button>
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="tabs-container desktop-only">
+        <div class="tabs-container">
             <div class="tabs">
                 <div class="tab active" data-tab-target="description">
                     <span>Descripción</span>
@@ -98,50 +98,6 @@
                 </div>
             </div>
         </div>
-
-        
-        <div class="selects-container mobile-only">
-            <div class="desktop-single-column mobile-single-column">
-                <div class="column">
-                    <div class="field">
-                        <div class="options-select">
-                            <select name="options-select" id="">
-                                <option value="descripcion" class="option">descripción</option>
-                                <option value="opiniones" class="option">Opiniones</option>
-                                <option value="especificaciones" class="option">Especificaciones</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="field">
-                        <div class="contents-container">
-                            <div class="options">
-                                <div class="contents">
-                                    <div class="content show" data-option="descripcion">
-                                        <p>
-                                            El libro relata las aventuras y desventuras de un hidalgo de 50 años llamado Alonso Quijano, quien decide ser un caballero andante como aquellos que aparecen en sus libros de caballerías favoritos.
-                                            Las hazañas de don Quijote están contenidas en dos tomos que narran tres salidas. Por un lado, la “Primera parte” denominada como El ingenioso Hidalgo Don Quijote de la Mancha está formada por 52 capítulos y en ella se encuentran la primera salida y la segunda salida.
-                                        </p>
-                                    </div>
-                                    <div class="content" data-option="opiniones">
-                                        <p>
-                                            El principito es una narración corta del escritor francés Antoine de Saint-Exupéry, que trata de la historia de un pequeño príncipe que parte de su asteroide a una travesía por el universo, en la cual descubre la extraña forma en que los adultos ven la vida y comprende el valor del amor y la amistad.
-                                            El principito es tenido como uno de los mejores libros de todos los tiempos y un clásico contemporáneo de la literatura universal.
-                                        </p>
-                                    </div>
-                                    <div class="content" data-option="especificaciones">
-                                        <p>
-                                            1984 de George Orwell es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.
-                                            La novela es una de las obras más icónicas del siglo XX por su denuncia de prácticas establecidas por gobiernos como los de Franco y Stalin, las cuales han sido adoptadas por muchos dictadores a lo largo de la historia.                                            
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                                                
-                    </div>
-                </div>
-            </div>
     </div>
     <x-savedChangesStatus></x-savedChangesStatus>
 @endsection

@@ -1,4 +1,4 @@
-.mobile-single-column {
+.single-column {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -11,7 +11,7 @@
     }
 }
 
-.mobile-two-columns {
+.two-columns {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -21,7 +21,7 @@
     }
 }
 
-.desktop-five-columns {
+.five-columns {
     display: flex;
     justify-content: space-between;
 

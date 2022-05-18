@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 Route::get('/', function () {
-    return view('front.pages.desktop.home');
+    return view('front.pages.home.index');
 });
 
 Route::redirect('/españa', '/productos');
@@ -43,25 +43,25 @@ Route::redirect('/españa', '/productos');
 
 
 Route::get('/contacto', function () {
-    return view('front.pages.desktop.contact');
+    return view('front.pages.contact.index');
 });
 
 Route::get('/productos', function () {
-    return view('front.pages.desktop.products');
+    return view('front.pages.products.index');
 });
 
 Route::get('/producto', function () {
-    return view('front.pages.desktop.product');
+    return view('front.pages.product.index');
 });
 
 Route::get('/carrito', function () {
-    return view('front.pages.desktop.cart');
+    return view('front.pages.cart.index');
 });
 
 Route::get('/caja', function () {
-    return view('front.pages.desktop.checkout');
+    return view('front.pages.checkout.index');
 });
 
 Route::get('/faqs', function () {
-    return view('front.pages.desktop.faqs');
+    return view('front.pages.faqs.index');
 });

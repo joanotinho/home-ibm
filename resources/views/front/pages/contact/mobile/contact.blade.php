@@ -5,13 +5,13 @@
         <div class="contact-title center">
             <h3>Contacta con nosotros</h3>
         </div>
-        <div class="contact-main desktop-two-columns mobile-single-column">
+        <div class="contact-main single-column">
             <div class="column">
-                <div class="contact-info desktop-two-columns mobile-single-column">
+                <div class="contact-info single-column">
                     <div class="column">
                         <div class="contact-info-item">
                             
-                            <div class="desktop-two-columns mobile-single-column">
+                            <div class="single-column">
                                 <div class="column">
                                     <div class="contact-info-icon">
                                         <svg viewBox="0 0 24 24">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="column">
                         <div class="contact-info-item">
-                            <div class="desktop-two-columns mobile-single-column">
+                            <div class="single-column">
                                 <div class="column">
                                     <div class="contact-info-icon">
                                         <svg viewBox="0 0 24 24">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="column">
                         <div class="contact-info-item">
-                            <div class="desktop-two-columns mobile-single-column">
+                            <div class="single-column">
                                 <div class="column">
                                     <div class="contact-info-icon">
                                         <svg viewBox="0 0 24 24">
@@ -75,7 +75,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="desktop-two-columns mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <div class="contact-form-item">
                                     <input type="text" name="name" id="name" placeholder="Nombre:" class="required" data-type="nombre">
@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="desktop-two-columns mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <div class="contact-form-item">
                                     <input type="text" name="mail" id="mail" placeholder="Email:" class="required" data-type="email">
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <div class="contact-form-item">
                                     <textarea id="editor1" name="content" class="required ckeditor" data-type="comentario">
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <div class="contact-form-item">
                                     <textarea id="editor2" name="content2" class="required ckeditor" data-type="comentariofeo">
@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <div class="contact-form-item">
                                     <div class="contact-form-item-button" id="submit">

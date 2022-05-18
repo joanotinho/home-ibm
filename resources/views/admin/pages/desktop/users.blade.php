@@ -1,5 +1,9 @@
 @extends('admin.layout.table_form')
 
+@section('title') admin panel admin panel admin panel @endsection
+
+@section('title') Panel de administradores @endsection
+
 @section('table')
 <div class="nested-sort-container">
     <div class="sorting-button">

@@ -6,13 +6,13 @@
             <h1>Checkout</h1>
         </div>
         <form enctype="multipart/form-data" class="front-form" id="checkout-form">
-            <div class="desktop-two-columns mobile-single-column checkout-main">
+            <div class="two-columns checkout-main">
                 <div class="column">
                     <div class="checkout-left">
                         <div class="checkout-title">
                             <h3>Billing details</h3>
                         </div>
-                        <div class="desktop-two-columns mobile-single-column">
+                        <div class="two-columns">
                             <div class="column">
                                 <label for="name">Nombre</label>
                                 <input type="text" name="name" id="name" class="required" data-type="nombre">
@@ -22,13 +22,13 @@
                                 <input type="text" name="surnames" id="surnames" class="required" data-type="apellidos">
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <label for="">Nombre de empresa (opcional)</label>
                                 <input type="text" name="" id="">
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <label for="country">País / Región</label>
                                 <select id="country" name="country" class="required" data-type="país">
@@ -282,24 +282,24 @@
                                     </select>
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <label for="adress">Dirección</label>
                                 <input type="text" name="adress" id="adress" placeholder="Número y calle" class="required" data-type="dirección">                                    
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <input type="text" name="" id="" placeholder="apartamento, suite, unidad, etc. (opcional)">
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <label for="city">Ciudad</label>
                                 <input type="text" name="city" id="city" placeholder="" class="required" data-type="ciudad">
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <label for="province">Provincia</label>
                                 <select id="province" name="province" class="required" data-type="província">
@@ -359,19 +359,19 @@
                                     </select>
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <label for="zip">ZIP</label>
                                 <input type="text" name="zip" id="zip" placeholder="" class="required" data-type="zip">
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <label for="phonenumber">Teléfono</label>
                                 <input type="tel" name="phonenumber" id="phonenumber" placeholder="" class="required" data-type="teléfono">
                             </div>
                         </div>
-                        <div class="desktop-single-column mobile-single-column">
+                        <div class="single-column">
                             <div class="column">
                                 <label for="email">Dirección Email</label>
                                 <input type="email" name="email" id="email" placeholder="" class="required" data-type="email">
@@ -385,7 +385,7 @@
                             <h3>Tu pedido</h3>
                         </div>
                         <div class="checkout-right-main">
-                            <div class="desktop-two-columns mobile-two-columns">
+                            <div class="two-columns">
                                 <div class="column">
                                     <div class="checkout-main-item">
                                         <span>Producto</span>
@@ -397,7 +397,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="desktop-two-columns mobile-two-columns">
+                            <div class="two-columns">
                                 <div class="column">
                                     <div class="checkout-main-item">
                                         <span>Producto</span>
@@ -409,7 +409,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="desktop-two-columns mobile-two-columns">
+                            <div class="two-columns">
                                 <div class="column">
                                     <div class="checkout-main-item">
                                         <div class="product">
@@ -425,7 +425,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="desktop-two-columns mobile-two-columns">
+                            <div class="two-columns">
                                 <div class="column">
                                     <div class="checkout-main-item">
                                         <div class="subtotal-title">
@@ -441,7 +441,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="desktop-two-columns mobile-single-column">
+                            <div class="two-columns">
                                 <div class="column">
                                     <div class="checkout-main-item">
                                         <div class="total-title">
@@ -458,31 +458,26 @@
                                 </div>
                             </div>
                             <div class="payment-methods">
-                                <div class="desktop-two-columns mobile-single-column">
+                                <div class="two-columns">
                                     <div class="column">
                                         <div class="payment-method">
                                             <div class="column">
                                                 <input type="radio" name="paymentmethod" id="wiretransfer" name="wiretransfer">
                                                 <label for="wiretransfer">Transferencia bancaria</label>
                                             </div>
-                                            
                                         </div>
-                                    </div>
-                                    <div class="column">
                                     </div>
                                 </div>
                                     
-                                <div class="desktop-two-columns mobile-single-column">
+                                <div class="two-columns">
                                     <div class="column">
                                         <div class="payment-method">
                                             <input type="radio" name="paymentmethod" id="paypal" value="paypal">
                                             <label for="paypal">PayPal</label>
                                         </div>
-                                        <div class="column">
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="desktop-two-columns mobile-single-column">
+                                <div class="two-columns">
                                     <div class="column">
                                         <div class="payment-method">
                                             <div class="desktop-two-columns mobile-single-column">
@@ -495,9 +490,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="column"></div>
                                 </div>
-                                <div class="desktop-single-column">
+                                <div class="single-column">
                                     <div class="column">
                                         <div class="errors-container">
                                             <div class="close-button">
@@ -505,12 +499,11 @@
                                                     <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
                                                 </svg>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="desktop-single-column mobile-single-column">
+                            <div class="single-column">
                                 <div class="column">
                                     <div class="place-order">
                                         <div class="place-order-description">

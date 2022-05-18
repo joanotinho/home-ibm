@@ -1,4 +1,4 @@
-.desktop-single-column {
+.single-column {
     width: 100%;
     justify-content: center;
 
@@ -7,7 +7,7 @@
     }
 }
 
-.desktop-two-columns {
+.two-columns {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -25,7 +25,7 @@
     }
 }
 
-.desktop-three-columns{
+.three-columns{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -35,7 +35,8 @@
     }
 }
 
-.desktop-five-columns {
+.five-columns {
+    
     display: flex;
     justify-content: space-between;
 

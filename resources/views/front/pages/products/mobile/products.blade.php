@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="gallery">
-        <div class="desktop-two-columns mobile-single-column">
+        <div class="single-column">
             <div class="column column-aside">
                 <div class="single-column">
                     <div class="column">
@@ -48,7 +48,7 @@
             </div>
             <div class="column column-main">
                 <div class="main-top">
-                    <div class="desktop-two-columns mobile-single-column">
+                    <div class="single-column">
                         <div class="column">
                             <h3>Teclados</h3>
                         </div>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="products">
-                    <div class="desktop-three-columns mobile-single-column">
+                    <div class="single-column">
                         <div class="column">
                             <div class="product">
                                 <div class="product-image">
@@ -80,8 +80,6 @@
                                     <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="column">
                             <div class="product">
                                 <div class="product-image">
                                     <img src="{{Storage::url('newskill-icarus-rgb-ic27qrc.webp')}}" alt="">
@@ -96,8 +94,6 @@
                                     <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="column">
                             <div class="product">
                                 <div class="product-image">
                                     <img src="{{Storage::url('1635-hp-x27.webp')}}" alt="">
@@ -112,10 +108,6 @@
                                     <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="desktop-three-columns">
-                        <div class="column">
                             <div class="product">
                                 <div class="product-image">
                                     <img src="{{Storage::url('msi-optix-g241vc.webp')}}" alt="">
@@ -130,8 +122,6 @@
                                     <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="column">
                             <div class="product">
                                 <div class="product-image">
                                     <img src="{{Storage::url('hp-x27qc-27.webp')}}" alt="">
@@ -146,8 +136,6 @@
                                     <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="column">
                             <div class="product">
                                 <div class="product-image">
                                     <img src="{{Storage::url('aoc-gaming-24g2u.webp')}}" alt="">
@@ -162,10 +150,6 @@
                                     <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="desktop-three-columns">
-                        <div class="column">
                             <div class="product">
                                 <div class="product-image">
                                     <img src="{{Storage::url('hp-x32.webp')}}" alt="">
@@ -180,8 +164,6 @@
                                     <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="column">
                             <div class="product">
                                 <div class="product-image">
                                     <img src="{{Storage::url('msi-g241.webp')}}" alt="">
@@ -196,8 +178,6 @@
                                     <a href="/producto">Ver ficha</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="column">
                             <div class="product">
                                 <div class="product-image">
                                     <img src="{{Storage::url('msi-optix-g272.webp')}}" alt="">
