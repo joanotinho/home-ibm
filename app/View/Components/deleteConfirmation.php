@@ -23,6 +23,6 @@ class DeleteConfirmation extends Component
      */
     public function render()
     {
-        return view('admin.components.deleteConfirmation');
+        return view('admin.components.delete_confirmation');
     }
 }

@@ -6,6 +6,7 @@
 
 @section('content')
     @if ($agent->isDesktop())
+        @include('front.components.desktop.page_title', ['title' => 'Caja'])
         @include('front.pages.checkout.desktop.checkout')
     @endif
 

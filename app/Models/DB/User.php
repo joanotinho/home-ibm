@@ -12,9 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $guarded = [
-        'name'
-    ];
+    protected $guarded = [];
 
     protected $hidden = [
         'password',

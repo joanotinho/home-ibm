@@ -1,4 +1,3 @@
-import { min } from "lodash";
 
 export let faqs = () => {
     

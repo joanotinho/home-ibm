@@ -38,18 +38,18 @@ var dragDrop = function dragDrop() {
     });
     slide.addEventListener('touchend', function () {
       cancelAnimationFrame(animationID);
-      isDragging = false;
-      background.classList.remove('green');
-      background.classList.remove('red'); // if moved enough negative then snap to next slide if there is one
+      isDragging = false; // if moved enough negative then snap to next slide if there is one
 
       if (currentTranslate < -100) {
         console.log("has eliminado el elemento");
         slide.classList.add('slide');
         currentTranslate = -1000;
         setTimeout(function () {
+          background.classList.remove('green');
+          background.classList.remove('red');
           slide.classList.remove('slide');
           slider.remove();
-        }, 250);
+        }, 150);
       } // if moved enough positive then snap to previous slide if there is one
 
 
@@ -58,9 +58,11 @@ var dragDrop = function dragDrop() {
         currentTranslate = 1000;
         slide.classList.add('slide');
         setTimeout(function () {
+          background.classList.remove('green');
+          background.classList.remove('red');
           slide.classList.remove('slide');
-          slider.parentElement.remove();
-        }, 250);
+          slider.remove();
+        }, 150);
       } else if (currentTranslate > -100 && currentTranslate < 100) {
         currentTranslate = 0;
       }

@@ -1253,6 +1253,7 @@ body .container .editor-column.active {
 
 .bottom-bar {
   background-color: #eee;
+  padding: 0.2rem 0;
   position: relative;
   width: 100%;
 }
@@ -1287,10 +1288,12 @@ body .container .editor-column.active {
 .bottom-bar .filters-container .filters {
   display: flex;
   flex-wrap: wrap;
+  height: auto;
   justify-content: space-between;
+  max-height: 0;
+  overflow: hidden;
   padding: 0 10%;
-  position: absolute;
-  top: -50vh;
+  transition: max-height 0.2s;
   width: 80%;
 }
 .bottom-bar .filters-container .filters .filter {
@@ -1298,8 +1301,8 @@ body .container .editor-column.active {
   width: 45%;
 }
 .bottom-bar .filters-container.active .filters {
-  position: relative;
-  top: 0vh;
+  max-height: 20rem;
+  transition: max-height 0.8s;
 }
 
 /* Tooltip container */

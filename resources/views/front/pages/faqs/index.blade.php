@@ -6,6 +6,7 @@
 
 @section('content')
     @if ($agent->isDesktop())
+        @include('front.components.desktop.page_title', ['title' => 'FAQs'])
         @include('front.pages.faqs.desktop.faqs')
     @endif
 

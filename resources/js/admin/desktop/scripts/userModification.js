@@ -13,7 +13,7 @@ export let userModification = () => {
 
         editUserButton.addEventListener('click', () => {
             
-            spinner.classList.add('active'); 
+            // spinner.classList.add('active'); 
         })
     });
 

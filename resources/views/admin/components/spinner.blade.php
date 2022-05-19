@@ -1,5 +1,7 @@
-<div class="spinner-container">
-    <div class="spinner">
-        <img src="{{Storage::url('spinner.gif')}}" alt="">
-    </div>
-</div>
+@if ($agent->isDesktop())
+    @include('admin.components.desktop.spinner')
+@endif
+
+@if ($agent->isMobile())
+    @include('admin.components.mobile.spinner')
+@endif

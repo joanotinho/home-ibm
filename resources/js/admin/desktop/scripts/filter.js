@@ -14,4 +14,5 @@ export let filter = () => {
         filterIcons.classList.remove('active');
         filterContainer.classList.remove('active');
     });
+    
 }

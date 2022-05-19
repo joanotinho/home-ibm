@@ -33,9 +33,6 @@ export let dragDrop = () => {
 
             cancelAnimationFrame(animationID)
             isDragging = false
-            
-            background.classList.remove('green')
-            background.classList.remove('red')
 
             // if moved enough negative then snap to next slide if there is one
             if (currentTranslate < -100) {
@@ -47,9 +44,12 @@ export let dragDrop = () => {
                 
                 setTimeout(() => {
                     
+                    background.classList.remove('green')
+                    background.classList.remove('red')
+
                     slide.classList.remove('slide');
                     slider.remove();
-                }, 250);
+                }, 150);
             }
 
             // if moved enough positive then snap to previous slide if there is one
@@ -61,10 +61,13 @@ export let dragDrop = () => {
                 slide.classList.add('slide');
 
                 setTimeout(() => {
+                    
+                    background.classList.remove('green')
+                    background.classList.remove('red')
 
                     slide.classList.remove('slide');
-                    slider.parentElement.remove();
-                }, 250);
+                    slider.remove();
+                }, 150);
 
             } else if (currentTranslate > -100 && currentTranslate < 100) {
 

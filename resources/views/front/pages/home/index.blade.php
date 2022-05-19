@@ -7,7 +7,7 @@
 @section('content')
 
     @if ($agent->isDesktop())
-        @include("front.components.desktop.page_title", ['title' => 'Inicio'])
+        @include('front.components.desktop.page_title', ['title' => 'Inicio'])
         @include("front.pages.home.desktop.home")
     @endif
 

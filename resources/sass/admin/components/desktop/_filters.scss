@@ -1,6 +1,7 @@
 .bottom-bar {
   
     background-color: #eee;
+    padding: .2rem 0;
     position: relative;
     width: 100%;
   
@@ -44,24 +45,29 @@
         }
     
         .filters {
+
             display: flex;
             flex-wrap: wrap;
+            height: auto;
             justify-content: space-between;
+            max-height: 0;
+            overflow: hidden;
             padding: 0 10%;
-            position: absolute;
-            top: -50vh;
+            transition: max-height .2s;
             width: 80%;
-    
+            
             .filter {
                 text-align: center;
                 width: 45%;
             }
         }
-    
+        
         &.active {
+
             .filters {
-                position: relative;
-                top: 0vh;
+
+                max-height: 20rem;
+                transition: max-height 0.8s;
             }
         }
     }

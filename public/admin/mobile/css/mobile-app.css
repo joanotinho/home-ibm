@@ -1242,7 +1242,6 @@ body .container .users {
   width: 100%;
 }
 body .container .users .draggable-container {
-  height: 100%;
   margin-bottom: 0.5rem;
   position: relative;
 }

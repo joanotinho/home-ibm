@@ -23,6 +23,6 @@ class CleanConfirmation extends Component
      */
     public function render()
     {
-        return view('admin.components.cleanConfirmation');
+        return view('admin.components.clean_confirmation');
     }
 }

@@ -23,7 +23,6 @@ class savedChangesStatus extends Component
      */
     public function render()
     {
-        return view('admin.components.savedChangesStatus');
-        return view('front.components.savedChangesStatus');
+        return view('admin.components.saved_changes_status');
     }
 }

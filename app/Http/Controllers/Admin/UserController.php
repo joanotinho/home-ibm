@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\DB\User;
 use App\Http\Requests\Admin\UserRequest;
+use Debugbar;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $view = View::make('admin.pages.desktop.users')
+        $view = View::make('admin.pages.users')
                 ->with('user', $this->user)
                 ->with('users', $this->user->where('active', 1)->get());
 
@@ -43,7 +44,7 @@ class UserController extends Controller
     public function create()
     {
 
-        $view = View::make('admin.users.index')
+        $view = View::make('admin.pages.users')
         ->with('user', $this->user)
         ->renderSections();
 
@@ -75,7 +76,7 @@ class UserController extends Controller
             ]);
         }
 
-        $view = View::make('admin.users.index')
+        $view = View::make('admin.pages.users')
         ->with('users', $this->user->where('active', 1)->get())
         ->with('user', $user)
         ->renderSections();        
@@ -88,7 +89,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $view = View::make('admin.users.index')
+        $view = View::make('admin.pages.users')
         ->with('user', $user)
         ->with('users', $this->user->where('active', 1)->get());   
         
@@ -97,7 +98,7 @@ class UserController extends Controller
             $sections = $view->renderSections(); 
     
             return response()->json([
-                'form' => $sections['form'],
+                'table' => $sections['table'],
             ]); 
         }
                 
@@ -113,7 +114,7 @@ class UserController extends Controller
         $user->active = 0;
         $user->save();
 
-        $view = View::make('admin.users.index')
+        $view = View::make('admin.pages.users')
             ->with('user', $this->user)
             ->with('users', $this->user->where('active', 1)->get())
             ->renderSections();
