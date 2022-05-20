@@ -49,7 +49,7 @@ class UserController extends Controller
         ->renderSections();
 
         return response()->json([
-            'form' => $view['form']
+            'form' => $view['form'],
         ]);
     }
 
@@ -61,7 +61,7 @@ class UserController extends Controller
             $user = $this->user->updateOrCreate([
                 'id' => request('id')],[
                 'name' => request('name'),
-                'email' => request('email'),
+                'email' => bcrypt(request('email')),
                 'password' => bcrypt(request('password')),
                 'active' => 1,
             ]);
@@ -79,7 +79,7 @@ class UserController extends Controller
         $view = View::make('admin.pages.users')
         ->with('users', $this->user->where('active', 1)->get())
         ->with('user', $user)
-        ->renderSections();        
+        ->renderSections(); 
 
         return response()->json([
             'table' => $view['table'],
@@ -90,15 +90,15 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $view = View::make('admin.pages.users')
-        ->with('user', $user)
-        ->with('users', $this->user->where('active', 1)->get());   
+            ->with('user', $user)
+            ->with('users', $this->user->where('active', 1)->get());   
         
         if(request()->ajax()) {
 
             $sections = $view->renderSections(); 
-    
+
             return response()->json([
-                'table' => $sections['table'],
+                'form' => $sections['form'],
             ]); 
         }
                 
@@ -121,7 +121,7 @@ class UserController extends Controller
         
         return response()->json([
             'table' => $view['table'],
-            'form' => $view['form']
+            'form' => $view['form'],
         ]);
     }
 }

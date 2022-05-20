@@ -20,11 +20,11 @@ export let userModification = () => {
     deleteUserButtons.forEach(deleteUserButton => {
 
         deleteUserButton.addEventListener('click', () => {
-            deleteConfirmationContainer.classList.add('active');
+            
         })
     });
 
-    deleteCancelButton.addEventListener('deleteUser', () => {
+    deleteCancelButton.addEventListener('click', () => {
 
         deleteConfirmationContainer.classList.remove('active');
     });
@@ -32,8 +32,9 @@ export let userModification = () => {
     deleteUser.addEventListener('click', () => {
 
         deleteConfirmationContainer.classList.remove('active');
-        console.log('delete');
+
     });
+
 
     deleteConfirmationContainer.addEventListener('click', (e) => {
 

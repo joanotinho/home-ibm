@@ -12,6 +12,15 @@ export let cleanConfirmation = () => {
     cleanButton.addEventListener('click', () => {
 
         cleanConfirmationContainer.classList.add('active');
+        
+        let url = cleanButton.dataset.url;
+
+        document.dispatchEvent(new CustomEvent('cleanUrl', {
+            detail: {
+                url: url,
+            }
+        }));
+
     });
     
     cleanCancelButton.addEventListener('click', () => {
@@ -22,11 +31,15 @@ export let cleanConfirmation = () => {
     cleanContent.addEventListener('click', () => {
 
         forms.forEach(form => {
-            
-            form.reset();
+                
         });
 
         cleanConfirmationContainer.classList.remove('active');
+
+        cleanContent.addEventListener('cleanUrl', (event) => {
+            
+            
+        })
     });
 
     cleanConfirmationContainer.addEventListener('click', (e) => {
@@ -35,5 +48,7 @@ export let cleanConfirmation = () => {
             
             cleanConfirmationContainer.classList.remove('active');
         } 
+
+        
     });
 }

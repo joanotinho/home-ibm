@@ -48,7 +48,7 @@
                                             <div class="tooltip">
                                                 <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
                                             </div>
-                                            <div class="edit-user-button" data-url="{{route('users_edit', ['user' => $user_element->id])}}" >
+                                            <div class="edit-user-button" data-url="{{route('users_edit', ['user' => $user_element->id])}}">
                                                 <svg viewBox="0 0 24 24">
                                                     <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
                                                 </svg>
@@ -110,7 +110,7 @@
                             <div class="tooltip">
                                 <div class="tooltip-text" data-name="Limpiar" data-position="top"></div>
                             </div>
-                            <div class="clean-button">
+                            <div class="clean-button" data-url="{{route('users_create')}}">
                                 <svg viewBox="0 0 24 24">
                                     <path fill="currentColor" d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
                                 </svg>
@@ -143,10 +143,10 @@
             <div class="tabs-contents">
                 <form id="form" action="{{route("users_store")}}" class="admin-form">
                     <div class="tab-content active" data-tab-content="content">
-                        {{-- {{ csrf_field() }} --}}
+                        {{ csrf_field() }}
                         
                         <input autocomplete="false" name="hidden" type="text" style="display:none;">
-                        <input type="hidden" name="id" value="{{isset($user->id) ? $user->id : ''}}">
+                        <input type="hidden" name="id" value="{{isset($user->id) ? $user->id : ''}}" class="user-id">
 
                         <div class="errors-container"></div>
 
