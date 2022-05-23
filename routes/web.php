@@ -17,6 +17,20 @@ use front\layout\partials\HeaderComponent;
 
 Route::group(['prefix' => 'admin'], function () {
 
+    Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
+        'parameters' => [
+            'faqs' => 'faq', 
+        ],
+        'names' => [
+            'index' => 'faqs',
+            'create' => 'faqs_create',
+            'edit' => 'faqs_edit',
+            'store' => 'faqs_store',
+            'destroy' => 'faqs_destroy',
+            'show' => 'faqs_show',
+        ]
+    ]);
+
     Route::resource('usuarios', 'App\Http\Controllers\Admin\UserController', [
         'parameters' => [
             'usuarios' => 'user', 

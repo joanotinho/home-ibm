@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('title');
+            $table->text('description');
+            $table->boolean('visible');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

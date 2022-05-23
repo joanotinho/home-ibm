@@ -44,24 +44,34 @@
         }
     
         .filters {
+
             display: flex;
             flex-wrap: wrap;
+            height: auto;
             justify-content: space-between;
+            max-height: 0;
             padding: 0 10%;
-            position: absolute;
-            top: -50vh;
+            transition: max-height 1s;
             width: 80%;
     
             .filter {
+                
+                display: none;
                 text-align: center;
                 width: 45%;
             }
         }
     
         &.active {
+
             .filters {
-                position: relative;
-                top: 0vh;
+
+                max-height: 20rem;
+                transition: max-height 1.5s;
+
+                .filter {
+                    display: block;
+                }
             }
         }
     }

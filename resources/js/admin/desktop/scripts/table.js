@@ -1,4 +1,4 @@
-export let table = () => {
+export let renderTable = () => {
 
     const formContainer = document.querySelector('.form-container');
     const tableContainer = document.querySelector('.table-container');
@@ -11,17 +11,19 @@ export let table = () => {
     
     const forms = document.querySelectorAll('.admin-form');
 
-    editButtons.forEach(editButton => {
+    document.addEventListener('renderModules', (event => {
+        renderTable();
+    }), {once: true});
 
-        if(editButton) {
+    if(editButtons) {
 
-            editButton.addEventListener('click', (event) => {
+        editButtons.forEach(editButton => {
+
+            editButton.addEventListener('click', () => {
 
                 let url = editButton.dataset.url;
     
                 let sendEditRequest = async () => {
-    
-                    document.dispatchEvent(new CustomEvent('startWait'));
     
                     let response = await fetch(url, {
                         headers: {
@@ -54,22 +56,17 @@ export let table = () => {
     
                 }
                 sendEditRequest();
-
-                document.dispatchEvent(new CustomEvent('reloadModels', {
-                    detail: {
-                        table: tableContainer,
-                        form: formContainer,
-                    }
-                }));
             });
-        }
-    });
+        });
+    }
 
     if (deleteButtons) {
         
         deleteButtons.forEach(deleteButton => {
 
-                deleteButton.addEventListener('click', (event) => {
+            if(deleteButton) {
+
+                deleteButton.addEventListener('click', () => {
                     
                     let url = deleteButton.dataset.url;
                     deleteUser.dataset.url = url;
@@ -81,7 +78,9 @@ export let table = () => {
                     deleteConfirmationContainer.classList.remove('active');
                 });
 
-                deleteUser.addEventListener('click', (event) => {
+                deleteUser.addEventListener('click', () => {
+
+                    document.dispatchEvent(new CustomEvent('startWait'));
 
                     let url = deleteUser.dataset.url;
 
@@ -99,8 +98,11 @@ export let table = () => {
                         .then(response => {
         
                             if (!response.ok) throw response;
+
+                            if (response.status == '200') {
+                                return response.json();
+                            }
         
-                            return response.json();
                         })
                         .then(json => {
         
@@ -112,6 +114,8 @@ export let table = () => {
                                     url: url,
                                 }
                             }));
+
+                            document.dispatchEvent(new CustomEvent('renderModules'));
                         })
                         .catch ( error =>  {
         
@@ -122,6 +126,7 @@ export let table = () => {
                     }
                     sendDeleteRequest();
                 });
+            }
         });
     }
 }

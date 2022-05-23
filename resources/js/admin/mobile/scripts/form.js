@@ -5,10 +5,9 @@ export let renderForm = () => {
     const formContainer = document.querySelector('.form-container');
     const tableContainer = document.querySelector('.table-container');
 
-    document.addEventListener("loadForm", (event => {
-
+    document.addEventListener("loadForm", (event) => {
         formContainer.innerHTML = event.detail.form;
-    }), {once: true});
+    }), {once: true};
 
     submitButton.addEventListener('click', () => {
         
@@ -64,6 +63,6 @@ export let renderForm = () => {
             sendPostRequest();
 
         });
-    });
+    }), {once: true};
 
 }

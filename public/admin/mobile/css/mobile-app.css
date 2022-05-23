@@ -1061,50 +1061,8 @@ ol, ul {
 }
 
 /* nested-sort is the custom class name */
-.nested-sort-container .sorting-button {
-  text-align: right;
-}
 .nested-sort-container .sorting-button button {
-  background: #1172c2;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 600;
-  margin: 1.5%;
-  position: relative;
-  text-align: center;
-  width: 10rem;
-}
-.nested-sort-container .sorting-button .nested-sort {
-  padding: 0;
-  /* ns-dragged is the class name of the item which is being dragged */
-  /* ns-targeted is the class name of the item on which the dragged item is hovering */
-}
-.nested-sort-container .sorting-button .nested-sort .nested-sort-item {
-  list-style: none;
-  margin: 0 0 5px;
-  padding: 10px;
-  background: #fff;
-  border: 1px solid #ddd;
-}
-.nested-sort-container .sorting-button .nested-sort .nested-sort-item ol {
-  padding: 0;
-  margin-top: 10px;
-  margin-bottom: -5px;
-}
-.nested-sort-container .sorting-button .nested-sort .ns-dragged {
-  border: 1px solid red;
-}
-.nested-sort-container .sorting-button .nested-sort .ns-targeted {
-  border: 1px solid green;
-}
-.nested-sort-container .sorting-button .nested-sort--enabled .nested-sort-item {
-  cursor: move;
-}
-.nested-sort-container .sorting-button.active button {
-  background-color: #002991;
-  text-shadow: 0.1rem 0.1rem 0px rgb(0, 0, 0);
+  display: none;
 }
 
 .bottom-bar {
@@ -1143,19 +1101,24 @@ ol, ul {
 .bottom-bar .filters-container .filters {
   display: flex;
   flex-wrap: wrap;
+  height: auto;
   justify-content: space-between;
+  max-height: 0;
   padding: 0 10%;
-  position: absolute;
-  top: -50vh;
+  transition: max-height 1s;
   width: 80%;
 }
 .bottom-bar .filters-container .filters .filter {
+  display: none;
   text-align: center;
   width: 45%;
 }
 .bottom-bar .filters-container.active .filters {
-  position: relative;
-  top: 0vh;
+  max-height: 20rem;
+  transition: max-height 1.5s;
+}
+.bottom-bar .filters-container.active .filters .filter {
+  display: block;
 }
 
 /* Tooltip container */

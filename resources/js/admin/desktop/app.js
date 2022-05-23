@@ -16,7 +16,7 @@ import {filter} from "./scripts/filter.js";
 import {tooltip} from "./scripts/tooltip.js";
 import {events} from "./scripts/events.js";
 import {renderSelects} from "./scripts/renderSelects.js";
-import {table} from "./scripts/table.js";
+import {renderTable} from "./scripts/table.js";
 
 ckeditor();
 cleanConfirmation();
@@ -34,4 +34,4 @@ filter();
 tooltip();
 events();
 renderSelects();
-table();
+renderTable();

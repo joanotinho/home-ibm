@@ -34,7 +34,6 @@ export let dragDrop = () => {
             cancelAnimationFrame(animationID)
             isDragging = false
 
-            // if moved enough negative then snap to next slide if there is one
             if (currentTranslate < -100) {
 
                 console.log("has eliminado el elemento")
@@ -42,17 +41,17 @@ export let dragDrop = () => {
                 slide.classList.add('slide');
                 currentTranslate = -1000;
                 
+                document.dispatchEvent(new CustomEvent('deleteUserSlide'));
+                
                 setTimeout(() => {
                     
                     background.classList.remove('green')
                     background.classList.remove('red')
 
                     slide.classList.remove('slide');
-                    slider.remove();
                 }, 150);
             }
 
-            // if moved enough positive then snap to previous slide if there is one
             if (currentTranslate > 100) {
 
                 console.log("has entrado en modo edición")
@@ -60,13 +59,14 @@ export let dragDrop = () => {
                 currentTranslate = 1000;
                 slide.classList.add('slide');
 
+                document.dispatchEvent(new CustomEvent('editUserSlide'));
+
                 setTimeout(() => {
                     
                     background.classList.remove('green')
                     background.classList.remove('red')
 
                     slide.classList.remove('slide');
-                    slider.remove();
                 }, 150);
 
             } else if (currentTranslate > -100 && currentTranslate < 100) {
