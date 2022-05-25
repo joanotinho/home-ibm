@@ -2,15 +2,16 @@
 
 @section('table')
 
-    @isset($users)
+    @isset($faqs)
+
         <div class="nested-sort-container">
             <div class="sorting-button">
                 <button>ordenar</button>
             </div>
 
-            @foreach ($users as $user_element)
-                <div class="nested-sort">
-                    <div class="nested-sort-item" data-id="{{$user_element->id}}">
+            <div class="nested-sort">
+                @foreach ($faqs as $faq_element)
+                    <div class="nested-sort-item" data-id="{{$faq_element->id}}">
                         <div class="draggable-container">
                             <div class="draggable-background"></div>
                             <div class="draggable-field">
@@ -19,20 +20,20 @@
                                         <div class="user-left">
                                             <div class="field">
                                                 <div class="description">
-                                                    <span>Nombre:</span>
+                                                    <span>Id:</span>
                                                 </div>
                                                 <div class="value">
                                                     <span>
-                                                        {{$user_element->name}}
+                                                        {{$faq_element->id}}
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="field">
                                                 <div class="description">
-                                                    <span>Email:</span>
+                                                    <span>Título:</span>
                                                 </div>
                                                 <div class="value">
-                                                    <span>{{$user_element->email}}</span>
+                                                    <span>{{$faq_element->title}}</span>
                                                 </div>
                                             </div>
                                             <div class="field">
@@ -40,7 +41,7 @@
                                                     <span>Creado el:</span>
                                                 </div>
                                                 <div class="value">
-                                                    <span>{{$user_element->created_at}}</span>
+                                                    <span>{{$faq_element->created_at}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -49,7 +50,7 @@
                                                 <div class="tooltip">
                                                     <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
                                                 </div>
-                                                <div class="edit-user-button" data-url="{{route('users_edit', ['user' => $user_element->id])}}">
+                                                <div class="edit-user-button" data-url="{{route('faqs_edit', ['faq' => $faq_element->id])}}">
                                                     <svg viewBox="0 0 24 24">
                                                         <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
                                                     </svg>
@@ -59,7 +60,7 @@
                                                 <div class="tooltip">
                                                     <div class="tooltip-text" data-name="Borrar Usuario" data-position="right"></div>
                                                 </div>
-                                                <div class="delete-user-button" data-url="{{route('users_destroy', ['user' => $user_element->id])}}">
+                                                <div class="delete-user-button" data-url="{{route('faqs_destroy', ['faq' => $faq_element->id])}}">
                                                     <svg viewBox="0 0 24 24">
                                                         <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
                                                     </svg>
@@ -71,8 +72,8 @@
                             </div>
                         </div>
                     </div>
-                </div>    
-            @endforeach
+                @endforeach
+            </div>    
         </div>
     @endisset
 @endsection
@@ -112,7 +113,7 @@
                             <div class="tooltip">
                                 <div class="tooltip-text" data-name="Limpiar" data-position="top"></div>
                             </div>
-                            <div class="clean-button" data-url="{{route('users_create')}}">
+                            <div class="clean-button" data-url="{{route('faqs_create')}}">
                                 <svg viewBox="0 0 24 24">
                                     <path fill="currentColor" d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
                                 </svg>
@@ -122,7 +123,7 @@
                     <div class="form-button">
                         <div class="on-off-switch">
                             <div class="on-off-switch-form">
-                                {{-- <input type="checkbox" name="" id="" checked class="on-off-switch-input"> --}}
+                                <input type="checkbox" name="" id="" checked class="on-off-switch-input">
                             </div>
                             <div class="on-off-switch-items">
                                 <div class="on">
@@ -143,12 +144,12 @@
             </div>
 
             <div class="tabs-contents">
-                <form id="form" action="{{route("users_store")}}" class="admin-form">
+                <form id="form" action="{{route("faqs_store")}}" class="admin-form">
                     <div class="tab-content active" data-tab-content="content">
                         {{ csrf_field() }}
                         
                         <input autocomplete="false" name="hidden" type="text" style="display:none;">
-                        <input type="hidden" name="id" value="{{isset($user->id) ? $user->id : ''}}" class="user-id">
+                        <input type="hidden" name="id" value="{{isset($faq->id) ? $faq->id : ''}}" class="user-id">
 
                         <div class="errors-container"></div>
 
@@ -165,7 +166,7 @@
                                         </div>
                                     </div>
                                     <div class="field-input">
-                                        <input type="text" name="name" id="name" data-type="nombre" class="counter-input" data-max-length="64" autocomplete="off" value="{{isset($user->name) ? $user->name : ''}}">
+                                        <input type="text" name="name" id="name" data-type="name" class="counter-input" data-max-length="64" autocomplete="off" value="{{isset($faq->name) ? $faq->name : ''}}">
                                     </div>
                                     <div class="field-rule">
                                         <span>El nombre no puede estar vacío</span>
@@ -177,7 +178,7 @@
                                 <div class="field">
                                     <div class="field-label">
                                         <div class="label">
-                                            <label for="">Email</label>
+                                            <label for="">Title</label>
                                         </div>
                                         <div class="character-counter-container">
                                             <span class="character-counter">0</span>
@@ -186,7 +187,7 @@
                                     </div>
 
                                     <div class="field-input">
-                                        <input type="text" name="email" id="mail" data-type="email" data-max-length="255" class="counter-input" value="{{isset($user->email) ? $user->email : ''}}">
+                                        <input type="text" name="title" id="title" data-type="title" data-max-length="255" class="counter-input" value="{{isset($faq->title) ? $faq->title : ''}}">
                                     </div>
                                     
                                     <div class="field-rule">
@@ -195,40 +196,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="desktop-two-columns">
-                            <div class="column">
-                                <div class="field">
-                                    <div class="field-label">
-                                        <label for="">Contraseña</label>
-                                    </div>
-                                    <div class="field-input">
-                                        <input type="password" name="password" id="password" data-type="contraseña" data-max-length="100">
-                                    </div>
-                                    <div class="field-rule">
-                                        <span>La contraseña debe contener al menos 8 carácteres, 1 número y un carácter especial</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="field">
-                                    <div class="field-label">
-                                        <label for="">Repite contraseña</label>
-                                    </div>
-                                    <div class="field-input">
-                                        <input type="password" name="password_confirmation" id="repeat-password" data-max-length="100">
-                                    </div>
-                                    <div class="field-rule">
-                                        <span>Las contraseñas deben coincidir coinciden</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="desktop-single-column">
-                            <div class="column">
-                                <textarea name="description" class="ckeditor"></textarea>
-                            </div>
-                        </div>
+                        
                         <div class="desktop-single-column">
                             <div class="column">
                                 <textarea name="description" class="ckeditor"></textarea>

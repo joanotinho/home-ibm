@@ -2259,16 +2259,24 @@ var characterCounter = function characterCounter() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ckeditor": () => (/* binding */ ckeditor)
+/* harmony export */   "renderCkeditor": () => (/* binding */ renderCkeditor)
 /* harmony export */ });
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__);
 
-var ckeditor = function ckeditor() {
-  var editors = document.querySelectorAll('.ckeditor');
-  window.ckeditors = ckeditor;
-  editors.forEach(function (editor) {
-    _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default().create(editor).then(function (editor) {})["catch"](function (error) {
+var renderCkeditor = function renderCkeditor() {
+  document.addEventListener("renderFormModules", function (event) {
+    renderCkeditor();
+  });
+  window.ckeditors = [];
+  document.querySelectorAll('.ckeditor').forEach(function (ckeditor) {
+    _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default().create(ckeditor, {
+      toolbar: {
+        items: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', '|', 'outdent', 'indent', '|', 'blockQuote', 'undo', 'redo']
+      }
+    }).then(function (classicEditor) {
+      ckeditors[ckeditor.name] = classicEditor;
+    })["catch"](function (error) {
       console.error(error);
     });
   });
@@ -2293,23 +2301,6 @@ var cleanConfirmation = function cleanConfirmation() {
   var cleanConfirmationContainer = document.querySelector('.clean-confirmation-container');
   var cleanCancelButton = document.querySelector('.cancel-clean');
   var cleanContent = document.querySelector('.clean-content');
-  cleanButton.addEventListener('click', function () {
-    cleanConfirmationContainer.classList.add('active');
-    var url = cleanButton.dataset.url;
-    document.dispatchEvent(new CustomEvent('cleanUrl', {
-      detail: {
-        url: url
-      }
-    }));
-  });
-  cleanCancelButton.addEventListener('click', function () {
-    cleanConfirmationContainer.classList.remove('active');
-  });
-  cleanContent.addEventListener('click', function () {
-    forms.forEach(function (form) {});
-    cleanConfirmationContainer.classList.remove('active');
-    cleanContent.addEventListener('cleanUrl', function (event) {});
-  });
   cleanConfirmationContainer.addEventListener('click', function (e) {
     if (e.target === cleanConfirmationContainer) {
       cleanConfirmationContainer.classList.remove('active');
@@ -2417,11 +2408,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -2435,33 +2422,47 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 var renderForm = function renderForm() {
   var forms = document.querySelectorAll('.admin-form');
   var submitButton = document.querySelector('.submit-button');
   var formContainer = document.querySelector('.form-container');
   var tableContainer = document.querySelector('.table-container');
+  var cleanButton = document.querySelector('.clean-button');
+  var cleanConfirmationContainer = document.querySelector('.clean-confirmation-container');
+  var cleanConfirmation = document.querySelector('.clean-content');
+  var cleanCancel = document.querySelector('.cancel-clean');
   document.addEventListener("loadForm", function (event) {
     formContainer.innerHTML = event.detail.form;
   }, {
     once: true
   });
-  submitButton.addEventListener('click', function () {
-    forms.forEach(function (form) {
-      var data = new FormData(form);
-      var url = form.action;
+  document.addEventListener("renderFormModules", function (event) {
+    renderForm();
+  }, {
+    once: true
+  });
 
-      if (ckeditors != 'null') {
-        Object.entries(ckeditors).forEach(function (_ref) {
-          var _ref2 = _slicedToArray(_ref, 2),
-              key = _ref2[0],
-              value = _ref2[1];
+  if (cleanButton) {
+    cleanButton.addEventListener('click', function () {
+      var url = cleanButton.dataset.url;
+      cleanConfirmation.dataset.url = url;
+      cleanConfirmationContainer.classList.add('active');
+    });
+    cleanCancel.addEventListener('click', function () {
+      cleanConfirmationContainer.classList.remove('active');
+    });
+    cleanConfirmation.addEventListener('click', function () {
+      var url = cleanConfirmation.dataset.url;
+      console.log(url);
 
-          data.append(key, value.getData());
-        });
-      }
-
-      var sendPostRequest = /*#__PURE__*/function () {
-        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var sendCleanRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
           var response;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
             while (1) {
@@ -2469,6 +2470,82 @@ var renderForm = function renderForm() {
                 case 0:
                   document.dispatchEvent(new CustomEvent('startWait'));
                   _context.next = 3;
+                  return fetch(url, {
+                    headers: {
+                      'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    method: 'GET'
+                  }).then(function (response) {
+                    if (!response.ok) throw response;
+
+                    if (response.status == '200') {
+                      return response.json();
+                    }
+                  }).then(function (json) {
+                    formContainer.innerHTML = json.form;
+                    document.dispatchEvent(new CustomEvent('renderFormModules'));
+                  })["catch"](function (error) {
+                    if (error.status == '500') {
+                      console.log(error);
+                    }
+                  });
+
+                case 3:
+                  response = _context.sent;
+
+                case 4:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function sendCleanRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendCleanRequest();
+      cleanConfirmationContainer.classList.remove('active');
+    });
+  }
+
+  submitButton.addEventListener('click', function () {
+    forms.forEach(function (form) {
+      var data = new FormData(form);
+      var url = form.action;
+      Object.entries(ckeditors).forEach(function (_ref2) {
+        var _ref3 = _slicedToArray(_ref2, 2),
+            key = _ref3[0],
+            value = _ref3[1];
+
+        data.append(key, value.getData()); // console.log(key, value.getData());
+      });
+
+      var _iterator = _createForOfIteratorHelper(data.entries()),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var pair = _step.value;
+          console.log(pair[0] + ', ' + pair[1]);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      var sendPostRequest = /*#__PURE__*/function () {
+        var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  document.dispatchEvent(new CustomEvent('startWait'));
+                  _context2.next = 3;
                   return fetch(url, {
                     headers: {
                       'Accept': 'application/json',
@@ -2487,6 +2564,7 @@ var renderForm = function renderForm() {
                         table: json.table
                       }
                     }));
+                    document.dispatchEvent(new CustomEvent('renderFormModules'));
                   })["catch"](function (error) {
                     if (error.status == '500') {
                       console.log(error);
@@ -2496,18 +2574,18 @@ var renderForm = function renderForm() {
                   });
 
                 case 3:
-                  response = _context.sent;
+                  response = _context2.sent;
 
                 case 4:
                 case "end":
-                  return _context.stop();
+                  return _context2.stop();
               }
             }
-          }, _callee);
+          }, _callee2);
         }));
 
         return function sendPostRequest() {
-          return _ref3.apply(this, arguments);
+          return _ref4.apply(this, arguments);
         };
       }();
 
@@ -2842,7 +2920,7 @@ var renderTable = function renderTable() {
   var deleteButtons = document.querySelectorAll('.delete-user-button');
   var deleteUser = document.querySelector('.delete-user');
   var forms = document.querySelectorAll('.admin-form');
-  document.addEventListener('renderModules', function (event) {
+  document.addEventListener('renderTableModules', function (event) {
     renderTable();
   }, {
     once: true
@@ -2875,6 +2953,7 @@ var renderTable = function renderTable() {
                           form: json.form
                         }
                       }));
+                      document.dispatchEvent(new CustomEvent('renderFormModules'));
                     })["catch"](function (error) {
                       if (error.status == '500') {
                         console.log(error);
@@ -2897,6 +2976,7 @@ var renderTable = function renderTable() {
           };
         }();
 
+        deleteConfirmationContainer.classList.remove('active');
         sendEditRequest();
       });
     });
@@ -2904,74 +2984,72 @@ var renderTable = function renderTable() {
 
   if (deleteButtons) {
     deleteButtons.forEach(function (deleteButton) {
-      if (deleteButton) {
-        deleteButton.addEventListener('click', function () {
-          var url = deleteButton.dataset.url;
-          deleteUser.dataset.url = url;
-          deleteConfirmationContainer.classList.add('active');
-        });
-        deleteCancelButton.addEventListener('click', function () {
-          deleteConfirmationContainer.classList.remove('active');
-        });
-        deleteUser.addEventListener('click', function () {
-          document.dispatchEvent(new CustomEvent('startWait'));
-          var url = deleteUser.dataset.url;
+      deleteButton.addEventListener('click', function () {
+        var url = deleteButton.dataset.url;
+        deleteUser.dataset.url = url;
+        deleteConfirmationContainer.classList.add('active');
+      });
+    });
+    deleteCancelButton.addEventListener('click', function () {
+      deleteConfirmationContainer.classList.remove('active');
+    });
+    deleteUser.addEventListener('click', function () {
+      var url = deleteUser.dataset.url;
 
-          var sendDeleteRequest = /*#__PURE__*/function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-              var response;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-                while (1) {
-                  switch (_context2.prev = _context2.next) {
-                    case 0:
-                      document.dispatchEvent(new CustomEvent('startWait'));
-                      _context2.next = 3;
-                      return fetch(url, {
-                        headers: {
-                          'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
-                          'X-Requested-With': 'XMLHttpRequest'
-                        },
-                        method: 'DELETE'
-                      }).then(function (response) {
-                        if (!response.ok) throw response;
+      var sendDeleteRequest = /*#__PURE__*/function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  document.dispatchEvent(new CustomEvent('startWait'));
+                  _context2.next = 3;
+                  return fetch(url, {
+                    headers: {
+                      'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+                      'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    method: 'DELETE'
+                  }).then(function (response) {
+                    if (!response.ok) throw response;
 
-                        if (response.status == '200') {
-                          return response.json();
-                        }
-                      }).then(function (json) {
-                        formContainer.innerHTML = json.form;
-                        tableContainer.innerHTML = json.table;
-                        document.dispatchEvent(new CustomEvent('loadDelete', {
-                          detail: {
-                            url: url
-                          }
-                        }));
-                        document.dispatchEvent(new CustomEvent('renderModules'));
-                      })["catch"](function (error) {
-                        if (error.status == '500') {
-                          console.log(error);
-                        }
-                      });
+                    if (response.status == '200') {
+                      return response.json();
+                    }
+                  }).then(function (json) {
+                    tableContainer.innerHTML = json.table;
+                    formContainer.innerHTML = json.form;
+                    document.dispatchEvent(new CustomEvent('loadDelete', {
+                      detail: {
+                        form: json.form
+                      }
+                    }));
+                    document.dispatchEvent(new CustomEvent('renderTableModules'));
+                    document.dispatchEvent(new CustomEvent('renderFormModules'));
+                  })["catch"](function (error) {
+                    if (error.status == '500') {
+                      console.log(error);
+                    }
+                  });
 
-                    case 3:
-                      response = _context2.sent;
+                case 3:
+                  response = _context2.sent;
 
-                    case 4:
-                    case "end":
-                      return _context2.stop();
-                  }
-                }
-              }, _callee2);
-            }));
+                case 4:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }));
 
-            return function sendDeleteRequest() {
-              return _ref2.apply(this, arguments);
-            };
-          }();
+        return function sendDeleteRequest() {
+          return _ref2.apply(this, arguments);
+        };
+      }();
 
-          sendDeleteRequest();
-        });
-      }
+      sendDeleteRequest();
     });
   }
 };
@@ -22195,7 +22273,7 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/admin/bootstrap.js");
 
 
 
-(0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_0__.ckeditor)();
+(0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_0__.renderCkeditor)();
 (0,_scripts_cleanConfirmation_js__WEBPACK_IMPORTED_MODULE_4__.cleanConfirmation)();
 (0,_scripts_menuButton_js__WEBPACK_IMPORTED_MODULE_1__.menuButton)();
 (0,_scripts_tabs_js__WEBPACK_IMPORTED_MODULE_2__.tabs)();

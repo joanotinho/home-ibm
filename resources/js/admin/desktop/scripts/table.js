@@ -11,7 +11,7 @@ export let renderTable = () => {
     
     const forms = document.querySelectorAll('.admin-form');
 
-    document.addEventListener('renderModules', (event => {
+    document.addEventListener('renderTableModules', (event => {
         renderTable();
     }), {once: true});
 
@@ -45,6 +45,7 @@ export let renderTable = () => {
                             }
                         }));
     
+                        document.dispatchEvent(new CustomEvent('renderFormModules'));
                     })
                     .catch ( error =>  {
     
@@ -55,78 +56,77 @@ export let renderTable = () => {
                     });
     
                 }
+
+                deleteConfirmationContainer.classList.remove('active');
+
                 sendEditRequest();
             });
         });
     }
 
     if (deleteButtons) {
-        
-        deleteButtons.forEach(deleteButton => {
-
-            if(deleteButton) {
-
-                deleteButton.addEventListener('click', () => {
-                    
-                    let url = deleteButton.dataset.url;
-                    deleteUser.dataset.url = url;
-                    deleteConfirmationContainer.classList.add('active');
-                });
-                
-                deleteCancelButton.addEventListener('click', () => {
             
-                    deleteConfirmationContainer.classList.remove('active');
-                });
-
-                deleteUser.addEventListener('click', () => {
-
-                    document.dispatchEvent(new CustomEvent('startWait'));
-
-                    let url = deleteUser.dataset.url;
-
-                    let sendDeleteRequest = async () => {
+        deleteButtons.forEach(deleteButton => {
         
-                        document.dispatchEvent(new CustomEvent('startWait'));
+            deleteButton.addEventListener('click', () => {
+                
+                let url = deleteButton.dataset.url;
+                deleteUser.dataset.url = url;
+                deleteConfirmationContainer.classList.add('active');
+            });
+        });
         
-                        let response = await fetch(url, {
-                            headers: {
-                                'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
-                                'X-Requested-With': 'XMLHttpRequest',
-                            },
-                            method: 'DELETE'
-                        })
-                        .then(response => {
+        deleteCancelButton.addEventListener('click', () => {
         
-                            if (!response.ok) throw response;
+            deleteConfirmationContainer.classList.remove('active');
+        });
 
-                            if (response.status == '200') {
-                                return response.json();
-                            }
-        
-                        })
-                        .then(json => {
-        
-                            formContainer.innerHTML = json.form;
-                            tableContainer.innerHTML = json.table;
+        deleteUser.addEventListener('click', () => {
 
-                            document.dispatchEvent(new CustomEvent('loadDelete', {
-                                detail: {
-                                    url: url,
-                                }
-                            }));
+            let url = deleteUser.dataset.url;
 
-                            document.dispatchEvent(new CustomEvent('renderModules'));
-                        })
-                        .catch ( error =>  {
-        
-                            if(error.status == '500'){
-                                console.log(error);
-                            }
-                        });
+            let sendDeleteRequest = async () => {
+
+                document.dispatchEvent(new CustomEvent('startWait'));
+
+                let response = await fetch(url, {
+                    headers: {
+                        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    method: 'DELETE'
+                })
+                .then(response => {
+
+                    if (!response.ok) throw response;
+
+                    if (response.status == '200') {
+                        return response.json();
                     }
-                    sendDeleteRequest();
+
+                })
+                .then(json => {
+
+                    tableContainer.innerHTML = json.table;
+                    formContainer.innerHTML = json.form;
+
+                    document.dispatchEvent(new CustomEvent('loadDelete', {
+                        detail: {
+                            form: json.form,
+                        }
+                    }));
+
+                    document.dispatchEvent(new CustomEvent('renderTableModules'));
+                    document.dispatchEvent(new CustomEvent('renderFormModules'));
+                })
+                .catch ( error =>  {
+
+                    if(error.status == '500'){
+                        console.log(error);
+                    }
                 });
             }
+            sendDeleteRequest();
         });
     }
 }
