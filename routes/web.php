@@ -44,6 +44,48 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'users_show',
         ]
     ]);
+    
+    Route::resource('productos', 'App\Http\Controllers\Admin\ProductController', [
+        'parameters' => [
+            'productos' => 'product', 
+        ],
+        'names' => [
+            'index' => 'products',
+            'create' => 'products_create',
+            'edit' => 'products_edit',
+            'store' => 'products_store',
+            'destroy' => 'products_destroy',
+            'show' => 'products_show',
+        ]
+    ]);
+
+    Route::resource('categoriasDeProductos', 'App\Http\Controllers\Admin\ProductsCategoryController', [
+        'parameters' => [
+            'categoriasDeProductos' => 'productsCategory', 
+        ],
+        'names' => [
+            'index' => 'productsCategories',
+            'create' => 'productsCategories_create',
+            'edit' => 'productsCategories_edit',
+            'store' => 'productsCategories_store',
+            'destroy' => 'productsCategories_destroy',
+            'show' => 'productsCategories_show',
+        ]
+    ]);
+    
+    Route::resource('contacto', 'App\Http\Controllers\Admin\ContactController', [
+        'parameters' => [
+            'contacto' => 'contact',
+        ],
+        'names' => [
+            'index' => 'contacts',
+            'create' => 'contacts_create',
+            'edit' => 'contacts_edit',
+            'store' => 'contacts_store',
+            'destroy' => 'contacts_destroy',
+            'show' => 'contacts_show',
+        ]
+    ]);
 });
 
 
@@ -51,14 +93,10 @@ Route::get('/', function () {
     return view('front.pages.home.index');
 });
 
-Route::redirect('/españa', '/productos');
-
 // Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('home_front');
 
-
-Route::get('/contacto', function () {
-    return view('front.pages.contact.index');
-});
+Route::get('/contacto', 'App\Http\Controllers\Front\ContactController@index');
+Route::post('/contacto', 'App\Http\Controllers\Front\ContactController@store')->name('contacts_store');
 
 Route::get('/productos', function () {
     return view('front.pages.products.index');

@@ -142,6 +142,7 @@ class FaqController extends Controller
         $faq->save();
 
         $view = View::make('admin.pages.faqs')
+            // el nombre en singular es el formulario
             ->with('faq', $this->faq)
             ->with('faqs', $this->faq->where('active', 1)->get())
             ->renderSections();

@@ -61,7 +61,13 @@
         </div>
         <div class="column">
             <div class="contact-form">
-                <form method="POST" action="" id="form" class="front-form">
+                <form action="{{route("contacts_store")}}" id="form" class="front-form">
+                    
+                    {{ csrf_field() }}
+                        
+                    <input autocomplete="false" name="hidden" type="text" style="display:none;">
+                    <input type="hidden" name="id" value="{{isset($contact->id) ? $contact->id : ''}}" class="contact-id">
+
                     <div class="errors-container parent">
                         <div class="close-button">
                             <svg viewBox="0 0 24 24">
@@ -72,42 +78,31 @@
                     <div class="two-columns">
                         <div class="column">
                             <div class="contact-form-item">
-                                <input type="text" name="name" id="name" placeholder="Nombre:" class="required" data-type="nombre">
+                                <input type="text" name="name" id="name" value="{{isset($contact->name) ? $contact->name : ''}}" placeholder="Nombre:" class="required" data-type="nombre">
                             </div>
                         </div>
                         <div class="column">
                             <div class="contact-form-item">
-                                <input type="text" name="surnames" id="surname" placeholder="Apellidos:" class="required" data-type="apellidos">
+                                <input type="text" name="surnames" id="surname" value="{{isset($contact->surnames) ? $contact->surnames : ''}}" placeholder="Apellidos:" class="required" data-type="apellidos">
                             </div>
                         </div>
                     </div>
                     <div class="two-columns">
                         <div class="column">
                             <div class="contact-form-item">
-                                <input type="text" name="mail" id="mail" placeholder="Email:" class="required" data-type="email">
+                                <input type="text" name="email" id="email" value="{{isset($contact->email) ? $contact->email : ''}}" placeholder="Email:" class="required" data-type="email">
                             </div>
                         </div>
                         <div class="column">
                             <div class="contact-form-item">
-                                <input type="text" name="telephone" id="telephone" placeholder="Número de teléfono:" class="required" data-type="telefono">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-column">
-                        <div class="column">
-                            <div class="contact-form-item">
-                                <textarea id="editor1" name="content" class="required ckeditor" data-type="comentario">
-                                    
-                                </textarea>
+                                <input type="text" name="phonenumber" id="telephone" value="{{isset($contact->phonenumber) ? $contact->phonenumber : ''}}" placeholder="Número de teléfono:" class="required" data-type="telefono">
                             </div>
                         </div>
                     </div>
                     <div class="single-column">
                         <div class="column">
                             <div class="contact-form-item">
-                                <textarea id="editor2" name="content2" class="required ckeditor" data-type="comentariofeo">
-                                    
-                                </textarea>
+                                <textarea id="editor1" name="comment" value="{{isset($contact->comment) ? $contact->comment : ''}}" class="required" data-type="comentario"></textarea>
                             </div>
                         </div>
                     </div>
@@ -115,7 +110,7 @@
                         <div class="column">
                             <div class="contact-form-item">
                                 <div class="contact-form-item-button" id="submit">
-                                    <button type="submit" id="button" class="submit-button">Enviar</button>
+                                    <button id="button" class="submit-button">Enviar</button>
                                 </div>
                             </div>
                         </div>

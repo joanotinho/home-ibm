@@ -2920,6 +2920,11 @@ var renderTable = function renderTable() {
   var deleteButtons = document.querySelectorAll('.delete-user-button');
   var deleteUser = document.querySelector('.delete-user');
   var forms = document.querySelectorAll('.admin-form');
+  document.addEventListener("loadTable", function (event) {
+    tableContainer.innerHTML = event.detail.table;
+  }, {
+    once: true
+  });
   document.addEventListener('renderTableModules', function (event) {
     renderTable();
   }, {
@@ -2985,71 +2990,12 @@ var renderTable = function renderTable() {
   if (deleteButtons) {
     deleteButtons.forEach(function (deleteButton) {
       deleteButton.addEventListener('click', function () {
-        var url = deleteButton.dataset.url;
-        deleteUser.dataset.url = url;
-        deleteConfirmationContainer.classList.add('active');
-      });
-    });
-    deleteCancelButton.addEventListener('click', function () {
-      deleteConfirmationContainer.classList.remove('active');
-    });
-    deleteUser.addEventListener('click', function () {
-      var url = deleteUser.dataset.url;
-
-      var sendDeleteRequest = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-          var response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-            while (1) {
-              switch (_context2.prev = _context2.next) {
-                case 0:
-                  document.dispatchEvent(new CustomEvent('startWait'));
-                  _context2.next = 3;
-                  return fetch(url, {
-                    headers: {
-                      'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
-                      'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    method: 'DELETE'
-                  }).then(function (response) {
-                    if (!response.ok) throw response;
-
-                    if (response.status == '200') {
-                      return response.json();
-                    }
-                  }).then(function (json) {
-                    tableContainer.innerHTML = json.table;
-                    formContainer.innerHTML = json.form;
-                    document.dispatchEvent(new CustomEvent('loadDelete', {
-                      detail: {
-                        form: json.form
-                      }
-                    }));
-                    document.dispatchEvent(new CustomEvent('renderTableModules'));
-                    document.dispatchEvent(new CustomEvent('renderFormModules'));
-                  })["catch"](function (error) {
-                    if (error.status == '500') {
-                      console.log(error);
-                    }
-                  });
-
-                case 3:
-                  response = _context2.sent;
-
-                case 4:
-                case "end":
-                  return _context2.stop();
-              }
-            }
-          }, _callee2);
+        document.dispatchEvent(new CustomEvent('openModalDelete', {
+          detail: {
+            url: deleteButton.dataset.url
+          }
         }));
-
-        return function sendDeleteRequest() {
-          return _ref2.apply(this, arguments);
-        };
-      }();
-
-      sendDeleteRequest();
+      });
     });
   }
 };
@@ -3134,30 +3080,111 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "userModification": () => (/* binding */ userModification)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 var userModification = function userModification() {
-  var deleteUserButtons = document.querySelectorAll('.delete-user-button');
   var deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
   var deleteCancelButton = document.querySelector('.cancel-delete-user');
   var deleteUser = document.querySelector('.delete-user');
+  var formContainer = document.querySelector('.form-container');
+  var tableContainer = document.querySelector('.table-container');
   var editUserButtons = document.querySelectorAll('.edit-user-button');
   var spinner = document.querySelector('.spinner2-container');
-  editUserButtons.forEach(function (editUserButton) {
-    editUserButton.addEventListener('click', function () {// spinner.classList.add('active'); 
-    });
-  });
-  deleteUserButtons.forEach(function (deleteUserButton) {
-    deleteUserButton.addEventListener('click', function () {});
+  document.addEventListener('openModalDelete', function (event) {
+    console.log(event.detail.url);
+    deleteUser.dataset.url = event.detail.url;
+    deleteConfirmationContainer.classList.add('active');
   });
   deleteCancelButton.addEventListener('click', function () {
-    deleteConfirmationContainer.classList.remove('active');
-  });
-  deleteUser.addEventListener('click', function () {
     deleteConfirmationContainer.classList.remove('active');
   });
   deleteConfirmationContainer.addEventListener('click', function (e) {
     if (e.target === deleteConfirmationContainer) {
       deleteConfirmationContainer.classList.remove('active');
     }
+  });
+  deleteUser.addEventListener('click', function () {
+    var url = deleteUser.dataset.url;
+    console.log(url);
+
+    var sendDeleteRequest = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                document.dispatchEvent(new CustomEvent('startWait'));
+                _context.next = 3;
+                return fetch(url, {
+                  headers: {
+                    'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+                    'X-Requested-With': 'XMLHttpRequest'
+                  },
+                  method: 'DELETE'
+                }).then(function (response) {
+                  if (!response.ok) throw response;
+
+                  if (response.status == '200') {
+                    return response.json();
+                    document.dispatchEvent(new CustomEvent('statusNotification', {
+                      detail: {
+                        status: 'success'
+                      }
+                    }));
+                  } else if (response.status == '500') {
+                    return response.json();
+                    document.dispatchEvent(new CustomEvent('statusNotification', {
+                      detail: {
+                        status: 'error'
+                      }
+                    }));
+                  }
+                }).then(function (json) {
+                  if (json.table) {
+                    document.dispatchEvent(new CustomEvent('loadTable', {
+                      detail: {
+                        table: json.table
+                      }
+                    }));
+                  }
+
+                  document.dispatchEvent(new CustomEvent('loadForm', {
+                    detail: {
+                      form: json.form
+                    }
+                  }));
+                  deleteConfirmationContainer.classList.remove('active');
+                  document.dispatchEvent(new CustomEvent('renderTableModules')); // document.dispatchEvent(new CustomEvent('renderFormModules'));
+                })["catch"](function (error) {
+                  if (error.status == '500') {
+                    console.log(error);
+                  }
+                });
+
+              case 3:
+                response = _context.sent;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function sendDeleteRequest() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    sendDeleteRequest();
   });
 };
 
