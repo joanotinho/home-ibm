@@ -9,4 +9,10 @@ class ProductsCategory extends DBModel
 {
     use HasFactory;
 
+    protected $with = ['products'];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
 }

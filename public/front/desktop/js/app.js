@@ -2431,6 +2431,7 @@ var renderForm = function renderForm() {
     forms.forEach(function (form) {
       var data = new FormData(form);
       var url = form.action;
+      console.log(url);
       Object.entries(ckeditors).forEach(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
             key = _ref2[0],

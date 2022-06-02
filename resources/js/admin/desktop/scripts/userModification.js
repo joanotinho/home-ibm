@@ -48,24 +48,29 @@ export let userModification = () => {
             })
             .then(response => {
 
-                if (!response.ok) throw response;
-
-                if (response.status == '200') {
-                    return response.json();
-                    document.dispatchEvent(new CustomEvent('statusNotification', {
+                if (response.ok) {
+                    
+                    document.dispatchEvent(new CustomEvent('responseStatus', {
                         detail: {
-                            status: 'success',
+                            title: '¡Exito!',
+                            text: 'Usuario eliminado correctamente',
+                            type: 'success'
                         }
                     }));
-                } else if (response.status == '500') {
-                    return response.json();
-                    document.dispatchEvent(new CustomEvent('statusNotification', {
+                } else if (!response.ok) {
+
+                    document.dispatchEvent(new CustomEvent('responseStatus', {
                         detail: {
-                            status: 'error',
+                            status: '¡Error!',
+                            text: 'Formulario no enviado',
+                            type: 'error'
                         }
                     }));
                 }
 
+                if (!response.ok) throw response;
+
+                return response.json();
             })
             .then(json => {
 

@@ -63,6 +63,7 @@ export let renderForm = () => {
 
                     formContainer.innerHTML = json.form;
 
+                    document.dispatchEvent(new CustomEvent('renderTableModules'));
                     document.dispatchEvent(new CustomEvent('renderFormModules'));
                 })
                 .catch ( error =>  {
@@ -109,7 +110,26 @@ export let renderForm = () => {
                     body: data
                 })
                 .then(response => {
-                
+
+                    if (response.status == '200') {
+
+                        document.dispatchEvent(new CustomEvent('responseStatus', {
+                            detail: {
+                                title: '¡Exito!',
+                                text: 'Formulario enviado correctamente',
+                                type: 'success'
+                            }
+                        }));
+                    } else if (!response.ok) {
+                        document.dispatchEvent(new CustomEvent('responseStatus', {
+                            detail: {
+                                title: '¡Error!',
+                                text: 'Formulario no enviado',
+                                type: 'error'
+                            }
+                        }));
+                    }
+                    
                     if (!response.ok) throw response;
 
                     return response.json();
@@ -125,7 +145,9 @@ export let renderForm = () => {
                         }
                     }));
                     
+                    
                     document.dispatchEvent(new CustomEvent('renderFormModules'));
+                    document.dispatchEvent(new CustomEvent('renderTableModules'));
                 })
                 .catch ( error =>  {
 

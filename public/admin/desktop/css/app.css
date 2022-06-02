@@ -434,8 +434,9 @@ ol, ul {
 .nav {
   border-bottom: 1px solid #ccc;
   display: flex;
-  padding: 0.5rem 5rem;
+  padding: 0.7rem 5%;
   justify-content: space-around;
+  width: 90%;
 }
 .nav .nav-left {
   display: flex;
@@ -449,33 +450,32 @@ ol, ul {
   font-size: 0.6rem;
 }
 .nav .menu-button {
-  width: 100%;
+  position: relative;
   text-align: center;
+  width: 100%;
 }
 .nav .menu-button .hamburger {
   cursor: pointer;
   display: block;
   position: absolute;
-  right: 1rem;
-  top: 0.6rem;
   z-index: 3000;
 }
 .nav .menu-button .hamburger .bar1, .nav .menu-button .hamburger .bar2, .nav .menu-button .hamburger .bar3 {
   display: block;
   width: 2rem;
   height: 0.2rem;
-  margin: 0.4rem auto;
+  margin: 0.3rem auto;
   background-color: #101010;
   transition: 0.4s;
 }
 .nav .menu-button .hamburger.active .bar1 {
-  transform: rotate(45deg) translate(0.5rem, 0.3rem);
+  transform: rotate(45deg) translate(0.4rem, 0.3rem);
 }
 .nav .menu-button .hamburger.active .bar2 {
   opacity: 0;
 }
 .nav .menu-button .hamburger.active .bar3 {
-  transform: rotate(-45deg) translate(0.5rem, -0.3rem);
+  transform: rotate(-45deg) translate(0.4rem, -0.3rem);
 }
 .nav .menu {
   background-color: #f5f5f5;
@@ -524,97 +524,106 @@ body .container {
   padding: 0 1%;
   width: 98%;
 }
-body .container .users {
+body .container .table-container {
   border: 1px solid #ccc;
   margin-top: 1rem;
+  position: relative;
   width: 30%;
 }
-body .container .users .user {
+body .container .table-container .user {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
   justify-content: space-between;
   padding: 0.3rem 0.5rem;
 }
-body .container .users .user .field {
+body .container .table-container .user .field {
   display: flex;
 }
-body .container .users .user .field .value {
+body .container .table-container .user .field .value {
   color: #1F70C1;
   font-weight: 600;
   margin-left: 0.3rem;
 }
-body .container .users .user .user-right {
+body .container .table-container .user .user-right {
   display: flex;
   padding-top: 0.8rem;
 }
-body .container .users .user .user-right svg {
+body .container .table-container .user .user-right svg {
   cursor: pointer;
   height: 1.5rem;
   width: 1.5rem;
 }
-body .container .users .user .user-right svg:hover {
+body .container .table-container .user .user-right svg:hover {
   color: #1F70C1;
 }
-body .container .editor-column {
-  top: 2rem;
+body .container .table-container .no-registers-found {
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  width: 60%;
+}
+body .container .table-container .no-registers-found span {
+  color: #aaa;
+}
+body .container .form-container {
+  margin-top: 1rem;
   transition: left 1s;
   width: 65%;
 }
-body .container .editor-column .editor {
+body .container .form-container .editor {
   background-color: #eee;
   border-radius: 0.4rem;
-  margin-top: 0.6rem;
 }
-body .container .editor-column .editor form {
+body .container .form-container .editor form {
   margin: 0.1rem 0;
   width: 100%;
 }
-body .container .editor-column .editor form .desktop-two-columns {
+body .container .form-container .editor form .desktop-two-columns {
   justify-content: start;
 }
-body .container .editor-column .editor form .field {
+body .container .form-container .editor form .field {
   display: flex;
   flex-direction: column;
   margin-top: 0.7rem;
 }
-body .container .editor-column .editor form .field .field-label {
+body .container .form-container .editor form .field .field-label {
   display: flex;
   justify-content: space-between;
   width: 70%;
 }
-body .container .editor-column .editor form .field .field-label .label label {
+body .container .form-container .editor form .field .field-label .label label {
   font-weight: bold;
   margin: 0.5rem 0;
   width: 100%;
 }
-body .container .editor-column .editor form .field .field-label .character-counter-max-value {
+body .container .form-container .editor form .field .field-label .character-counter-max-value {
   color: #f00;
   font-weight: 600;
   margin-left: 0.3rem;
 }
-body .container .editor-column .editor form .field .field-input input, body .container .editor-column .editor form .field .field-input select {
+body .container .form-container .editor form .field .field-input input, body .container .form-container .editor form .field .field-input select {
   background-color: #eee;
   border: none;
   border-radius: 0.2rem;
   outline: none;
   padding: 0.2rem 0.5rem;
-  width: 70%;
+  width: 82%;
 }
-body .container .editor-column .editor form .field .field-input input:focus, body .container .editor-column .editor form .field .field-input select:focus {
+body .container .form-container .editor form .field .field-input input:focus, body .container .form-container .editor form .field .field-input select:focus {
   background-color: #ccc;
 }
-body .container .editor-column .editor form .field .field-rule {
+body .container .form-container .editor form .field .field-rule {
   max-width: 70%;
 }
-body .container .editor-column .editor form .field .field-rule span {
+body .container .form-container .editor form .field .field-rule span {
   color: #f00;
   font-size: 0.9rem;
 }
-body .container .editor-column .editor form .field .ck-content {
+body .container .form-container .editor form .field .ck-content {
   height: 20vh;
 }
-body .container .editor-column.active {
+body .container .form-container.active {
   left: 55%;
   transition: left 0.3s ease;
   width: 48%;
@@ -742,6 +751,7 @@ body .container .editor-column.active {
   display: flex;
 }
 .tabs-container .top-bar .tabs .tab, .tabs-container .top-bar .tabs .locale-tab {
+  cursor: pointer;
   font-weight: 400;
   padding: 0.5rem 0.8rem;
   position: relative;
@@ -817,6 +827,7 @@ body .container .editor-column.active {
 }
 .tabs-container .top-bar .form-buttons .form-button .on-off-switch .on-off-switch-items .icon {
   color: #4BAE4E;
+  cursor: pointer;
   margin-top: -0.5rem;
 }
 .tabs-container .top-bar .form-buttons .form-button .on-off-switch .on-off-switch-items .icon svg {
@@ -1234,10 +1245,8 @@ body .container .editor-column.active {
 }
 .nested-sort-container .nested-sort .nested-sort-item {
   list-style: none;
-  margin: 0 0 5px;
-  padding: 10px;
+  padding: 0.4rem;
   background: #fff;
-  border: 1px solid #ddd;
 }
 .nested-sort-container .nested-sort .nested-sort-item ol {
   padding: 0;
@@ -1267,6 +1276,7 @@ body .container .editor-column.active {
   width: max-content;
 }
 .bottom-bar .filters-container .filter-icons {
+  cursor: pointer;
   text-align: center;
 }
 .bottom-bar .filters-container .filter-icons .hidden-icon {

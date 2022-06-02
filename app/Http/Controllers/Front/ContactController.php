@@ -10,7 +10,6 @@ use Debugbar;
 
 class ContactController extends Controller
 {
-    
     protected $contact;
 
     public function __construct(Contact $contact)
@@ -22,7 +21,6 @@ class ContactController extends Controller
     
     public function index()
     {
-
         $view = View::make('front.pages.contact.index');
 
         return $view;

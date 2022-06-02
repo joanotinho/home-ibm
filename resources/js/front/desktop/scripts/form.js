@@ -12,6 +12,8 @@ export let renderForm = () => {
     
             let data = new FormData(form);
             let url = form.action;
+
+            console.log(url);
             
             Object.entries(ckeditors).forEach(([key, value]) => {
                 data.append(key, value.getData());

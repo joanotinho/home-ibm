@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Product;
+use App\Models\DB\ProductsCategory;
 use App\Http\Requests\Admin\ProductRequest;
 use Debugbar;
 
@@ -23,10 +24,12 @@ class ProductController extends Controller
     
     public function index()
     {
+        $this->productsCategory = "hola";
 
         $view = View::make('admin.pages.products')
             ->with('product', $this->product)
-            ->with('products', $this->product->where('active', 1)->get());
+            ->with('products', $this->product->where('active', 1)->get())
+            ->with('productsCategories', $this->productsCategory);
 
         if(request()->ajax()) {
             
@@ -36,9 +39,7 @@ class ProductController extends Controller
                 'table' => $sections['table'],
                 'form' => $sections['form'],
             ]);
-            Debugbar::info($view['form']);
         }
-
 
         return $view;
     }
@@ -65,13 +66,14 @@ class ProductController extends Controller
             'description' => request('description'),
             'features' => request('features'),
             'price' => request('price'),
+            'category_id' => request('category_id'),
             'active' => 1,
             'visible' => 1,
         ]);
 
         $view = View::make('admin.pages.products')
-        ->with('products', $this->product->where('active', 1)->get())
         ->with('product', $product)
+        ->with('products', $this->product->where('active', 1)->get())
         ->renderSections(); 
 
         return response()->json([

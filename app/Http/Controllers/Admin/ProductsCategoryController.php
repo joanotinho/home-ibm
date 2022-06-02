@@ -36,9 +36,7 @@ class ProductsCategoryController extends Controller
                 'table' => $sections['table'],
                 'form' => $sections['form'],
             ]);
-            Debugbar::info($view['form']);
         }
-
 
         return $view;
     }

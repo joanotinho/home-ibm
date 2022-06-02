@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Front;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FrontContactRequest extends FormRequest
+class CustomerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,7 +20,7 @@ class FrontContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|min:3|max:64|regex:/^[a-z0-9áéíóúàèìòùäëïöüñ\s]+$/i',
         ];
     }
 
@@ -28,6 +28,9 @@ class FrontContactRequest extends FormRequest
     {
         return [
             'name.required' => 'El nombre es obligatorio',
+            'name.min' => 'El mínimo de caracteres permitidos para el nombre son 3',
+            'name.max' => 'El máximo de caracteres permitidos para el nombre son 64',
+            'name.regex' => 'Sólo se aceptan letras para el nombre',
         ];
     }
 }

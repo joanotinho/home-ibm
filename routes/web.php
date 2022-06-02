@@ -45,6 +45,20 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
     
+    Route::resource('/productos/categorias', 'App\Http\Controllers\Admin\ProductsCategoryController', [
+        'parameters' => [
+            'categorias' => 'products_category', 
+        ],
+        'names' => [
+            'index' => 'products_categories',
+            'create' => 'products_categories_create',
+            'edit' => 'products_categories_edit',
+            'store' => 'products_categories_store',
+            'destroy' => 'products_categories_destroy',
+            'show' => 'products_categories_show',
+        ]
+    ]);
+    
     Route::resource('productos', 'App\Http\Controllers\Admin\ProductController', [
         'parameters' => [
             'productos' => 'product', 
@@ -58,20 +72,21 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'products_show',
         ]
     ]);
-
-    Route::resource('categoriasDeProductos', 'App\Http\Controllers\Admin\ProductsCategoryController', [
+    
+    Route::resource('clientes', 'App\Http\Controllers\Admin\CustomerController', [
         'parameters' => [
-            'categoriasDeProductos' => 'productsCategory', 
+            'clientes' => 'customer', 
         ],
         'names' => [
-            'index' => 'productsCategories',
-            'create' => 'productsCategories_create',
-            'edit' => 'productsCategories_edit',
-            'store' => 'productsCategories_store',
-            'destroy' => 'productsCategories_destroy',
-            'show' => 'productsCategories_show',
+            'index' => 'customers',
+            'create' => 'customers_create',
+            'edit' => 'customers_edit',
+            'store' => 'customers_store',
+            'destroy' => 'customers_destroy',
+            'show' => 'customers_show',
         ]
     ]);
+
     
     Route::resource('contacto', 'App\Http\Controllers\Admin\ContactController', [
         'parameters' => [

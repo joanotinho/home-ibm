@@ -13,13 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('surnames');
-            $table->string('email');
+            $table->string('company');
+            $table->string('country');
+            $table->string('address');
+            $table->string('extra_address');
+            $table->string('city');
+            $table->string('province');
+            $table->string('postal_code');
             $table->integer('phonenumber');
-            $table->text('comment');
+            $table->string('email');
+            $table->string('payment_method');
             $table->boolean('visible')->default(true);
             $table->boolean('active')->default(true);
             $table->timestamps();

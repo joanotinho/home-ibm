@@ -63,7 +63,7 @@ class FaqController extends Controller
 
         $view = View::make('admin.pages.faqs')
                 ->with('faq', $this->faq)
-                ->with('faqs', $this->faq->get());
+                ->with('faqs', $this->faq->where('active', 1)->get());
 
         if(request()->ajax()) {
            
@@ -110,7 +110,6 @@ class FaqController extends Controller
         return response()->json([
             'table' => $view['table'],
             'form' => $view['form'],
-            'id' => $faq->id,
         ]);
     }
 

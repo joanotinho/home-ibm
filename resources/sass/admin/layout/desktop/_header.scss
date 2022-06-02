@@ -2,8 +2,9 @@
 .nav {
     border-bottom: 1px solid #ccc;
     display: flex;
-    padding: .5rem 5rem;
+    padding: .7rem 5%;
     justify-content: space-around;
+    width: 90%;
 
     .nav-left {
         display: flex;
@@ -20,28 +21,30 @@
     }
     
     .menu-button{
-        width: 100%;
+        
+        position: relative;
         text-align: center;
+        width: 100%;
 
         .hamburger {
+
             cursor: pointer;
             display: block;
             position: absolute;
-            right: 1rem;
-            top: .6rem;
             z-index: 3000;
 
             .bar1,.bar2,.bar3{  
+
                 display:block;  
-                width: 2rem;  
-                height:.2rem;  
-                margin:.4rem auto;  
-                background-color:#101010;  
+                width: 2rem;
+                height: .2rem;
+                margin: .3rem auto;  
+                background-color: #101010;
                 transition: 0.4s;  
             }  
             
             &.active .bar1{  
-                transform: rotate(45deg) translate(.5rem,.3rem);  
+                transform: rotate(45deg) translate(.4rem, .3rem);  
             }  
 
             &.active .bar2 {  
@@ -49,7 +52,7 @@
             }  
             
             &.active .bar3 {  
-                transform: rotate(-45deg) translate(.5rem,-.3rem);  
+                transform: rotate(-45deg) translate(.4rem, -.3rem);  
             }  
         }
     } 

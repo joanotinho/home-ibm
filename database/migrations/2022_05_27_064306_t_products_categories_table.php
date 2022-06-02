@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('title');
-            $table->boolean('visible');
-            $table->boolean('active');
+            $table->boolean('visible')->default(true);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

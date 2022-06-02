@@ -48,30 +48,57 @@ class ContactController extends Controller
         ]);
     }
 
-    public function store(ContactRequest $request)
-    {
-        $contact = $this->contact->updateOrCreate([
-                'id' => request('id')],[
-                'name' => request('name'),
-                'title' => request('title'),
-                'description' => request('description'),
-                'visible' => 1,
-                'active' => 1,
-        ]);
+    // public function store(ContactRequest $request)
+    // {
+    //     $contact = $this->contact->updateOrCreate([
+    //         'id' => request('id')],[
+    //         'name' => request('name'),
+    //         'title' => request('title'),
+    //         'comment' => request('comment'),
+    //         'visible' => 1,
+    //         'active' => 1,
+    //     ]);
            
+    //     $view = View::make('admin.pages.contact')
+    //     // pasa dos variables al html. La variable contacts, para hacer el bucle y la variable contact, para mostrar los datos
+    //     ->with('contacts', $this->contact->where('active', 1)->get())
+    //     ->with('contact', $contact)
+    //     ->renderSections();        
+
+    //     return response()->json([
+    //         'table' => $view['table'],
+    //         'form' => $view['form'],
+    //     ]);
+    // }
+
+    public function store(ProductRequest $request)
+    {            
+    
+        $contact = $this->contact->updateOrCreate([
+            'id' => request('id')],[
+            'name' => request('name'),
+            'surnames' => request('surnames'),
+            'email' => request('email'),
+            'phonenumber' => request('phonenumber'),
+            'comment' => request('comment'),
+            'price' => request('price'),
+            'active' => 1,
+            'visible' => 1,
+        ]);
+
         $view = View::make('admin.pages.contact')
-        // pasa dos variables al html. La variable contacts, para hacer el bucle y la variable contact, para mostrar los datos
-        ->with('contacts', $this->contact->where('active', 1)->get())
         ->with('contact', $contact)
-        ->renderSections();        
+        ->with('contacts', $this->contact->where('active', 1)->get())
+        ->renderSections(); 
+
+        Debugbar::info($view);
 
         return response()->json([
             'table' => $view['table'],
             'form' => $view['form'],
-            'id' => $contact->id,
         ]);
+        
     }
-
     public function edit(Contact $contact)
     {
         $view = View::make('admin.pages.contact')
@@ -85,7 +112,7 @@ class ContactController extends Controller
             return response()->json([
                 'form' => $sections['form'],
             ]);
-        }
+        };
                
         return $view;
     }

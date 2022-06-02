@@ -2310,63 +2310,6 @@ var cleanConfirmation = function cleanConfirmation() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/desktop/scripts/events.js":
-/*!******************************************************!*\
-  !*** ./resources/js/admin/desktop/scripts/events.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "events": () => (/* binding */ events)
-/* harmony export */ });
-var events = function events() {
-  var sendButton = document.querySelector('.save-button');
-  var nameInput = document.getElementById('name');
-  var deleteButton = document.querySelector('.delete-user');
-
-  if (sendButton) {
-    sendButton.addEventListener('click', function (event) {
-      var name = nameInput.value;
-
-      if (name) {
-        document.dispatchEvent(new CustomEvent('message', {
-          detail: {
-            title: '¡Exito!',
-            text: 'Formulario enviado correctamente',
-            type: 'success'
-          }
-        }));
-      } else {
-        document.dispatchEvent(new CustomEvent('message', {
-          detail: {
-            title: '¡Error!',
-            text: 'Formulario no enviado',
-            type: 'error'
-          }
-        }));
-      }
-    });
-  }
-
-  ;
-
-  if (deleteButton) {
-    deleteButton.addEventListener('click', function (event) {
-      document.dispatchEvent(new CustomEvent('message', {
-        detail: {
-          title: '¡Exito!',
-          text: 'Usuario eliminado correctamente',
-          type: 'success'
-        }
-      }));
-    });
-  }
-};
-
-/***/ }),
-
 /***/ "./resources/js/admin/desktop/scripts/filter.js":
 /*!******************************************************!*\
   !*** ./resources/js/admin/desktop/scripts/filter.js ***!
@@ -2483,6 +2426,7 @@ var renderForm = function renderForm() {
                     }
                   }).then(function (json) {
                     formContainer.innerHTML = json.form;
+                    document.dispatchEvent(new CustomEvent('renderTableModules'));
                     document.dispatchEvent(new CustomEvent('renderFormModules'));
                   })["catch"](function (error) {
                     if (error.status == '500') {
@@ -2554,6 +2498,24 @@ var renderForm = function renderForm() {
                     method: 'POST',
                     body: data
                   }).then(function (response) {
+                    if (response.status == '200') {
+                      document.dispatchEvent(new CustomEvent('responseStatus', {
+                        detail: {
+                          title: '¡Exito!',
+                          text: 'Formulario enviado correctamente',
+                          type: 'success'
+                        }
+                      }));
+                    } else if (!response.ok) {
+                      document.dispatchEvent(new CustomEvent('responseStatus', {
+                        detail: {
+                          title: '¡Error!',
+                          text: 'Formulario no enviado',
+                          type: 'error'
+                        }
+                      }));
+                    }
+
                     if (!response.ok) throw response;
                     return response.json();
                   }).then(function (json) {
@@ -2565,6 +2527,7 @@ var renderForm = function renderForm() {
                       }
                     }));
                     document.dispatchEvent(new CustomEvent('renderFormModules'));
+                    document.dispatchEvent(new CustomEvent('renderTableModules'));
                   })["catch"](function (error) {
                     if (error.status == '500') {
                       console.log(error);
@@ -2850,10 +2813,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "savedChangesStatus": () => (/* binding */ savedChangesStatus)
 /* harmony export */ });
 var savedChangesStatus = function savedChangesStatus() {
-  document.addEventListener('message', function (event) {
-    var notification = document.querySelector('.notification');
-    var notificationTitle = document.getElementById('notification-title');
-    var notificationMessage = document.getElementById('notification-message');
+  var sendButton = document.querySelector('.save-button');
+  var nameInput = document.getElementById('name');
+  var deleteButton = document.querySelector('.delete-user');
+  var notification = document.querySelector('.notification');
+  var notificationTitle = document.getElementById('notification-title');
+  var notificationMessage = document.getElementById('notification-message');
+  document.addEventListener('responseStatus', function (event) {
     notificationTitle.innerHTML = event.detail.title;
     notificationMessage.innerHTML = event.detail.text;
     notification.classList.add(event.detail.type);
@@ -2863,6 +2829,19 @@ var savedChangesStatus = function savedChangesStatus() {
       notification.classList.remove(event.detail.type);
     }, 5000);
   });
+
+  if (deleteButton) {
+    deleteButton.addEventListener('responseStatus', function (event) {
+      notificationTitle.innerHTML = event.detail.title;
+      notificationMessage.innerHTML = event.detail.text;
+      notification.classList.add(event.detail.type);
+      notification.classList.add('visible');
+      setTimeout(function () {
+        notification.classList.remove('visible');
+        notification.classList.remove(event.detail.type);
+      }, 5000);
+    });
+  }
 };
 
 /***/ }),
@@ -3129,23 +3108,26 @@ var userModification = function userModification() {
                   },
                   method: 'DELETE'
                 }).then(function (response) {
-                  if (!response.ok) throw response;
-
-                  if (response.status == '200') {
-                    return response.json();
-                    document.dispatchEvent(new CustomEvent('statusNotification', {
+                  if (response.ok) {
+                    document.dispatchEvent(new CustomEvent('responseStatus', {
                       detail: {
-                        status: 'success'
+                        title: '¡Exito!',
+                        text: 'Usuario eliminado correctamente',
+                        type: 'success'
                       }
                     }));
-                  } else if (response.status == '500') {
-                    return response.json();
-                    document.dispatchEvent(new CustomEvent('statusNotification', {
+                  } else if (!response.ok) {
+                    document.dispatchEvent(new CustomEvent('responseStatus', {
                       detail: {
-                        status: 'error'
+                        status: '¡Error!',
+                        text: 'Formulario no enviado',
+                        type: 'error'
                       }
                     }));
                   }
+
+                  if (!response.ok) throw response;
+                  return response.json();
                 }).then(function (json) {
                   if (json.table) {
                     document.dispatchEvent(new CustomEvent('loadTable', {
@@ -22278,11 +22260,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./scripts/nestedSort.js */ "./resources/js/admin/desktop/scripts/nestedSort.js");
 /* harmony import */ var _scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./scripts/filter.js */ "./resources/js/admin/desktop/scripts/filter.js");
 /* harmony import */ var _scripts_tooltip_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./scripts/tooltip.js */ "./resources/js/admin/desktop/scripts/tooltip.js");
-/* harmony import */ var _scripts_events_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./scripts/events.js */ "./resources/js/admin/desktop/scripts/events.js");
-/* harmony import */ var _scripts_renderSelects_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./scripts/renderSelects.js */ "./resources/js/admin/desktop/scripts/renderSelects.js");
-/* harmony import */ var _scripts_table_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./scripts/table.js */ "./resources/js/admin/desktop/scripts/table.js");
+/* harmony import */ var _scripts_renderSelects_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./scripts/renderSelects.js */ "./resources/js/admin/desktop/scripts/renderSelects.js");
+/* harmony import */ var _scripts_table_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./scripts/table.js */ "./resources/js/admin/desktop/scripts/table.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/admin/bootstrap.js");
-
 
 
 
@@ -22314,9 +22294,8 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/admin/bootstrap.js");
 (0,_scripts_nestedSort_js__WEBPACK_IMPORTED_MODULE_11__.nestedSort)();
 (0,_scripts_filter_js__WEBPACK_IMPORTED_MODULE_12__.filter)();
 (0,_scripts_tooltip_js__WEBPACK_IMPORTED_MODULE_13__.tooltip)();
-(0,_scripts_events_js__WEBPACK_IMPORTED_MODULE_14__.events)();
-(0,_scripts_renderSelects_js__WEBPACK_IMPORTED_MODULE_15__.renderSelects)();
-(0,_scripts_table_js__WEBPACK_IMPORTED_MODULE_16__.renderTable)();
+(0,_scripts_renderSelects_js__WEBPACK_IMPORTED_MODULE_14__.renderSelects)();
+(0,_scripts_table_js__WEBPACK_IMPORTED_MODULE_15__.renderTable)();
 })();
 
 /******/ })()

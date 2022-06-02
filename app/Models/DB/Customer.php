@@ -5,12 +5,8 @@ namespace App\Models\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends DBModel
+class Customer extends DBModel
 {
     use HasFactory;
 
-    public function category()
-    {
-        return $this->belongsTo(ProductsCategory::class);
-    }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Requests\Front;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FrontContactRequest extends FormRequest
+class AdminContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

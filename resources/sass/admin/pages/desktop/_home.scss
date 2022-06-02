@@ -8,9 +8,11 @@ body {
         padding: 0 1%;
         width: 98%;
 
-        .users {
+        .table-container {
+            
             border: 1px solid #ccc;
             margin-top: 1rem;
+            position: relative;
             width: 30%;
     
             .user {
@@ -48,11 +50,23 @@ body {
                     }
                 }
             }
+
+            .no-registers-found {
+
+                position: absolute;
+                left: 20%;
+                top: 50%;
+                width: 60%;
+
+                span {
+                    color: #aaa;
+                }
+            }
         }
     
-        .editor-column {
+        .form-container {
     
-            top: 2rem;
+            margin-top: 1rem;
             transition: left 1s;
             width: 65%;
     
@@ -61,7 +75,6 @@ body {
         
                 background-color: #eee;
                 border-radius: .4rem;
-                margin-top: .6rem;
                 
                 form {
             
@@ -110,7 +123,7 @@ body {
                                 border-radius: .2rem;
                                 outline: none;
                                 padding: .2rem .5rem;
-                                width: 70%;
+                                width: 82%;
             
                                 &:focus {
                                     background-color: #ccc;
