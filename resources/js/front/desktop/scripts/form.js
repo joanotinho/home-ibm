@@ -43,7 +43,6 @@ export let renderForm = () => {
                 })
                 .then(json => {
                     mainContent.innerHTML = json.content;
-                    console.log(json.content);
                 })
                 .catch ( error =>  {
 

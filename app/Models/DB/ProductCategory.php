@@ -5,11 +5,11 @@ namespace App\Models\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductsCategory extends DBModel
+class ProductCategory extends DBModel
 {
     use HasFactory;
 
-    protected $with = ['products'];
+    protected $table = 'products_categories';
 
     public function products()
     {

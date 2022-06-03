@@ -5,28 +5,28 @@ namespace App\Http\Controllers\Admin;
 // use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
-use App\Models\DB\ProductsCategory;
-use App\Http\Requests\Admin\ProductsCategoryRequest;
+use App\Models\DB\productCategory;
+use App\Http\Requests\Admin\ProductCategoryRequest;
 use Debugbar;
 
-class ProductsCategoryController extends Controller
+class ProductCategoryController extends Controller
 {
     
-    protected $productsCategory;
+    protected $product_category;
 
-    public function __construct(ProductsCategory $productsCategory)
+    public function __construct(ProductCategory $product_category)
     {
         // $this->middleware('auth');
         
-        $this->productsCategory = $productsCategory;
+        $this->product_category = $product_category;
     }
-    
+
     public function index()
     {
 
         $view = View::make('admin.pages.products_categories')
-            ->with('productsCategory', $this->productsCategory)
-            ->with('productsCategories', $this->productsCategory->where('active', 1)->get());
+            ->with('product_category', $this->product_category)
+            ->with('productsCategories', $this->product_category->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -45,7 +45,7 @@ class ProductsCategoryController extends Controller
     {
 
         $view = View::make('admin.pages.products_categories')
-        ->with('productsCategory', $this->productsCategory)
+        ->with('product_category', $this->product_category)
         ->renderSections();
 
         return response()->json([
@@ -53,10 +53,10 @@ class ProductsCategoryController extends Controller
         ]);
     }
 
-    public function store(ProductsCategoryRequest $request)
+    public function store(ProductCategory $request)
     {            
     
-        $productsCategory = $this->productsCategory->updateOrCreate([
+        $product_category = $this->product_category->updateOrCreate([
             'id' => request('id')],[
             'name' => request('name'),
             'title' => request('title'),
@@ -65,8 +65,8 @@ class ProductsCategoryController extends Controller
         ]);
 
         $view = View::make('admin.pages.products_categories')
-        ->with('productsCategories', $this->productsCategory->where('active', 1)->get())
-        ->with('productsCategory', $productsCategory)
+        ->with('productsCategories', $this->product_category->where('active', 1)->get())
+        ->with('product_category', $product_category)
         ->renderSections(); 
 
         return response()->json([
@@ -76,11 +76,11 @@ class ProductsCategoryController extends Controller
         
     }
 
-    public function edit(ProductsCategory $productsCategory)
+    public function edit(ProductCategory $product_category)
     {
         $view = View::make('admin.pages.products_categories')
-            ->with('productsCategory', $productsCategory)
-            ->with('productsCategories', $this->productsCategory->where('active', 1)->get());   
+            ->with('product_category', $product_category)
+            ->with('productsCategories', $this->product_category->where('active', 1)->get());   
         
         if(request()->ajax()) {
 
@@ -94,18 +94,18 @@ class ProductsCategoryController extends Controller
         return $view;
     }
 
-    public function show(ProductsCategory $productsCategory){
+    public function show(ProductCategory $product_category){
 
     }
 
-    public function destroy(ProductsCategory $productsCategory)
+    public function destroy(ProductCategory $product_category)
     {
-        $productsCategory->active = 0;
-        $productsCategory->save();
+        $product_category->active = 0;
+        $product_category->save();
 
         $view = View::make('admin.pages.products_categories')
-            ->with('productsCategory', $this->productsCategory)
-            ->with('productsCategories', $this->productsCategory->where('active', 1)->get())
+            ->with('product_category', $this->product_category)
+            ->with('productsCategories', $this->product_category->where('active', 1)->get())
             ->renderSections();
         
         return response()->json([

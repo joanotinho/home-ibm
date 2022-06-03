@@ -2463,7 +2463,6 @@ var renderForm = function renderForm() {
                     return response.json();
                   }).then(function (json) {
                     mainContent.innerHTML = json.content;
-                    console.log(json.content);
                   })["catch"](function (error) {
                     if (error.status == '500') {
                       console.log(error);

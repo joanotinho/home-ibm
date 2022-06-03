@@ -2265,9 +2265,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__);
 
 var renderCkeditor = function renderCkeditor() {
-  document.addEventListener("renderFormModules", function (event) {
-    renderCkeditor();
-  });
   window.ckeditors = [];
   document.querySelectorAll('.ckeditor').forEach(function (ckeditor) {
     _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default().create(ckeditor, {

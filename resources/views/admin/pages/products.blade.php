@@ -236,9 +236,9 @@
                                     <div class="field">
                                         <div class="city-selects-container">
                                             <div class="options">
-                                                <select name="" id="show" class="">
+                                                <select name="" id="show" name="category_id">
                                                     <option value="">Selecciona una categoría</option>
-                                                    @foreach($productsCategories as $category)
+                                                    @foreach($products_categories as $category)
                                                         <option value="{{$category->id}}" {{isset($product->category_id) && $product->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                                                     @endforeach
                                                 </select>

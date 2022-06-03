@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Product;
-use App\Models\DB\ProductsCategory;
+use App\Models\DB\ProductCategory;
 use App\Http\Requests\Admin\ProductRequest;
 use Debugbar;
 
@@ -14,27 +14,26 @@ class ProductController extends Controller
 {
     
     protected $product;
+    protected $products_categories;
 
-    public function __construct(Product $product)
+    public function __construct(Product $product, ProductCategory $products_categories)
     {
         // $this->middleware('auth');
         
         $this->product = $product;
+        $this->products_categories = $products_categories;
+
     }
-    
+
     public function index()
     {
-        $this->productsCategory = "hola";
 
         $view = View::make('admin.pages.products')
             ->with('product', $this->product)
-            ->with('products', $this->product->where('active', 1)->get())
-            ->with('productsCategories', $this->productsCategory);
+            ->with('products', $this->product->where('active', 1)->get());
 
         if(request()->ajax()) {
             
-            $sections = $view->renderSections();
-    
             return response()->json([
                 'table' => $sections['table'],
                 'form' => $sections['form'],

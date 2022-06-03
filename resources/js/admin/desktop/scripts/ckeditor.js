@@ -2,10 +2,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export let renderCkeditor = () => {
 
-    document.addEventListener("renderFormModules",( event =>{
-        renderCkeditor();
-    }));
-
     window.ckeditors = [];
 
 
