@@ -9,4 +9,5 @@ class Customer extends DBModel
 {
     use HasFactory;
 
+    protected $guarded = [];
 }

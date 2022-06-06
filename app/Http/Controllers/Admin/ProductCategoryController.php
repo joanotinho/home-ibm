@@ -24,9 +24,9 @@ class ProductCategoryController extends Controller
     public function index()
     {
 
-        $view = View::make('admin.pages.products_categories')
+        $view = View::make('admin.pages.product_categories')
             ->with('product_category', $this->product_category)
-            ->with('productsCategories', $this->product_category->where('active', 1)->get());
+            ->with('product_categories', $this->product_category->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -44,7 +44,7 @@ class ProductCategoryController extends Controller
     public function create()
     {
 
-        $view = View::make('admin.pages.products_categories')
+        $view = View::make('admin.pages.product_categories')
         ->with('product_category', $this->product_category)
         ->renderSections();
 
@@ -64,8 +64,8 @@ class ProductCategoryController extends Controller
             'visible' => 1,
         ]);
 
-        $view = View::make('admin.pages.products_categories')
-        ->with('productsCategories', $this->product_category->where('active', 1)->get())
+        $view = View::make('admin.pages.product_categories')
+        ->with('product_categories', $this->product_category->where('active', 1)->get())
         ->with('product_category', $product_category)
         ->renderSections(); 
 
@@ -78,9 +78,9 @@ class ProductCategoryController extends Controller
 
     public function edit(ProductCategory $product_category)
     {
-        $view = View::make('admin.pages.products_categories')
+        $view = View::make('admin.pages.product_categories')
             ->with('product_category', $product_category)
-            ->with('productsCategories', $this->product_category->where('active', 1)->get());   
+            ->with('product_categories', $this->product_category->where('active', 1)->get());   
         
         if(request()->ajax()) {
 
@@ -103,9 +103,9 @@ class ProductCategoryController extends Controller
         $product_category->active = 0;
         $product_category->save();
 
-        $view = View::make('admin.pages.products_categories')
+        $view = View::make('admin.pages.product_categories')
             ->with('product_category', $this->product_category)
-            ->with('productsCategories', $this->product_category->where('active', 1)->get())
+            ->with('product_categories', $this->product_category->where('active', 1)->get())
             ->renderSections();
         
         return response()->json([

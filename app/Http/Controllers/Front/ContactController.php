@@ -6,16 +6,13 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Contact;
 use App\Http\Requests\Front\ContactRequest;
-use Debugbar;
 
 class ContactController extends Controller
 {
     protected $contact;
 
     public function __construct(Contact $contact)
-    {
-        // $this->middleware('auth');
-        
+    {        
         $this->contact = $contact;
     }
     

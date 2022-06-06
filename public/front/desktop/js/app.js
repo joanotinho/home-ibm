@@ -2226,12 +2226,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scripts/plusMinusButton.js */ "./resources/js/front/desktop/scripts/plusMinusButton.js");
 /* harmony import */ var _scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/ckeditor.js */ "./resources/js/front/desktop/scripts/ckeditor.js");
 /* harmony import */ var _scripts_form_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/form.js */ "./resources/js/front/desktop/scripts/form.js");
-/* harmony import */ var _scripts_table_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/table.js */ "./resources/js/front/desktop/scripts/table.js");
-/* harmony import */ var _scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/closeElement.js */ "./resources/js/front/desktop/scripts/closeElement.js");
-/* harmony import */ var _scripts_tabs_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/tabs.js */ "./resources/js/front/desktop/scripts/tabs.js");
-/* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/front/desktop/scripts/savedChangesStatus.js");
-/* harmony import */ var _scripts_events_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/events.js */ "./resources/js/front/desktop/scripts/events.js");
-/* harmony import */ var _scripts_faqs_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/faqs.js */ "./resources/js/front/desktop/scripts/faqs.js");
+/* harmony import */ var _scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/closeElement.js */ "./resources/js/front/desktop/scripts/closeElement.js");
+/* harmony import */ var _scripts_tabs_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scripts/tabs.js */ "./resources/js/front/desktop/scripts/tabs.js");
+/* harmony import */ var _scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/savedChangesStatus.js */ "./resources/js/front/desktop/scripts/savedChangesStatus.js");
+/* harmony import */ var _scripts_events_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./scripts/events.js */ "./resources/js/front/desktop/scripts/events.js");
+/* harmony import */ var _scripts_faqs_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/faqs.js */ "./resources/js/front/desktop/scripts/faqs.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
 
 
@@ -2242,16 +2241,14 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
 
 
 
-
 (0,_scripts_plusMinusButton_js__WEBPACK_IMPORTED_MODULE_0__.plusMinusButton)();
-(0,_scripts_form_js__WEBPACK_IMPORTED_MODULE_2__.renderForm)(); // renderTable();
-
+(0,_scripts_form_js__WEBPACK_IMPORTED_MODULE_2__.renderForm)();
 (0,_scripts_ckeditor_js__WEBPACK_IMPORTED_MODULE_1__.ckeditor)();
-(0,_scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_4__.closeElement)();
-(0,_scripts_tabs_js__WEBPACK_IMPORTED_MODULE_5__.tabs)();
-(0,_scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_6__.savedChangesStatus)();
-(0,_scripts_events_js__WEBPACK_IMPORTED_MODULE_7__.events)();
-(0,_scripts_faqs_js__WEBPACK_IMPORTED_MODULE_8__.faqs)();
+(0,_scripts_closeElement_js__WEBPACK_IMPORTED_MODULE_3__.closeElement)();
+(0,_scripts_tabs_js__WEBPACK_IMPORTED_MODULE_4__.tabs)();
+(0,_scripts_savedChangesStatus_js__WEBPACK_IMPORTED_MODULE_5__.savedChangesStatus)();
+(0,_scripts_events_js__WEBPACK_IMPORTED_MODULE_6__.events)();
+(0,_scripts_faqs_js__WEBPACK_IMPORTED_MODULE_7__.faqs)();
 
 /***/ }),
 
@@ -2426,70 +2423,73 @@ var renderForm = function renderForm() {
   var mainContent = document.getElementById('main');
   var forms = document.querySelectorAll('.front-form');
   var submitButton = document.querySelector('.submit-button');
-  submitButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    forms.forEach(function (form) {
-      var data = new FormData(form);
-      var url = form.action;
-      console.log(url);
-      Object.entries(ckeditors).forEach(function (_ref) {
-        var _ref2 = _slicedToArray(_ref, 2),
-            key = _ref2[0],
-            value = _ref2[1];
 
-        data.append(key, value.getData());
-      }); // for (let pair of data.entries()) {
-      //     console.log(pair[0] + ', ' + pair[1])
-      // }
+  if (submitButton) {
+    submitButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      forms.forEach(function (form) {
+        var data = new FormData(form);
+        var url = form.action;
+        console.log(url);
+        Object.entries(ckeditors).forEach(function (_ref) {
+          var _ref2 = _slicedToArray(_ref, 2),
+              key = _ref2[0],
+              value = _ref2[1];
 
-      var sendPostRequest = /*#__PURE__*/function () {
-        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-          var response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  document.dispatchEvent(new CustomEvent('startWait'));
-                  _context.next = 3;
-                  return fetch(url, {
-                    headers: {
-                      'Accept': 'application/json',
-                      'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
-                    },
-                    method: 'POST',
-                    body: data
-                  }).then(function (response) {
-                    if (!response.ok) throw response;
-                    return response.json();
-                  }).then(function (json) {
-                    mainContent.innerHTML = json.content;
-                  })["catch"](function (error) {
-                    if (error.status == '500') {
-                      console.log(error);
-                    }
+          data.append(key, value.getData());
+        }); // for (let pair of data.entries()) {
+        //     console.log(pair[0] + ', ' + pair[1])
+        // }
 
-                    ;
-                  });
+        var sendPostRequest = /*#__PURE__*/function () {
+          var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+            var response;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    document.dispatchEvent(new CustomEvent('startWait'));
+                    _context.next = 3;
+                    return fetch(url, {
+                      headers: {
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                      },
+                      method: 'POST',
+                      body: data
+                    }).then(function (response) {
+                      if (!response.ok) throw response;
+                      return response.json();
+                    }).then(function (json) {
+                      mainContent.innerHTML = json.content;
+                    })["catch"](function (error) {
+                      if (error.status == '500') {
+                        console.log(error);
+                      }
 
-                case 3:
-                  response = _context.sent;
+                      ;
+                    });
 
-                case 4:
-                case "end":
-                  return _context.stop();
+                  case 3:
+                    response = _context.sent;
+
+                  case 4:
+                  case "end":
+                    return _context.stop();
+                }
               }
-            }
-          }, _callee);
-        }));
+            }, _callee);
+          }));
 
-        return function sendPostRequest() {
-          return _ref3.apply(this, arguments);
-        };
-      }();
+          return function sendPostRequest() {
+            return _ref3.apply(this, arguments);
+          };
+        }();
 
-      sendPostRequest();
+        sendPostRequest();
+      });
     });
-  });
+  }
 };
 
 /***/ }),
@@ -2554,170 +2554,6 @@ var savedChangesStatus = function savedChangesStatus() {
         notification.classList.remove('visible');
         notification.classList.remove(event.detail.type);
       }, 5000);
-    });
-  }
-};
-
-/***/ }),
-
-/***/ "./resources/js/front/desktop/scripts/table.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/front/desktop/scripts/table.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "renderTable": () => (/* binding */ renderTable)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-var renderTable = function renderTable() {
-  var formContainer = document.querySelector('.form-container');
-  var tableContainer = document.querySelector('.table-container');
-  var editButtons = document.querySelectorAll('.edit-user-button');
-  var deleteCancelButton = document.querySelector('.cancel-delete-user');
-  var deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
-  var deleteButtons = document.querySelectorAll('.delete-user-button');
-  var deleteUser = document.querySelector('.delete-user');
-  var forms = document.querySelectorAll('.front-form');
-  document.addEventListener('renderTableModules', function (event) {
-    renderTable();
-  }, {
-    once: true
-  });
-
-  if (editButtons) {
-    editButtons.forEach(function (editButton) {
-      editButton.addEventListener('click', function () {
-        var url = editButton.dataset.url;
-
-        var sendEditRequest = /*#__PURE__*/function () {
-          var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-            var response;
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
-                  case 0:
-                    _context.next = 2;
-                    return fetch(url, {
-                      headers: {
-                        'X-Requested-With': 'XMLHttpRequest'
-                      },
-                      method: 'GET'
-                    }).then(function (response) {
-                      if (!response.ok) throw response;
-                      return response.json();
-                    }).then(function (json) {
-                      document.dispatchEvent(new CustomEvent('loadForm', {
-                        detail: {
-                          form: json.form
-                        }
-                      }));
-                      document.dispatchEvent(new CustomEvent('renderFormModules'));
-                    })["catch"](function (error) {
-                      if (error.status == '500') {
-                        console.log(error);
-                      }
-                    });
-
-                  case 2:
-                    response = _context.sent;
-
-                  case 3:
-                  case "end":
-                    return _context.stop();
-                }
-              }
-            }, _callee);
-          }));
-
-          return function sendEditRequest() {
-            return _ref.apply(this, arguments);
-          };
-        }();
-
-        deleteConfirmationContainer.classList.remove('active');
-        sendEditRequest();
-      });
-    });
-  }
-
-  if (deleteButtons) {
-    deleteButtons.forEach(function (deleteButton) {
-      deleteButton.addEventListener('click', function () {
-        var url = deleteButton.dataset.url;
-        deleteUser.dataset.url = url;
-        deleteConfirmationContainer.classList.add('active');
-      });
-    });
-    deleteCancelButton.addEventListener('click', function () {
-      deleteConfirmationContainer.classList.remove('active');
-    });
-    deleteUser.addEventListener('click', function () {
-      var url = deleteUser.dataset.url;
-
-      var sendDeleteRequest = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-          var response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-            while (1) {
-              switch (_context2.prev = _context2.next) {
-                case 0:
-                  document.dispatchEvent(new CustomEvent('startWait'));
-                  _context2.next = 3;
-                  return fetch(url, {
-                    headers: {
-                      'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
-                      'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    method: 'DELETE'
-                  }).then(function (response) {
-                    if (!response.ok) throw response;
-
-                    if (response.status == '200') {
-                      return response.json();
-                    }
-                  }).then(function (json) {
-                    tableContainer.innerHTML = json.table;
-                    formContainer.innerHTML = json.form;
-                    document.dispatchEvent(new CustomEvent('loadDelete', {
-                      detail: {
-                        form: json.form
-                      }
-                    }));
-                    document.dispatchEvent(new CustomEvent('renderTableModules'));
-                    document.dispatchEvent(new CustomEvent('renderFormModules'));
-                  })["catch"](function (error) {
-                    if (error.status == '500') {
-                      console.log(error);
-                    }
-                  });
-
-                case 3:
-                  response = _context2.sent;
-
-                case 4:
-                case "end":
-                  return _context2.stop();
-              }
-            }
-          }, _callee2);
-        }));
-
-        return function sendDeleteRequest() {
-          return _ref2.apply(this, arguments);
-        };
-      }();
-
-      sendDeleteRequest();
     });
   }
 };

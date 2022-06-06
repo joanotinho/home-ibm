@@ -9,8 +9,10 @@ class Product extends DBModel
 {
     use HasFactory;
 
+    protected $guarded = [];
+    
     public function category()
     {
-        return $this->belongsTo(ProductsCategory::class);
+        return $this->belongsTo(ProductCategory::class);
     }
 }

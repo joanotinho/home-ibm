@@ -2,7 +2,7 @@
 
 @section('table')
 
-    @isset($productsCategories)
+    @isset($product_categories)
 
         
         <div class="nested-sort-container">
@@ -11,9 +11,9 @@
             </div>
 
             <div class="nested-sort">
-                @if(isset($productsCategories))
-                    @foreach ($productsCategories as $productsCategories_element)
-                        <div class="nested-sort-item" data-id="{{$productsCategories_element->id}}">
+                @if(isset($product_categories))
+                    @foreach ($product_categories as $product_categories_element)
+                        <div class="nested-sort-item" data-id="{{$product_categories_element->id}}">
                             <div class="draggable-container">
                                 <div class="draggable-background"></div>
                                 <div class="draggable-field">
@@ -25,7 +25,7 @@
                                                         <span>Nombre:</span>
                                                     </div>
                                                     <div class="value">
-                                                        <span>{{$productsCategories_element->name}}</span>
+                                                        <span>{{$product_categories_element->name}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="field">
@@ -34,7 +34,7 @@
                                                     </div>
                                                     <div class="value">
                                                         <span>
-                                                            {{$productsCategories_element->title}}
+                                                            {{$product_categories_element->title}}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -43,7 +43,7 @@
                                                         <span>Creado el:</span>
                                                     </div>
                                                     <div class="value">
-                                                        <span>{{$productsCategories_element->created_at}}</span>
+                                                        <span>{{$product_categories_element->created_at}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -52,7 +52,7 @@
                                                     <div class="tooltip">
                                                         <div class="tooltip-text" data-name="Editar Usuario" data-position="left"></div>
                                                     </div>
-                                                    <div class="edit-user-button" data-url="{{route('products_categories_edit', ['products_category' => $productsCategories_element->id])}}">
+                                                    <div class="edit-user-button" data-url="{{route('products_categories_edit', ['products_category' => $product_categories_element->id])}}">
                                                         <svg viewBox="0 0 24 24">
                                                             <path fill="currentColor" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
                                                         </svg>
@@ -62,7 +62,7 @@
                                                     <div class="tooltip">
                                                         <div class="tooltip-text" data-name="Borrar Usuario" data-position="right"></div>
                                                     </div>
-                                                    <div class="delete-user-button" data-url="{{route('products_categories_destroy', ['products_category' => $productsCategories_element->id])}}">
+                                                    <div class="delete-user-button" data-url="{{route('products_categories_destroy', ['products_category' => $product_categories_element->id])}}">
                                                         <svg viewBox="0 0 24 24">
                                                             <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
                                                         </svg>
@@ -76,7 +76,7 @@
                         </div>
                     @endforeach
                 @endif
-                @if (count($productsCategories) == 0)
+                @if (count($product_categories) == 0)
                     <div class="no-registers-found">
                         <span>No se han encontrado registros</span>
                     </div>

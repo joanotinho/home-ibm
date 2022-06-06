@@ -60,158 +60,30 @@
                     </div>
                 </div>
             </div>
-            <div class="products">
-                <div class="three-columns">
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('hp-x32c.webp')}}" alt="">
+            @if(isset($products))
+                <div class="products">
+                    <div class="three-columns">
+                        @foreach($products as $product)
+                            <div class="column">
+                                <div class="product">
+                                    <div class="product-image">
+                                        <img src="{{Storage::url('hp-x32c.webp')}}" alt="">
+                                    </div>
+                                    <div class="product-title">
+                                        <h3>{{$product->title}}</h3>
+                                    </div>
+                                    <div class="product-price">
+                                        <span>{{$product->price}}€</span>
+                                    </div>
+                                    <div class="product-button">
+                                        <a href="/producto">Ver ficha</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="product-title">
-                                <h3>HP X32c 31.5" LED FullHD 165Hz FreeSync Premium Curva</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>304,40€                                                </span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('newskill-icarus-rgb-ic27qrc.webp')}}" alt="">
-                            </div>
-                            <div class="product-title">
-                                <h3>Newskill Icarus RGB IC27QRC 27" LED QuadHD 165Hz G-Sync</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>269,99€                                                </span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('1635-hp-x27.webp')}}" alt="">
-                            </div>
-                            <div class="product-title">
-                                <h3>HP X27 27" LED IPS FullHD 165Hz FreeSync Premium</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>256,14€</span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-                <div class="three-columns">
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('msi-optix-g241vc.webp')}}" alt="">
-                            </div>
-                            <div class="product-title">
-                                <h3>MSI Optix G241VC 23.6" LED FullHD 75Hz FreeSync Curva</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>169€</span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('hp-x27qc-27.webp')}}" alt="">
-                            </div>
-                            <div class="product-title">
-                                <h3>HP X27qc 27" LED QHD 165Hz FreeSync Premium Curva</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>326,11€</span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('aoc-gaming-24g2u.webp')}}" alt="">
-                            </div>
-                            <div class="product-title">
-                                <h3>AOC Gaming 24G2U 24" LED IPS FullHD 144Hz FreeSync</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>199€</span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="three-columns">
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('hp-x32.webp')}}" alt="">
-                            </div>
-                            <div class="product-title">
-                                <h3>HP X32 31.5" LED IPS QHD 165Hz FreeSync Premium</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>318,99€</span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('msi-g241.webp')}}" alt="">
-                            </div>
-                            <div class="product-title">
-                                <h3>MSI Optix G241 23.8" LED IPS FullHD 144Hz FreeSync</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>239€</span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="product">
-                            <div class="product-image">
-                                <img src="{{Storage::url('msi-optix-g272.webp')}}" alt="">
-                            </div>
-                            <div class="product-title">
-                                <h3>MSI Optix G272 27" LED IPS FullHD 144Hz G-Sync</h3>
-                            </div>
-                            <div class="product-price">
-                                <span>258,99€</span>
-                            </div>
-                            <div class="product-button">
-                                <a href="/producto">Ver ficha</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
 </div>

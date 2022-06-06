@@ -6,6 +6,8 @@ use DateTimeInterface;
 
 class DBModel extends BaseModel
 {
+    
+    protected $guarded = [];
 
     protected function serializeDate(DateTimeInterface $date)
     {

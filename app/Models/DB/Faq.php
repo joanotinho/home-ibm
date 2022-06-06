@@ -9,4 +9,5 @@ class Faq extends DBModel
 {
     use HasFactory;
 
+    protected $guarded = [];
 }
