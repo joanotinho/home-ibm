@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Product;
-use App\Models\DB\ProductCategory;
 use App\Http\Requests\Admin\ProductRequest;
 use Debugbar;
 
@@ -14,14 +13,12 @@ class ProductController extends Controller
 {
     
     protected $product;
-    protected $product_categories;
 
-    public function __construct(Product $product, ProductCategory $product_categories)
+    public function __construct(Product $product)
     {
         // $this->middleware('auth');
         
         $this->product = $product;
-        $this->product_categories = $product_categories;
     }
 
     public function index()
@@ -29,9 +26,8 @@ class ProductController extends Controller
 
         $view = View::make('admin.pages.products')
             ->with('product', $this->product)
-            ->with('products', $this->product->where('active', 1)->get())
-            ->with('product_categories', $this->product_categories->where('active', 1)->get());
-
+            ->with('products', $this->product->where('active', 1)->get());
+            
         if(request()->ajax()) {
             
             return response()->json([
@@ -48,7 +44,6 @@ class ProductController extends Controller
 
         $view = View::make('admin.pages.products')
         ->with('product', $this->product)
-        ->with('product_categories', $this->product_categories->where('active', 1)->get())
         ->renderSections();
 
         return response()->json([
@@ -74,7 +69,6 @@ class ProductController extends Controller
         $view = View::make('admin.pages.products')
         ->with('product', $product)
         ->with('products', $this->product->where('active', 1)->get())
-        ->with('product_categories', $this->product_categories->where('active', 1)->get())
         ->renderSections(); 
 
         return response()->json([
@@ -88,8 +82,7 @@ class ProductController extends Controller
     {
         $view = View::make('admin.pages.products')
             ->with('product', $product)
-            ->with('products', $this->product->where('active', 1)->get())
-            ->with('product_categories', $this->product_categories->where('active', 1)->get());   
+            ->with('products', $this->product->where('active', 1)->get()); 
         
         if(request()->ajax()) {
 
@@ -115,7 +108,6 @@ class ProductController extends Controller
         $view = View::make('admin.pages.products')
             ->with('product', $this->product)
             ->with('products', $this->product->where('active', 1)->get())
-            ->with('product_categories', $this->product_categories->where('active', 1)->get())
             ->renderSections();
         
         return response()->json([

@@ -20,14 +20,14 @@
         <div class="column">
             <div class="product-datasheet-main">
                 <div class="product-datasheet-title">
-                    <h3>HP X32c 31.5" LED FullHD 165Hz FreeSync Premium Curva</h3>
+                    <h3>{{$product->title}}</h3>
                 </div>
                 <div class="product-datasheet-price">
-                    <span>304,40€</span>
+                    <span>{{$product->price}}€</span>
                 </div>
                 <div class="product-datasheet-description">
                     <ul>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem earum eveniet sint voluptatum laboriosam, voluptate optio tenetur fugiat consequatur ullam fugit, labore odit neque quod natus at, enim explicabo dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, fugiat. Aut at harum assumenda accusantium eligendi, magni dolores tenetur architecto perferendis aperiam aliquid eius, quidem quae cumque dicta similique et.</p>
+                        {!!$product->description!!}
                     </ul>
                 </div>
                 <div class="two-columns product-datasheet-stock">
@@ -77,8 +77,7 @@
         <div class="tabs-contents">
             <div class="tab-content active" data-tab-content="description">
                 <span>
-                    El libro relata las aventuras y desventuras de un hidalgo de 50 años llamado Alonso Quijano, quien decide ser un caballero andante como aquellos que aparecen en sus libros de caballerías favoritos.
-                    Las hazañas de don Quijote están contenidas en dos tomos que narran tres salidas. Por un lado, la “Primera parte” denominada como El ingenioso Hidalgo Don Quijote de la Mancha está formada por 52 capítulos y en ella se encuentran la primera salida y la segunda salida.
+                    {!!$product->features!!}
                 </span>
             </div>
             <div class="tab-content" data-tab-content="opinions">
@@ -89,8 +88,8 @@
             </div>
             <div class="tab-content" data-tab-content="specs">
                 <span>
-                    1984 de George Orwell es una novela de distopía cuya trama ocurre en Oceanía, un país dominado por un gobierno totalitario que mantiene en constante vigilancia a sus ciudadanos e, incluso, insiste en espiar sus pensamientos para mantener el orden.
-                    La novela es una de las obras más icónicas del siglo XX por su denuncia de prácticas establecidas por gobiernos como los de Franco y Stalin, las cuales han sido adoptadas por muchos dictadores a lo largo de la historia.
+                    El libro relata las aventuras y desventuras de un hidalgo de 50 años llamado Alonso Quijano, quien decide ser un caballero andante como aquellos que aparecen en sus libros de caballerías favoritos.
+                    Las hazañas de don Quijote están contenidas en dos tomos que narran tres salidas. Por un lado, la “Primera parte” denominada como El ingenioso Hidalgo Don Quijote de la Mancha está formada por 52 capítulos y en ella se encuentran la primera salida y la segunda salida.
                 </span>
             </div>
         </div>

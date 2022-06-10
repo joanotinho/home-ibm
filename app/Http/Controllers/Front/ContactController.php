@@ -20,6 +20,15 @@ class ContactController extends Controller
     {
         $view = View::make('front.pages.contact.index');
 
+        if(request()->ajax()) {
+
+            $sections = $view->renderSections();
+
+            return response()->json([
+                'content' => $sections['content'],
+            ]);
+        }
+        
         return $view;
     }
     

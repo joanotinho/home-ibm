@@ -2,6 +2,10 @@ export function plusMinusButton() {
 
     const buttons = document.querySelectorAll('.stock-button');
 
+    document.addEventListener('renderProductModules', (event => {
+        plusMinusButton();
+    }), {once: true});
+
     buttons.forEach(button => {
         const buttonParent = button.closest(".stock-counter");
         const display = buttonParent.children[1];

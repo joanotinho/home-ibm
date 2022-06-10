@@ -4,6 +4,7 @@ namespace App\Models\DB;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Debugbar;
 
 class Product extends DBModel
 {
@@ -15,4 +16,5 @@ class Product extends DBModel
     {
         return $this->belongsTo(ProductCategory::class);
     }
+
 }

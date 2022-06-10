@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Jenssegers\Agent\AgentServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
 
 
         /*

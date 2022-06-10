@@ -6,28 +6,16 @@
     .column-aside {
         width: 25%;
         
-        .categories .categories-category {
+        .categories-content{
             
-            display: flex;
-            width: 100%;
-            margin: .4em .8em;
-
-            span {
-
-                margin-left: .3rem;
-                margin-top: -.4rem;
+            ul li{
+                font-size: 1.2rem;
+                margin-top: .5rem;
             }
-        }
 
-        .filter {
-            display: none;
-        }
-
-        span {
-            font-size: 1.2em;
-
-            :hover {
-                text-decoration: underline;
+            ul li:hover, ul li.active{
+                color: #1F70C1;
+                cursor: pointer;
             }
         }
     }
@@ -38,7 +26,7 @@
         .main-top{
             background-color: #fefefe;
 
-            .desktop-two-columns {
+            .two-columns {
                 width: 90%;
                 padding: .7em 5%;
                 border-top: .1em solid rgba( 0, 0, 0, .4);
@@ -50,51 +38,66 @@
             }
         } 
         
+
         .products {
 
             margin-top: 1em;
 
-            .product {
-                border: .1em solid rgba(0, 0, 0, .4);
-                border-radius: .4em;
-                height: max-content;
-                margin: .3em;
-                padding: 0 10% 4% 10%;
-                width: 80%;
-                transition: all .1s ease-in;
+            .three-columns {
 
-                &:hover {
-                    border: .1em solid rgba(0, 0, 0, .8);
-                }
+                justify-content: start;
 
-                .product-image img {
-                    width: 100%;
-                }
-                
-                .product-title {
-                    margin-bottom: .5em;
-
-                    h3 {
-                        font-size: .8em;
-                        font-weight: 100
-                    }
-                }
-
-                .product-price {
-                    font-size: 1.5em;
-                    margin-bottom: .5em;
-                }
-
-                .product-button a {
+                .column {
                     
-                    background-color: #f5f5f5;
-                    border: .1em solid #cccccc;
-                    border-radius: .1em;
-                    color: #1F70C1;
-                    padding: .3em;
+                    margin-right: 3%;
 
-                    &:hover {
-                        border: .1em solid #333333;
+                    .product {
+
+                        border: .1rem solid rgba(0, 0, 0, .4);
+                        border-radius: .4rem;
+                        min-height: 40vh;
+                        margin: .3rem;
+                        padding: 0 10% 4% 10%;
+                        position: relative;
+                        transition: all .1s ease-in;
+                        width: 80%;
+
+                        &:hover {
+
+                            border: .1rem solid rgba( 0, 0, 0, .8);
+                        }
+
+                        .product-title {
+
+                            top: 60%;
+                            margin-top: 1rem;
+                            
+                            h3 {
+                                font-size: .9em;
+                                font-weight: 100;
+                            }
+                        }
+
+                        .product-price {
+                            
+                            position: absolute;
+                            top: 55%;
+                        }
+                        
+                        .product-button a {
+                            
+                            background-color: #f5f5f5;
+                            border: .1em solid #cccccc;
+                            border-radius: .1em;
+                            color: #1F70C1;
+                            padding: .3em;
+                            position: absolute;
+                            bottom: 8%;
+        
+                            &:hover {
+                                border: .1em solid #333333;
+                            }
+                        }
                     }
                 }
             }

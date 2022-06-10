@@ -173,7 +173,7 @@
                                         </div>
                                     </div>
                                     <div class="field-input">
-                                        <input type="text" name="name" id="name" data-type="name" class="counter-input" data-max-length="64" autocomplete="off" value="{{isset($product->name) ? $product->name : ''}}">
+                                        <input type="text" name="name" id="name" data-type="name" class="counter-input" data-max-length="255" autocomplete="off" value="{{isset($product->name) ? $product->name : ''}}">
                                     </div>
                                     <div class="field-rule">
                                         <span>El nombre no puede estar vacío</span>
@@ -257,7 +257,9 @@
                                     </div>
                                 </div>
                                 <div class="field-input">
-                                    <textarea name="description" class="ckeditor" value="{{isset($product->description) ? $product->description : ''}}"></textarea>
+                                    <textarea name="description" class="ckeditor" value="{{isset($product->description) ? $product->description : ''}}">
+                                        {{isset($product->description) ? $product->description : ''}}
+                                    </textarea>
                                 </div>
                             </div>
                         </div>
@@ -273,7 +275,9 @@
                                     </div>
                                 </div>
                                 <div class="field-input">
-                                    <textarea name="features" class="ckeditor"value="{{isset($product->features) ? $product->features : ''}}"></textarea>
+                                    <textarea name="features" class="ckeditor" value="{{isset($product->features) ? $product->features : ''}}">
+                                        {{isset($product->features) ? $product->features : ''}}
+                                    </textarea>
                                 </div>
                             </div>
                         </div>

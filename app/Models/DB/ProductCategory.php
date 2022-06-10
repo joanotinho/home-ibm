@@ -15,6 +15,6 @@ class ProductCategory extends DBModel
 
     public function products()
     {
-        return $this->hasMany(Product::class, 'category_id');
+        return $this->hasMany(Product::class, 'category_id')->where('active', 1);
     }
 }

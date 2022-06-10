@@ -1,15 +1,10 @@
 export let renderTable = () => {
 
-    const formContainer = document.querySelector('.form-container');
     const tableContainer = document.querySelector('.table-container');
     const editButtons = document.querySelectorAll('.edit-user-button');
 
-    const deleteCancelButton = document.querySelector('.cancel-delete-user');
     const deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
     const deleteButtons = document.querySelectorAll('.delete-user-button');
-    const deleteUser = document.querySelector('.delete-user');
-    
-    const forms = document.querySelectorAll('.admin-form');
 
     document.addEventListener("loadTable",( event =>{
         tableContainer.innerHTML = event.detail.table;
@@ -43,6 +38,7 @@ export let renderTable = () => {
                     })
                     .then(json => {
     
+
                         document.dispatchEvent(new CustomEvent('loadForm', {
                             detail: {
                                 form: json.form,
@@ -50,6 +46,7 @@ export let renderTable = () => {
                         }));
     
                         document.dispatchEvent(new CustomEvent('renderFormModules'));
+                        document.dispatchEvent(new CustomEvent('setCkeditorData'));
                     })
                     .catch ( error =>  {
     

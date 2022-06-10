@@ -62,11 +62,13 @@ header {
 
                 margin: 0 .5em;
     
-                a {
-
-                    text-decoration: none;
+                button {
+                    
+                    background-color: transparent;
+                    border: none;
                     color: #000000;
                     font-size: 1.1em;
+                    text-decoration: none;
                 }
             }
         }

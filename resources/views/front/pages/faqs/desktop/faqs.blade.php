@@ -22,7 +22,7 @@
                 
                     <div class="faq-content">
                         <p>
-                            {{!!$faq->description!!}}
+                            {!!$faq->description!!}
                         </p>
                     </div>
                 </div>
@@ -30,4 +30,3 @@
         </div>
     @endif
 </div>
-        

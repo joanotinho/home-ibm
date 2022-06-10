@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('prices', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->float('price');
+            $table->boolean('valid')->default(true);
+            $table->integer('product_id');
+            $table->integer('tax_id')->nullable();
+            $table->timestamps();
         });
     }
 

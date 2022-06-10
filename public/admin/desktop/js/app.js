@@ -2266,6 +2266,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var renderCkeditor = function renderCkeditor() {
   window.ckeditors = [];
+  document.addEventListener("renderFormModules", function (event) {
+    renderCkeditor();
+  }, {
+    once: true
+  });
   document.querySelectorAll('.ckeditor').forEach(function (ckeditor) {
     _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default().create(ckeditor, {
       toolbar: {
@@ -2888,14 +2893,10 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var renderTable = function renderTable() {
-  var formContainer = document.querySelector('.form-container');
   var tableContainer = document.querySelector('.table-container');
   var editButtons = document.querySelectorAll('.edit-user-button');
-  var deleteCancelButton = document.querySelector('.cancel-delete-user');
   var deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
   var deleteButtons = document.querySelectorAll('.delete-user-button');
-  var deleteUser = document.querySelector('.delete-user');
-  var forms = document.querySelectorAll('.admin-form');
   document.addEventListener("loadTable", function (event) {
     tableContainer.innerHTML = event.detail.table;
   }, {
@@ -2935,6 +2936,7 @@ var renderTable = function renderTable() {
                         }
                       }));
                       document.dispatchEvent(new CustomEvent('renderFormModules'));
+                      document.dispatchEvent(new CustomEvent('setCkeditorData'));
                     })["catch"](function (error) {
                       if (error.status == '500') {
                         console.log(error);

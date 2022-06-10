@@ -399,7 +399,7 @@ h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-a, td, p, span, select, label {
+a, td, p, span, select, label, li {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
@@ -496,10 +496,12 @@ header .nav-right .menu ul {
 header .nav-right .menu ul li {
   margin: 0 0.5em;
 }
-header .nav-right .menu ul li a {
-  text-decoration: none;
+header .nav-right .menu ul li button {
+  background-color: transparent;
+  border: none;
   color: #000000;
   font-size: 1.1em;
+  text-decoration: none;
 }
 
 footer {
@@ -731,6 +733,11 @@ footer .copyright {
 }
 .selects-container .city-select option.show {
   display: block;
+}
+
+.page-title {
+  position: absolute;
+  width: 100%;
 }
 
 .desktop-cart {
@@ -1122,23 +1129,13 @@ footer .copyright {
 .gallery .column-aside {
   width: 25%;
 }
-.gallery .column-aside .categories .categories-category {
-  display: flex;
-  width: 100%;
-  margin: 0.4em 0.8em;
+.gallery .column-aside .categories-content ul li {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
-.gallery .column-aside .categories .categories-category span {
-  margin-left: 0.3rem;
-  margin-top: -0.4rem;
-}
-.gallery .column-aside .filter {
-  display: none;
-}
-.gallery .column-aside span {
-  font-size: 1.2em;
-}
-.gallery .column-aside span :hover {
-  text-decoration: underline;
+.gallery .column-aside .categories-content ul li:hover, .gallery .column-aside .categories-content ul li.active {
+  color: #1F70C1;
+  cursor: pointer;
 }
 .gallery .column-main {
   width: 75%;
@@ -1146,13 +1143,13 @@ footer .copyright {
 .gallery .column-main .main-top {
   background-color: #fefefe;
 }
-.gallery .column-main .main-top .desktop-two-columns {
+.gallery .column-main .main-top .two-columns {
   width: 90%;
   padding: 0.7em 5%;
   border-top: 0.1em solid rgba(0, 0, 0, 0.4);
   border-bottom: 0.1em solid rgba(0, 0, 0, 0.4);
 }
-.gallery .column-main .main-top .desktop-two-columns .column {
+.gallery .column-main .main-top .two-columns .column {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -1160,42 +1157,47 @@ footer .copyright {
 .gallery .column-main .products {
   margin-top: 1em;
 }
-.gallery .column-main .products .product {
-  border: 0.1em solid rgba(0, 0, 0, 0.4);
-  border-radius: 0.4em;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  margin: 0.3em;
+.gallery .column-main .products .three-columns {
+  justify-content: start;
+}
+.gallery .column-main .products .three-columns .column {
+  margin-right: 3%;
+}
+.gallery .column-main .products .three-columns .column .product {
+  border: 0.1rem solid rgba(0, 0, 0, 0.4);
+  border-radius: 0.4rem;
+  min-height: 40vh;
+  margin: 0.3rem;
   padding: 0 10% 4% 10%;
-  width: 80%;
+  position: relative;
   transition: all 0.1s ease-in;
+  width: 80%;
 }
-.gallery .column-main .products .product:hover {
-  border: 0.1em solid rgba(0, 0, 0, 0.8);
+.gallery .column-main .products .three-columns .column .product:hover {
+  border: 0.1rem solid rgba(0, 0, 0, 0.8);
 }
-.gallery .column-main .products .product .product-image img {
-  width: 100%;
+.gallery .column-main .products .three-columns .column .product .product-title {
+  top: 60%;
+  margin-top: 1rem;
 }
-.gallery .column-main .products .product .product-title {
-  margin-bottom: 0.5em;
-}
-.gallery .column-main .products .product .product-title h3 {
-  font-size: 0.8em;
+.gallery .column-main .products .three-columns .column .product .product-title h3 {
+  font-size: 0.9em;
   font-weight: 100;
 }
-.gallery .column-main .products .product .product-price {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
+.gallery .column-main .products .three-columns .column .product .product-price {
+  position: absolute;
+  top: 55%;
 }
-.gallery .column-main .products .product .product-button a {
+.gallery .column-main .products .three-columns .column .product .product-button a {
   background-color: #f5f5f5;
   border: 0.1em solid #cccccc;
   border-radius: 0.1em;
   color: #1F70C1;
   padding: 0.3em;
+  position: absolute;
+  bottom: 8%;
 }
-.gallery .column-main .products .product .product-button a:hover {
+.gallery .column-main .products .three-columns .column .product .product-button a:hover {
   border: 0.1em solid #333333;
 }
 

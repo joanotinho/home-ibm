@@ -4,6 +4,10 @@ export function tabs() {
 
     const tabContents = document.querySelectorAll('.tab-content');
 
+    document.addEventListener('renderProductModules', (event => {
+        tabs();
+    }), {once: true});
+
     tabs.forEach(tab => {
 
         tab.addEventListener('click', () => {
