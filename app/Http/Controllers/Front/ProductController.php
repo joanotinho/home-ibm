@@ -20,7 +20,8 @@ class ProductController extends Controller
     public function index()
     {
         $view = View::make('front.pages.products.index')
-        ->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
+        ->with('products', $this->product->where('active', 1)->where('visible', 1)->get())
+        ->with('order', '');
 
         if(request()->ajax()) {
 
@@ -59,9 +60,12 @@ class ProductController extends Controller
         ->with('product', $order);
 
         if ($order == 'price_asc') {
-            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'asc')->get());
+            $view
+            ->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'asc')->get())
+            ->with('order', 'price_asc');
         } elseif ($order == 'price_desc') {
-            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'desc')->get());
+            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'desc')->get())
+            ->with('order', 'price_desc');
         } else {
             $view->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
         }
