@@ -27,12 +27,10 @@
                         <h3>Teclados</h3>
                     </div>
                     <div class="column">
-                        <select name="" id="">
-                            <option value="">Selecciona una opción</option>
-                            <option value="">Destacados</option>
-                            <option value="">Ofertas</option>
-                            <option value="">De mayor a menor precio</option>
-                            <option value="">De menor a mayor precio</option>
+                        <select name="select" class="order-select" value="{{ isset($value) ? 'active' : ''}}">
+                            <option class="order-option" value="">Ordenar por</option>
+                            <option class="order-option" value="{{route('front_product_order', ['order' => 'price_desc'])}}">De mayor a menor precio</option>
+                            <option class="order-option" value="{{route('front_product_order', ['order' => 'price_asc'])}}">De menor a mayor precio</option>
                         </select>
                     </div>
                 </div>
@@ -46,7 +44,7 @@
                                         <img src="{{Storage::url('hp-x32c.webp')}}" alt="">
                                     </div>
                                     <div class="product-title">
-                                        <h3>{{$product->title}}</h3>
+                                        {{-- <h3>{{$product->title}}</h3> --}}
                                     </div>
                                     <div class="product-price">
                                         <span>{{$product->price}}€</span>

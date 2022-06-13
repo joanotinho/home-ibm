@@ -2636,6 +2636,8 @@ var renderProduct = function renderProduct() {
   var mainContainer = document.getElementById('main');
   var productButtons = document.querySelectorAll('.product-button a');
   var categoryButtons = document.querySelectorAll('.category-button');
+  var orderSelect = document.querySelector('.order-select');
+  var orderOptions = document.querySelectorAll('.order-option');
   document.addEventListener('renderProductModules', function (event) {
     renderProduct();
   }, {
@@ -2745,6 +2747,56 @@ var renderProduct = function renderProduct() {
       });
     });
   }
+
+  if (orderSelect) {
+    orderSelect.addEventListener('change', function (event) {
+      event.preventDefault();
+      var url = orderSelect.value;
+
+      var sendOrderRequest = /*#__PURE__*/function () {
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+            while (1) {
+              switch (_context3.prev = _context3.next) {
+                case 0:
+                  _context3.next = 2;
+                  return fetch(url, {
+                    headers: {
+                      'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    method: 'GET'
+                  }).then(function (response) {
+                    if (!response.ok) throw response;
+                    return response.json();
+                  }).then(function (json) {
+                    mainContainer.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                  })["catch"](function (error) {
+                    if (error.status == '500') {
+                      console.log(error);
+                    }
+                  });
+
+                case 2:
+                  response = _context3.sent;
+
+                case 3:
+                case "end":
+                  return _context3.stop();
+              }
+            }
+          }, _callee3);
+        }));
+
+        return function sendOrderRequest() {
+          return _ref3.apply(this, arguments);
+        };
+      }();
+
+      sendOrderRequest();
+    });
+  }
 };
 
 /***/ }),
@@ -2795,26 +2847,28 @@ __webpack_require__.r(__webpack_exports__);
 function tabs() {
   var tabs = document.querySelectorAll('.tab');
   var tabContents = document.querySelectorAll('.tab-content');
-  document.addEventListener('renderProductModules', function (event) {
-    tabs();
+  document.addEventListener('renderProductModules', function (event) {// tabs();
   }, {
     once: true
   });
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      tabs.forEach(function (tab) {
-        tab.classList.remove('active');
-      });
-      tabContents.forEach(function (tabContent) {
-        tabContent.classList.remove('active');
 
-        if (tab.dataset.tabTarget == tabContent.dataset.tabContent) {
-          tabContent.classList.add('active');
-          tab.classList.add('active');
-        }
+  if (tabs) {
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (tab) {
+          tab.classList.remove('active');
+        });
+        tabContents.forEach(function (tabContent) {
+          tabContent.classList.remove('active');
+
+          if (tab.dataset.tabTarget == tabContent.dataset.tabContent) {
+            tabContent.classList.add('active');
+            tab.classList.add('active');
+          }
+        });
       });
     });
-  });
+  }
 }
 
 /***/ }),

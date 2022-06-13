@@ -3,6 +3,8 @@ export let renderProduct = () => {
     const mainContainer = document.getElementById('main');
     const productButtons = document.querySelectorAll('.product-button a');
     const categoryButtons = document.querySelectorAll('.category-button');
+    const orderSelect = document.querySelector('.order-select');
+    const orderOptions = document.querySelectorAll('.order-option');
 
     document.addEventListener('renderProductModules', (event => {
         renderProduct();
@@ -51,7 +53,7 @@ export let renderProduct = () => {
             sendEditRequest();
         });
     });
-
+    
     if(categoryButtons) {
         
         categoryButtons.forEach(button => {
@@ -92,6 +94,45 @@ export let renderProduct = () => {
                 };
                 sendFilterRequest();
             });
+        });
+    }
+
+    if(orderSelect) {
+
+        orderSelect.addEventListener('change', (event) => {
+
+            event.preventDefault();
+            
+            let url = orderSelect.value;
+
+            let sendOrderRequest = async () => {
+
+                let response = await fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    method: 'GET'
+                })
+                .then(response => {
+                    
+                    if (!response.ok) throw response;
+
+                    return response.json();
+                })
+                .then(json => {
+
+                    mainContainer.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                })
+                .catch ( error =>  {
+
+                    if(error.status == '500'){
+                        console.log(error);
+                    }
+
+                });
+            };
+            sendOrderRequest();
         });
     }
 }

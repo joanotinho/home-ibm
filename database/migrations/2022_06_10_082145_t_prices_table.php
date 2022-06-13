@@ -19,7 +19,6 @@ return new class extends Migration
             $table->float('price');
             $table->boolean('valid')->default(true);
             $table->integer('product_id');
-            $table->integer('tax_id')->nullable();
             $table->timestamps();
         });
     }

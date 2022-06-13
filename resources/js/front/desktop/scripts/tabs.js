@@ -5,28 +5,31 @@ export function tabs() {
     const tabContents = document.querySelectorAll('.tab-content');
 
     document.addEventListener('renderProductModules', (event => {
-        tabs();
+        // tabs();
     }), {once: true});
 
-    tabs.forEach(tab => {
+    if(tabs) {
 
-        tab.addEventListener('click', () => {
+        tabs.forEach(tab => {
 
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            tabContents.forEach(tabContent => {
-
-                tabContent.classList.remove('active');
-
-                if(tab.dataset.tabTarget == tabContent.dataset.tabContent){
-                    
-                    tabContent.classList.add('active');
-                    
-                    tab.classList.add('active')
-                } 
-            });
+            tab.addEventListener('click', () => {
+    
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                tabContents.forEach(tabContent => {
+    
+                    tabContent.classList.remove('active');
+    
+                    if(tab.dataset.tabTarget == tabContent.dataset.tabContent){
+                        
+                        tabContent.classList.add('active');
+                        
+                        tab.classList.add('active')
+                    } 
+                });
+            })
         })
-    })
+    }
 }

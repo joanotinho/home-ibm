@@ -1143,6 +1143,10 @@ footer .copyright {
 .gallery .column-main .main-top {
   background-color: #fefefe;
 }
+.gallery .column-main .main-top .order-select {
+  border: 0.1rem solid #000;
+  border-radius: 0.3rem;
+}
 .gallery .column-main .main-top .two-columns {
   width: 90%;
   padding: 0.7em 5%;
