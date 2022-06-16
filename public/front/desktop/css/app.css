@@ -447,6 +447,8 @@ body {
 
 main {
   margin-top: 10vh;
+  position: relative;
+  min-height: 100vh;
   width: 100%;
 }
 
@@ -507,10 +509,7 @@ header .nav-right .menu ul li button {
 footer {
   background-color: #f5f5f5;
   border-top: 0.1em solid black;
-  bottom: 0%;
   padding: 1rem;
-  position: -webkit-sticky;
-  position: sticky;
 }
 footer .copyright {
   margin: 1em;
@@ -736,7 +735,6 @@ footer .copyright {
 }
 
 .page-title {
-  position: absolute;
   width: 100%;
 }
 

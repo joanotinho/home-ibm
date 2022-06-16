@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('taxes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('price');
+            $table->integer('type');
+            $table->float('multiplier');
+            $table->boolean('valid');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

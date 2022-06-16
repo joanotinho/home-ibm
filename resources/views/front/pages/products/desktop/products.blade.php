@@ -29,8 +29,8 @@
                     <div class="column">
                         <select name="select" class="order-select">
                             <option class="order-option" value="" {{ isset($order) && $order == '' ? 'selected' : ''}}>Ordenar por</option>
-                            <option class="order-option" value="{{route('front_product_order', ['order' => 'price_desc'])}}" {{ isset($order) && $order == 'price_desc' ? 'selected' : ''}}>De mayor a menor precio</option>
-                            <option class="order-option" value="{{route('front_product_order', ['order' => 'price_asc'])}}" {{ isset($order) && $order == 'price_asc' ? 'selected' : ''}}>De menor a mayor precio</option>
+                            <option class="order-option" value="{{route('front_product_order', ['order' => 'desc'])}}" {{ isset($order) && $order == 'desc' ? 'selected' : ''}}>De mayor a menor precio</option>
+                            <option class="order-option" value="{{route('front_product_order', ['order' => 'asc'])}}" {{ isset($order) && $order == 'asc' ? 'selected' : ''}}>De menor a mayor precio</option>
                         </select>
                     </div>
                 </div>

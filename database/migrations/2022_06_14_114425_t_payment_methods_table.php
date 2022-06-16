@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cart', function (Blueprint $table) {
+        Schema::create('payment_method', function (Blueprint $table) {
             $table->id();
-            $table->integer('fingerprint_id');
-            $table->integer('price_id');
-            $table->integer('quantity');
-            $table->integer('tax_id');
+            $table->string('name');
+            $table->string('title');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

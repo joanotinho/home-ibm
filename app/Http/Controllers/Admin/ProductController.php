@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Product;
+use App\Models\DB\Price;
 use App\Http\Requests\Admin\ProductRequest;
 use Debugbar;
 
@@ -14,13 +15,11 @@ class ProductController extends Controller
     
     protected $product;
 
-    public function __construct(Product $product)
+    public function __construct(Product $product, Price $price)
     {
-        // $this->middleware('auth');
-        
         $this->product = $product;
+        $this->price = $price;
     }
-
     public function index()
     {
 
@@ -60,11 +59,31 @@ class ProductController extends Controller
             'title' => request('title'),
             'description' => request('description'),
             'features' => request('features'),
-            'price' => request('price'),
             'category_id' => request('category_id'),
             'active' => 1,
             'visible' => 1,
         ]);
+
+        $this->price->where('product_id', $product->id)->update([
+            'valid' => 0,
+        ]);
+
+        $price = $this->price->create([
+            'product_id' => $product->id,
+            'base_price' => request('price'),
+            'tax_id' => request('tax_id'),
+            'valid' => 1,
+            'active' => 1,
+        ]);
+
+        // $prices = $product->price()->updateOrCreate([
+        //     'id' => request('price_id'),],[
+        //     'base_price' => request('base_price'),
+        //     'valid' => 1,
+        //     'active' => 1,
+        //     'tax_id' => request('tax_id'),
+        //     'product_id' => $product->id,
+        // ]);
 
         $view = View::make('admin.pages.products')
         ->with('product', $product)
@@ -82,7 +101,7 @@ class ProductController extends Controller
     {
         $view = View::make('admin.pages.products')
             ->with('product', $product)
-            ->with('products', $this->product->where('active', 1)->get()); 
+            ->with('products', $this->product->where('active', 1)->get());
         
         if(request()->ajax()) {
 

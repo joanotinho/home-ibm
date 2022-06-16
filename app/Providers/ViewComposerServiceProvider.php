@@ -40,7 +40,17 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         view()->composer([
             'admin.pages.products'],
+            'App\Http\ViewComposers\Admin\Prices'
+        );
+
+        view()->composer([
+            'admin.pages.products'],
             'App\Http\ViewComposers\Admin\ProductCategories'
+        );
+        
+        view()->composer([
+            'admin.pages.products'],
+            'App\Http\ViewComposers\Admin\ProductTaxes'
         );
     }
 }

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('features');
-            $table->float('price');
             $table->integer('category_id');
             $table->boolean('visible')->default(true);
             $table->boolean('active')->default(true);

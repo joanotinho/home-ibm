@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sales', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->integer('ticket_number');
-            $table->date('date_emission');
-            $table->time('time_emission');
-            $table->integer('payment_method_id');
-            $table->float('total_base_price');
-            $table->float('total_tax_price');
-            $table->float('total_price');
-            $table->integer('customer_id');
+            $table->integer('fingerprint_id');
+            $table->integer('price_id');
+            $table->integer('sale_id');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

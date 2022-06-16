@@ -29,11 +29,11 @@
                                                 </div>
                                                 <div class="field">
                                                     <div class="description">
-                                                        <span>Precio:</span>
+                                                        <span>Precio base:</span>
                                                     </div>
                                                     <div class="value">
                                                         <span>
-                                                            {{$product_element->price}} €
+                                                            {{$product_element->price}}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -43,6 +43,14 @@
                                                     </div>
                                                     <div class="value">
                                                         <span>{{$product_element->created_at}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="field">
+                                                    <div class="description">
+                                                        <span>Creado el:</span>
+                                                    </div>
+                                                    <div class="value">
+                                                        <span>{{$product_element->category->name}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -205,26 +213,22 @@
                         </div>
 
                         <div class="desktop-two-columns">
-                            
                             <div class="column">
-
                                 <div class="field">
                                     <div class="field-label">
                                         <div class="label">
-                                            <label for="">Precio</label>
+                                            <label for="">Precio base</label>
                                         </div>
                                         <div class="character-counter-container">
                                             <span class="character-counter">0</span>
                                             <span class="max-length-display"></span>
                                         </div>
                                     </div>
-
                                     <div class="field-input">
-                                        <input type="number" name="price" id="price" data-type="price" data-max-length="255" class="counter-input" value="{{isset($product->price) ? $product->price : ''}}">
+                                        <input type="number" class="counter-input" name="price" data-max-length="255" data-type="price" value="{{isset($product->prices->first()->base_price) ? $product->prices->first()->base_price : ''}}">
                                     </div>
-                                    
                                     <div class="field-rule">
-                                        <span>El Título no puede estar vacío</span>
+                                        <span>El precio base no puede estar vacío</span>
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +238,25 @@
                                     <div class="field">
                                         <div class="city-selects-container">
                                             <div class="options">
-                                                <select name="category_id" id="show" name="category_id">
+                                                <select name="tax_id">
+                                                    <option value="">Selecciona un Iva</option>
+                                                    @foreach($taxes as $tax)
+                                                        <option value="{{$tax->id}}" {{isset($product->prices->first()->tax_id) && $product->prices->first()->tax_id == $tax->id ? 'selected' : ''}}>{{$tax->type}}%</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>                                                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="desktop-single-column">
+                            <div class="column">
+                                <div class="selects-container">
+                                    <div class="field">
+                                        <div class="city-selects-container">
+                                            <div class="options">
+                                                <select name="category_id">
                                                     <option value="">Selecciona una categoría</option>
                                                     @foreach($product_categories as $category)
                                                         <option value="{{$category->id}}" {{isset($product->category_id) && $product->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>

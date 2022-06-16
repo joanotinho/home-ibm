@@ -3,18 +3,12 @@ export let userModification = () => {
     const deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
     const deleteCancelButton = document.querySelector('.cancel-delete-user');
     const deleteUser = document.querySelector('.delete-user');
-    const formContainer = document.querySelector('.form-container');
-    const tableContainer = document.querySelector('.table-container');
-
-    const editUserButtons = document.querySelectorAll('.edit-user-button');
-    const spinner = document.querySelector('.spinner2-container');
 
     document.addEventListener('openModalDelete', (event => {
         
-        console.log(event.detail.url);
         deleteUser.dataset.url = event.detail.url;
         deleteConfirmationContainer.classList.add('active');
-    }));
+    }), {once: true});
     
     deleteCancelButton.addEventListener('click', () => {
     

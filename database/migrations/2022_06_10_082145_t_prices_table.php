@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->float('price');
+            $table->float('base_price');
+            $table->integer('tax_id');
             $table->boolean('valid')->default(true);
+            $table->boolean('active')->default(true);
             $table->integer('product_id');
             $table->timestamps();
         });

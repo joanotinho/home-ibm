@@ -3070,14 +3070,11 @@ var userModification = function userModification() {
   var deleteConfirmationContainer = document.querySelector('.delete-confirmation-container');
   var deleteCancelButton = document.querySelector('.cancel-delete-user');
   var deleteUser = document.querySelector('.delete-user');
-  var formContainer = document.querySelector('.form-container');
-  var tableContainer = document.querySelector('.table-container');
-  var editUserButtons = document.querySelectorAll('.edit-user-button');
-  var spinner = document.querySelector('.spinner2-container');
   document.addEventListener('openModalDelete', function (event) {
-    console.log(event.detail.url);
     deleteUser.dataset.url = event.detail.url;
     deleteConfirmationContainer.classList.add('active');
+  }, {
+    once: true
   });
   deleteCancelButton.addEventListener('click', function () {
     deleteConfirmationContainer.classList.remove('active');

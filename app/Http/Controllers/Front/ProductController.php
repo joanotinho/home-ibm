@@ -56,16 +56,15 @@ class ProductController extends Controller
     public function order($order)
     {
 
-        $view = View::make('front.pages.products.index')
-        ->with('product', $order);
+        $view = View::make('front.pages.products.index');
 
-        if ($order == 'price_asc') {
+        if ($order == 'asc') {
             $view
-            ->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'asc')->get())
-            ->with('order', 'price_asc');
-        } elseif ($order == 'price_desc') {
-            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'desc')->get())
-            ->with('order', 'price_desc');
+            ->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', $order)->get())
+            ->with('order', $order);
+        } elseif ($order == 'desc') {
+            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', $order)->get())
+            ->with('order', $order);
         } else {
             $view->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
         }

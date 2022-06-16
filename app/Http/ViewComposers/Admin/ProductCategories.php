@@ -22,7 +22,7 @@ class ProductCategories
             return $view->with('product_categories', static::$composed);
         }
 
-        static::$composed = $this->product_categories->where('active', 1)->orderBy('title', 'asc')->get();
+        static::$composed = $this->product_categories->where('active', 1)->get();   
 
         $view->with('product_categories', static::$composed);
 
