@@ -2,9 +2,9 @@ export let renderProduct = () => {
     
     const mainContainer = document.getElementById('main');
     const productButtons = document.querySelectorAll('.product-button a');
+    const forms = document.querySelectorAll('.front-form');
     const categoryButtons = document.querySelectorAll('.category-button');
     const orderSelect = document.querySelector('.order-select');
-    const orderOptions = document.querySelectorAll('.order-option');
 
     document.addEventListener('renderProductModules', (event => {
         renderProduct();
@@ -37,7 +37,6 @@ export let renderProduct = () => {
                 .then(json => {
 
                     mainContainer.innerHTML =  json.content;
-                    
 
                     document.dispatchEvent(new CustomEvent('renderProductModules'));
                 })

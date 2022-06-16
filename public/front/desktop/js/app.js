@@ -2233,7 +2233,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scripts_faqs_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./scripts/faqs.js */ "./resources/js/front/desktop/scripts/faqs.js");
 /* harmony import */ var _scripts_product_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./scripts/product.js */ "./resources/js/front/desktop/scripts/product.js");
 /* harmony import */ var _scripts_menu_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./scripts/menu.js */ "./resources/js/front/desktop/scripts/menu.js");
+/* harmony import */ var _scripts_cart_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./scripts/cart.js */ "./resources/js/front/desktop/scripts/cart.js");
 __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
+
 
 
 
@@ -2255,6 +2257,119 @@ __webpack_require__(/*! ../bootstrap */ "./resources/js/front/bootstrap.js");
 (0,_scripts_faqs_js__WEBPACK_IMPORTED_MODULE_7__.faqs)();
 (0,_scripts_product_js__WEBPACK_IMPORTED_MODULE_8__.renderProduct)();
 (0,_scripts_menu_js__WEBPACK_IMPORTED_MODULE_9__.menu)();
+(0,_scripts_cart_js__WEBPACK_IMPORTED_MODULE_10__.sendCart)();
+
+/***/ }),
+
+/***/ "./resources/js/front/desktop/scripts/cart.js":
+/*!****************************************************!*\
+  !*** ./resources/js/front/desktop/scripts/cart.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "sendCart": () => (/* binding */ sendCart)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var sendCart = function sendCart() {
+  var mainContainer = document.getElementById('main');
+  var forms = document.querySelectorAll('.front-form');
+  var addToCartButton = document.querySelector('.cart-button');
+  document.addEventListener('renderProductModules', function (event) {
+    sendCart();
+  }, {
+    once: true
+  });
+
+  if (addToCartButton) {
+    var productAmount = document.querySelector('.number-display').value;
+    document.addEventListener('plusMinusValue', function (event) {
+      productAmount = event.detail.value;
+    });
+    addToCartButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      forms.forEach(function (form) {
+        var data = new FormData(form);
+        var url = form.action;
+
+        var _iterator = _createForOfIteratorHelper(data.entries()),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var pair = _step.value;
+            console.log(pair[0] + ', ' + pair[1]);
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+
+        var sendPostRequest = /*#__PURE__*/function () {
+          var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+            var response;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.next = 2;
+                    return fetch(url, {
+                      headers: {
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                      },
+                      method: 'POST',
+                      body: data
+                    }).then(function (response) {
+                      if (!response.ok) throw response;
+                      return response.json();
+                    }).then(function (json) {
+                      mainContainer.innerHTML = json.content;
+                    })["catch"](function (error) {
+                      if (error.status == '500') {
+                        console.log(error);
+                      }
+
+                      ;
+                    });
+
+                  case 2:
+                    response = _context.sent;
+
+                  case 3:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+
+          return function sendPostRequest() {
+            return _ref.apply(this, arguments);
+          };
+        }();
+
+        sendPostRequest();
+      });
+    });
+  }
+};
 
 /***/ }),
 
@@ -2595,7 +2710,9 @@ function plusMinusButton() {
   buttons.forEach(function (button) {
     var buttonParent = button.closest(".stock-counter");
     var display = buttonParent.children[1];
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+
       if (button.dataset.stockButtonValue == '+') {
         display.value++;
       }
@@ -2607,6 +2724,12 @@ function plusMinusButton() {
 
         ;
       }
+
+      document.dispatchEvent(new CustomEvent('plusMinusValue', {
+        detail: {
+          value: display.value
+        }
+      }));
     });
   });
 }
@@ -2635,9 +2758,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var renderProduct = function renderProduct() {
   var mainContainer = document.getElementById('main');
   var productButtons = document.querySelectorAll('.product-button a');
+  var forms = document.querySelectorAll('.front-form');
   var categoryButtons = document.querySelectorAll('.category-button');
   var orderSelect = document.querySelector('.order-select');
-  var orderOptions = document.querySelectorAll('.order-option');
   document.addEventListener('renderProductModules', function (event) {
     renderProduct();
   }, {

@@ -9,7 +9,11 @@ export function plusMinusButton() {
     buttons.forEach(button => {
         const buttonParent = button.closest(".stock-counter");
         const display = buttonParent.children[1];
-        button.addEventListener('click', () => {
+
+        button.addEventListener('click', (event) => {
+
+            event.preventDefault();
+
             if (button.dataset.stockButtonValue == '+') {
                 display.value++;
             }
@@ -19,6 +23,12 @@ export function plusMinusButton() {
                     display.value--;
                 };
             }
+
+            document.dispatchEvent(new CustomEvent('plusMinusValue', {
+                detail: {
+                    value: display.value,
+                }
+            }));
         })
     });
 }

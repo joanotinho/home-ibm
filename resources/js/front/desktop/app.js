@@ -10,6 +10,7 @@ import {events} from "./scripts/events.js";
 import {faqs} from "./scripts/faqs.js";
 import {renderProduct} from "./scripts/product.js";
 import {menu} from "./scripts/menu.js";
+import {sendCart} from "./scripts/cart.js";
 
 plusMinusButton();
 renderForm();
@@ -21,3 +22,4 @@ events();
 faqs();
 renderProduct();
 menu();
+sendCart();

@@ -100,6 +100,7 @@ Route::post('/contacto', 'App\Http\Controllers\Front\ContactController@store')->
 Route::get('/faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
 
 Route::get('/productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
+Route::post('/productos', 'App\Http\Controllers\Front\CartController@store')->name('front_cart_store');
 Route::get('/productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('front_product');
 Route::get('/productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('front_product_category');
 Route::get('/productos/order/{order}', 'App\Http\Controllers\Front\ProductController@order')->name('front_product_order');

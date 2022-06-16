@@ -47,7 +47,7 @@
                                         <h3>{{$product->title}}</h3>
                                     </div>
                                     <div class="product-price">
-                                        <span>{{$product->price}}€</span>
+                                        <span>{{$product->prices->first()->base_price}}€</span>
                                     </div>
                                     <div class="product-button">
                                         <a data-url="{{route('front_product', ['product' => $product->id])}}">Ver ficha</a>
