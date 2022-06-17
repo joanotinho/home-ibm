@@ -13,7 +13,7 @@ class Cart extends DBModel
 
     protected $table = 'carts';
 
-    public function prices()
+    public function price()
     {
         return $this->belongsTo(Price::class);
     }
@@ -23,12 +23,12 @@ class Cart extends DBModel
         return $this->belongsTo(Customer::class);
     }
 
-    public function fingerprints()
+    public function fingerprint()
     {
         return $this->belongsTo(Fingerprint::class);
     }
 
-    public function sales()
+    public function sale()
     {
         return $this->belongsTo(Sale::class);
     }

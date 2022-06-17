@@ -11,6 +11,8 @@ class Product extends DBModel
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $table = 'products';
     
     public function category()
     {
@@ -21,5 +23,4 @@ class Product extends DBModel
     {
         return $this->hasMany(Price::class)->where('valid', 1)->where('active', 1);
     }
-    
 }

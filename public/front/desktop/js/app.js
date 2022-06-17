@@ -2300,6 +2300,7 @@ var sendCart = function sendCart() {
     var productAmount = document.querySelector('.number-display').value;
     document.addEventListener('plusMinusValue', function (event) {
       productAmount = event.detail.value;
+      console.log(productAmount);
     });
     addToCartButton.addEventListener('click', function (event) {
       event.preventDefault();

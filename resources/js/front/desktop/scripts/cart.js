@@ -8,7 +8,6 @@ export let sendCart = () => {
         sendCart();
     }), {once: true});
 
-
     if(addToCartButton) {
 
         let productAmount = document.querySelector('.number-display').value;
@@ -16,6 +15,8 @@ export let sendCart = () => {
         document.addEventListener('plusMinusValue', (event) => {
 
             productAmount = event.detail.value;
+
+            console.log(productAmount);
         });
 
         addToCartButton.addEventListener('click', (event) => {

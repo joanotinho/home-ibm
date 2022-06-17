@@ -15,7 +15,7 @@ class Price extends DBModel
 
     public function product()
     {
-        return $this->hasMany(Product::class, 'price_id')->where('active', 1);
+        return $this->belongsTo(Product::class);
     }
 
     public function tax()

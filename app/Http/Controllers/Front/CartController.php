@@ -3,15 +3,25 @@
 namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Cart;
+use Request;
 use Debugbar;
 
 class CartController extends Controller
 {
+    protected $cart;
+
+    public function __construct(Cart $cart)
+    {
+        $this->cart = $cart;
+    }
+
     public function index()
     {
-        $view = View::make('front.pages.cart.index');
+        $view = View::make('front.pages.cart.index')
+        ->with('products', $this->cart->get());
 
         if(request()->ajax()) {
 
@@ -25,22 +35,30 @@ class CartController extends Controller
         return $view;
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $amount = request('amount');
         
-        for($i = 0; $i < count($_GET['amount']); $i++) {
+        for($i = 0; $i < $amount; $i++) {
                     
             $cart = Cart::create([
                 'id' => request('id'),
                 'price_id' => request('price_id'),
-                'fingerprint_id' => null,
-                'customer_id' => null,
-                'sale_id' => null,
+                'fingerprint' => 1,
                 'active' => 1,
             ]);
         }
 
-        $sections = View::make('front.pages.cart.index')->renderSections();
+        $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
+        ->groupByRaw('price_id')
+        ->where('fingerprint', 1)
+        ->get();
+
+        $total_base = $this->cart->select(DB::raw('sum(price) as total_base'))
+
+        $sections = View::make('front.pages.cart.index')
+        ->with('carts', $carts)
+        ->renderSections();
 
         return response()->json([
             'content' => $sections['content'],

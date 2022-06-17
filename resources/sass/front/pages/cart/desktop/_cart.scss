@@ -3,27 +3,43 @@
     width: 90%;
     padding: 0 5%;
 
-    .cart-header {
-        border-bottom: .1em solid #666;
-    }
+    .table-top-bar {
 
-    .table-header-title {
-        width: 15%;
-    }
-    .table-header-removal {
-        width: 25%;
-    }
-    .table-header-price {
-        width: 20%;
-    }
-    .table-header-quantity {
-        width: 10%;
-    }
-    .table-header-total {
-        width: 10%;
+        width: 100%;
+
+        table {
+
+            width: 100%;
+
+            .cart-header {
+
+                border-bottom: .1em solid #666;
+                width: 100%;
+                
+                .table-header-title {
+                    width: 15%;
+                }
+                
+                .table-header-description {
+                    width: 25%;
+                }
+                
+                .table-header-price {
+                    width: 20%;
+                }
+                
+                .table-header-quantity {
+                    width: 20%;
+                }
+                
+                .table-header-total {
+                    width: 20%;
+                }
+            }
+        }
     }
     
-    
+
     .table-product-title {
         width: 15%;
     }

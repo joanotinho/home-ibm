@@ -21,7 +21,7 @@
             <form class="front-form" action="{{route("front_cart_store")}}">
 
                 <input type="hidden" name="price_id" value="{{isset($product->prices->first()->id) ? $product->prices->first()->id : ''}}">
-                <input class="repeat-value" type="hidden" name="repeats-number" data-value="">
+                <input class="repeat-value" type="hidden" name="repeat-number" data-value="">
 
                 <div class="product-datasheet-main">
                     <div class="product-datasheet-title">

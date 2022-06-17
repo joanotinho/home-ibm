@@ -35,28 +35,28 @@
                     </div>
                 </div>
             </div>
-                <div class="products">
-                    <div class="three-columns">
-                        @foreach($products as $product)
-                            <div class="column">
-                                <div class="product">
-                                    <div class="product-image">
-                                        <img src="{{Storage::url('hp-x32c.webp')}}" alt="">
-                                    </div>
-                                    <div class="product-title">
-                                        <h3>{{$product->title}}</h3>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>{{$product->prices->first()->base_price}}€</span>
-                                    </div>
-                                    <div class="product-button">
-                                        <a data-url="{{route('front_product', ['product' => $product->id])}}">Ver ficha</a>
-                                    </div>
+            <div class="products">
+                <div class="three-columns">
+                    @foreach($products as $product)
+                        <div class="column">
+                            <div class="product">
+                                <div class="product-image">
+                                    <img src="{{Storage::url('hp-x32c.webp')}}" alt="">
+                                </div>
+                                <div class="product-title">
+                                    <h3>{{$product->title}}</h3>
+                                </div>
+                                <div class="product-price">
+                                    <span>{{$product->prices->first()->base_price}}€</span>
+                                </div>
+                                <div class="product-button">
+                                    <a data-url="{{route('front_product', ['product' => $product->id])}}">Ver ficha</a>
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
+            </div>
         </div>
     </div>
 </div>

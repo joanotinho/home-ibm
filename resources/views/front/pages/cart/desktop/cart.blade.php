@@ -1,48 +1,44 @@
 <div class="desktop-cart">
-    <table>
-        <tr class="cart-header">
-            <th class="table-header-title">Cesta</th>
-            <th class="table-header-removal"></th>
-            <th class="table-header-price">Precio</th>
-            <th class="table-header-quantity">Cantidad</th>
-            <th class="table-header-total">Total</th>
-        </tr>
-        <tr class="cart-product">
-            <td class="table-product-image center">
-                <img src="{{Storage::url('msi-g241.webp')}}" alt="">
-            </td>
-            <td class="table-product-description center">MSI Optix G241 23.8" LED IPS FullHD 144Hz FreeSync</td>
-            <td class="table-product-price center">189,99€</td>
-            <td class="table-product-quantity center">
-                <div class="cart-stock">
-                    @include('front.components.desktop.plusMinusButton')
-                </div>
-            </td>
-            <td class="table-product-total center">189,99</td>
-        </tr>
-    </table>
-    <table>
-        <tr class="cart-header">
-            <th class="table-header-title">Cesta</th>
-            <th class="table-header-removal"></th>
-            <th class="table-header-price">Precio</th>
-            <th class="table-header-quantity">Cantidad</th>
-            <th class="table-header-total">Total</th>
-        </tr>
-        <tr class="cart-product">
-            <td class="table-product-image center">
-                <img src="{{Storage::url('msi-g241.webp')}}" alt="">
-            </td>
-            <td class="table-product-description center">MSI Optix G241 23.8" LED IPS FullHD 144Hz FreeSync</td>
-            <td class="table-product-price center">189,99€</td>
-            <td class="table-product-quantity center">
-                <div class="cart-stock">
-                    @include('front.components.desktop.plusMinusButton')
-                </div>
-            </td>
-            <td class="table-product-total center">189,99</td>
-        </tr>
-    </table>
+    <div class="table-top-bar">
+        <table>
+            <tr class="cart-header">
+                <th class="table-header-title">Cesta</th>
+                <th class="table-header-removal"></th>
+                <th class="table-header-price">Precio</th>
+                <th class="table-header-quantity">Cantidad</th>
+                <th class="table-header-total">Total</th>
+            </tr>
+        </table>
+       
+    </div>
+    {{-- @if(isset($carts)) --}}
+        @foreach ($carts as $cart)
+            <table>
+                <tr class="cart-product">
+                    <td class="table-product-image center">
+                        {{-- <img src="{{Storage::url('msi-g241.webp')}}" alt=""> --}}
+                        <span>{{$cart->price->product->title}}</span>
+                    </td>
+                    <td class="table-product-description center"></td>
+                    <td class="table-product-price center">{{$cart->price->base_price}}€</td>
+                    <td class="table-product-quantity center">
+                        <div class="cart-stock">
+                            <div class="stock-counter">
+                                <div class="stock-button" data-stock-button-value="+">
+                                    <button>+</button>
+                                </div>
+                                <input name="amount" type="number" id="amount" class="number-display" value="{{$cart->quantity}}" min="1" max="100" onkeydown="return false">
+                                <div class="stock-button" data-stock-button-value="-">
+                                    <button>-</button>
+                                </div> 
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-product-total center"></td>
+                </tr>
+            </table>            
+        @endforeach
+    {{-- @endif --}}
     <div class="cart-taxes-container">
         <div class="cart-taxes">
             <div class="two-columns cart-tax">
