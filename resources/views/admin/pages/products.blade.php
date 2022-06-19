@@ -33,7 +33,7 @@
                                                     </div>
                                                     <div class="value">
                                                         <span>
-                                                            {{$product_element->price}}
+                                                            {{$product_element->prices->first()->base_price}}€
                                                         </span>
                                                     </div>
                                                 </div>

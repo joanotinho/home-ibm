@@ -54,8 +54,6 @@ class CartController extends Controller
         ->where('fingerprint', 1)
         ->get();
 
-        $total_base = $this->cart->select(DB::raw('sum(price) as total_base'))
-
         $sections = View::make('front.pages.cart.index')
         ->with('carts', $carts)
         ->renderSections();

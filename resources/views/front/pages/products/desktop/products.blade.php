@@ -41,7 +41,7 @@
                         <div class="column">
                             <div class="product">
                                 <div class="product-image">
-                                    <img src="{{Storage::url('hp-x32c.webp')}}" alt="">
+                                    {{-- <img src="{{Storage::url('hp-x32c.webp')}}" alt=""> --}}
                                 </div>
                                 <div class="product-title">
                                     <h3>{{$product->title}}</h3>

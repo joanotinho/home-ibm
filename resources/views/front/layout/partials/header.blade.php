@@ -1,7 +1,7 @@
 <header>
     <div class="nav-left">
         <div class="logo">
-            <img src="{{Storage::url('ibm.svg')}}" alt="">
+            {{-- <img src="{{Storage::url('ibm.svg')}}" alt=""> --}}
         </div>
         <div class="title">
             <h1>International Business Machines</h1>

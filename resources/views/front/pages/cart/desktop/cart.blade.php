@@ -34,7 +34,9 @@
                             </div>
                         </div>
                     </td>
-                    <td class="table-product-total center"></td>
+                    <td class="table-product-total center">
+                        {{$cart->price->base_price * $cart->quantity}}€
+                    </td>
                 </tr>
             </table>            
         @endforeach
@@ -46,7 +48,9 @@
                     <span>21% de IVA</span>
                 </div>
                 <div class="column">
-                    <span>39.69€</span>
+                    <span>
+                        
+                    </span>
                 </div>
             </div>
             <div class="two-columns cart-tax">
@@ -62,7 +66,9 @@
                     <span>Total</span>
                 </div>
                 <div class="column">
-                    <span>188,99€</span>
+                    <span>
+                        {{$cart->price->base_price * $cart->quantity}}€
+                    </span>
                 </div>
             </div>
         </div>

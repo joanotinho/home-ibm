@@ -4,16 +4,11 @@
             <div class="product-datasheet-images">
                 <div class="single-column product-datasheet-main-image">
                     <div class="column">
-                        <img src="{{Storage::url('hp-x32c.webp')}}" alt="">
                     </div>
                     
                 </div>
                 <div class="five-columns product-datasheet-secondary-images">
-                    <div class="column"><img src="{{Storage::url('1673-hp-x32c.webp')}}" alt=""></div>
-                    <div class="column"><img src="{{Storage::url('2390-hp-x32c.webp')}}" alt=""></div>
-                    <div class="column"><img src="{{Storage::url('3306-hp-x32c.webp')}}" alt=""></div>
-                    <div class="column"><img src="{{Storage::url('4458-hp-x32c.webp')}}" alt=""></div>
-                    <div class="column"><img src="{{Storage::url('5241-hp-x32c.webp')}}" alt=""></div>
+                    
                 </div>
             </div>
         </div>
