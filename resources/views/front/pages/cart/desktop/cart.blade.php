@@ -47,20 +47,12 @@
         <div class="cart-taxes">
             <div class="two-columns cart-tax">
                 <div class="column">
-                    <span>21% de IVA</span>
+                    <span>Coste IVA</span>
                 </div>
                 <div class="column">
                     <span>
-                        
+                        <span class="cart-tax-value">{{number_format((float)($cart->quantity * $cart->price->base_price / $cart->price->tax->multiplier), 2, ',', '')}}€</span>
                     </span>
-                </div>
-            </div>
-            <div class="two-columns cart-tax">
-                <div class="column">
-                    <span>Gastos de envío</span>
-                </div>
-                <div class="column">
-                    <span>11,99€</span>
                 </div>
             </div>
             <div class="two-columns cart-tax">
@@ -69,8 +61,10 @@
                 </div>
                 <div class="column">
                     <span>
-                        {{$cart->price->base_price * $cart->quantity}}
-                        {{-- {{$total}}€ --}}
+                        {{-- @foreach ($carts as $cart)
+                            {{$cart->price->base_price * $cart->quantity}}€
+                        @endforeach --}}
+                        {{$total}}
                     </span>
                 </div>
             </div>

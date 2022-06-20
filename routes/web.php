@@ -103,10 +103,10 @@ Route::get('/productos', 'App\Http\Controllers\Front\ProductController@index')->
 Route::get('/productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('front_product');
 Route::get('/productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('front_product_category');
 Route::get('/productos/order/{order}', 'App\Http\Controllers\Front\ProductController@order')->name('front_product_order');
+Route::post('/productos', 'App\Http\Controllers\Front\CartController@store')->name('front_cart_store');
+Route::get('/productos/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@plus')->name('front_cart_plus');
+Route::get('/productos/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@minus')->name('front_cart_minus');
 
 Route::get('/carrito', 'App\Http\Controllers\Front\CartController@index')->name('front_cart');
-Route::post('/carrito', 'App\Http\Controllers\Front\CartController@store')->name('front_cart_store');
-Route::get('/carrito/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@plus')->name('front_cart_plus');
-Route::get('/carrito/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@minus')->name('front_cart_minus');
 
 Route::get('/caja', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');

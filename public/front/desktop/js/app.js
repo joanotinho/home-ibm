@@ -2755,30 +2755,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "plusMinusButton": () => (/* binding */ plusMinusButton)
 /* harmony export */ });
-function plusMinusButton() {// const buttons = document.querySelectorAll('.stock-button');
-  // document.addEventListener('renderProductModules', (event => {
-  //     plusMinusButton();
-  // }), {once: true});
-  // buttons.forEach(button => {
-  //     const buttonParent = button.closest(".stock-counter");
-  //     const display = buttonParent.children[1];
-  //     button.addEventListener('click', (event) => {
-  //         event.preventDefault();
-  //         if (button.dataset.stockButtonValue == '+') {
-  //             display.value++;
-  //         }
-  //         if (button.dataset.stockButtonValue == '-') {
-  //             if (display.value > 1) {
-  //                 display.value--;
-  //             };
-  //         }
-  //         document.dispatchEvent(new CustomEvent('plusMinusValue', {
-  //             detail: {
-  //                 value: display.value,
-  //             }
-  //         }));
-  //     })
-  // });
+function plusMinusButton() {
+  var buttons = document.querySelectorAll('.stock-button');
+  document.addEventListener('renderProductModules', function (event) {
+    plusMinusButton();
+  }, {
+    once: true
+  });
+  buttons.forEach(function (button) {
+    var buttonParent = button.closest(".stock-counter");
+    var display = buttonParent.children[1];
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      if (button.dataset.stockButtonValue == '+') {
+        display.value++;
+      }
+
+      if (button.dataset.stockButtonValue == '-') {
+        if (display.value > 1) {
+          display.value--;
+        }
+
+        ;
+      }
+
+      document.dispatchEvent(new CustomEvent('plusMinusValue', {
+        detail: {
+          value: display.value
+        }
+      }));
+    });
+  });
 }
 
 /***/ }),
