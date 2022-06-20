@@ -585,10 +585,10 @@ footer .copyright {
   text-decoration: none;
 }
 
-.stock-counter {
+.stock-counter, .cart-stock-counter {
   display: flex;
 }
-.stock-counter input {
+.stock-counter input, .cart-stock-counter input {
   text-align: center;
   border: solid 0.5px #000;
   font-size: 14pt;
@@ -602,22 +602,23 @@ footer .copyright {
   -moz-appearance: textfield;
 }
 .stock-counter input ::-webkit-outer-spin-button,
-.stock-counter input ::-webkit-inner-spin-button {
+.stock-counter input ::-webkit-inner-spin-button, .cart-stock-counter input ::-webkit-outer-spin-button,
+.cart-stock-counter input ::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.stock-counter input [type=number] {
+.stock-counter input [type=number], .cart-stock-counter input [type=number] {
   -moz-appearance: textfield;
   caret-color: transparent;
 }
-.stock-counter .stock-button {
+.stock-counter .stock-button, .stock-counter .cart-stock-button, .cart-stock-counter .stock-button, .cart-stock-counter .cart-stock-button {
   display: flex;
   font-weight: 600;
   height: 2em;
   margin: 0;
   z-index: 2;
 }
-.stock-counter .stock-button button {
+.stock-counter .stock-button button, .stock-counter .cart-stock-button button, .cart-stock-counter .stock-button button, .cart-stock-counter .cart-stock-button button {
   border: none;
   cursor: pointer;
   text-align: center;

@@ -37,7 +37,6 @@ export let renderProduct = () => {
                 .then(json => {
 
                     mainContainer.innerHTML =  json.content;
-
                     document.dispatchEvent(new CustomEvent('renderProductModules'));
                 })
                 .catch ( error =>  {

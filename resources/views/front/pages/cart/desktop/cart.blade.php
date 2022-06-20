@@ -22,17 +22,19 @@
                     <td class="table-product-description center"></td>
                     <td class="table-product-price center">{{$cart->price->base_price}}€</td>
                     <td class="table-product-quantity center">
-                        <div class="cart-stock">
-                            <div class="stock-counter">
-                                <div class="stock-button" data-stock-button-value="+">
-                                    <button>+</button>
+                        <form action="" class="front-form">
+                            <div class="cart-stock">
+                                <div class="cart-stock-counter">
+                                    <div class="cart-stock-button" data-stock-button-value="+" data-url="{{route('front_cart_plus', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">
+                                        <button type="button">+</button>
+                                    </div>
+                                    <input name="amount" type="number" class="number-display" value="{{$cart->quantity}}" min="1" max="100" onkeydown="return false">
+                                    <div class="cart-stock-button" data-stock-button-value="-" data-url="{{route('front_cart_minus', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">
+                                        <button type="button">-</button>
+                                    </div> 
                                 </div>
-                                <input name="amount" type="number" id="amount" class="number-display" value="{{$cart->quantity}}" min="1" max="100" onkeydown="return false">
-                                <div class="stock-button" data-stock-button-value="-">
-                                    <button>-</button>
-                                </div> 
                             </div>
-                        </div>
+                        </form>
                     </td>
                     <td class="table-product-total center">
                         {{$cart->price->base_price * $cart->quantity}}€
@@ -67,7 +69,8 @@
                 </div>
                 <div class="column">
                     <span>
-                        {{$cart->price->base_price * $cart->quantity}}€
+                        {{$cart->price->base_price * $cart->quantity}}
+                        {{-- {{$total}}€ --}}
                     </span>
                 </div>
             </div>

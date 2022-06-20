@@ -3,6 +3,7 @@ export let sendCart = () => {
     let mainContainer = document.getElementById('main');
     let forms = document.querySelectorAll('.front-form');
     let addToCartButton = document.querySelector('.cart-button');
+    let buttons = document.querySelectorAll('.cart-stock-button');
 
     document.addEventListener('renderProductModules', (event => {
         sendCart();
@@ -15,8 +16,6 @@ export let sendCart = () => {
         document.addEventListener('plusMinusValue', (event) => {
 
             productAmount = event.detail.value;
-
-            console.log(productAmount);
         });
 
         addToCartButton.addEventListener('click', (event) => {
@@ -49,7 +48,10 @@ export let sendCart = () => {
                         return response.json();
                     })
                     .then(json => {
+                        
                         mainContainer.innerHTML = json.content;
+                        
+                        document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })
                     .catch ( error =>  {
     
@@ -60,8 +62,46 @@ export let sendCart = () => {
                 };
 
                 sendPostRequest();
-
             });
         });
     }
+    buttons.forEach(button => {
+
+        button.addEventListener('click', (event) => {
+
+            event.preventDefault();
+
+            let url = button.dataset.url;
+            console.log(url);
+
+            let sendPostRequest = async () => {
+                
+                let response = await fetch(url, {
+                    headers: {
+                        'Accept': 'application/json',
+                    },
+                    method: 'GET'
+                })
+                .then(response => {
+                
+                    if (!response.ok) throw response;
+
+                    return response.json();
+                })
+                .then(json => {
+
+                    mainContainer.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                })
+                .catch ( error =>  {
+
+                    if(error.status == '500'){
+                        console.log(error);
+                    };
+                });
+            };
+            
+            sendPostRequest();
+        })
+    });
 }

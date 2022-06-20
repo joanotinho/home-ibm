@@ -1,5 +1,5 @@
 
-.stock-counter {
+.stock-counter, .cart-stock-counter {
 
     display: flex;
 
@@ -28,7 +28,7 @@
           }
     }
     
-    .stock-button {
+    .stock-button, .cart-stock-button {
         
         display: flex;
         font-weight: 600;

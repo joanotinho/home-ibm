@@ -2290,6 +2290,7 @@ var sendCart = function sendCart() {
   var mainContainer = document.getElementById('main');
   var forms = document.querySelectorAll('.front-form');
   var addToCartButton = document.querySelector('.cart-button');
+  var buttons = document.querySelectorAll('.cart-stock-button');
   document.addEventListener('renderProductModules', function (event) {
     sendCart();
   }, {
@@ -2300,7 +2301,6 @@ var sendCart = function sendCart() {
     var productAmount = document.querySelector('.number-display').value;
     document.addEventListener('plusMinusValue', function (event) {
       productAmount = event.detail.value;
-      console.log(productAmount);
     });
     addToCartButton.addEventListener('click', function (event) {
       event.preventDefault();
@@ -2342,6 +2342,7 @@ var sendCart = function sendCart() {
                       return response.json();
                     }).then(function (json) {
                       mainContainer.innerHTML = json.content;
+                      document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })["catch"](function (error) {
                       if (error.status == '500') {
                         console.log(error);
@@ -2370,6 +2371,59 @@ var sendCart = function sendCart() {
       });
     });
   }
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      var url = button.dataset.url;
+      console.log(url);
+
+      var sendPostRequest = /*#__PURE__*/function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.next = 2;
+                  return fetch(url, {
+                    headers: {
+                      'Accept': 'application/json'
+                    },
+                    method: 'GET'
+                  }).then(function (response) {
+                    if (!response.ok) throw response;
+                    return response.json();
+                  }).then(function (json) {
+                    mainContainer.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                  })["catch"](function (error) {
+                    if (error.status == '500') {
+                      console.log(error);
+                    }
+
+                    ;
+                  });
+
+                case 2:
+                  response = _context2.sent;
+
+                case 3:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }));
+
+        return function sendPostRequest() {
+          return _ref2.apply(this, arguments);
+        };
+      }();
+
+      sendPostRequest();
+    });
+  });
 };
 
 /***/ }),
@@ -2701,38 +2755,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "plusMinusButton": () => (/* binding */ plusMinusButton)
 /* harmony export */ });
-function plusMinusButton() {
-  var buttons = document.querySelectorAll('.stock-button');
-  document.addEventListener('renderProductModules', function (event) {
-    plusMinusButton();
-  }, {
-    once: true
-  });
-  buttons.forEach(function (button) {
-    var buttonParent = button.closest(".stock-counter");
-    var display = buttonParent.children[1];
-    button.addEventListener('click', function (event) {
-      event.preventDefault();
-
-      if (button.dataset.stockButtonValue == '+') {
-        display.value++;
-      }
-
-      if (button.dataset.stockButtonValue == '-') {
-        if (display.value > 1) {
-          display.value--;
-        }
-
-        ;
-      }
-
-      document.dispatchEvent(new CustomEvent('plusMinusValue', {
-        detail: {
-          value: display.value
-        }
-      }));
-    });
-  });
+function plusMinusButton() {// const buttons = document.querySelectorAll('.stock-button');
+  // document.addEventListener('renderProductModules', (event => {
+  //     plusMinusButton();
+  // }), {once: true});
+  // buttons.forEach(button => {
+  //     const buttonParent = button.closest(".stock-counter");
+  //     const display = buttonParent.children[1];
+  //     button.addEventListener('click', (event) => {
+  //         event.preventDefault();
+  //         if (button.dataset.stockButtonValue == '+') {
+  //             display.value++;
+  //         }
+  //         if (button.dataset.stockButtonValue == '-') {
+  //             if (display.value > 1) {
+  //                 display.value--;
+  //             };
+  //         }
+  //         document.dispatchEvent(new CustomEvent('plusMinusValue', {
+  //             detail: {
+  //                 value: display.value,
+  //             }
+  //         }));
+  //     })
+  // });
 }
 
 /***/ }),

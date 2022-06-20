@@ -6,7 +6,7 @@
 
 @section('content')
     @if ($agent->isDesktop())
-        @include('front.components.desktop.page_title', ['title' => 'Carrito', 'carts' => $carts])
+        @include('front.components.desktop.page_title', ['title' => 'Carrito'])
         @include('front.pages.cart.desktop.cart')
     @endif
 

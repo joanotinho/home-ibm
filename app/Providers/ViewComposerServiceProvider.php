@@ -37,7 +37,7 @@ class ViewComposerServiceProvider extends ServiceProvider
             'front.pages.products.index'],
             'App\Http\ViewComposers\Front\ProductCategories'
         );
-        
+
         view()->composer([
             'admin.pages.products'],
             'App\Http\ViewComposers\Admin\Prices'
