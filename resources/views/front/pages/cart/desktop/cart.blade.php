@@ -9,8 +9,8 @@
                 <th class="table-header-total">Total</th>
             </tr>
         </table>
-       
     </div>
+    <div class="cart-table">
         @foreach ($carts as $cart)
             <table>
                 <tr class="cart-product">
@@ -44,7 +44,7 @@
             <input type="hidden" name="" value="{{$total_base += $cart->quantity * $cart->price->base_price}}">
             <input type="hidden" name="" id="" value="{{$total_tax += ($cart->quantity * $cart->price->base_price) * $cart->price->tax->multiplier - ($cart->quantity * $cart->price->base_price)}}">
         @endforeach
-        {{Debugbar::info($total_tax)}}
+    </div>
     <div class="cart-taxes-container">
         <div class="cart-taxes">
             <div class="two-columns cart-tax">

@@ -391,34 +391,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="two-columns">
-                            <div class="column">
-                                <div class="checkout-main-item">
-                                    <span>Producto</span>
+                        {{-- @foreach($products as $product)
+                            <div class="two-columns">
+                                <div class="column">
+                                    <div class="checkout-main-item">
+                                        <div class="product">
+                                            <span>{{$product->name}}</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="column">
-                                <div class="checkout-main-item">
-                                    <span>Subtotal</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="two-columns">
-                            <div class="column">
-                                <div class="checkout-main-item">
-                                    <div class="product">
-                                        <span>Red sweatshirt</span>
+                                <div class="column">
+                                    <div class="checkout-main-item">
+                                        <div class="price">
+                                            <span>15.00€</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="column">
-                                <div class="checkout-main-item">
-                                    <div class="price">
-                                        <span>15.00€</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach --}}
                         <div class="two-columns">
                             <div class="column">
                                 <div class="checkout-main-item">

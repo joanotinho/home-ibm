@@ -768,34 +768,36 @@ footer .copyright {
 .desktop-cart .table-top-bar table .cart-header .table-header-total {
   width: 20%;
 }
-.desktop-cart .table-product-title {
+.desktop-cart .cart-table {
+  min-height: 40vh;
+}
+.desktop-cart .cart-table .table-product-title {
   width: 15%;
 }
-.desktop-cart .table-product-description {
+.desktop-cart .cart-table .table-product-description {
   width: 25%;
 }
-.desktop-cart .table-product-price {
+.desktop-cart .cart-table .table-product-price {
   width: 20%;
 }
-.desktop-cart .table-product-quantity {
+.desktop-cart .cart-table .table-product-quantity {
   width: 20%;
 }
-.desktop-cart .table-product-total {
+.desktop-cart .cart-table .table-product-total {
   width: 20%;
 }
-.desktop-cart .cart-taxes {
+.desktop-cart .cart-taxes-container {
   display: flex;
-  flex-direction: column;
-}
-.desktop-cart .cart-tax {
-  display: flex;
-  gap: 4rem;
   justify-content: end;
 }
-.desktop-cart .cart-tax .column {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+.desktop-cart .cart-taxes-container .cart-taxes {
+  background-color: rgba(102, 102, 102, 0.0666666667);
+  border-radius: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.8rem;
+  width: 20%;
 }
 
 .checkout-container {

@@ -39,41 +39,46 @@
         }
     }
     
+    .cart-table {
 
-    .table-product-title {
-        width: 15%;
-    }
-    
-    .table-product-description {
-        width: 25%;
-    }
-    
-    .table-product-price {
-        width: 20%;
-    }
-    
-    .table-product-quantity {
-        width: 20%;
-    }
-    
-    .table-product-total {
-        width: 20%;
+        min-height: 40vh;
+
+        .table-product-title {
+            width: 15%;
+        }
+        
+        .table-product-description {
+            width: 25%;
+        }
+        
+        .table-product-price {
+            width: 20%;
+        }
+        
+        .table-product-quantity {
+            width: 20%;
+        }
+        
+        .table-product-total {
+            width: 20%;
+        }
     }
 
-    
-    .cart-taxes {
+    .cart-taxes-container {
+
         display: flex;
-        flex-direction: column;
-    }
-
-    .cart-tax {
-        display: flex;
-        gap: 4rem;
         justify-content: end;
-    }
 
-    .cart-tax .column {
-        width: max-content;
+        .cart-taxes {
+
+            background-color: #6661;
+            border-radius: .1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: .8rem;
+            width: 20%;
+        }
     }
 }
 
