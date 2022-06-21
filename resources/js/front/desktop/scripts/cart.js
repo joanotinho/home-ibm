@@ -4,6 +4,7 @@ export let sendCart = () => {
     let forms = document.querySelectorAll('.front-form');
     let addToCartButton = document.querySelector('.cart-button');
     let buttons = document.querySelectorAll('.cart-stock-button');
+    let checkoutButton = document.querySelector('.checkout-button');
 
     document.addEventListener('renderProductModules', (event => {
         sendCart();
@@ -26,10 +27,6 @@ export let sendCart = () => {
         
                 let data = new FormData(form);
                 let url = form.action;
-                
-                for (let pair of data.entries()) {
-                    console.log(pair[0] + ', ' + pair[1])
-                }
 
                 let sendPostRequest = async () => {
                     
@@ -65,43 +62,83 @@ export let sendCart = () => {
             });
         });
     }
-    buttons.forEach(button => {
 
-        button.addEventListener('click', (event) => {
+    if(buttons) {
+        buttons.forEach(button => {
 
-            event.preventDefault();
-
-            let url = button.dataset.url;
-            console.log(url);
-
-            let sendPostRequest = async () => {
+            button.addEventListener('click', (event) => {
+    
+                event.preventDefault();
+    
+                let url = button.dataset.url;
+    
+                let sendPostRequest = async () => {
+                    
+                    let response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                        },
+                        method: 'GET'
+                    })
+                    .then(response => {
+                    
+                        if (!response.ok) throw response;
+    
+                        return response.json();
+                    })
+                    .then(json => {
+    
+                        mainContainer.innerHTML = json.content;
+                        
+                        document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    })
+                    .catch ( error =>  {
+    
+                        if(error.status == '500'){
+                            console.log(error);
+                        };
+                    });
+                };
                 
+                sendPostRequest();
+            })
+        });
+    }
+
+    if(checkoutButton){
+        checkoutButton.addEventListener('click', () => {
+            
+            let url = checkoutButton.dataset.url;
+            
+            let sendIndexRequest = async () => {
+    
                 let response = await fetch(url, {
                     headers: {
-                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
                     },
                     method: 'GET'
                 })
                 .then(response => {
-                
+    
                     if (!response.ok) throw response;
-
+    
                     return response.json();
                 })
                 .then(json => {
-
+                    
                     mainContainer.innerHTML = json.content;
+                    
                     document.dispatchEvent(new CustomEvent('renderProductModules'));
                 })
                 .catch ( error =>  {
-
+    
                     if(error.status == '500'){
                         console.log(error);
-                    };
+                    }
+    
                 });
-            };
-            
-            sendPostRequest();
-        })
-    });
+            }
+            sendIndexRequest();
+        });
+    }
 }

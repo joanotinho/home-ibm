@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
-use App\Models\DB\Checkout;
-use App\Http\Requests\Front\CheckoutRequest;
+// use App\Http\Requests\Front\CheckoutRequest;
+use Debugbar;
 
 class checkoutController extends Controller
 {
@@ -16,12 +16,12 @@ class checkoutController extends Controller
         if(request()->ajax()) {
 
             $sections = $view->renderSections();
-
+            
             return response()->json([
-                'product' => $sections['content'],
+                'content' => $sections['content'],
             ]);
         }
-        
+
         return $view;
     }
 }

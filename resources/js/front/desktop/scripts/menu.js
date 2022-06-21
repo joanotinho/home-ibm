@@ -8,7 +8,7 @@ export let menu = () => {
         menuButton.addEventListener('click', () => {
                 
             let url = menuButton.dataset.url;
-            
+
             let sendIndexRequest = async () => {
     
                 let response = await fetch(url, {

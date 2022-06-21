@@ -2280,17 +2280,12 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 var sendCart = function sendCart() {
   var mainContainer = document.getElementById('main');
   var forms = document.querySelectorAll('.front-form');
   var addToCartButton = document.querySelector('.cart-button');
   var buttons = document.querySelectorAll('.cart-stock-button');
+  var checkoutButton = document.querySelector('.checkout-button');
   document.addEventListener('renderProductModules', function (event) {
     sendCart();
   }, {
@@ -2307,20 +2302,6 @@ var sendCart = function sendCart() {
       forms.forEach(function (form) {
         var data = new FormData(form);
         var url = form.action;
-
-        var _iterator = _createForOfIteratorHelper(data.entries()),
-            _step;
-
-        try {
-          for (_iterator.s(); !(_step = _iterator.n()).done;) {
-            var pair = _step.value;
-            console.log(pair[0] + ', ' + pair[1]);
-          }
-        } catch (err) {
-          _iterator.e(err);
-        } finally {
-          _iterator.f();
-        }
 
         var sendPostRequest = /*#__PURE__*/function () {
           var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -2372,23 +2353,75 @@ var sendCart = function sendCart() {
     });
   }
 
-  buttons.forEach(function (button) {
-    button.addEventListener('click', function (event) {
-      event.preventDefault();
-      var url = button.dataset.url;
-      console.log(url);
+  if (buttons) {
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        var url = button.dataset.url;
 
-      var sendPostRequest = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var sendPostRequest = /*#__PURE__*/function () {
+          var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+            var response;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    _context2.next = 2;
+                    return fetch(url, {
+                      headers: {
+                        'Accept': 'application/json'
+                      },
+                      method: 'GET'
+                    }).then(function (response) {
+                      if (!response.ok) throw response;
+                      return response.json();
+                    }).then(function (json) {
+                      mainContainer.innerHTML = json.content;
+                      document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    })["catch"](function (error) {
+                      if (error.status == '500') {
+                        console.log(error);
+                      }
+
+                      ;
+                    });
+
+                  case 2:
+                    response = _context2.sent;
+
+                  case 3:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2);
+          }));
+
+          return function sendPostRequest() {
+            return _ref2.apply(this, arguments);
+          };
+        }();
+
+        sendPostRequest();
+      });
+    });
+  }
+
+  if (checkoutButton) {
+    checkoutButton.addEventListener('click', function () {
+      var url = checkoutButton.dataset.url;
+
+      var sendIndexRequest = /*#__PURE__*/function () {
+        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
           var response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
             while (1) {
-              switch (_context2.prev = _context2.next) {
+              switch (_context3.prev = _context3.next) {
                 case 0:
-                  _context2.next = 2;
+                  _context3.next = 2;
                   return fetch(url, {
                     headers: {
-                      'Accept': 'application/json'
+                      'X-Requested-With': 'XMLHttpRequest'
                     },
                     method: 'GET'
                   }).then(function (response) {
@@ -2401,29 +2434,27 @@ var sendCart = function sendCart() {
                     if (error.status == '500') {
                       console.log(error);
                     }
-
-                    ;
                   });
 
                 case 2:
-                  response = _context2.sent;
+                  response = _context3.sent;
 
                 case 3:
                 case "end":
-                  return _context2.stop();
+                  return _context3.stop();
               }
             }
-          }, _callee2);
+          }, _callee3);
         }));
 
-        return function sendPostRequest() {
-          return _ref2.apply(this, arguments);
+        return function sendIndexRequest() {
+          return _ref3.apply(this, arguments);
         };
       }();
 
-      sendPostRequest();
+      sendIndexRequest();
     });
-  });
+  }
 };
 
 /***/ }),
@@ -2755,30 +2786,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "plusMinusButton": () => (/* binding */ plusMinusButton)
 /* harmony export */ });
-function plusMinusButton() {// const buttons = document.querySelectorAll('.stock-button');
-  // document.addEventListener('renderProductModules', (event => {
-  //     plusMinusButton();
-  // }), {once: true});
-  // buttons.forEach(button => {
-  //     const buttonParent = button.closest(".stock-counter");
-  //     const display = buttonParent.children[1];
-  //     button.addEventListener('click', (event) => {
-  //         event.preventDefault();
-  //         if (button.dataset.stockButtonValue == '+') {
-  //             display.value++;
-  //         }
-  //         if (button.dataset.stockButtonValue == '-') {
-  //             if (display.value > 1) {
-  //                 display.value--;
-  //             };
-  //         }
-  //         document.dispatchEvent(new CustomEvent('plusMinusValue', {
-  //             detail: {
-  //                 value: display.value,
-  //             }
-  //         }));
-  //     })
-  // });
+function plusMinusButton() {
+  var buttons = document.querySelectorAll('.stock-button');
+  document.addEventListener('renderProductModules', function (event) {
+    plusMinusButton();
+  }, {
+    once: true
+  });
+  buttons.forEach(function (button) {
+    var buttonParent = button.closest(".stock-counter");
+    var display = buttonParent.children[1];
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      if (button.dataset.stockButtonValue == '+') {
+        display.value++;
+      }
+
+      if (button.dataset.stockButtonValue == '-') {
+        if (display.value > 1) {
+          display.value--;
+        }
+
+        ;
+      }
+
+      document.dispatchEvent(new CustomEvent('plusMinusValue', {
+        detail: {
+          value: display.value
+        }
+      }));
+    });
+  });
 }
 
 /***/ }),

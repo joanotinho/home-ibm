@@ -92,8 +92,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
 
-// Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('home_front');
-
 Route::get('/contacto', 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
 Route::post('/contacto', 'App\Http\Controllers\Front\ContactController@store')->name('contacts_store');
 

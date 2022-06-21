@@ -11,7 +11,6 @@
         </table>
        
     </div>
-    {{-- @if(isset($carts)) --}}
         @foreach ($carts as $cart)
             <table>
                 <tr class="cart-product">
@@ -40,27 +39,32 @@
                         {{$cart->price->base_price * $cart->quantity}}€
                     </td>
                 </tr>
-            </table>            
+            </table>
+            
+            <input type="hidden" name="" value="{{$total_base += $cart->quantity * $cart->price->base_price}}">
+            <input type="hidden" name="" id="" value="{{$total_tax += ($cart->quantity * $cart->price->base_price) * $cart->price->tax->multiplier - ($cart->quantity * $cart->price->base_price)}}">
         @endforeach
-    {{-- @endif --}}
+        {{Debugbar::info($total_tax)}}
     <div class="cart-taxes-container">
         <div class="cart-taxes">
             <div class="two-columns cart-tax">
                 <div class="column">
-                    <span>21% de IVA</span>
+                    <span>Base imponible</span>
                 </div>
                 <div class="column">
                     <span>
-                        
+                        {{$total_base}}€
                     </span>
                 </div>
             </div>
             <div class="two-columns cart-tax">
                 <div class="column">
-                    <span>Gastos de envío</span>
+                    <span>IVA</span>
                 </div>
                 <div class="column">
-                    <span>11,99€</span>
+                    <span>
+                        {{$total_tax}}€
+                    </span>
                 </div>
             </div>
             <div class="two-columns cart-tax">
@@ -69,14 +73,13 @@
                 </div>
                 <div class="column">
                     <span>
-                        {{$cart->price->base_price * $cart->quantity}}
-                        {{-- {{$total}}€ --}}
+                        {{$total_base + $total_tax}}€
                     </span>
                 </div>
             </div>
         </div>
     </div>
     <div class="featured-button center">
-        <a href="/caja">Siguiente</a>
+        <button class="checkout-button" data-url="{{route('front_checkout')}}">Pagar</button>
     </div>
 </div>

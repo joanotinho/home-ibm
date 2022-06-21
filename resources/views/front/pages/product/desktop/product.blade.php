@@ -24,6 +24,7 @@
                     </div>
                     <div class="product-datasheet-price">
                         <span>{{$product->prices->first()->base_price}}€</span>
+                        <span>+IVA</span>
                     </div>
                     <div class="product-datasheet-description">
                         <ul>
