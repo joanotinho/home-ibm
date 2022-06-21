@@ -57,14 +57,23 @@ class CartController extends Controller
         ->orderBy('price_id', 'desc')
         ->get();
 
+<<<<<<< HEAD
         $total_base = 0;
         $total_tax = 0;
+=======
+        $total = $this->cart->price()->select(DB::raw('sum(base_price) as total'))->where('active', 1)->first();
+
+>>>>>>> f8be626375f960114e058ab514b108c7c036f056
 
         $sections = View::make('front.pages.cart.index')
         ->with('carts', $carts)
         ->with('fingerprint', $cart->fingerprint)
+<<<<<<< HEAD
         ->with('total_base', $total_base)
         ->with('total_tax', $total_tax)
+=======
+        ->with('total', $total)
+>>>>>>> f8be626375f960114e058ab514b108c7c036f056
         ->renderSections();
 
 

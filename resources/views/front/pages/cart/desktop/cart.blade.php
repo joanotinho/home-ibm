@@ -49,16 +49,25 @@
         <div class="cart-taxes">
             <div class="two-columns cart-tax">
                 <div class="column">
+<<<<<<< HEAD
                     <span>Base imponible</span>
                 </div>
                 <div class="column">
                     <span>
                         {{$total_base}}€
+=======
+                    <span>Coste IVA</span>
+                </div>
+                <div class="column">
+                    <span>
+                        <span class="cart-tax-value">{{number_format((float)($cart->quantity * $cart->price->base_price / $cart->price->tax->multiplier), 2, ',', '')}}€</span>
+>>>>>>> f8be626375f960114e058ab514b108c7c036f056
                     </span>
                 </div>
             </div>
             <div class="two-columns cart-tax">
                 <div class="column">
+<<<<<<< HEAD
                     <span>IVA</span>
                 </div>
                 <div class="column">
@@ -69,11 +78,20 @@
             </div>
             <div class="two-columns cart-tax">
                 <div class="column">
+=======
+>>>>>>> f8be626375f960114e058ab514b108c7c036f056
                     <span>Total</span>
                 </div>
                 <div class="column">
                     <span>
+<<<<<<< HEAD
                         {{$total_base + $total_tax}}€
+=======
+                        {{-- @foreach ($carts as $cart)
+                            {{$cart->price->base_price * $cart->quantity}}€
+                        @endforeach --}}
+                        {{$total}}
+>>>>>>> f8be626375f960114e058ab514b108c7c036f056
                     </span>
                 </div>
             </div>
