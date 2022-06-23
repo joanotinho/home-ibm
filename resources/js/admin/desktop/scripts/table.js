@@ -46,7 +46,6 @@ export let renderTable = () => {
                         }));
     
                         document.dispatchEvent(new CustomEvent('renderFormModules'));
-                        document.dispatchEvent(new CustomEvent('setCkeditorData'));
                     })
                     .catch ( error =>  {
     

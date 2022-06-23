@@ -11,6 +11,7 @@ import {faqs} from "./scripts/faqs.js";
 import {renderProduct} from "./scripts/product.js";
 import {menu} from "./scripts/menu.js";
 import {sendCart} from "./scripts/cart.js";
+import {checkout} from "./scripts/checkout.js";
 
 plusMinusButton();
 renderForm();
@@ -23,3 +24,4 @@ faqs();
 renderProduct();
 menu();
 sendCart();
+checkout();

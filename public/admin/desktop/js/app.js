@@ -2936,7 +2936,6 @@ var renderTable = function renderTable() {
                         }
                       }));
                       document.dispatchEvent(new CustomEvent('renderFormModules'));
-                      document.dispatchEvent(new CustomEvent('setCkeditorData'));
                     })["catch"](function (error) {
                       if (error.status == '500') {
                         console.log(error);

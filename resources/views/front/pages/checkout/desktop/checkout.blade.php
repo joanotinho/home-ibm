@@ -1,5 +1,6 @@
 <div class="checkout-container">
     <form enctype="multipart/form-data" class="front-form" id="checkout-form">
+        <input type="hidden" name="customer_id" value="{{isset($sale->customer->id) ? $sale->customer->id : '1'}}">
         <div class="two-columns checkout-main">
             <div class="column">
                 <div class="checkout-left">
@@ -19,7 +20,7 @@
                     <div class="single-column">
                         <div class="column">
                             <label for="">Nombre de empresa (opcional)</label>
-                            <input type="text" name="" id="">
+                            <input type="text" name="company" id="">
                         </div>
                     </div>
                     <div class="single-column">
@@ -278,23 +279,6 @@
                     </div>
                     <div class="single-column">
                         <div class="column">
-                            <label for="adress">Dirección</label>
-                            <input type="text" name="adress" id="adress" placeholder="Número y calle" class="required" data-type="dirección">                                    
-                        </div>
-                    </div>
-                    <div class="single-column">
-                        <div class="column">
-                            <input type="text" name="" id="" placeholder="apartamento, suite, unidad, etc. (opcional)">
-                        </div>
-                    </div>
-                    <div class="single-column">
-                        <div class="column">
-                            <label for="city">Ciudad</label>
-                            <input type="text" name="city" id="city" placeholder="" class="required" data-type="ciudad">
-                        </div>
-                    </div>
-                    <div class="single-column">
-                        <div class="column">
                             <label for="province">Provincia</label>
                             <select id="province" name="province" class="required" data-type="província">
                                 <option value="">Select your province</option>
@@ -355,8 +339,25 @@
                     </div>
                     <div class="single-column">
                         <div class="column">
-                            <label for="zip">ZIP</label>
-                            <input type="text" name="zip" id="zip" placeholder="" class="required" data-type="zip">
+                            <label for="adress">Dirección</label>
+                            <input type="text" name="address" id="address" placeholder="Número y calle" class="required" data-type="dirección">                                    
+                        </div>
+                    </div>
+                    <div class="single-column">
+                        <div class="column">
+                            <input type="text" name="extra_address" id="extra_address" placeholder="apartamento, suite, unidad, etc. (opcional)">
+                        </div>
+                    </div>
+                    <div class="single-column">
+                        <div class="column">
+                            <label for="city">Ciudad</label>
+                            <input type="text" name="city" id="city" placeholder="" class="required" data-type="ciudad">
+                        </div>
+                    </div>
+                    <div class="single-column">
+                        <div class="column">
+                            <label for="postal_code">ZIP</label>
+                            <input type="text" name="postal_code" id="postal_code" placeholder="" class="required" data-type="zip">
                         </div>
                     </div>
                     <div class="single-column">
@@ -391,24 +392,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- @foreach($products as $product)
-                            <div class="two-columns">
-                                <div class="column">
-                                    <div class="checkout-main-item">
-                                        <div class="product">
-                                            <span>{{$product->name}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column">
-                                    <div class="checkout-main-item">
-                                        <div class="price">
-                                            <span>15.00€</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach --}}
                         <div class="two-columns">
                             <div class="column">
                                 <div class="checkout-main-item">
@@ -446,7 +429,7 @@
                                 <div class="column">
                                     <div class="payment-method">
                                         <div class="column">
-                                            <input type="radio" name="paymentmethod" id="wiretransfer" name="wiretransfer">
+                                            <input type="radio" name="paymentmethod" id="wiretransfer" value="1">
                                             <label for="wiretransfer">Transferencia bancaria</label>
                                         </div>
                                     </div>
@@ -456,7 +439,7 @@
                             <div class="two-columns">
                                 <div class="column">
                                     <div class="payment-method">
-                                        <input type="radio" name="paymentmethod" id="paypal" value="paypal">
+                                        <input type="radio" name="paymentmethod" id="paypal" value="2">
                                         <label for="paypal">PayPal</label>
                                     </div>
                                 </div>
@@ -466,7 +449,7 @@
                                     <div class="payment-method">
                                         <div class="desktop-two-columns mobile-single-column">
                                             <div class="column">
-                                                <input type="radio" name="paymentmethod" id="card" value="card">
+                                                <input type="radio" name="paymentmethod" id="card" value="3">
                                                 <label for="cars">Tarjeta de crétido/débito</label>
                                             </div>
                                             <div class="column">
@@ -493,7 +476,7 @@
                                     <div class="place-order-description">
                                         <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purpouses described in our privacy policy</p>
                                     </div>
-                                    <div class="place-order-button">
+                                    <div class="place-order-button" data-url="{{route('front_checkout_store')}}">
                                         <button class="submit-button" id="submit-button" type="submit">Place order</button>
                                     </div>
                                 </div>

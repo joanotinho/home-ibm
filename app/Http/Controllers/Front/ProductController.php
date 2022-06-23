@@ -21,8 +21,8 @@ class ProductController extends Controller
     public function index()
     {
         $view = View::make('front.pages.products.index')
-        ->with('products', $this->product->where('active', 1)->where('visible', 1)->get())
-        ->with('order', '');
+        ->with('products', $this->product->where('active', 1)->where('visible', 1)
+        ->get());
 
         if(request()->ajax()) {
 
@@ -56,24 +56,23 @@ class ProductController extends Controller
     
     public function order($order)
     {
+        $products = Product::with(['prices' => function($query) use ($order) {
+            $query
+            ->where('order', $order)
+            ->sortBy('prices', $order);
+        }])->where('active', 1)->where('visible', 1)->get();
 
-        $view = View::make('front.pages.products.index');
+        $products = $this->product
+        ->with('products')
+        ->join('prices', 'prices.product_id', '=', 'products.id')
+        ->select('products.*')
+        ->orderBy('prices.base_price', $order)
+        ->get();
+        
+        Debugbar::info($products->toArray());
 
-        if ($order == 'asc') {
-            $view
-            ->with('products', DB::table('prices')
-            ->join('products', 'prices.product_id', '=', 'products.id')
-            // ->where('active', 1)
-            ->where('valid', 1)
-            ->orderBy('base_price', $order)
-            ->get())
-            ->with('order', $order);
-        // } elseif ($order == 'desc') {
-        //     $view->with('products', $this->product->prices()->where('active', 1)->where('visible', 1)->prices->orderBy('base_price', $order)->get())
-        //     ->with('order', $order);
-        } else {
-            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
-        }
+        $view = View::make('front.pages.products.index')
+        ->with('products', $products);
         
         if(request()->ajax()) {
 

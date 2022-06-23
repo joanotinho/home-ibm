@@ -1,40 +1,35 @@
-
 export let faqs = () => {
     
     let faqContents = document.querySelectorAll('.faq-content');
-
     let faqGlobals = document.querySelectorAll('.faq');
 
-    faqContents.forEach(faqContent => {
+    document.addEventListener('renderProductModules', (event => {
+        faqs();
+    }), {once: true});
 
-        // if(minusIcon) {
-        //     alert("existe")
-        // } else {
-        //     alert("no existe")
-        // }
-        console.log(faqContent);
+    faqContents.forEach(faqContent => {
 
         const faq = faqContent.closest('.faq');
         const arrow = faq.querySelector('.arrow');
 
+        arrow.addEventListener('click', () => {
+            
+            if (faq.classList.contains('active')) {
 
-            arrow.addEventListener('click', () => {
-                
-                if (faq.classList.contains('active')) {
+                faqGlobals.forEach(faqGlobal => {
 
-                    faqGlobals.forEach(faqGlobal => {
+                    faqGlobal.classList.remove('active');
+                });
 
-                        faqGlobal.classList.remove('active');
-                    });
-                } else {
+            } else {
 
-                    faqGlobals.forEach(faqGlobal => {
+                faqGlobals.forEach(faqGlobal => {
 
-                        faqGlobal.classList.remove('active');
-                    });
-                    faq.classList.toggle('active');
-                }
-            });
-        
+                    faqGlobal.classList.remove('active');
+                });
+
+                faq.classList.toggle('active');
+            }
+        });
     });
 }

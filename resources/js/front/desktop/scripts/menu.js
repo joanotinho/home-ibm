@@ -3,6 +3,9 @@ export let menu = () => {
     const mainContent = document.getElementById('main');
     let menuButtons = document.querySelectorAll('.menu-button');
 
+    document.addEventListener('renderProductModules', (event => {
+        menu();
+    }), {once: true});
     menuButtons.forEach(menuButton => {
 
         menuButton.addEventListener('click', () => {
@@ -26,7 +29,7 @@ export let menu = () => {
                 .then(json => {
                     mainContent.innerHTML = json.content;
 
-                    document.dispatchEvent(new CustomEvent('renderContentModules'));
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
                 })
                 .catch ( error =>  {
 

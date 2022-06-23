@@ -1258,3 +1258,15 @@ footer .copyright {
   max-height: 20rem;
   transition: max-height 0.8s;
 }
+
+.purchase-success-container {
+  background-color: #03c04a;
+  border: 0.3rem solid hsl(120deg, 73%, 75%);
+  border-radius: 0.7rem;
+  left: 35%;
+  padding: 1rem 0.5%;
+  position: absolute;
+  text-align: center;
+  top: 10%;
+  width: 29%;
+}

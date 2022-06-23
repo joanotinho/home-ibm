@@ -61,9 +61,7 @@
         </div>
         <div class="column">
             <div class="contact-form">
-                <form action="{{route("contacts_store")}}" id="form" class="front-form">
-                    
-                    {{ csrf_field() }}
+                <form action="{{route("front_contacts_store")}}" class="front-form">
                         
                     <input autocomplete="false" name="hidden" type="text" style="display:none;">
                     <input type="hidden" name="id" value="{{isset($contact->id) ? $contact->id : ''}}" class="contact-id">

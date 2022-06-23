@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Contact;
 use App\Http\Requests\Front\ContactRequest;
+use Debugbar;
 
 class ContactController extends Controller
 {
@@ -33,7 +34,8 @@ class ContactController extends Controller
     }
     
     public function store(ContactRequest $request)
-    {            
+    {
+        Debugbar::info("hola");
     
         $contact = $this->contact->updateOrCreate([
             'id' => request('id')],[

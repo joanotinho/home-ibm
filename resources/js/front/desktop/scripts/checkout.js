@@ -1,31 +1,26 @@
-export let renderForm = () => {
+export let checkout = () => {
 
-    const mainContent = document.getElementById('main');
-    const forms = document.querySelectorAll('.front-form');
-    const submitButton = document.querySelector('.submit-button');
+    let mainContainer = document.getElementById('main');
+    let forms = document.querySelectorAll('.front-form');
+    let placeOrderButton = document.querySelector('.place-order-button');
 
     document.addEventListener('renderProductModules', (event => {
-        renderForm();
+        checkout();
     }), {once: true});
- 
-    if(submitButton) {
-        
-        submitButton.addEventListener('click', (event) => {
+
+    if(placeOrderButton) {
+
+        placeOrderButton.addEventListener('click', (event) => {
 
             event.preventDefault();
             
             forms.forEach(form => {
-        
+                
                 let data = new FormData(form);
-                let url = form.action;
-    
-                Object.entries(ckeditors).forEach(([key, value]) => {
-                    data.append(key, value.getData());
-                });
-
+                let url = placeOrderButton.dataset.url;
+                console.log(data);
+        
                 let sendPostRequest = async () => {
-    
-                    document.dispatchEvent(new CustomEvent('startWait'));
                     
                     let response = await fetch(url, {
                         headers: {
@@ -38,22 +33,23 @@ export let renderForm = () => {
                     .then(response => {
                     
                         if (!response.ok) throw response;
-    
+        
                         return response.json();
                     })
                     .then(json => {
-
-                        mainContent.innerHTML = json.content;
+                        
+                        mainContainer.innerHTML = json.content;
+                        
                         document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })
                     .catch ( error =>  {
-    
+        
                         if(error.status == '500'){
                             console.log(error);
                         };
                     });
                 };
-                
+        
                 sendPostRequest();
             });
         });

@@ -17,16 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('surnames');
-            $table->string('company');
+            $table->string('company')->nullable();
             $table->string('country');
             $table->string('address');
-            $table->string('extra_address');
+            $table->string('extra_address')->nullable();
             $table->string('city');
             $table->string('province');
             $table->string('postal_code');
             $table->integer('phonenumber');
             $table->string('email');
-            $table->string('payment_method');
             $table->boolean('visible')->default(true);
             $table->boolean('active')->default(true);
             $table->timestamps();

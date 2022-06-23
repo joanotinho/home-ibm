@@ -40,9 +40,6 @@
                     </td>
                 </tr>
             </table>
-            
-            <input type="hidden" name="" value="{{$total_base += $cart->quantity * $cart->price->base_price}}">
-            <input type="hidden" name="" id="" value="{{$total_tax += ($cart->quantity * $cart->price->base_price) * $cart->price->tax->multiplier - ($cart->quantity * $cart->price->base_price)}}">
         @endforeach
     </div>
     <div class="cart-taxes-container">
@@ -53,7 +50,7 @@
                 </div>
                 <div class="column">
                     <span>
-                        {{$total_base}}€
+                        {{$base_total}}€
                     </span>
                 </div>
             </div>
@@ -63,7 +60,7 @@
                 </div>
                 <div class="column">
                     <span>
-                        {{$total_tax}}€
+                        {{$tax_total}}€
                     </span>
                 </div>
             </div>
@@ -73,13 +70,13 @@
                 </div>
                 <div class="column">
                     <span>
-                        {{$total_base + $total_tax}}€
+                        {{$total}}€
                     </span>
                 </div>
             </div>
         </div>
     </div>
     <div class="featured-button center">
-        <button class="checkout-button" data-url="{{route('front_checkout')}}">Pagar</button>
+        <button class="pay-button" data-url="{{route('front_checkout')}}">Pagar</button>
     </div>
 </div>

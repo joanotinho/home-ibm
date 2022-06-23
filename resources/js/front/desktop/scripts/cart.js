@@ -4,7 +4,7 @@ export let sendCart = () => {
     let forms = document.querySelectorAll('.front-form');
     let addToCartButton = document.querySelector('.cart-button');
     let buttons = document.querySelectorAll('.cart-stock-button');
-    let checkoutButton = document.querySelector('.checkout-button');
+    let payButton = document.querySelector('.pay-button');
 
     document.addEventListener('renderProductModules', (event => {
         sendCart();
@@ -71,6 +71,7 @@ export let sendCart = () => {
                 event.preventDefault();
     
                 let url = button.dataset.url;
+                console.log(url);
     
                 let sendPostRequest = async () => {
                     
@@ -105,10 +106,10 @@ export let sendCart = () => {
         });
     }
 
-    if(checkoutButton){
-        checkoutButton.addEventListener('click', () => {
+    if(payButton){
+        payButton.addEventListener('click', () => {
             
-            let url = checkoutButton.dataset.url;
+            let url = payButton.dataset.url;
             
             let sendIndexRequest = async () => {
     
