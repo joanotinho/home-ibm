@@ -39,6 +39,16 @@ class ViewComposerServiceProvider extends ServiceProvider
         );
         
         view()->composer([
+            'front.pages.checkout.index'],
+            'App\Http\ViewComposers\Front\PaymentMethods'
+        );
+        
+        view()->composer([
+            'front.pages.checkout.index'],
+            'App\Http\ViewComposers\Front\Countries'
+        );
+        
+        view()->composer([
             'admin.pages.products'],
             'App\Http\ViewComposers\Admin\Prices'
         );

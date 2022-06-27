@@ -12,6 +12,7 @@ import {renderProduct} from "./scripts/product.js";
 import {menu} from "./scripts/menu.js";
 import {sendCart} from "./scripts/cart.js";
 import {checkout} from "./scripts/checkout.js";
+import {fingerprint} from "./scripts/fingerprint.js";
 
 plusMinusButton();
 renderForm();
@@ -25,3 +26,4 @@ renderProduct();
 menu();
 sendCart();
 checkout();
+fingerprint();

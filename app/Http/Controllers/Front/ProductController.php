@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Debugbar;
 
 class ProductController extends Controller
@@ -20,10 +21,17 @@ class ProductController extends Controller
     
     public function index()
     {
-        $view = View::make('front.pages.products.index')
-        ->with('products', $this->product->where('active', 1)->where('visible', 1)
-        ->get());
+        $products = $this->product
+        ->join('prices', 'prices.product_id', '=', 'products.id')
+        ->where('products.active', 1)
+        ->where('products.visible', 1)
+        ->where('prices.active', 1)
+        ->where('prices.valid', 1)
+        ->get();
 
+        $view = View::make('front.pages.products.index')
+        ->with('products', $products);
+        
         if(request()->ajax()) {
 
             $sections = $view->renderSections();
@@ -54,25 +62,33 @@ class ProductController extends Controller
         return $view;
     }
     
-    public function order($order)
+    public function order($order, Request $request)
     {
-        $products = Product::with(['prices' => function($query) use ($order) {
-            $query
-            ->where('order', $order)
-            ->sortBy('prices', $order);
-        }])->where('active', 1)->where('visible', 1)->get();
-
-        $products = $this->product
-        ->with('products')
-        ->join('prices', 'prices.product_id', '=', 'products.id')
-        ->select('products.*')
-        ->orderBy('prices.base_price', $order)
-        ->get();
+        if ($request->session()->has('category')) {
+            $products = $this->product
+            ->join('prices', 'prices.product_id', '=', 'products.id')
+            ->where('products.active', 1)
+            ->where('products.category_id', $request->session()->get('category')->id)
+            ->where('products.visible', 1)
+            ->where('prices.active', 1)
+            ->where('prices.valid', 1)
+            ->orderBy('prices.base_price', $order)
+            ->get();
+        }else{
+            $products = $this->product
+            ->join('prices', 'prices.product_id', '=', 'products.id')
+            ->where('products.active', 1)
+            ->where('products.visible', 1)
+            ->where('prices.active', 1)
+            ->where('prices.valid', 1)
+            ->orderBy('prices.base_price', $order)
+            ->get();
+        }
         
-        Debugbar::info($products->toArray());
-
+        
         $view = View::make('front.pages.products.index')
-        ->with('products', $products);
+        ->with('products', $products)
+        ->with('order', $order);
         
         if(request()->ajax()) {
 

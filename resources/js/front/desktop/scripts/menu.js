@@ -6,6 +6,7 @@ export let menu = () => {
     document.addEventListener('renderProductModules', (event => {
         menu();
     }), {once: true});
+    
     menuButtons.forEach(menuButton => {
 
         menuButton.addEventListener('click', () => {

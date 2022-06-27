@@ -24,11 +24,11 @@
                         <form action="" class="front-form">
                             <div class="cart-stock">
                                 <div class="cart-stock-counter">
-                                    <div class="cart-stock-button" data-stock-button-value="+" data-url="{{route('front_cart_plus', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">
+                                    <div class="cart-stock-button" data-stock-button-value="+" data-url="{{route('front_cart_plus', ['price_id' => $cart->price_id])}}">
                                         <button type="button">+</button>
                                     </div>
                                     <input name="amount" type="number" class="number-display" value="{{$cart->quantity}}" min="1" max="100" onkeydown="return false">
-                                    <div class="cart-stock-button" data-stock-button-value="-" data-url="{{route('front_cart_minus', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">
+                                    <div class="cart-stock-button" data-stock-button-value="-" data-url="{{route('front_cart_minus', ['price_id' => $cart->price_id])}}">
                                         <button type="button">-</button>
                                     </div> 
                                 </div>

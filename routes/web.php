@@ -101,7 +101,22 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'sales_show',
         ]
     ]);
+    
+    Route::resource('metodosdepago', 'App\Http\Controllers\Admin\PaymentMethodController', [
+        'parameters' => [
+            'metodosdepago' => 'payment_method', 
+        ],
+        'names' => [
+            'index' => 'payment_methods',
+            'create' => 'payment_methods_create',
+            'edit' => 'payment_methods_edit',
+            'store' => 'payment_methods_store',
+            'destroy' => 'payment_methods_destroy',
+            'show' => 'payment_methods_show',
+        ]
+    ]);
 });
+
 
 
 Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
@@ -116,11 +131,13 @@ Route::get('/productos/{product}', 'App\Http\Controllers\Front\ProductController
 Route::get('/productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('front_product_category');
 Route::get('/productos/order/{order}', 'App\Http\Controllers\Front\ProductController@order')->name('front_product_order');
 Route::post('/productos', 'App\Http\Controllers\Front\CartController@store')->name('front_cart_store');
-Route::get('/productos/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@plus')->name('front_cart_plus');
-Route::get('/productos/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CartController@minus')->name('front_cart_minus');
+Route::get('/productos/plus/{price_id}', 'App\Http\Controllers\Front\CartController@plus')->name('front_cart_plus');
+Route::get('/productos/minus/{price_id}', 'App\Http\Controllers\Front\CartController@minus')->name('front_cart_minus');
 
 Route::get('/carrito', 'App\Http\Controllers\Front\CartController@index')->name('front_cart');
 
 Route::get('/caja', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
 Route::post('/caja', 'App\Http\Controllers\Front\CheckoutController@store')->name('front_checkout_store');
 Route::get('/exito', 'App\Http\Controllers\Front\CheckoutController@store')->name('front_checkout_success');
+
+Route::post('/fingerprint', 'App\Http\Controllers\Front\FingerprintController@store');

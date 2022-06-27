@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\DB\Cart;
-use Request;
 use Debugbar;
 
 class CartController extends Controller
@@ -44,7 +44,7 @@ class CartController extends Controller
             $cart = Cart::create([
                 'id' => request('id'),
                 'price_id' => request('price_id'),
-                'fingerprint' => 1,
+                'fingerprint' => $request->cookie('fp'),
                 'customer_id' => null,
                 'active' => 1,
             ]);
@@ -53,7 +53,7 @@ class CartController extends Controller
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')
         ->where('active', 1)
-        ->where('fingerprint',  $cart->fingerprint)
+        ->where('fingerprint',  $request->cookie('fp'))
         ->where('sale_id', null)
         ->orderBy('price_id', 'desc')
         ->get();
@@ -69,7 +69,6 @@ class CartController extends Controller
 
         $sections = View::make('front.pages.cart.index')
         ->with('carts', $carts)
-        ->with('fingerprint', $cart->fingerprint)
         ->with('base_total', $totals->base_total)
         ->with('tax_total', ($totals->total - $totals->base_total))
         ->with('total', $totals->total)
@@ -80,24 +79,24 @@ class CartController extends Controller
         ]);
     }
 
-    public function plus($fingerprint, $price_id)
+    public function plus($price_id, Request $request)
     {
         $cart = $this->cart->create([
             'price_id' => $price_id,
-            'fingerprint' => $fingerprint,
+            'fingerprint' => $request->cookie('fp'),
             'active' => 1,
         ]);
 
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')
         ->where('active', 1)
-        ->where('fingerprint',  $fingerprint)
+        ->where('fingerprint',  $request->cookie('fp'))
         ->where('sale_id', null)
         ->orderBy('price_id', 'desc')
         ->get();
 
         $totals = $this->cart
-        ->where('carts.fingerprint', 1)
+        ->where('carts.fingerprint', $request->cookie('fp'))
         ->where('carts.active', 1)
         ->where('carts.sale_id', null)
         ->join('prices', 'prices.id', '=', 'carts.price_id')
@@ -107,7 +106,6 @@ class CartController extends Controller
 
         $sections = View::make('front.pages.cart.index')
         ->with('carts', $carts)
-        ->with('fingerprint', $cart->fingerprint)
         ->with('base_total', $totals->base_total)
         ->with('tax_total', ($totals->total - $totals->base_total))
         ->with('total', $totals->total)
@@ -118,28 +116,27 @@ class CartController extends Controller
         ]);
     }
 
-    public function minus($fingerprint, $price_id)
+    public function minus($price_id, Request $request)
     {
         $product = $this->cart
         ->where('active', 1)
-        ->where('fingerprint', $fingerprint)
+        ->where('fingerprint', $request->cookie('fp'))
         ->where('price_id', $price_id)
         ->first();
 
         $product->active = 0;
         $product->save();
-        Debugbar::info('hola');
         
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')
         ->where('active', 1)
-        ->where('fingerprint',  $fingerprint)
+        ->where('fingerprint',  $request->cookie('fp'))
         ->where('sale_id', null)
         ->orderBy('price_id', 'desc')
         ->get();
 
         $totals = $this->cart
-        ->where('carts.fingerprint', 1)
+        ->where('carts.fingerprint', $request->cookie('fp'))
         ->where('carts.active', 1)
         ->where('carts.sale_id', null)
         ->join('prices', 'prices.id', '=', 'carts.price_id')
@@ -149,7 +146,6 @@ class CartController extends Controller
 
         $sections = View::make('front.pages.cart.index')
         ->with('carts', $carts)
-        ->with('fingerprint', $product->fingerprint)
         ->with('base_total', $totals->base_total)
         ->with('tax_total', ($totals->total - $totals->base_total))
         ->with('total', $totals->total)
