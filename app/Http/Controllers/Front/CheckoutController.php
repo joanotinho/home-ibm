@@ -4,33 +4,31 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\CheckoutRequest;
 use App\Models\DB\Sale;
 use App\Models\DB\Customer;
 use App\Models\DB\Cart;
-use App\Models\DB\PaymentMethod;
-use Request;
-// use App\Models\DB\Sale;
+use App\Models\DB\Fingerprint;
 use Debugbar;
 
 class CheckoutController extends Controller
 {
-    public function __construct(Sale $sale, Customer $customer, Cart $cart, PaymentMethod $payment_method)
+    public function __construct(Sale $sale, Customer $customer, Cart $cart, Fingerprint $fingerprint)
     {
         $this->sale = $sale;
         $this->customer = $customer;
         $this->cart = $cart;
-        $this->payment_method = $payment_method;
+        $this->fingerprint = $fingerprint;
     }
 
     public function index()
     {
+        
         $view = View::make('front.pages.checkout.index');
 
-        Debugbar::info('normal request');
         if(request()->ajax()) {
-            Debugbar::info('Ajax request');
 
             $sections = $view->renderSections();
 
@@ -38,15 +36,14 @@ class CheckoutController extends Controller
                 'content' => $sections['content'],
             ]);
         }
-        
+
         return $view;
     }
     
     public function store(Request $request)
     {
-        Debugbar::info('Store request');
         $totals = $this->cart
-        ->where('carts.fingerprint', 1)
+        ->where('carts.fingerprint', $request->cookie('fp'))
         ->where('carts.active', 1)
         ->where('carts.sale_id', null)
         ->join('prices', 'prices.id', '=', 'carts.price_id')
@@ -54,21 +51,29 @@ class CheckoutController extends Controller
         ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('sum(prices.base_price * taxes.multiplier) as total') )
         ->first();
 
-        $selected = request('paymentmethod');
+        if(date('ymd') != substr())
 
-        $sale = $this->sale->updateOrCreate([
-            'id' => request('id')],[
+        $last_ticket_number = 
+        if($last_ticket_number == null) {
+            $last_ticket_number = 0;
+        } else {
+            $last_ticket_number = $last_ticket_number->ticket_number;
+        }
+
+        $ticket_number = $last_ticket_number->ticket_number + 1;
+
+        $sale = $this->sale->create([
             'customer_id' => 1,
             'total_base_price' => $totals->base_total,
             'total_tax_price' => $totals->total - $totals->base_total,
             'total_price' => $totals->total,
-            'payment_method_id' => $this->payment_method->where('id', $selected)->first()->id,
-            'ticket_number' => rand(1000, 9999),
+            'payment_method_id' => request('paymentmethod'),
+            'ticket_number' => $ticket_number,
             'date_emission' => date('Y-m-d'),
             'time_emission' => date('H:i:s'),
             'active' => 1,
-
         ]);
+        
         $customer = $this->customer->create([
             'name' => request('name'),
             'surnames' => request('surnames'),
@@ -85,13 +90,14 @@ class CheckoutController extends Controller
             'visible' => 1,
         ]);
 
-        $carts = $this->cart->where('sale_id', null)->where('fingerprint', 1)->where('active', 1)->get();
+        $carts = $this->cart->where('sale_id', null)->where('fingerprint', $request->cookie('fp'))->where('active', 1)->update([
+            'customer_id' => $customer->id,
+            'sale_id' => $sale->id,
+        ]);
 
-        foreach ($carts as $cart) {
-            $cart->sale_id = $sale->id;
-            $cart->customer_id = $customer->id;
-            $cart->save();
-        }
+        $fingerprint =$this->fingerprint->where('fingerprint', $request->cookie('fp'))->update([
+            'customer_id' => $customer->id,
+        ]);
 
         $sections = View::make('front.pages.purchase_success.index');
 
