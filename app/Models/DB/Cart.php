@@ -28,7 +28,7 @@ class Cart extends DBModel
         return $this->belongsTo(Fingerprint::class);
     }
 
-    public function sale()
+    public function sales()
     {
         return $this->belongsTo(Sale::class);
     }

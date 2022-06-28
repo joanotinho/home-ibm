@@ -146,6 +146,53 @@ body {
                     }
 
                 }
+                
+                .sale-container, .customer-container, .products-container {
+            
+                    margin: .1rem 0;
+                    padding: .5rem 1rem;
+                    width: 100%;
+
+                    .desktop-two-columns {
+                        
+                        justify-content: start;
+                    }
+        
+                    .fields {
+
+                        margin-top: .7rem;
+
+                        .field {
+
+                            display: flex;
+                            margin: .7rem 0;
+    
+                            .field-title {
+    
+                                display: flex;
+                                margin-right: .8rem;
+                                
+                                span {
+                                    font-weight: bold;
+                                    width: 100%;
+                                }
+                            }
+    
+                            .field-data {
+    
+                                span {
+                                    outline: none;
+                                    padding: .2rem .5rem;
+                                    width: 82%;
+                
+                                    &:focus {
+                                        background-color: #ccc;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
             
             &.active {

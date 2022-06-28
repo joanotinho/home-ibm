@@ -25,6 +25,6 @@ class Sale extends DBModel
     
     public function customer()
     {
-        return $this->belongsTo(Customer::class)->where('active', 1);
+        return $this->belongsTo(Customer::class,);
     }
 }

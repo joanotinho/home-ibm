@@ -147,58 +147,220 @@
                 </div>
             </div>
             <div class="tabs-contents">
-                <form id="form" action="{{route("sales_store")}}" class="admin-form">
-                    <div class="tab-content active" data-tab-content="content">
-                        {{ csrf_field() }}
-                        
-                        <input autocomplete="false" name="hidden" type="text" style="display:none;">
-                        <input type="hidden" name="id" value="{{isset($sale->id) ? $sale->id : ''}}" class="user-id">
+                @if(isset($sale->customer))
+                    <div class="sale-container">
+                        <div class="sale-title">
+                            <h3>Datos de la venta</h3>
+                        </div>
+                        <div class="fields">
+                            <div class="field">
+                                <div class="field-title">
+                                    <span>Número de ticket:</span>
+                                </div>
+                                <div class="field-data">
+                                    {{$sale->ticket_number}}
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <div class="field-title">
+                                    <span>Método de pago:</span>
+                                </div>
+                                <div class="field-data">
+                                    {{$sale->payment->title}}
+                                </div>
+                            </div>
 
-                        <div class="desktop-two-columns">
-                            <div class="column">
-                                <div class="field">
-                                    <div class="field-label">
-                                        <div class="label">
-                                            <label for="">Nombre</label>
+                            <div class="field">
+                                <div class="field-title">
+                                    <span>Fecha:</span>
+                                </div>
+                                <div class="field-data">
+                                    {{$sale->date_emission}}
+                                    {{$sale->time_emission}}
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="field-title">
+                                    <span>Precio base total:</span>
+                                </div>
+                                <div class="field-data">
+                                    {{$sale->total_base_price}}
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="field-title">
+                                    <span>Precio IVA total:</span>
+                                </div>
+                                <div class="field-data">
+                                    {{$sale->total_tax_price}}
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="field-title">
+                                    <span>Precio total:</span>
+                                </div>
+                                <div class="field-data">
+                                    {{$sale->total_price}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="customer-container">
+                        <div class="customer-title">
+                            <h3>Datos del cliente</h3>
+                        </div>
+                        <div class="fields">
+                            <div class="desktop-two-columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Nombre:</span>
                                         </div>
-                                        <div class="character-counter-container">
-                                            <span class="character-counter">0</span>
-                                            <span class="max-length-display"></span>
+                                        <div class="field-data">
+                                            {{$sale->customer->name}}
                                         </div>
                                     </div>
-                                    <div class="field-input">
-                                        <input type="text" name="customer_id" id="customer_id" data-type="customer_id" class="counter-input" data-max-length="64" autocomplete="off" value="{{isset($sale->customer_id) ? $sale->customer_id : ''}}">
-                                    </div>
-                                    <div class="field-rule">
-                                        <span>El nombre no puede estar vacío</span>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Nombre:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->surnames}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="column">
-
-                                <div class="field">
-                                    <div class="field-label">
-                                        <div class="label">
-                                            <label for="">Title</label>
+                            <div class="desktop-two-columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Empresa:</span>
                                         </div>
-                                        <div class="character-counter-container">
-                                            <span class="character-counter">0</span>
-                                            <span class="max-length-display"></span>
+                                        <div class="field-data">
+                                            {{$sale->customer->company}}
                                         </div>
                                     </div>
-
-                                    <div class="field-input">
-                                        <input type="text" name="ticket_number" id="ticket_number" data-type="ticket_number" data-max-length="255" class="counter-input" value="{{isset($sale->ticket_number) ? $sale->ticket_number : ''}}">
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Código postal:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->postal_code}}
+                                        </div>
                                     </div>
-                                    
-                                    <div class="field-rule">
-                                        <span>El email no puede estar vacío</span>
+                                </div>
+                            </div>
+                            <div class="desktop-two-columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>País:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->country}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Provincia:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->province}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="desktop-two-columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Dirección:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->address}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Detalles de dirección:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->extra_address}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="desktop-two-columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Ciudad:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->city}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Número de teléfono:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->phonenumber}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="desktop-two-columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Email:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->email}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <div class="field-title">
+                                            <span>Número de teléfono:</span>
+                                        </div>
+                                        <div class="field-data">
+                                            {{$sale->customer->phonenumber}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                    <div class="products-container">
+
+                    </div>
+                @else 
+                    <div class="not-selected-sale">
+                        <div class="not-selected-sale-title">
+                            <h3>No se ha seleccionado ninguna venta</h3>
+                        </div>
+                        <div class="not-selected-sale-message">
+                            <p>Por favor, seleccione una venta para ver sus detalles.</p>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

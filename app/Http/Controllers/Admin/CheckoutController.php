@@ -15,7 +15,6 @@ class CheckoutController extends Controller
     public function __construct(Sale $sale)
     {
         $this->sale = $sale;
-        Debugbar::info($sale);
     }
    
     public function index()
@@ -23,7 +22,8 @@ class CheckoutController extends Controller
 
         $view = View::make('admin.pages.checkout')
             ->with('sale', $this->sale)
-            ->with('sales', $this->sale->where('active', 1)->get());
+            ->with('sales', $this->sale->where('active', 1)
+            ->get());
 
         if(request()->ajax()) {
            
@@ -53,12 +53,12 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         $sale = $this->sale->updateOrCreate([
-                'id' => request('id')],[
-                'name' => request('name'),
-                'title' => request('title'),
-                'description' => request('description'),
-                'visible' => 1,
-                'active' => 1,
+            'id' => request('id')],[
+            'name' => request('name'),
+            'title' => request('title'),
+            'description' => request('description'),
+            'visible' => 1,
+            'active' => 1,
         ]);
            
         $view = View::make('admin.pages.checkout')
@@ -75,12 +75,17 @@ class CheckoutController extends Controller
     public function edit(Sale $sale)
     {
         $view = View::make('admin.pages.checkout')
+        ->with('sale', $sale->with('customer', 'payment', 'carts')->get())
         ->with('sale', $sale)
-        ->with('sales', $this->sale->where('active', 1)->get());  
-       
+        ->with('sales', $this->sale->where('active', 1)
+        ->get());
+
+        // Debugbar::info( $sale->with('payment', 'carts', 'customer')->get());
+
         if(request()->ajax()) {
 
-            $sections = $view->renderSections();
+            $sections = $view
+            ->renderSections();
    
             return response()->json([
                 'form' => $sections['form'],

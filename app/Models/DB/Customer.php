@@ -20,6 +20,6 @@ class Customer extends DBModel
 
     public function sales()
     {
-        return $this->hasMany(Sale::class, 'customer_id')->where('active', 1);
+        return $this->hasMany(Sale::class, 'customer_id');
     }
 }

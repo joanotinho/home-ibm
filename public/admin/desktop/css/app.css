@@ -623,6 +623,37 @@ body .container .form-container .editor form .field .field-rule span {
 body .container .form-container .editor form .field .ck-content {
   height: 20vh;
 }
+body .container .form-container .editor .sale-container, body .container .form-container .editor .customer-container, body .container .form-container .editor .products-container {
+  margin: 0.1rem 0;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+body .container .form-container .editor .sale-container .desktop-two-columns, body .container .form-container .editor .customer-container .desktop-two-columns, body .container .form-container .editor .products-container .desktop-two-columns {
+  justify-content: start;
+}
+body .container .form-container .editor .sale-container .fields, body .container .form-container .editor .customer-container .fields, body .container .form-container .editor .products-container .fields {
+  margin-top: 0.7rem;
+}
+body .container .form-container .editor .sale-container .fields .field, body .container .form-container .editor .customer-container .fields .field, body .container .form-container .editor .products-container .fields .field {
+  display: flex;
+  margin: 0.7rem 0;
+}
+body .container .form-container .editor .sale-container .fields .field .field-title, body .container .form-container .editor .customer-container .fields .field .field-title, body .container .form-container .editor .products-container .fields .field .field-title {
+  display: flex;
+  margin-right: 0.8rem;
+}
+body .container .form-container .editor .sale-container .fields .field .field-title span, body .container .form-container .editor .customer-container .fields .field .field-title span, body .container .form-container .editor .products-container .fields .field .field-title span {
+  font-weight: bold;
+  width: 100%;
+}
+body .container .form-container .editor .sale-container .fields .field .field-data span, body .container .form-container .editor .customer-container .fields .field .field-data span, body .container .form-container .editor .products-container .fields .field .field-data span {
+  outline: none;
+  padding: 0.2rem 0.5rem;
+  width: 82%;
+}
+body .container .form-container .editor .sale-container .fields .field .field-data span:focus, body .container .form-container .editor .customer-container .fields .field .field-data span:focus, body .container .form-container .editor .products-container .fields .field .field-data span:focus {
+  background-color: #ccc;
+}
 body .container .form-container.active {
   left: 55%;
   transition: left 0.3s ease;

@@ -51,28 +51,14 @@ class CheckoutController extends Controller
         ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('sum(prices.base_price * taxes.multiplier) as total') )
         ->first();
 
-        if(date('ymd') != substr())
+        $ticket_number = $this->sale->latest()->first()->ticket_number;
 
-        $last_ticket_number = 
-        if($last_ticket_number == null) {
-            $last_ticket_number = 0;
+        if(str_contains($ticket_number, date('Ymd'))) {
+            $ticket_number += 1;
         } else {
-            $last_ticket_number = $last_ticket_number->ticket_number;
+            $ticket_number = date('Ymd') . '0000';
         }
 
-        $ticket_number = $last_ticket_number->ticket_number + 1;
-
-        $sale = $this->sale->create([
-            'customer_id' => 1,
-            'total_base_price' => $totals->base_total,
-            'total_tax_price' => $totals->total - $totals->base_total,
-            'total_price' => $totals->total,
-            'payment_method_id' => request('paymentmethod'),
-            'ticket_number' => $ticket_number,
-            'date_emission' => date('Y-m-d'),
-            'time_emission' => date('H:i:s'),
-            'active' => 1,
-        ]);
         
         $customer = $this->customer->create([
             'name' => request('name'),
@@ -90,6 +76,18 @@ class CheckoutController extends Controller
             'visible' => 1,
         ]);
 
+        $sale = $this->sale->create([
+            'customer_id' => $customer->id,
+            'total_base_price' => $totals->base_total,
+            'total_tax_price' => $totals->total - $totals->base_total,
+            'total_price' => $totals->total,
+            'payment_method_id' => request('paymentmethod'),
+            'ticket_number' => $ticket_number,
+            'date_emission' => date('Y-m-d'),
+            'time_emission' => date('H:i:s'),
+            'active' => 1,
+        ]);
+        
         $carts = $this->cart->where('sale_id', null)->where('fingerprint', $request->cookie('fp'))->where('active', 1)->update([
             'customer_id' => $customer->id,
             'sale_id' => $sale->id,
