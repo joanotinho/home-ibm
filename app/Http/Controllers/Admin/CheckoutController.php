@@ -3,18 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\DB\Sale;
+use App\models\DB\Cart;
 use Debugbar;
-use Request;
 
 class CheckoutController extends Controller
 {
     protected $sale;
 
-    public function __construct(Sale $sale)
+    public function __construct(Sale $sale, Cart $cart)
     {
         $this->sale = $sale;
+        $this->cart = $cart;
     }
    
     public function index()
@@ -72,23 +75,32 @@ class CheckoutController extends Controller
         ]);
     }
 
-    public function edit(Sale $sale)
+    public function edit(Request $request, Sale $sale, Cart $cart)
     {
+        $carts = $sale->carts;
+
+        $product = $this->sale
+        ->with('customer', 'payment', 'carts')
+        ->join('carts', 'carts.sale_id', '=', 'sales.id')
+        ->join('prices', 'carts.price_id', '=', 'prices.id')
+        ->join('products', 'prices.product_id', '=', 'products.id')
+        ->select('products.*')
+        ->get();
+
+        $products = $this->cart
+        ->groupByRaw('price_id')
+        ->where('active', 1)
+        ->where('fingerprint', $request->cookie('fp'))
+        ->where('sale_id', $sale->id)
+        ->select(DB::raw('count(price_id) as quantity'),'price_id')
+        ->get();
 
         $view = View::make('admin.pages.checkout')
-        ->with('sale', $sale
-            ->with('customer', 'payment', 'carts')
-            ->join('carts', 'carts.sale_id', '=', 'sales.id')
-            ->join('prices', 'carts.price_id', '=', 'prices.id')
-            ->join('products', 'prices.product_id', '=', 'products.id')
-            ->select('products.*')
-            ->get()
-            )
+        ->with('product', $product->first())
         ->with('sale', $sale)
-        ->with('sales', $this->sale->where('active', 1)
-        ->get());
-
-        Debugbar::info($sale->carts->first()->price->product->get());
+        ->with('products', $products)
+        ->with('sales', $this->sale->where('active', 1)->get())
+        ;
 
         if(request()->ajax()) {
 

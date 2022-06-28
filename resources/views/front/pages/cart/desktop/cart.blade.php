@@ -15,7 +15,7 @@
             <table>
                 <tr class="cart-product">
                     <td class="table-product-image center">
-                        {{-- <img src="{{Storage::url('msi-g241.webp')}}" alt=""> --}}
+                        <img src="{{Storage::url('msi-g241.webp')}}" alt="">
                         <span>{{$cart->price->product->title}}</span>
                     </td>
                     <td class="table-product-description center"></td>

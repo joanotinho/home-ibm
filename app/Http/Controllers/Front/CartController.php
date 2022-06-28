@@ -58,6 +58,8 @@ class CartController extends Controller
         ->orderBy('price_id', 'desc')
         ->get();
 
+        Debugbar::info($carts);
+
         $totals = $this->cart
         ->where('carts.fingerprint', 1)
         ->where('carts.active', 1)

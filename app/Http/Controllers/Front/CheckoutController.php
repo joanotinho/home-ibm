@@ -42,6 +42,7 @@ class CheckoutController extends Controller
     
     public function store(Request $request)
     {
+
         $totals = $this->cart
         ->where('carts.fingerprint', $request->cookie('fp'))
         ->where('carts.active', 1)

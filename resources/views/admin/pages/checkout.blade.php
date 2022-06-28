@@ -343,28 +343,46 @@
                             <h3>Productos</h3>
                         </div>
                         <div class="products-list">
-                            @foreach($sale->carts->first()->price->product->get() as $product)
-                                <div class="product">
-                                    <div class="fields">
-                                        <div class="field">
-                                            <div class="field-title">
-                                                <span>Nombre del producto</span>
-                                            </div>
-                                            <div class="field-data">
-                                                <span>{!!$product->name!!}</span>
-                                            </div>
-                                        </div>
-                                        <div class="field">
-                                            <div class="field-title">
-                                                <span>Descripción del producto</span>
-                                            </div>
-                                            <div class="field-data">
-                                                <span>{!!$product->description!!}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                            <div class="table-top-bar">
+                                <table>
+                                    <tr class="cart-header">
+                                        <th class="table-header-title"></th>
+                                        <th class="table-header-name">Nombre</th>
+                                        <th class="table-header-price">Precio base</th>
+                                        <th class="table-header-quantity">Cantidad</th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="cart-table">
+                                @foreach ($products as $product)
+                                    <table>
+                                        <tr class="cart-product">
+                                            <td class="table-product-image center">
+                                                <div class="product-image">
+                                                    <img src="{{Storage::url('msi-g241.webp')}}" alt="">
+                                                </div>
+                                            </td>
+                                            <td class="table-product-title center">
+                                                <div class="product-title">
+                                                    <span>{{$product->price->product->title}}</span>
+                                                </div>
+                                            </td>
+                                            <td class="table-product-price center">
+                                                <div class="product-price">
+                                                    {{$product->price->base_price}}€
+                                                </div>
+                                            </td>
+                                            <td class="table-product-quantity center">
+                                                <div class="product-quantity">
+                                                    <span>
+                                                        {{$product->quantity}}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 @else 

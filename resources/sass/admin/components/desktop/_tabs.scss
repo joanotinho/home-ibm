@@ -1,6 +1,7 @@
 
 .tabs-container {
     
+    width: 100%;
 
     .top-bar {
 
@@ -143,7 +144,7 @@
         }
     }
 
-    .tab-content, .locale-tab-content {
+    .tab-contents, .locale-tab-content {
         padding: .6rem 0;
         width: 100%;
         display: none;
