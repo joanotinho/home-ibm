@@ -324,7 +324,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="desktop-two-columns">
+                            <div class="desktop-single-column">
                                 <div class="column">
                                     <div class="field">
                                         <div class="field-title">
@@ -335,21 +335,37 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column">
-                                    <div class="field">
-                                        <div class="field-title">
-                                            <span>Número de teléfono:</span>
-                                        </div>
-                                        <div class="field-data">
-                                            {{$sale->customer->phonenumber}}
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="products-container">
-
+                        <div class="products-title">
+                            <h3>Productos</h3>
+                        </div>
+                        <div class="products-list">
+                            @foreach($sale->carts->first()->price->product->get() as $product)
+                                <div class="product">
+                                    <div class="fields">
+                                        <div class="field">
+                                            <div class="field-title">
+                                                <span>Nombre del producto</span>
+                                            </div>
+                                            <div class="field-data">
+                                                <span>{!!$product->name!!}</span>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="field-title">
+                                                <span>Descripción del producto</span>
+                                            </div>
+                                            <div class="field-data">
+                                                <span>{!!$product->description!!}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 @else 
                     <div class="not-selected-sale">

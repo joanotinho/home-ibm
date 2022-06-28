@@ -157,6 +157,45 @@ body {
                         
                         justify-content: start;
                     }
+
+                    .product {
+
+                        .fields {
+
+                            margin-top: .7rem;
+
+                            .field {
+    
+                                display: flex;
+                                flex-direction: column;
+                                margin: .7rem 0;
+        
+                                .field-title {
+        
+                                    display: flex;
+                                    margin-top: .4rem;
+                                    
+                                    span {
+                                        font-weight: bold;
+                                        width: 100%;
+                                    }
+                                }
+        
+                                .field-data {
+        
+                                    span {
+                                        outline: none;
+                                        padding: .2rem .5rem;
+                                        width: 82%;
+                    
+                                        &:focus {
+                                            background-color: #ccc;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
         
                     .fields {
 

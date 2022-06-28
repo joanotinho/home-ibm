@@ -74,13 +74,21 @@ class CheckoutController extends Controller
 
     public function edit(Sale $sale)
     {
+
         $view = View::make('admin.pages.checkout')
-        ->with('sale', $sale->with('customer', 'payment', 'carts')->get())
+        ->with('sale', $sale
+            ->with('customer', 'payment', 'carts')
+            ->join('carts', 'carts.sale_id', '=', 'sales.id')
+            ->join('prices', 'carts.price_id', '=', 'prices.id')
+            ->join('products', 'prices.product_id', '=', 'products.id')
+            ->select('products.*')
+            ->get()
+            )
         ->with('sale', $sale)
         ->with('sales', $this->sale->where('active', 1)
         ->get());
 
-        // Debugbar::info( $sale->with('payment', 'carts', 'customer')->get());
+        Debugbar::info($sale->carts->first()->price->product->get());
 
         if(request()->ajax()) {
 
