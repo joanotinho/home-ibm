@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\CheckoutRequest;
 use App\Models\DB\Sale;
@@ -40,7 +39,7 @@ class CheckoutController extends Controller
         return $view;
     }
     
-    public function store(Request $request)
+    public function store(CheckoutRequest $request)
     {
 
         $totals = $this->cart
@@ -52,12 +51,12 @@ class CheckoutController extends Controller
         ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('sum(prices.base_price * taxes.multiplier) as total') )
         ->first();
 
-        $ticket_number = $this->sale->latest()->first()->ticket_number;
+        $sale = $this->sale->latest()->first();
 
-        if(str_contains($ticket_number, date('Ymd'))) {
-            $ticket_number += 1;
+        if(isset($sale->ticket_number) && str_contains($sale->ticket_number, date('Ymd'))) {
+            $sale->ticket_number += 1;
         } else {
-            $ticket_number = date('Ymd') . '0000';
+            $sale->ticket_number = date('Ymd') . '0000';
         }
 
         
@@ -83,7 +82,7 @@ class CheckoutController extends Controller
             'total_tax_price' => $totals->total - $totals->base_total,
             'total_price' => $totals->total,
             'payment_method_id' => request('paymentmethod'),
-            'ticket_number' => $ticket_number,
+            'ticket_number' => $sale->ticket_number,
             'date_emission' => date('Y-m-d'),
             'time_emission' => date('H:i:s'),
             'active' => 1,

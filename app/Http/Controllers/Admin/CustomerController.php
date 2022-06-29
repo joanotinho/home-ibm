@@ -72,9 +72,7 @@ class CustomerController extends Controller
         $view = View::make('admin.pages.customers')
         ->with('customer', $customer)
         ->with('customers', $this->customer->where('active', 1)->get())
-        ->renderSections(); 
-
-        Debugbar::info($view);
+        ->renderSections();
 
         return response()->json([
             'table' => $view['table'],

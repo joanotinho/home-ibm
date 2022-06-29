@@ -35,7 +35,6 @@ class ContactController extends Controller
     
     public function store(ContactRequest $request)
     {
-        Debugbar::info("hola");
     
         $contact = $this->contact->updateOrCreate([
             'id' => request('id')],[

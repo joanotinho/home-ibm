@@ -61,9 +61,7 @@ class PaymentMethodController extends Controller
         $view = View::make('admin.pages.payment_methods')
         ->with('payment_method', $payment_method)
         ->with('payment_methods', $this->payment_method->where('active', 1)->get())
-        ->renderSections(); 
-
-        Debugbar::info($view);
+        ->renderSections();
 
         return response()->json([
             'table' => $view['table'],

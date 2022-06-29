@@ -354,7 +354,7 @@
                                 </table>
                             </div>
                             <div class="cart-table">
-                                @foreach ($products as $product)
+                                @foreach ($carts as $cart)
                                     <table>
                                         <tr class="cart-product">
                                             <td class="table-product-image center">
@@ -364,18 +364,18 @@
                                             </td>
                                             <td class="table-product-title center">
                                                 <div class="product-title">
-                                                    <span>{{$product->price->product->title}}</span>
+                                                    <span>{{$cart->price->product->title}}</span>
                                                 </div>
                                             </td>
                                             <td class="table-product-price center">
                                                 <div class="product-price">
-                                                    {{$product->price->base_price}}€
+                                                    {{$cart->price->base_price}}€
                                                 </div>
                                             </td>
                                             <td class="table-product-quantity center">
                                                 <div class="product-quantity">
                                                     <span>
-                                                        {{$product->quantity}}
+                                                        {{$cart->quantity}}
                                                     </span>
                                                 </div>
                                             </td>

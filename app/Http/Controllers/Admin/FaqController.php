@@ -49,7 +49,6 @@ class FaqController extends Controller
     public function __construct(Faq $faq)
     {
         $this->faq = $faq;
-        Debugbar::info($faq);
     }
    
     public function index()
