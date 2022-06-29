@@ -88,7 +88,11 @@ class CheckoutController extends Controller
             'active' => 1,
         ]);
         
-        $carts = $this->cart->where('sale_id', null)->where('fingerprint', $request->cookie('fp'))->where('active', 1)->update([
+        $carts = $this->cart
+        ->where('sale_id', null)
+        ->where('fingerprint', $request->cookie('fp'))
+        ->where('active', 1)
+        ->update([
             'customer_id' => $customer->id,
             'sale_id' => $sale->id,
         ]);

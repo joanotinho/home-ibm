@@ -53,13 +53,13 @@ class CartController extends Controller
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')
         ->where('active', 1)
-        ->where('fingerprint',  $request->cookie('fp'))
+        ->where('fingerprint', $request->cookie('fp'))
         ->where('sale_id', null)
         ->orderBy('price_id', 'desc')
         ->get();
 
         $totals = $this->cart
-        ->where('carts.fingerprint', 1)
+        ->where('carts.fingerprint', $request->cookie('fp'))
         ->where('carts.active', 1)
         ->where('carts.sale_id', null)
         ->join('prices', 'prices.id', '=', 'carts.price_id')

@@ -16,11 +16,10 @@
                 <tr class="cart-product">
                     <td class="table-product-image center">
                         <img src="{{Storage::url('msi-g241.webp')}}" alt="">
-                        <span>{{$cart->price->product->title}}</span>
                     </td>
                     <td class="table-product-description center"></td>
                     <td class="table-product-price center">{{$cart->price->base_price}}€</td>
-                    <td class="table-product-quantity center">
+                    <td class="table-produc t-quantity center">
                         <form action="" class="front-form">
                             <div class="cart-stock">
                                 <div class="cart-stock-counter">

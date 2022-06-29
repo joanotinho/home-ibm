@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DB\Sale;
-use App\models\DB\Cart;
+use App\Models\DB\Cart;
 use Debugbar;
 
 class CheckoutController extends Controller
@@ -41,7 +41,7 @@ class CheckoutController extends Controller
         return $view;
     }
 
-    public function edit(Sale $sale, Cart $cart)
+    public function edit(Sale $sale)
     {
         $carts = $this->cart
         ->groupByRaw('price_id')
