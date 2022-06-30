@@ -4,6 +4,7 @@ header {
     border-bottom: .1em solid #eee;
     display: flex;
     justify-content: space-between;
+    max-height: 2rem;
     position: fixed;
     top: 0;
     padding: 1% 10%;
@@ -35,27 +36,15 @@ header {
     
     .nav-right{
 
-        .hamburger {
-
-            display: none;
-            padding: 5px;
-            cursor: pointer;
-
-            .bar1,.bar2,.bar3{  
-
-                display:block;  
-                width: 2rem;  
-                height:3px;  
-                margin:5px auto;  
-                background-color:#101010;  
-                transition: 1s;  
-            }  
-        }
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
 
         .menu ul {
 
             display: flex;
             justify-content: space-between;
+            align-items: center;
             list-style: none;
     
             li{

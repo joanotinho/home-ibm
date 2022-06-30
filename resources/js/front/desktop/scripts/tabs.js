@@ -1,11 +1,10 @@
-export function tabs() {
+export let renderTabs = () => {
 
     const tabs = document.querySelectorAll('.tab')
-
     const tabContents = document.querySelectorAll('.tab-content');
 
-    document.addEventListener('renderProductModules', (event => {
-        // tabs();
+    document.addEventListener("products",(  event =>{
+        renderTabs();
     }), {once: true});
 
     if(tabs) {

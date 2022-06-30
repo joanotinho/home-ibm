@@ -15,11 +15,11 @@
         </div>
         <div class="menu">
             <ul class="menu-ul">
-                <li><button class="menu-button" data-url="{{route('front_home')}}">Inicio</button></li>
-                <li><button class="menu-button" data-url="{{route('front_faqs')}}">Faqs</button></li>
-                <li><button class="menu-button" data-url="{{route('front_products')}}">Productos</button></li>
-                <li><button class="menu-button" data-url="{{route('front_contact')}}">Contacto</button></li>
-                <li><button class="menu-button" data-url="{{route('front_cart')}}">Caja</button></li>
+                <li><button class="menu-button" data-section="home" data-url="{{route('front_home')}}">Inicio</button></li>
+                <li><button class="menu-button" data-section="faqs" data-url="{{route('front_faqs')}}">Faqs</button></li>
+                <li><button class="menu-button" data-section="products" data-url="{{route('front_products')}}">Productos</button></li>
+                <li><button class="menu-button" data-section="contact" data-url="{{route('front_contact')}}">Contacto</button></li>
+                <li><button class="menu-button" data-section="cart" data-url="{{route('front_cart')}}">Carrito</button></li>
             </ul>
         </div>
     </div>

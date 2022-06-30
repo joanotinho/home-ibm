@@ -4,7 +4,7 @@ export let checkout = () => {
     let forms = document.querySelectorAll('.front-form');
     let placeOrderButton = document.querySelector('.place-order-button');
 
-    document.addEventListener('renderProductModules', (event => {
+    document.addEventListener('checkout', (event => {
         checkout();
     }), {once: true});
 
@@ -40,7 +40,6 @@ export let checkout = () => {
                         
                         mainContainer.innerHTML = json.content;
                         
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
                     })
                     .catch ( error =>  {
         

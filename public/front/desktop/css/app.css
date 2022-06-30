@@ -457,6 +457,7 @@ header {
   border-bottom: 0.1em solid #eee;
   display: flex;
   justify-content: space-between;
+  max-height: 2rem;
   position: fixed;
   top: 0;
   padding: 1% 10%;
@@ -477,22 +478,15 @@ header .nav-left .title {
 header .nav-left .title h1 {
   font-size: 1.2em;
 }
-header .nav-right .hamburger {
-  display: none;
-  padding: 5px;
-  cursor: pointer;
-}
-header .nav-right .hamburger .bar1, header .nav-right .hamburger .bar2, header .nav-right .hamburger .bar3 {
-  display: block;
-  width: 2rem;
-  height: 3px;
-  margin: 5px auto;
-  background-color: #101010;
-  transition: 1s;
+header .nav-right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 header .nav-right .menu ul {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   list-style: none;
 }
 header .nav-right .menu ul li {

@@ -3,10 +3,10 @@ export let faqs = () => {
     let faqContents = document.querySelectorAll('.faq-content');
     let faqGlobals = document.querySelectorAll('.faq');
 
-    document.addEventListener('renderProductModules', (event => {
+    document.addEventListener("faqs",( event =>{
         faqs();
     }), {once: true});
-
+    
     faqContents.forEach(faqContent => {
 
         const faq = faqContent.closest('.faq');

@@ -3,10 +3,19 @@ export let renderForm = () => {
     const mainContent = document.getElementById('main');
     const forms = document.querySelectorAll('.front-form');
     const submitButton = document.querySelector('.submit-button');
-
-    document.addEventListener('renderProductModules', (event => {
+    
+    document.addEventListener("contact",( event =>{
+        
         renderForm();
+
     }), {once: true});
+
+    document.addEventListener("checkout",( event =>{
+        
+        renderForm();
+
+    }), {once: true});
+
  
     if(submitButton) {
         
@@ -25,9 +34,8 @@ export let renderForm = () => {
 
                 let sendPostRequest = async () => {
     
-                    document.dispatchEvent(new CustomEvent('startWait'));
                     
-                    let response = await fetch(url, {
+                 let response = await fetch(url, {
                         headers: {
                             'Accept': 'application/json',
                             'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
@@ -44,7 +52,9 @@ export let renderForm = () => {
                     .then(json => {
 
                         mainContent.innerHTML = json.content;
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
+                            
+                        document.dispatchEvent(new CustomEvent('contact'));
+                        document.dispatchEvent(new CustomEvent('checkout'));
                     })
                     .catch ( error =>  {
     

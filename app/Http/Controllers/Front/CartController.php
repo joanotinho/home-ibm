@@ -18,11 +18,47 @@ class CartController extends Controller
         $this->cart = $cart;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $view = View::make('front.pages.cart.index')
         ->with('products', $this->cart->get());
+        
+        $amount = request('amount');
+        
+        for($i = 0; $i < $amount; $i++) {
+                    
+            $cart = Cart::create([
+                'id' => request('id'),
+                'price_id' => request('price_id'),
+                'fingerprint' => $request->cookie('fp'),
+                'customer_id' => null,
+                'active' => 1,
+            ]);
+        }
 
+        $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
+        ->groupByRaw('price_id')
+        ->where('active', 1)
+        ->where('fingerprint', $request->cookie('fp'))
+        ->where('sale_id', null)
+        ->orderBy('price_id', 'desc')
+        ->get();
+
+        $totals = $this->cart
+        ->where('carts.fingerprint', $request->cookie('fp'))
+        ->where('carts.active', 1)
+        ->where('carts.sale_id', null)
+        ->join('prices', 'prices.id', '=', 'carts.price_id')
+        ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
+        ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('sum(prices.base_price * taxes.multiplier) as total') )
+        ->first();
+        
+        $view = View::make('front.pages.cart.index')
+        ->with('carts', $carts)
+        ->with('base_total', $totals->base_total)
+        ->with('tax_total', ($totals->total - $totals->base_total))
+        ->with('total', $totals->total);
+        
         if(request()->ajax()) {
 
             $sections = $view->renderSections();
@@ -118,15 +154,14 @@ class CartController extends Controller
 
     public function minus($price_id, Request $request)
     {
-        $product = $this->cart
-        ->where('active', 1)
+        $cart = $this->cart->where('price_id', $price_id)
         ->where('fingerprint', $request->cookie('fp'))
-        ->where('price_id', $price_id)
-        ->first();
+        ->where('active', 1)
+        ->limit(1)
+        ->update([
+            'active' => 0,
+        ]);
 
-        $product->active = 0;
-        $product->save();
-        
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')
         ->where('active', 1)

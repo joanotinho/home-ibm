@@ -2,7 +2,7 @@ export function plusMinusButton() {
 
     const buttons = document.querySelectorAll('.stock-button');
 
-    document.addEventListener('renderProductModules', (event => {
+    document.addEventListener("products",( event =>{
         plusMinusButton();
     }), {once: true});
 
@@ -23,12 +23,6 @@ export function plusMinusButton() {
                     display.value--;
                 };
             }
-
-            document.dispatchEvent(new CustomEvent('plusMinusValue', {
-                detail: {
-                    value: display.value,
-                }
-            }));
         })
     });
 }

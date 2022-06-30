@@ -3,19 +3,16 @@ export let renderProduct = () => {
     const mainContainer = document.getElementById('main');
     const productButtons = document.querySelectorAll('.product-button a');
     const forms = document.querySelectorAll('.front-form');
+    let addToCartButton = document.querySelector('.cart-button');
     const categoryButtons = document.querySelectorAll('.category-button');
     const orderSelect = document.querySelector('.order-select');
 
-    document.addEventListener('renderProductModules', (event => {
+    document.addEventListener("products",(event =>{
         renderProduct();
     }), {once: true});
 
     productButtons.forEach(productButton => {
-        
-        document.addEventListener('loadProduct', (event => {
             
-        }), {once: true});
-
         productButton.addEventListener('click', () => {
                 
             let url = productButton.dataset.url;
@@ -37,7 +34,8 @@ export let renderProduct = () => {
                 .then(json => {
 
                     mainContainer.innerHTML =  json.content;
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    
+                    document.dispatchEvent(new CustomEvent('products'));   
                 })
                 .catch ( error =>  {
 
@@ -52,6 +50,53 @@ export let renderProduct = () => {
         });
     });
     
+    if(addToCartButton) {
+
+        addToCartButton.addEventListener('click', (event) => {
+
+            event.preventDefault();
+            
+            forms.forEach(form => {
+        
+                let data = new FormData(form);
+                let url = form.action;
+
+                let sendPostRequest = async () => {
+                    
+                    let response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                        },
+                        method: 'POST',
+                        body: data
+                    })
+                    .then(response => {
+                    
+                        if (!response.ok) throw response;
+    
+                        return response.json();
+                    })
+                    .then(json => {
+                        
+                        mainContainer.innerHTML = json.content;
+                        
+                        document.dispatchEvent(new CustomEvent('cart'));   
+
+                    })
+                    .catch ( error =>  {
+    
+                        if(error.status == '500'){
+                            console.log(error);
+                        };
+                    });
+                };
+
+                sendPostRequest();
+            });
+        });
+    }
+
     if(categoryButtons) {
         
         categoryButtons.forEach(button => {
@@ -80,7 +125,9 @@ export let renderProduct = () => {
                     .then(json => {
 
                         mainContainer.innerHTML = json.content;
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));              
+                        
+                        document.dispatchEvent(new CustomEvent('products'));   
+            
                     })
                     .catch ( error =>  {
     
@@ -120,7 +167,9 @@ export let renderProduct = () => {
                 .then(json => {
 
                     mainContainer.innerHTML = json.content;
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    
+                    document.dispatchEvent(new CustomEvent('products'));   
+  
                 })
                 .catch ( error =>  {
 
